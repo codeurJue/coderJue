@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="algo programming complexity," />
+  <meta name="keywords" content="algo programming," />
 
 
 
@@ -84,40 +84,37 @@
 
 
 
-<meta name="description" content="Calcul the complexityThere, we only discuss the time complexity.
-Normal way
-Single operation - O(1)
+<meta name="description" content="穷举法
+略
 
-Loop
-123def fun(n):	for i in range(n):   		pass
-123def fun(n):	while i &amp;lt; n :    	i += 1
-— O(n)
-1">
+贪心法
+略
+
+分治法
+1234567891011def merge(A, B):    # merge two small solved problems into one.    return mergeddef divideConquer(S, divide, combine):    if len(S) == 1: return S    # divide a grand p">
 <meta property="og:type" content="article">
-<meta property="og:title" content="complexity">
-<meta property="og:url" content="http://yoursite.com/2016/11/27/complexity/index.html">
+<meta property="og:title" content="Method of programming facing to exams">
+<meta property="og:url" content="http://yoursite.com/2016/11/27/Method-of-programming-facing-to-exams/index.html">
 <meta property="og:site_name" content="Jue's Blog">
-<meta property="og:description" content="Calcul the complexityThere, we only discuss the time complexity.
-Normal way
-Single operation - O(1)
+<meta property="og:description" content="穷举法
+略
 
-Loop
-123def fun(n):	for i in range(n):   		pass
-123def fun(n):	while i &amp;lt; n :    	i += 1
-— O(n)
-1">
-<meta property="og:updated_time" content="2016-11-27T12:46:36.000Z">
+贪心法
+略
+
+分治法
+1234567891011def merge(A, B):    # merge two small solved problems into one.    return mergeddef divideConquer(S, divide, combine):    if len(S) == 1: return S    # divide a grand p">
+<meta property="og:updated_time" content="2016-11-27T13:10:39.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="complexity">
-<meta name="twitter:description" content="Calcul the complexityThere, we only discuss the time complexity.
-Normal way
-Single operation - O(1)
+<meta name="twitter:title" content="Method of programming facing to exams">
+<meta name="twitter:description" content="穷举法
+略
 
-Loop
-123def fun(n):	for i in range(n):   		pass
-123def fun(n):	while i &amp;lt; n :    	i += 1
-— O(n)
-1">
+贪心法
+略
+
+分治法
+1234567891011def merge(A, B):    # merge two small solved problems into one.    return mergeddef divideConquer(S, divide, combine):    if len(S) == 1: return S    # divide a grand p">
 
 
 
@@ -145,13 +142,13 @@ Loop
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/11/27/complexity/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/11/27/Method-of-programming-facing-to-exams/"/>
 
 
 
 
 
-  <title> complexity | Jue's Blog </title>
+  <title> Method of programming facing to exams | Jue's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -272,7 +269,7 @@ Loop
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/27/complexity/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/27/Method-of-programming-facing-to-exams/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Jue">
@@ -296,7 +293,7 @@ Loop
             
             
               
-                complexity
+                Method of programming facing to exams
               
             
           </h1>
@@ -309,7 +306,7 @@ Loop
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-27T10:52:05+01:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-27T13:49:31+01:00">
                 2016-11-27
               </time>
             
@@ -363,43 +360,21 @@ Loop
       
 
       
-        <h1 id="Calcul-the-complexity"><a href="#Calcul-the-complexity" class="headerlink" title="Calcul the complexity"></a>Calcul the complexity</h1><p>There, we only discuss the time complexity.</p>
-<h2 id="Normal-way"><a href="#Normal-way" class="headerlink" title="Normal way"></a>Normal way</h2><ol>
-<li><p>Single operation - O(1)</p>
+        <ol>
+<li><p>穷举法</p>
+<p>略</p>
 </li>
-<li><p>Loop</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">fun</span><span class="params">(n)</span>:</span></div><div class="line">	<span class="keyword">for</span> i <span class="keyword">in</span> range(n):</div><div class="line">   		<span class="keyword">pass</span></div></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">fun</span><span class="params">(n)</span>:</span></div><div class="line">	<span class="keyword">while</span> i &lt; n :</div><div class="line">    	i += <span class="number">1</span></div></pre></td></tr></table></figure>
-<p>— O(n)</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">fun</span><span class="params">(n)</span>:</span></div><div class="line">    <span class="keyword">while</span> i &lt; n :</div><div class="line">        i *= <span class="number">2</span></div></pre></td></tr></table></figure>
-<p>— O(logn)</p>
-<p>Etc.</p>
-<h2 id="Recursion"><a href="#Recursion" class="headerlink" title="Recursion"></a>Recursion</h2><p>这里暂时使用中文，懒=_=</p>
-<ol>
-<li><p>代入法</p>
-<p>预估其复杂度，代入原方程，若相符，则可能为解。</p>
-<p>ex:</p>
-<p>T(n) = 2*T(n/2) + O(n)</p>
-<p>假设 T(n) = kn^2</p>
-<p>代入原式，成立。</p>
-<p>接下来用数学归纳法验证。</p>
+<li><p>贪心法</p>
+<p>略</p>
 </li>
-<li><p>迭代法</p>
-<p>迭代地展开递归方程的右端，使其成为一个非递归的和式，随后进行复杂度计算</p>
-<p>ex:</p>
-<p>T(n) = T(n-1) + O(1)</p>
-<p>T(1) = O(1)</p>
-<p>所以，T(n) = T(n-1) + O(1) = T(n-1) + 2 <em> O(1) = … = n</em>O(1) = O(n)</p>
+<li><p>分治法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">merge</span><span class="params">(A, B)</span>:</span></div><div class="line">    <span class="comment"># merge two small solved problems into one.</span></div><div class="line">    <span class="keyword">return</span> merged</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">divideConquer</span><span class="params">(S, divide, combine)</span>:</span></div><div class="line">    <span class="keyword">if</span> len(S) == <span class="number">1</span>: <span class="keyword">return</span> S</div><div class="line">    <span class="comment"># divide a grand problems</span></div><div class="line">    L, R = divide(S)</div><div class="line">    A = divideConquer(L, divide, combine)</div><div class="line">    B = divideConquer(R, divide, combine)</div><div class="line">    <span class="keyword">return</span> merge(A, B)</div></pre></td></tr></table></figure>
+<p>上面的情形只供参考，参数等视具体情况而定。</p>
 </li>
-<li><p>套用公式</p>
-<p>对于形如</p>
-<p>T(n) = aT(n/b) +f(n)</p>
-<p>的方程已有固定判断法，套用公式即可。</p>
-</li>
-<li><p>差分方程法</p>
-<p>利用查分方程解，这个比较复杂，这里先占个位，以后在补。</p>
-</li>
-</ol>
+<li><p>动态规划</p>
+<p>比较经典的就是背包问题。<a href="http://blog.csdn.net/littlethunder/article/details/26575417" target="_blank" rel="external">代码来源</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">bag</span><span class="params">(n,c,w,v)</span>:</span>  </div><div class="line">    res=[[<span class="number">-1</span> <span class="keyword">for</span> j <span class="keyword">in</span> range(c+<span class="number">1</span>)] <span class="keyword">for</span> i <span class="keyword">in</span> range(n+<span class="number">1</span>)]  </div><div class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(c+<span class="number">1</span>):  </div><div class="line">        res[<span class="number">0</span>][j]=<span class="number">0</span>  </div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,n+<span class="number">1</span>):  </div><div class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">1</span>,c+<span class="number">1</span>):  </div><div class="line">            res[i][j]=res[i<span class="number">-1</span>][j]  </div><div class="line">            <span class="keyword">if</span> j&gt;=w[i<span class="number">-1</span>] <span class="keyword">and</span> res[i][j]&lt;res[i<span class="number">-1</span>][j-w[i<span class="number">-1</span>]]+v[i<span class="number">-1</span>]:  </div><div class="line">                res[i][j]=res[i<span class="number">-1</span>][j-w[i<span class="number">-1</span>]]+v[i<span class="number">-1</span>]  </div><div class="line">    <span class="keyword">return</span> res  </div><div class="line">  </div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">show</span><span class="params">(n,c,w,res)</span>:</span>  </div><div class="line">    print(<span class="string">'最大价值为:'</span>,res[n][c])  </div><div class="line">    x=[<span class="keyword">False</span> <span class="keyword">for</span> i <span class="keyword">in</span> range(n)]  </div><div class="line">    j=c  </div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,n+<span class="number">1</span>):  </div><div class="line">        <span class="keyword">if</span> res[i][j]&gt;res[i<span class="number">-1</span>][j]:  </div><div class="line">            x[i<span class="number">-1</span>]=<span class="keyword">True</span>  </div><div class="line">            j-=w[i<span class="number">-1</span>]  </div><div class="line">    print(<span class="string">'选择的物品为:'</span>)  </div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(n):  </div><div class="line">        <span class="keyword">if</span> x[i]:  </div><div class="line">            print(<span class="string">'第'</span>,i,<span class="string">'个,'</span>,end=<span class="string">''</span>)  </div><div class="line">    print(<span class="string">''</span>)  </div><div class="line">  </div><div class="line"><span class="keyword">if</span> __name__==<span class="string">'__main__'</span>:  </div><div class="line">    n=<span class="number">5</span>  </div><div class="line">    c=<span class="number">10</span>  </div><div class="line">    w=[<span class="number">2</span>,<span class="number">2</span>,<span class="number">6</span>,<span class="number">5</span>,<span class="number">4</span>]  </div><div class="line">    v=[<span class="number">6</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">6</span>]  </div><div class="line">    res=bag(n,c,w,v)  </div><div class="line">    show(n,c,w,res)</div></pre></td></tr></table></figure>
+<p>​</p>
 </li>
 </ol>
 
@@ -425,7 +400,7 @@ Loop
       
         <div class="post-tags">
           
-            <a href="/tags/algo-programming-complexity/" rel="tag"># algo programming complexity</a>
+            <a href="/tags/algo-programming/" rel="tag"># algo programming</a>
           
         </div>
       
@@ -434,14 +409,18 @@ Loop
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/11/27/Note-of-learning-Algo/" rel="next" title="Note of learning Algo">
+                <i class="fa fa-chevron-left"></i> Note of learning Algo
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/11/27/Note-of-learning-Algo/" rel="prev" title="Note of learning Algo">
-                Note of learning Algo <i class="fa fa-chevron-right"></i>
+              <a href="/2016/11/27/compression/" rel="prev" title="compression">
+                compression <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -489,17 +468,8 @@ Loop
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -552,22 +522,6 @@ Loop
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Calcul-the-complexity"><span class="nav-number">1.</span> <span class="nav-text">Calcul the complexity</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Normal-way"><span class="nav-number">1.1.</span> <span class="nav-text">Normal way</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Recursion"><span class="nav-number">1.2.</span> <span class="nav-text">Recursion</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
     </div>
