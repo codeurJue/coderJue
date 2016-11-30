@@ -84,40 +84,37 @@
 
 
 
-<meta name="description" content="Calcul the complexityThere, we only discuss the time complexity.
-Normal way
+<meta name="description" content="计算复杂度 - Calcul the complexity这里我们只考虑时间复杂度。
+There, we only discuss the time complexity.
+通常 - Normal
 Single operation - O(1)
 
 Loop
 123def fun(n):	for i in range(n):   		pass
-123def fun(n):	while i &amp;lt; n :    	i += 1
-— O(n)
-1">
+123def fun(n):	while i &amp;lt;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="complexity">
+<meta property="og:title" content="复杂度 complexity">
 <meta property="og:url" content="http://yoursite.com/2016/11/27/complexity/index.html">
 <meta property="og:site_name" content="Jue's Blog">
-<meta property="og:description" content="Calcul the complexityThere, we only discuss the time complexity.
-Normal way
+<meta property="og:description" content="计算复杂度 - Calcul the complexity这里我们只考虑时间复杂度。
+There, we only discuss the time complexity.
+通常 - Normal
 Single operation - O(1)
 
 Loop
 123def fun(n):	for i in range(n):   		pass
-123def fun(n):	while i &amp;lt; n :    	i += 1
-— O(n)
-1">
-<meta property="og:updated_time" content="2016-11-27T14:01:14.000Z">
+123def fun(n):	while i &amp;lt;">
+<meta property="og:updated_time" content="2016-11-30T10:43:08.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="complexity">
-<meta name="twitter:description" content="Calcul the complexityThere, we only discuss the time complexity.
-Normal way
+<meta name="twitter:title" content="复杂度 complexity">
+<meta name="twitter:description" content="计算复杂度 - Calcul the complexity这里我们只考虑时间复杂度。
+There, we only discuss the time complexity.
+通常 - Normal
 Single operation - O(1)
 
 Loop
 123def fun(n):	for i in range(n):   		pass
-123def fun(n):	while i &amp;lt; n :    	i += 1
-— O(n)
-1">
+123def fun(n):	while i &amp;lt;">
 
 
 
@@ -151,7 +148,7 @@ Loop
 
 
 
-  <title> complexity | Jue's Blog </title>
+  <title> 复杂度 complexity | Jue's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -296,7 +293,7 @@ Loop
             
             
               
-                complexity
+                复杂度 complexity
               
             
           </h1>
@@ -363,8 +360,9 @@ Loop
       
 
       
-        <h1 id="Calcul-the-complexity"><a href="#Calcul-the-complexity" class="headerlink" title="Calcul the complexity"></a>Calcul the complexity</h1><p>There, we only discuss the time complexity.</p>
-<h2 id="Normal-way"><a href="#Normal-way" class="headerlink" title="Normal way"></a>Normal way</h2><ol>
+        <h1 id="计算复杂度-Calcul-the-complexity"><a href="#计算复杂度-Calcul-the-complexity" class="headerlink" title="计算复杂度 - Calcul the complexity"></a>计算复杂度 - Calcul the complexity</h1><p>这里我们只考虑时间复杂度。</p>
+<p>There, we only discuss the time complexity.</p>
+<h2 id="通常-Normal"><a href="#通常-Normal" class="headerlink" title="通常 - Normal"></a>通常 - Normal</h2><ol>
 <li><p>Single operation - O(1)</p>
 </li>
 <li><p>Loop</p>
@@ -374,8 +372,7 @@ Loop
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">fun</span><span class="params">(n)</span>:</span></div><div class="line">    <span class="keyword">while</span> i &lt; n :</div><div class="line">        i *= <span class="number">2</span></div></pre></td></tr></table></figure>
 <p>— O(logn)</p>
 <p>Etc.</p>
-<h2 id="Recursion"><a href="#Recursion" class="headerlink" title="Recursion"></a>Recursion</h2><p>这里暂时使用中文，懒=_=</p>
-<ol>
+<h2 id="递归-Recursion"><a href="#递归-Recursion" class="headerlink" title="递归 - Recursion"></a>递归 - Recursion</h2><ol>
 <li><p>代入法</p>
 <p>预估其复杂度，代入原方程，若相符，则可能为解。</p>
 <p>ex:</p>
@@ -385,19 +382,19 @@ Loop
 <p>接下来用数学归纳法验证。</p>
 </li>
 <li><p>迭代法</p>
-<p>迭代地展开递归方程的右端，使其成为一个非递归的和式，随后进行复杂度计算</p>
-<p>ex:</p>
-<p>T(n) = T(n-1) + O(1)</p>
-<p>T(1) = O(1)</p>
-<p>所以，T(n) = T(n-1) + O(1) = T(n-1) + 2 <em> O(1) = … = n</em>O(1) = O(n)</p>
+<p>   迭代地展开递归方程的右端，使其成为一个非递归的和式，随后进行复杂度计算</p>
+<p>   ex:</p>
+<p>   T(n) = T(n-1) + O(1)</p>
+<p>   T(1) = O(1)</p>
+<p>   所以，T(n) = T(n-1) + O(1) = T(n-1) + 2 <em> O(1) = … = n</em>O(1) = O(n)</p>
 </li>
 <li><p>套用公式</p>
-<p>对于形如</p>
-<p>T(n) = aT(n/b) +f(n)</p>
-<p>的方程已有固定判断法，套用公式即可。</p>
+<p>   对于形如</p>
+<p>   T(n) = aT(n/b) +f(n)</p>
+<p>   的方程已有固定判断法，套用公式即可。</p>
 </li>
 <li><p>差分方程法</p>
-<p>利用查分方程解，这个比较复杂，这里先占个位，以后在补。</p>
+<p>   利用查分方程解，这个比较复杂，这里先占个位，以后在补。</p>
 </li>
 </ol>
 </li>
@@ -444,8 +441,8 @@ Loop
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/11/27/Note-of-learning-Algo/" rel="prev" title="Note of learning Algo">
-                Note of learning Algo <i class="fa fa-chevron-right"></i>
+              <a href="/2016/11/27/Note-of-learning-Algo/" rel="prev" title="算法笔记 Note of learning Algo">
+                算法笔记 Note of learning Algo <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -566,7 +563,7 @@ Loop
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Calcul-the-complexity"><span class="nav-number">1.</span> <span class="nav-text">Calcul the complexity</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Normal-way"><span class="nav-number">1.1.</span> <span class="nav-text">Normal way</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Recursion"><span class="nav-number">1.2.</span> <span class="nav-text">Recursion</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#计算复杂度-Calcul-the-complexity"><span class="nav-number">1.</span> <span class="nav-text">计算复杂度 - Calcul the complexity</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#通常-Normal"><span class="nav-number">1.1.</span> <span class="nav-text">通常 - Normal</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#递归-Recursion"><span class="nav-number">1.2.</span> <span class="nav-text">递归 - Recursion</span></a></li></ol></li></ol></div>
             
 
           </div>

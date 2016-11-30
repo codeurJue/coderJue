@@ -272,7 +272,7 @@
               
                 
                 <a class="post-title-link" href="/2016/11/27/graph/" itemprop="url">
-                  graph
+                  图论 graph
                 </a>
               
             
@@ -411,7 +411,7 @@
               
                 
                 <a class="post-title-link" href="/2016/11/27/compression/" itemprop="url">
-                  compression
+                  编码解码 compression
                 </a>
               
             
@@ -575,7 +575,7 @@
               
                 
                 <a class="post-title-link" href="/2016/11/27/Method-of-programming-facing-to-exams/" itemprop="url">
-                  Method of programming facing to exams
+                  面向考试常用编程思想 Method of programming facing to exams
                 </a>
               
             
@@ -726,7 +726,7 @@
               
                 
                 <a class="post-title-link" href="/2016/11/27/Note-of-learning-Algo/" itemprop="url">
-                  Note of learning Algo
+                  算法笔记 Note of learning Algo
                 </a>
               
             
@@ -796,7 +796,9 @@
       
         
           
-            <h1 id="Data-Structure"><a href="#Data-Structure" class="headerlink" title="Data Structure"></a>Data Structure</h1><ol>
+            <h1 id="Data-Structure"><a href="#Data-Structure" class="headerlink" title="Data Structure"></a>Data Structure</h1><a href="/2016/11/27/complexity/" title="How to calcul the complexity?">How to calcul the complexity?</a> 
+<a href="/2016/11/27/compression/" title="How to make a compression?">How to make a compression?</a>
+<ol>
 <li>The data : int, double, etc.</li>
 <li>The basic data structure<ul>
 <li>Container</li>
@@ -818,10 +820,15 @@
 <li>Hash table - Table de hachage - 哈希表</li>
 </ul>
 </li>
-<li><strong>Heap - Tas - 堆 ?? </strong></li>
+<li><strong>Heap - Tas - 堆 </strong><ul>
+<li>二叉堆</li>
+<li>堆排序</li>
+</ul>
+</li>
 <li>Find-Union</li>
 </ol>
-<h1 id="Method-of-programming"><a href="#Method-of-programming" class="headerlink" title="Method of programming"></a>Method of programming</h1><ol>
+<h1 id="Method-of-programming"><a href="#Method-of-programming" class="headerlink" title="Method of programming"></a>Method of programming</h1><a href="/2016/11/27/Method-of-programming-facing-to-exams/" title="Savoir plus">Savoir plus</a>
+<ol>
 <li>Echaustive / force brute - 穷举法</li>
 <li>Try-error - Essai-erreur 试错法</li>
 <li>Glouton - 贪心法</li>
@@ -829,7 +836,8 @@
 <li>Divede merge - Diviser pour regner - 分治</li>
 <li>Dynamic - Dynamique - 动态规划</li>
 </ol>
-<h1 id="Graph"><a href="#Graph" class="headerlink" title="Graph"></a>Graph</h1><ol>
+<h1 id="Graph"><a href="#Graph" class="headerlink" title="Graph"></a>Graph</h1><a href="/2016/11/27/graph/" title="Savoir plus">Savoir plus</a>
+<ol>
 <li>Traversal - parcours - 遍历<ul>
 <li>BFS</li>
 <li>DFS</li>
@@ -854,7 +862,7 @@
 <li>选择，冒泡</li>
 <li>分治（fusion）</li>
 <li>快速</li>
-<li>tas ??</li>
+<li>tas </li>
 </ul>
 </li>
 </ol>
@@ -922,7 +930,7 @@
               
                 
                 <a class="post-title-link" href="/2016/11/27/complexity/" itemprop="url">
-                  complexity
+                  复杂度 complexity
                 </a>
               
             
@@ -992,8 +1000,9 @@
       
         
           
-            <h1 id="Calcul-the-complexity"><a href="#Calcul-the-complexity" class="headerlink" title="Calcul the complexity"></a>Calcul the complexity</h1><p>There, we only discuss the time complexity.</p>
-<h2 id="Normal-way"><a href="#Normal-way" class="headerlink" title="Normal way"></a>Normal way</h2><ol>
+            <h1 id="计算复杂度-Calcul-the-complexity"><a href="#计算复杂度-Calcul-the-complexity" class="headerlink" title="计算复杂度 - Calcul the complexity"></a>计算复杂度 - Calcul the complexity</h1><p>这里我们只考虑时间复杂度。</p>
+<p>There, we only discuss the time complexity.</p>
+<h2 id="通常-Normal"><a href="#通常-Normal" class="headerlink" title="通常 - Normal"></a>通常 - Normal</h2><ol>
 <li><p>Single operation - O(1)</p>
 </li>
 <li><p>Loop</p>
@@ -1003,8 +1012,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">fun</span><span class="params">(n)</span>:</span></div><div class="line">    <span class="keyword">while</span> i &lt; n :</div><div class="line">        i *= <span class="number">2</span></div></pre></td></tr></table></figure>
 <p>— O(logn)</p>
 <p>Etc.</p>
-<h2 id="Recursion"><a href="#Recursion" class="headerlink" title="Recursion"></a>Recursion</h2><p>这里暂时使用中文，懒=_=</p>
-<ol>
+<h2 id="递归-Recursion"><a href="#递归-Recursion" class="headerlink" title="递归 - Recursion"></a>递归 - Recursion</h2><ol>
 <li><p>代入法</p>
 <p>预估其复杂度，代入原方程，若相符，则可能为解。</p>
 <p>ex:</p>
@@ -1014,19 +1022,19 @@
 <p>接下来用数学归纳法验证。</p>
 </li>
 <li><p>迭代法</p>
-<p>迭代地展开递归方程的右端，使其成为一个非递归的和式，随后进行复杂度计算</p>
-<p>ex:</p>
-<p>T(n) = T(n-1) + O(1)</p>
-<p>T(1) = O(1)</p>
-<p>所以，T(n) = T(n-1) + O(1) = T(n-1) + 2 <em> O(1) = … = n</em>O(1) = O(n)</p>
+<p>   迭代地展开递归方程的右端，使其成为一个非递归的和式，随后进行复杂度计算</p>
+<p>   ex:</p>
+<p>   T(n) = T(n-1) + O(1)</p>
+<p>   T(1) = O(1)</p>
+<p>   所以，T(n) = T(n-1) + O(1) = T(n-1) + 2 <em> O(1) = … = n</em>O(1) = O(n)</p>
 </li>
 <li><p>套用公式</p>
-<p>对于形如</p>
-<p>T(n) = aT(n/b) +f(n)</p>
-<p>的方程已有固定判断法，套用公式即可。</p>
+<p>   对于形如</p>
+<p>   T(n) = aT(n/b) +f(n)</p>
+<p>   的方程已有固定判断法，套用公式即可。</p>
 </li>
 <li><p>差分方程法</p>
-<p>利用查分方程解，这个比较复杂，这里先占个位，以后在补。</p>
+<p>   利用查分方程解，这个比较复杂，这里先占个位，以后在补。</p>
 </li>
 </ol>
 </li>
