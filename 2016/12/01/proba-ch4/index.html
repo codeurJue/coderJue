@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="algo,programming," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -84,37 +84,13 @@
 
 
 
-<meta name="description" content="穷举法
-略
-
-贪心法
-略
-
-分治法
-1234567891011def merge(A, B):    # merge two small solved problems into one.    return mergeddef divideConquer(S, divide, combine):    if len(S) == 1: return S    # divide a grand p">
 <meta property="og:type" content="article">
-<meta property="og:title" content="面向考试常用编程思想 Method of programming facing to exams">
-<meta property="og:url" content="https://codeurJue.github.io/2016/11/27/Method-of-programming-facing-to-exams/index.html">
+<meta property="og:title" content="proba-ch4 高斯">
+<meta property="og:url" content="https://codeurJue.github.io/2016/12/01/proba-ch4/index.html">
 <meta property="og:site_name" content="Jue's Blog">
-<meta property="og:description" content="穷举法
-略
-
-贪心法
-略
-
-分治法
-1234567891011def merge(A, B):    # merge two small solved problems into one.    return mergeddef divideConquer(S, divide, combine):    if len(S) == 1: return S    # divide a grand p">
-<meta property="og:updated_time" content="2016-11-30T10:45:24.000Z">
+<meta property="og:updated_time" content="2016-12-01T15:29:21.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="面向考试常用编程思想 Method of programming facing to exams">
-<meta name="twitter:description" content="穷举法
-略
-
-贪心法
-略
-
-分治法
-1234567891011def merge(A, B):    # merge two small solved problems into one.    return mergeddef divideConquer(S, divide, combine):    if len(S) == 1: return S    # divide a grand p">
+<meta name="twitter:title" content="proba-ch4 高斯">
 
 
 
@@ -142,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="https://codeurJue.github.io/2016/11/27/Method-of-programming-facing-to-exams/"/>
+  <link rel="canonical" href="https://codeurJue.github.io/2016/12/01/proba-ch4/"/>
 
 
 
 
 
-  <title> 面向考试常用编程思想 Method of programming facing to exams | Jue's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> proba-ch4 高斯 | Jue's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -269,7 +245,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://codeurJue.github.io/2016/11/27/Method-of-programming-facing-to-exams/">
+  <link itemprop="mainEntityOfPage" href="https://codeurJue.github.io/2016/12/01/proba-ch4/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Jue">
@@ -293,7 +269,7 @@
             
             
               
-                面向考试常用编程思想 Method of programming facing to exams
+                proba-ch4 高斯
               
             
           </h1>
@@ -306,8 +282,8 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-27T13:49:31+01:00">
-                2016-11-27
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-01T16:28:52+01:00">
+                2016-12-01
               </time>
             
 
@@ -316,24 +292,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/programming/" itemprop="url" rel="index">
-                    <span itemprop="name">programming</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -360,24 +318,7 @@
       
 
       
-        <ol>
-<li><p>穷举法</p>
-<p>略</p>
-</li>
-<li><p>贪心法</p>
-<p>略</p>
-</li>
-<li><p>分治法</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">merge</span><span class="params">(A, B)</span>:</span></div><div class="line">    <span class="comment"># merge two small solved problems into one.</span></div><div class="line">    <span class="keyword">return</span> merged</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">divideConquer</span><span class="params">(S, divide, combine)</span>:</span></div><div class="line">    <span class="keyword">if</span> len(S) == <span class="number">1</span>: <span class="keyword">return</span> S</div><div class="line">    <span class="comment"># divide a grand problems</span></div><div class="line">    L, R = divide(S)</div><div class="line">    A = divideConquer(L, divide, combine)</div><div class="line">    B = divideConquer(R, divide, combine)</div><div class="line">    <span class="keyword">return</span> merge(A, B)</div></pre></td></tr></table></figure>
-<p>上面的情形只供参考，参数等视具体情况而定。</p>
-</li>
-<li><p>动态规划</p>
-<p>比较经典的就是背包问题。<a href="http://blog.csdn.net/littlethunder/article/details/26575417" target="_blank" rel="external">代码来源</a></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">bag</span><span class="params">(n,c,w,v)</span>:</span>  </div><div class="line">    res=[[<span class="number">-1</span> <span class="keyword">for</span> j <span class="keyword">in</span> range(c+<span class="number">1</span>)] <span class="keyword">for</span> i <span class="keyword">in</span> range(n+<span class="number">1</span>)]  </div><div class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(c+<span class="number">1</span>):  </div><div class="line">        res[<span class="number">0</span>][j]=<span class="number">0</span>  </div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,n+<span class="number">1</span>):  </div><div class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">1</span>,c+<span class="number">1</span>):  </div><div class="line">            res[i][j]=res[i<span class="number">-1</span>][j]  </div><div class="line">            <span class="keyword">if</span> j&gt;=w[i<span class="number">-1</span>] <span class="keyword">and</span> res[i][j]&lt;res[i<span class="number">-1</span>][j-w[i<span class="number">-1</span>]]+v[i<span class="number">-1</span>]:  </div><div class="line">                res[i][j]=res[i<span class="number">-1</span>][j-w[i<span class="number">-1</span>]]+v[i<span class="number">-1</span>]  </div><div class="line">    <span class="keyword">return</span> res  </div><div class="line">  </div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">show</span><span class="params">(n,c,w,res)</span>:</span>  </div><div class="line">    print(<span class="string">'最大价值为:'</span>,res[n][c])  </div><div class="line">    x=[<span class="keyword">False</span> <span class="keyword">for</span> i <span class="keyword">in</span> range(n)]  </div><div class="line">    j=c  </div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,n+<span class="number">1</span>):  </div><div class="line">        <span class="keyword">if</span> res[i][j]&gt;res[i<span class="number">-1</span>][j]:  </div><div class="line">            x[i<span class="number">-1</span>]=<span class="keyword">True</span>  </div><div class="line">            j-=w[i<span class="number">-1</span>]  </div><div class="line">    print(<span class="string">'选择的物品为:'</span>)  </div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(n):  </div><div class="line">        <span class="keyword">if</span> x[i]:  </div><div class="line">            print(<span class="string">'第'</span>,i,<span class="string">'个,'</span>,end=<span class="string">''</span>)  </div><div class="line">    print(<span class="string">''</span>)  </div><div class="line">  </div><div class="line"><span class="keyword">if</span> __name__==<span class="string">'__main__'</span>:  </div><div class="line">    n=<span class="number">5</span>  </div><div class="line">    c=<span class="number">10</span>  </div><div class="line">    w=[<span class="number">2</span>,<span class="number">2</span>,<span class="number">6</span>,<span class="number">5</span>,<span class="number">4</span>]  </div><div class="line">    v=[<span class="number">6</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">6</span>]  </div><div class="line">    res=bag(n,c,w,v)  </div><div class="line">    show(n,c,w,res)</div></pre></td></tr></table></figure>
-<p>​</p>
-</li>
-</ol>
-
+        
       
     </div>
 
@@ -398,21 +339,13 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/algo/" rel="tag"># algo</a>
-          
-            <a href="/tags/programming/" rel="tag"># programming</a>
-          
-        </div>
-      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/27/Note-of-learning-Algo/" rel="next" title="算法笔记 Note of learning Algo">
-                <i class="fa fa-chevron-left"></i> 算法笔记 Note of learning Algo
+              <a href="/2016/12/01/proba-ch3/" rel="next" title="proba-ch3 实域概率和特征方程">
+                <i class="fa fa-chevron-left"></i> proba-ch3 实域概率和特征方程
               </a>
             
           </div>
@@ -420,10 +353,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/11/27/compression/" rel="prev" title="编码解码 compression">
-                编码解码 compression <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>

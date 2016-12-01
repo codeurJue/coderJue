@@ -84,58 +84,37 @@
 
 
 
-<meta name="description" content="该笔记只是记录在法国学的一些东西，可能记的凌乱，望见谅。
-Part 1
-一个基本的不等式，当
-
-
-P(\cup(A_n)) \leq \sum_{n \in N}^{}{P(A_n)}
-如果An递增
-
-
-P(\cup(A_n)) = \lim_{n -&amp;gt; + \inf}{P(A_n)}
-如果An递减
-
-
-P(\cap(A_n)) = \lim_{n -&amp;gt; + \inf}{P(A_n)}
-条件概率定">
+<meta name="description" content="该笔记只是记录在法国学的一些东西，因为学的是法语的翻译可能有些摸不着头脑，并且记的凌乱，望见谅。
+Part 1 公理、概率空间Savoir plus
+Part 2 概率与随机变量Savoir plus
+Part 3 实域概率和特征方程Savoir plus
+Part 4 高斯向量Savoir plus
+Part 5 数列和随机变量系列
+Part 6 条件数学期望
+Part 7 随机过程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="概率论笔记 Note of probability">
-<meta property="og:url" content="http://yoursite.com/2016/11/30/Note-of-probability/index.html">
+<meta property="og:url" content="https://codeurJue.github.io/2016/11/30/Note-of-probability/index.html">
 <meta property="og:site_name" content="Jue's Blog">
-<meta property="og:description" content="该笔记只是记录在法国学的一些东西，可能记的凌乱，望见谅。
-Part 1
-一个基本的不等式，当
-
-
-P(\cup(A_n)) \leq \sum_{n \in N}^{}{P(A_n)}
-如果An递增
-
-
-P(\cup(A_n)) = \lim_{n -&amp;gt; + \inf}{P(A_n)}
-如果An递减
-
-
-P(\cap(A_n)) = \lim_{n -&amp;gt; + \inf}{P(A_n)}
-条件概率定">
-<meta property="og:updated_time" content="2016-11-30T21:12:45.000Z">
+<meta property="og:description" content="该笔记只是记录在法国学的一些东西，因为学的是法语的翻译可能有些摸不着头脑，并且记的凌乱，望见谅。
+Part 1 公理、概率空间Savoir plus
+Part 2 概率与随机变量Savoir plus
+Part 3 实域概率和特征方程Savoir plus
+Part 4 高斯向量Savoir plus
+Part 5 数列和随机变量系列
+Part 6 条件数学期望
+Part 7 随机过程">
+<meta property="og:updated_time" content="2016-12-01T13:53:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="概率论笔记 Note of probability">
-<meta name="twitter:description" content="该笔记只是记录在法国学的一些东西，可能记的凌乱，望见谅。
-Part 1
-一个基本的不等式，当
-
-
-P(\cup(A_n)) \leq \sum_{n \in N}^{}{P(A_n)}
-如果An递增
-
-
-P(\cup(A_n)) = \lim_{n -&amp;gt; + \inf}{P(A_n)}
-如果An递减
-
-
-P(\cap(A_n)) = \lim_{n -&amp;gt; + \inf}{P(A_n)}
-条件概率定">
+<meta name="twitter:description" content="该笔记只是记录在法国学的一些东西，因为学的是法语的翻译可能有些摸不着头脑，并且记的凌乱，望见谅。
+Part 1 公理、概率空间Savoir plus
+Part 2 概率与随机变量Savoir plus
+Part 3 实域概率和特征方程Savoir plus
+Part 4 高斯向量Savoir plus
+Part 5 数列和随机变量系列
+Part 6 条件数学期望
+Part 7 随机过程">
 
 
 
@@ -163,7 +142,7 @@ P(\cap(A_n)) = \lim_{n -&amp;gt; + \inf}{P(A_n)}
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/11/30/Note-of-probability/"/>
+  <link rel="canonical" href="https://codeurJue.github.io/2016/11/30/Note-of-probability/"/>
 
 
 
@@ -290,7 +269,7 @@ P(\cap(A_n)) = \lim_{n -&amp;gt; + \inf}{P(A_n)}
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/30/Note-of-probability/">
+  <link itemprop="mainEntityOfPage" href="https://codeurJue.github.io/2016/11/30/Note-of-probability/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Jue">
@@ -381,67 +360,14 @@ P(\cap(A_n)) = \lim_{n -&amp;gt; + \inf}{P(A_n)}
       
 
       
-        <p>该笔记只是记录在法国学的一些东西，可能记的凌乱，望见谅。</p>
-<h1 id="Part-1"><a href="#Part-1" class="headerlink" title="Part 1"></a>Part 1</h1><ul>
-<li>一个基本的不等式，当</li>
-</ul>
-<script type="math/tex; mode=display">
-P(\cup(A_n)) \leq \sum_{n \in N}^{}{P(A_n)}</script><ul>
-<li>如果An递增</li>
-</ul>
-<script type="math/tex; mode=display">
-P(\cup(A_n)) = \lim_{n -> + \inf}{P(A_n)}</script><ul>
-<li>如果An递减</li>
-</ul>
-<script type="math/tex; mode=display">
-P(\cap(A_n)) = \lim_{n -> + \inf}{P(A_n)}</script><ul>
-<li>条件概率定义，略</li>
-<li>性质</li>
-</ul>
-<script type="math/tex; mode=display">
-P({A_1}\cap{...}\cap{A_{n-1}}) = P(A_1)P(A_2|A_1)...P(A_n|A_1\cap{...}\cap{A_{n-1}})</script><ul>
-<li>定理(Equation de partition)</li>
-</ul>
-<script type="math/tex; mode=display">
-P(A) = \sum_{n}{P(A|E_n)P(E_n)}</script><ul>
-<li>定理(de Bay)</li>
-</ul>
-<script type="math/tex; mode=display">
-P(E_n|A) = \frac{P(A|E_n)P(E_n)}{\sum_{m}{P(A|E_m)PE_m}}</script><ul>
-<li><p>两个独立事件概率，略</p>
-</li>
-<li><p>定理</p>
-<p>对一可数或有限事件集，P({wn}) = pn，若对pn求和，则P存在且唯一。</p>
-</li>
-<li><p>均值定义，略</p>
-</li>
-<li><p>方差定义</p>
-</li>
-</ul>
-<script type="math/tex; mode=display">
-Var(X) = E[(X - E(X))^2] = E[X^2] - (E(X)^2)</script><ul>
-<li><p>几种分布</p>
-<ul>
-<li><p>Loi discrete uniforme，略</p>
-<script type="math/tex; mode=display">
-E[X] = \frac{n+1}{2}</script></li>
-<li><p>Loi de Bernoulli，P(X=1) = p et P(X=0) = 1-p</p>
-<script type="math/tex; mode=display">
-E[N] = p, Var(N) = p(1-p)</script></li>
-<li><p>Loi binomiale 二项分布，略</p>
-<script type="math/tex; mode=display">
-E[N] = np, Var(N) = np(1-p)</script></li>
-<li><p>Loi geometrique </p>
-<script type="math/tex; mode=display">
-P(N=n) = P^n(1-p),
-E[N] = np, Var(N) = np(1-p)</script></li>
-<li><p>Distribution de Poisson</p>
-<script type="math/tex; mode=display">
-P(X=n)=\frac{\lambda^n}{n!}e^{-\lambda}, E[X] = \lambda, Var(X) = \lambda</script></li>
-</ul>
-</li>
-</ul>
-<h1 id="Part-2-随机变量"><a href="#Part-2-随机变量" class="headerlink" title="Part 2 随机变量"></a>Part 2 随机变量</h1>
+        <p>该笔记只是记录在法国学的一些东西，因为学的是法语的翻译可能有些摸不着头脑，并且记的凌乱，望见谅。</p>
+<h1 id="Part-1-公理、概率空间"><a href="#Part-1-公理、概率空间" class="headerlink" title="Part 1 公理、概率空间"></a>Part 1 公理、概率空间</h1><a href="/2016/12/01/proba-ch1/" title="Savoir plus">Savoir plus</a>
+<h1 id="Part-2-概率与随机变量"><a href="#Part-2-概率与随机变量" class="headerlink" title="Part 2 概率与随机变量"></a>Part 2 概率与随机变量</h1><a href="/2016/12/01/proba-ch2/" title="Savoir plus">Savoir plus</a>
+<h1 id="Part-3-实域概率和特征方程"><a href="#Part-3-实域概率和特征方程" class="headerlink" title="Part 3 实域概率和特征方程"></a>Part 3 实域概率和特征方程</h1><a href="/2016/12/01/proba-ch3/" title="Savoir plus">Savoir plus</a>
+<h1 id="Part-4-高斯向量"><a href="#Part-4-高斯向量" class="headerlink" title="Part 4 高斯向量"></a>Part 4 高斯向量</h1><a href="/2016/12/01/proba-ch4/" title="Savoir plus">Savoir plus</a>
+<h1 id="Part-5-数列和随机变量系列"><a href="#Part-5-数列和随机变量系列" class="headerlink" title="Part 5 数列和随机变量系列"></a>Part 5 数列和随机变量系列</h1>
+<h1 id="Part-6-条件数学期望"><a href="#Part-6-条件数学期望" class="headerlink" title="Part 6 条件数学期望"></a>Part 6 条件数学期望</h1>
+<h1 id="Part-7-随机过程"><a href="#Part-7-随机过程" class="headerlink" title="Part 7 随机过程"></a>Part 7 随机过程</h1>
       
     </div>
 
@@ -555,7 +481,7 @@ P(X=n)=\frac{\lambda^n}{n!}e^{-\lambda}, E[X] = \lambda, Var(X) = \lambda</scrip
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-count">13</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -563,7 +489,7 @@ P(X=n)=\frac{\lambda^n}{n!}e^{-\lambda}, E[X] = \lambda, Var(X) = \lambda</scrip
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -572,7 +498,7 @@ P(X=n)=\frac{\lambda^n}{n!}e^{-\lambda}, E[X] = \lambda, Var(X) = \lambda</scrip
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -607,7 +533,7 @@ P(X=n)=\frac{\lambda^n}{n!}e^{-\lambda}, E[X] = \lambda, Var(X) = \lambda</scrip
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Part-1"><span class="nav-number">1.</span> <span class="nav-text">Part 1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Part-2-随机变量"><span class="nav-number">2.</span> <span class="nav-text">Part 2 随机变量</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Part-1-公理、概率空间"><span class="nav-number">1.</span> <span class="nav-text">Part 1 公理、概率空间</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Part-2-概率与随机变量"><span class="nav-number">2.</span> <span class="nav-text">Part 2 概率与随机变量</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Part-3-实域概率和特征方程"><span class="nav-number">3.</span> <span class="nav-text">Part 3 实域概率和特征方程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Part-4-高斯向量"><span class="nav-number">4.</span> <span class="nav-text">Part 4 高斯向量</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Part-5-数列和随机变量系列"><span class="nav-number">5.</span> <span class="nav-text">Part 5 数列和随机变量系列</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Part-6-条件数学期望"><span class="nav-number">6.</span> <span class="nav-text">Part 6 条件数学期望</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Part-7-随机过程"><span class="nav-number">7.</span> <span class="nav-text">Part 7 随机过程</span></a></li></ol></div>
             
 
           </div>

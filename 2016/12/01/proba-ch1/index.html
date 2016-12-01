@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="algo,programming," />
+  <meta name="keywords" content="math,probability," />
 
 
 
@@ -84,37 +84,64 @@
 
 
 
-<meta name="description" content="穷举法
-略
+<meta name="description" content="一个基本的不等式，当
 
-贪心法
-略
 
-分治法
-1234567891011def merge(A, B):    # merge two small solved problems into one.    return mergeddef divideConquer(S, divide, combine):    if len(S) == 1: return S    # divide a grand p">
+P(\cup(A_n)) \leq \sum_{n \in N}^{}{P(A_n)}
+如果An递增
+
+
+P(\cup(A_n)) = \lim_{n -&amp;gt; + \inf}{P(A_n)}
+如果An递减
+
+
+P(\cap(A_n)) = \lim_{n -&amp;gt; + \inf}{P(A_n)}
+条件概率定义，略
+性质
+
+
+P({A_1}\cap{...}\cap{A_{n-">
 <meta property="og:type" content="article">
-<meta property="og:title" content="面向考试常用编程思想 Method of programming facing to exams">
-<meta property="og:url" content="https://codeurJue.github.io/2016/11/27/Method-of-programming-facing-to-exams/index.html">
+<meta property="og:title" content="proba-ch1 概率空间">
+<meta property="og:url" content="https://codeurJue.github.io/2016/12/01/proba-ch1/index.html">
 <meta property="og:site_name" content="Jue's Blog">
-<meta property="og:description" content="穷举法
-略
+<meta property="og:description" content="一个基本的不等式，当
 
-贪心法
-略
 
-分治法
-1234567891011def merge(A, B):    # merge two small solved problems into one.    return mergeddef divideConquer(S, divide, combine):    if len(S) == 1: return S    # divide a grand p">
-<meta property="og:updated_time" content="2016-11-30T10:45:24.000Z">
+P(\cup(A_n)) \leq \sum_{n \in N}^{}{P(A_n)}
+如果An递增
+
+
+P(\cup(A_n)) = \lim_{n -&amp;gt; + \inf}{P(A_n)}
+如果An递减
+
+
+P(\cap(A_n)) = \lim_{n -&amp;gt; + \inf}{P(A_n)}
+条件概率定义，略
+性质
+
+
+P({A_1}\cap{...}\cap{A_{n-">
+<meta property="og:updated_time" content="2016-12-01T11:19:38.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="面向考试常用编程思想 Method of programming facing to exams">
-<meta name="twitter:description" content="穷举法
-略
+<meta name="twitter:title" content="proba-ch1 概率空间">
+<meta name="twitter:description" content="一个基本的不等式，当
 
-贪心法
-略
 
-分治法
-1234567891011def merge(A, B):    # merge two small solved problems into one.    return mergeddef divideConquer(S, divide, combine):    if len(S) == 1: return S    # divide a grand p">
+P(\cup(A_n)) \leq \sum_{n \in N}^{}{P(A_n)}
+如果An递增
+
+
+P(\cup(A_n)) = \lim_{n -&amp;gt; + \inf}{P(A_n)}
+如果An递减
+
+
+P(\cap(A_n)) = \lim_{n -&amp;gt; + \inf}{P(A_n)}
+条件概率定义，略
+性质
+
+
+P({A_1}\cap{...}\cap{A_{n-">
 
 
 
@@ -142,13 +169,13 @@
 
 
 
-  <link rel="canonical" href="https://codeurJue.github.io/2016/11/27/Method-of-programming-facing-to-exams/"/>
+  <link rel="canonical" href="https://codeurJue.github.io/2016/12/01/proba-ch1/"/>
 
 
 
 
 
-  <title> 面向考试常用编程思想 Method of programming facing to exams | Jue's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> proba-ch1 概率空间 | Jue's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -269,7 +296,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://codeurJue.github.io/2016/11/27/Method-of-programming-facing-to-exams/">
+  <link itemprop="mainEntityOfPage" href="https://codeurJue.github.io/2016/12/01/proba-ch1/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Jue">
@@ -293,7 +320,7 @@
             
             
               
-                面向考试常用编程思想 Method of programming facing to exams
+                proba-ch1 概率空间
               
             
           </h1>
@@ -306,8 +333,8 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-27T13:49:31+01:00">
-                2016-11-27
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-01T12:17:29+01:00">
+                2016-12-01
               </time>
             
 
@@ -325,8 +352,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/programming/" itemprop="url" rel="index">
-                    <span itemprop="name">programming</span>
+                  <a href="/categories/math/" itemprop="url" rel="index">
+                    <span itemprop="name">math</span>
                   </a>
                 </span>
 
@@ -360,23 +387,70 @@
       
 
       
-        <ol>
-<li><p>穷举法</p>
-<p>略</p>
+        <ul>
+<li>一个基本的不等式，当</li>
+</ul>
+<script type="math/tex; mode=display">
+P(\cup(A_n)) \leq \sum_{n \in N}^{}{P(A_n)}</script><ul>
+<li>如果An递增</li>
+</ul>
+<script type="math/tex; mode=display">
+P(\cup(A_n)) = \lim_{n -> + \inf}{P(A_n)}</script><ul>
+<li>如果An递减</li>
+</ul>
+<script type="math/tex; mode=display">
+P(\cap(A_n)) = \lim_{n -> + \inf}{P(A_n)}</script><ul>
+<li>条件概率定义，略</li>
+<li>性质</li>
+</ul>
+<script type="math/tex; mode=display">
+P({A_1}\cap{...}\cap{A_{n-1}}) = P(A_1)P(A_2|A_1)...P(A_n|A_1\cap{...}\cap{A_{n-1}})</script><ul>
+<li>定理(Equation de partition)</li>
+</ul>
+<script type="math/tex; mode=display">
+P(A) = \sum_{n}{P(A|E_n)P(E_n)}</script><ul>
+<li>定理(de Bay)</li>
+</ul>
+<script type="math/tex; mode=display">
+P(E_n|A) = \frac{P(A|E_n)P(E_n)}{\sum_{m}{P(A|E_m)PE_m}}</script><ul>
+<li><p>两个独立事件概率，略</p>
 </li>
-<li><p>贪心法</p>
-<p>略</p>
+<li><p>定理</p>
+<p>对一可数或有限事件集，P({wn}) = pn，若对pn求和，则P存在且唯一。</p>
 </li>
-<li><p>分治法</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">merge</span><span class="params">(A, B)</span>:</span></div><div class="line">    <span class="comment"># merge two small solved problems into one.</span></div><div class="line">    <span class="keyword">return</span> merged</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">divideConquer</span><span class="params">(S, divide, combine)</span>:</span></div><div class="line">    <span class="keyword">if</span> len(S) == <span class="number">1</span>: <span class="keyword">return</span> S</div><div class="line">    <span class="comment"># divide a grand problems</span></div><div class="line">    L, R = divide(S)</div><div class="line">    A = divideConquer(L, divide, combine)</div><div class="line">    B = divideConquer(R, divide, combine)</div><div class="line">    <span class="keyword">return</span> merge(A, B)</div></pre></td></tr></table></figure>
-<p>上面的情形只供参考，参数等视具体情况而定。</p>
+<li><p>均值定义，</p>
+<script type="math/tex; mode=display">
+E[X] = \sum_{\omega \in{\Omega}}{X(\omega) P(\omega)}</script></li>
+<li><p>方差定义</p>
 </li>
-<li><p>动态规划</p>
-<p>比较经典的就是背包问题。<a href="http://blog.csdn.net/littlethunder/article/details/26575417" target="_blank" rel="external">代码来源</a></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">bag</span><span class="params">(n,c,w,v)</span>:</span>  </div><div class="line">    res=[[<span class="number">-1</span> <span class="keyword">for</span> j <span class="keyword">in</span> range(c+<span class="number">1</span>)] <span class="keyword">for</span> i <span class="keyword">in</span> range(n+<span class="number">1</span>)]  </div><div class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(c+<span class="number">1</span>):  </div><div class="line">        res[<span class="number">0</span>][j]=<span class="number">0</span>  </div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,n+<span class="number">1</span>):  </div><div class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">1</span>,c+<span class="number">1</span>):  </div><div class="line">            res[i][j]=res[i<span class="number">-1</span>][j]  </div><div class="line">            <span class="keyword">if</span> j&gt;=w[i<span class="number">-1</span>] <span class="keyword">and</span> res[i][j]&lt;res[i<span class="number">-1</span>][j-w[i<span class="number">-1</span>]]+v[i<span class="number">-1</span>]:  </div><div class="line">                res[i][j]=res[i<span class="number">-1</span>][j-w[i<span class="number">-1</span>]]+v[i<span class="number">-1</span>]  </div><div class="line">    <span class="keyword">return</span> res  </div><div class="line">  </div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">show</span><span class="params">(n,c,w,res)</span>:</span>  </div><div class="line">    print(<span class="string">'最大价值为:'</span>,res[n][c])  </div><div class="line">    x=[<span class="keyword">False</span> <span class="keyword">for</span> i <span class="keyword">in</span> range(n)]  </div><div class="line">    j=c  </div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,n+<span class="number">1</span>):  </div><div class="line">        <span class="keyword">if</span> res[i][j]&gt;res[i<span class="number">-1</span>][j]:  </div><div class="line">            x[i<span class="number">-1</span>]=<span class="keyword">True</span>  </div><div class="line">            j-=w[i<span class="number">-1</span>]  </div><div class="line">    print(<span class="string">'选择的物品为:'</span>)  </div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(n):  </div><div class="line">        <span class="keyword">if</span> x[i]:  </div><div class="line">            print(<span class="string">'第'</span>,i,<span class="string">'个,'</span>,end=<span class="string">''</span>)  </div><div class="line">    print(<span class="string">''</span>)  </div><div class="line">  </div><div class="line"><span class="keyword">if</span> __name__==<span class="string">'__main__'</span>:  </div><div class="line">    n=<span class="number">5</span>  </div><div class="line">    c=<span class="number">10</span>  </div><div class="line">    w=[<span class="number">2</span>,<span class="number">2</span>,<span class="number">6</span>,<span class="number">5</span>,<span class="number">4</span>]  </div><div class="line">    v=[<span class="number">6</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">6</span>]  </div><div class="line">    res=bag(n,c,w,v)  </div><div class="line">    show(n,c,w,res)</div></pre></td></tr></table></figure>
-<p>​</p>
+</ul>
+<script type="math/tex; mode=display">
+Var(X) = E[(X - E(X))^2] = E[X^2] - (E(X)^2)</script><ul>
+<li><p>几种分布</p>
+<ul>
+<li><p>Loi discrete uniforme，</p>
 </li>
-</ol>
+<li><script type="math/tex; mode=display">
+\forall k \in \{1,...,n\}, P(X=k) = \frac{1}{n}</script><script type="math/tex; mode=display">
+E[X] = \frac{n+1}{2}</script></li>
+<li><p>Loi de Bernoulli，</p>
+<script type="math/tex; mode=display">
+P(X=1) = p, t P(X=0) = 1-p</script><script type="math/tex; mode=display">
+E[N] = p, Var(N) = p(1-p)</script></li>
+<li><p>Loi binomiale 二项分布，略</p>
+<script type="math/tex; mode=display">
+E[N] = np, Var(N) = np(1-p)</script></li>
+<li><p>Loi geometrique </p>
+<script type="math/tex; mode=display">
+P(N=n) = P^n(1-p),$$</script><p>E[N] = np, Var(N) = np(1-p)<br>$$</p>
+</li>
+<li><p>Distribution de Poisson</p>
+<script type="math/tex; mode=display">
+P(X=n)=\frac{\lambda^n}{n!}e^{-\lambda},</script><script type="math/tex; mode=display">
+E[X] = \lambda, Var(X) = \lambda</script></li>
+</ul>
+</li>
+</ul>
 
       
     </div>
@@ -400,9 +474,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/algo/" rel="tag"># algo</a>
+            <a href="/tags/math/" rel="tag"># math</a>
           
-            <a href="/tags/programming/" rel="tag"># programming</a>
+            <a href="/tags/probability/" rel="tag"># probability</a>
           
         </div>
       
@@ -411,8 +485,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/27/Note-of-learning-Algo/" rel="next" title="算法笔记 Note of learning Algo">
-                <i class="fa fa-chevron-left"></i> 算法笔记 Note of learning Algo
+              <a href="/2016/11/30/hexo-with-latex/" rel="next" title="解决hexo使用公式冲突问题 hexo with latex">
+                <i class="fa fa-chevron-left"></i> 解决hexo使用公式冲突问题 hexo with latex
               </a>
             
           </div>
@@ -421,8 +495,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/11/27/compression/" rel="prev" title="编码解码 compression">
-                编码解码 compression <i class="fa fa-chevron-right"></i>
+              <a href="/2016/12/01/proba-ch2/" rel="prev" title="proba-ch2 随机变量">
+                proba-ch2 随机变量 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
