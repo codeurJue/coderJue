@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="math,probability,vector," />
 
 
 
@@ -84,13 +84,28 @@
 
 
 
+<meta name="description" content="定义
+Un vecteur aléatoire est dit gaussien si toute combinaison linéaire de ses composantes suit une loi gaussienne.
+也就是：
+
+\forall \lambda_1,...,\lambda_N \in \mathbb{R} , \sum_{j=1}^{N}{\lambda_jX_j \t">
 <meta property="og:type" content="article">
-<meta property="og:title" content="proba-ch4 高斯">
+<meta property="og:title" content="proba-ch4 高斯向量">
 <meta property="og:url" content="https://codeurJue.github.io/2016/12/01/proba-ch4/index.html">
 <meta property="og:site_name" content="Jue's Blog">
-<meta property="og:updated_time" content="2016-12-01T15:29:21.000Z">
+<meta property="og:description" content="定义
+Un vecteur aléatoire est dit gaussien si toute combinaison linéaire de ses composantes suit une loi gaussienne.
+也就是：
+
+\forall \lambda_1,...,\lambda_N \in \mathbb{R} , \sum_{j=1}^{N}{\lambda_jX_j \t">
+<meta property="og:updated_time" content="2016-12-01T22:12:24.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="proba-ch4 高斯">
+<meta name="twitter:title" content="proba-ch4 高斯向量">
+<meta name="twitter:description" content="定义
+Un vecteur aléatoire est dit gaussien si toute combinaison linéaire de ses composantes suit une loi gaussienne.
+也就是：
+
+\forall \lambda_1,...,\lambda_N \in \mathbb{R} , \sum_{j=1}^{N}{\lambda_jX_j \t">
 
 
 
@@ -124,7 +139,7 @@
 
 
 
-  <title> proba-ch4 高斯 | Jue's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> proba-ch4 高斯向量 | Jue's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -269,7 +284,7 @@
             
             
               
-                proba-ch4 高斯
+                proba-ch4 高斯向量
               
             
           </h1>
@@ -292,6 +307,24 @@
             
           </span>
 
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/math/" itemprop="url" rel="index">
+                    <span itemprop="name">math</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -318,7 +351,26 @@
       
 
       
-        
+        <p>定义</p>
+<p>Un vecteur aléatoire est dit gaussien si toute combinaison linéaire de ses composantes suit une loi gaussienne.</p>
+<p>也就是：</p>
+<script type="math/tex; mode=display">
+\forall \lambda_1,...,\lambda_N \in \mathbb{R} , \sum_{j=1}^{N}{\lambda_jX_j \text{ suit une loi normale.}}</script><ul>
+<li><p>特征函数</p>
+<script type="math/tex; mode=display">
+\varphi_X: t \rightarrow e^{i < \mu, t> -\frac{1}{2}<t,Dt>} \\
+=> \varphi_X = e^{i\sum_{j=1}^{N}{\mu_j t_j}- \frac{1}{2}\sum_{1\le j,k\le N}{t_j D_{j,k}t_k}}</script><p>$\mu$, le vecteur moyenne, 平均向量</p>
+<p>D, la matrice de covariances de X, 协方差矩阵</p>
+</li>
+<li><p>理论，X=(X1,…,XN) 是高斯向量，则Xj相互独立当仅当其协方差矩阵D为对角线矩阵。（也就是只有自己和自己的协方差不为零）</p>
+</li>
+<li><p>Densite de la loi d’un vecteur gaussien</p>
+<script type="math/tex; mode=display">
+D \ne 0 \\
+\mathcal{N}(\mu,D) \text{在Lebesgue测度下，在}\mathbb{R}^N\text{上绝对连续} \\
+x \longmapsto \frac{1}{(2\pi)^{N/2}\sqrt{\det D}}e^{-\frac{1}{2}<x-\mu,D^{-1}(x-\mu)>}</script></li>
+</ul>
+
       
     </div>
 
@@ -339,6 +391,16 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/math/" rel="tag"># math</a>
+          
+            <a href="/tags/probability/" rel="tag"># probability</a>
+          
+            <a href="/tags/vector/" rel="tag"># vector</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
@@ -353,6 +415,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/12/01/proba-ch5/" rel="prev" title="proba-ch5 数列和随机变量系列">
+                proba-ch5 数列和随机变量系列 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -411,7 +477,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-count">14</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -428,7 +494,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">16</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
