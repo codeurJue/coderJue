@@ -84,16 +84,37 @@
 
 
 
-<meta name="description" content="占坑缓填">
+<meta name="description" content="P(A|B) = \frac{P(A\cap B)}{P(B)}
+E[X|Y=y] = E_Q[X] = \sum_{x \in \tilde E}{xP(X=x|Y=y)}
+\psi : y \mapsto E[X|Y=y] \text{ if } P(Y=y) &amp;gt; 0 \\
+otherwise\ 0
+E[X|Y] = \psi(Y)
+定义
+
+\mathcal{G} 是一个sous-tribu">
 <meta property="og:type" content="article">
 <meta property="og:title" content="proba-ch6 条件期望">
 <meta property="og:url" content="https://codeurJue.github.io/2016/12/02/proba-ch6/index.html">
 <meta property="og:site_name" content="Jue's Blog">
-<meta property="og:description" content="占坑缓填">
-<meta property="og:updated_time" content="2016-12-02T20:33:44.000Z">
+<meta property="og:description" content="P(A|B) = \frac{P(A\cap B)}{P(B)}
+E[X|Y=y] = E_Q[X] = \sum_{x \in \tilde E}{xP(X=x|Y=y)}
+\psi : y \mapsto E[X|Y=y] \text{ if } P(Y=y) &amp;gt; 0 \\
+otherwise\ 0
+E[X|Y] = \psi(Y)
+定义
+
+\mathcal{G} 是一个sous-tribu">
+<meta property="og:updated_time" content="2016-12-02T21:09:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="proba-ch6 条件期望">
-<meta name="twitter:description" content="占坑缓填">
+<meta name="twitter:description" content="P(A|B) = \frac{P(A\cap B)}{P(B)}
+E[X|Y=y] = E_Q[X] = \sum_{x \in \tilde E}{xP(X=x|Y=y)}
+\psi : y \mapsto E[X|Y=y] \text{ if } P(Y=y) &amp;gt; 0 \\
+otherwise\ 0
+E[X|Y] = \psi(Y)
+定义
+
+\mathcal{G} 是一个sous-tribu">
 
 
 
@@ -339,7 +360,42 @@
       
 
       
-        <p>占坑缓填</p>
+        <script type="math/tex; mode=display">
+P(A|B) = \frac{P(A\cap B)}{P(B)}</script><script type="math/tex; mode=display">
+E[X|Y=y] = E_Q[X] = \sum_{x \in \tilde E}{xP(X=x|Y=y)}</script><script type="math/tex; mode=display">
+\psi : y \mapsto E[X|Y=y] \text{ if } P(Y=y) > 0 \\
+otherwise\ 0</script><script type="math/tex; mode=display">
+E[X|Y] = \psi(Y)</script><ul>
+<li><p>定义</p>
+<script type="math/tex; mode=display">
+\mathcal{G} 是一个sous-tribu。\\
+E[X|\mathcal{G}] 是一个随机变量Y,满足 \\
+Y \in L^1, \forall A \in \mathcal{G}, \int_A X dP = \int_AYdP</script></li>
+<li><p>定义 L2</p>
+<script type="math/tex; mode=display">
+X \in L^2, \mathcal{G} 是一个sous-tribu \\
+E[X|\mathcal{G}] 是一个随机变量Y,满足 \\
+\forall Z \in L^2, E[XZ] = E[YZ]</script><ul>
+<li><p>性质</p>
+<script type="math/tex; mode=display">
+E[E[X|\mathcal{G}]] = E[X]</script></li>
+<li><p>性质</p>
+<script type="math/tex; mode=display">
+若X \in L^1, E[X|\mathcal{G}] = E[X] \Leftrightarrow X是\mathcal{G}可测的。</script></li>
+<li><p>性质</p>
+<script type="math/tex; mode=display">
+X是\mathcal{G}可测的, X,Y,XY \in L^1 \\
+\Rightarrow E[XY|\mathcal{G}] = XE[Y|\mathcal{G}]</script></li>
+</ul>
+</li>
+<li><p>定义</p>
+<script type="math/tex; mode=display">
+E[X|Y] = E[X|\sigma(Y)]</script><ul>
+<li>性质 若XY是实随机变量，则存在一个函数h<script type="math/tex; mode=display">
+E[X|Y] = h(Y)</script></li>
+</ul>
+</li>
+</ul>
 
       
     </div>
@@ -383,6 +439,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/12/02/proba-ch7/" rel="prev" title="proba-ch7 随机过程">
+                proba-ch7 随机过程 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -441,7 +501,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-count">16</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
