@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="algo,programming," />
+  <meta name="keywords" content="datamining,programming," />
 
 
 
@@ -84,37 +84,55 @@
 
 
 
-<meta name="description" content="穷举法
-略
+<meta name="description" content="由于数据的快速膨胀，我们获得的数据往往带有大量的噪声，所以我们需要对其进行一定的预处理。
+主要包括数据清洗、数据集成、 数据转换和数据消减。
 
-贪心法
-略
+数据清洗
+填补遗漏的数据值、平滑有噪声数据、识别或除去异常值，以及解决不一致问题。
 
-分治法
-1234567891011def merge(A, B):    # merge two small solved problems into one.    return mergeddef divideConquer(S, divide, combine):    if len(S) == 1: return S    # divide a grand p">
+数据集成
+将来自多个数据源的数据合并到一起。
+
+数据转换
+主要是对数据进行规格化操作。
+
+数据消减
+缩小所挖掘数据的规模，但却不会影响(或基本不影响)最终的挖掘结果。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="面向考试常用编程思想 Method of programming facing to exams">
-<meta property="og:url" content="https://codeurJue.github.io/2016/11/27/Method-of-programming-facing-to-exams/index.html">
+<meta property="og:title" content="数据挖掘-预处理">
+<meta property="og:url" content="https://codeurJue.github.io/2016/12/06/datamining-pretreatment/index.html">
 <meta property="og:site_name" content="Jue's Blog">
-<meta property="og:description" content="穷举法
-略
+<meta property="og:description" content="由于数据的快速膨胀，我们获得的数据往往带有大量的噪声，所以我们需要对其进行一定的预处理。
+主要包括数据清洗、数据集成、 数据转换和数据消减。
 
-贪心法
-略
+数据清洗
+填补遗漏的数据值、平滑有噪声数据、识别或除去异常值，以及解决不一致问题。
 
-分治法
-1234567891011def merge(A, B):    # merge two small solved problems into one.    return mergeddef divideConquer(S, divide, combine):    if len(S) == 1: return S    # divide a grand p">
-<meta property="og:updated_time" content="2016-11-30T10:45:24.000Z">
+数据集成
+将来自多个数据源的数据合并到一起。
+
+数据转换
+主要是对数据进行规格化操作。
+
+数据消减
+缩小所挖掘数据的规模，但却不会影响(或基本不影响)最终的挖掘结果。">
+<meta property="og:updated_time" content="2016-12-08T20:29:26.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="面向考试常用编程思想 Method of programming facing to exams">
-<meta name="twitter:description" content="穷举法
-略
+<meta name="twitter:title" content="数据挖掘-预处理">
+<meta name="twitter:description" content="由于数据的快速膨胀，我们获得的数据往往带有大量的噪声，所以我们需要对其进行一定的预处理。
+主要包括数据清洗、数据集成、 数据转换和数据消减。
 
-贪心法
-略
+数据清洗
+填补遗漏的数据值、平滑有噪声数据、识别或除去异常值，以及解决不一致问题。
 
-分治法
-1234567891011def merge(A, B):    # merge two small solved problems into one.    return mergeddef divideConquer(S, divide, combine):    if len(S) == 1: return S    # divide a grand p">
+数据集成
+将来自多个数据源的数据合并到一起。
+
+数据转换
+主要是对数据进行规格化操作。
+
+数据消减
+缩小所挖掘数据的规模，但却不会影响(或基本不影响)最终的挖掘结果。">
 
 
 
@@ -142,13 +160,13 @@
 
 
 
-  <link rel="canonical" href="https://codeurJue.github.io/2016/11/27/Method-of-programming-facing-to-exams/"/>
+  <link rel="canonical" href="https://codeurJue.github.io/2016/12/06/datamining-pretreatment/"/>
 
 
 
 
 
-  <title> 面向考试常用编程思想 Method of programming facing to exams | Jue's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> 数据挖掘-预处理 | Jue's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -269,7 +287,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://codeurJue.github.io/2016/11/27/Method-of-programming-facing-to-exams/">
+  <link itemprop="mainEntityOfPage" href="https://codeurJue.github.io/2016/12/06/datamining-pretreatment/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Jue">
@@ -293,7 +311,7 @@
             
             
               
-                面向考试常用编程思想 Method of programming facing to exams
+                数据挖掘-预处理
               
             
           </h1>
@@ -306,8 +324,8 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-27T13:49:31+01:00">
-                2016-11-27
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-06T22:05:57+01:00">
+                2016-12-06
               </time>
             
 
@@ -360,23 +378,125 @@
       
 
       
-        <ol>
-<li><p>穷举法</p>
-<p>略</p>
+        <p>由于数据的快速膨胀，我们获得的数据往往带有大量的噪声，所以我们需要对其进行一定的预处理。</p>
+<p>主要包括数据清洗、数据集成、 数据转换和数据消减。</p>
+<ul>
+<li><p>数据清洗</p>
+<p>填补遗漏的数据值、平滑有噪声数据、识别或除去异常值，以及解决不一致问题。</p>
 </li>
-<li><p>贪心法</p>
-<p>略</p>
+<li><p>数据集成</p>
+<p>将来自多个数据源的数据合并到一起。</p>
 </li>
-<li><p>分治法</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">merge</span><span class="params">(A, B)</span>:</span></div><div class="line">    <span class="comment"># merge two small solved problems into one.</span></div><div class="line">    <span class="keyword">return</span> merged</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">divideConquer</span><span class="params">(S, divide, combine)</span>:</span></div><div class="line">    <span class="keyword">if</span> len(S) == <span class="number">1</span>: <span class="keyword">return</span> S</div><div class="line">    <span class="comment"># divide a grand problems</span></div><div class="line">    L, R = divide(S)</div><div class="line">    A = divideConquer(L, divide, combine)</div><div class="line">    B = divideConquer(R, divide, combine)</div><div class="line">    <span class="keyword">return</span> merge(A, B)</div></pre></td></tr></table></figure>
-<p>上面的情形只供参考，参数等视具体情况而定。</p>
+<li><p>数据转换</p>
+<p>主要是对数据进行规格化操作。</p>
 </li>
-<li><p>动态规划</p>
-<p>比较经典的就是背包问题。<a href="http://blog.csdn.net/littlethunder/article/details/26575417" target="_blank" rel="external">代码来源</a></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">bag</span><span class="params">(n,c,w,v)</span>:</span>  </div><div class="line">    res=[[<span class="number">-1</span> <span class="keyword">for</span> j <span class="keyword">in</span> range(c+<span class="number">1</span>)] <span class="keyword">for</span> i <span class="keyword">in</span> range(n+<span class="number">1</span>)]  </div><div class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(c+<span class="number">1</span>):  </div><div class="line">        res[<span class="number">0</span>][j]=<span class="number">0</span>  </div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,n+<span class="number">1</span>):  </div><div class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">1</span>,c+<span class="number">1</span>):  </div><div class="line">            res[i][j]=res[i<span class="number">-1</span>][j]  </div><div class="line">            <span class="keyword">if</span> j&gt;=w[i<span class="number">-1</span>] <span class="keyword">and</span> res[i][j]&lt;res[i<span class="number">-1</span>][j-w[i<span class="number">-1</span>]]+v[i<span class="number">-1</span>]:  </div><div class="line">                res[i][j]=res[i<span class="number">-1</span>][j-w[i<span class="number">-1</span>]]+v[i<span class="number">-1</span>]  </div><div class="line">    <span class="keyword">return</span> res  </div><div class="line">  </div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">show</span><span class="params">(n,c,w,res)</span>:</span>  </div><div class="line">    print(<span class="string">'最大价值为:'</span>,res[n][c])  </div><div class="line">    x=[<span class="keyword">False</span> <span class="keyword">for</span> i <span class="keyword">in</span> range(n)]  </div><div class="line">    j=c  </div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,n+<span class="number">1</span>):  </div><div class="line">        <span class="keyword">if</span> res[i][j]&gt;res[i<span class="number">-1</span>][j]:  </div><div class="line">            x[i<span class="number">-1</span>]=<span class="keyword">True</span>  </div><div class="line">            j-=w[i<span class="number">-1</span>]  </div><div class="line">    print(<span class="string">'选择的物品为:'</span>)  </div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(n):  </div><div class="line">        <span class="keyword">if</span> x[i]:  </div><div class="line">            print(<span class="string">'第'</span>,i,<span class="string">'个,'</span>,end=<span class="string">''</span>)  </div><div class="line">    print(<span class="string">''</span>)  </div><div class="line">  </div><div class="line"><span class="keyword">if</span> __name__==<span class="string">'__main__'</span>:  </div><div class="line">    n=<span class="number">5</span>  </div><div class="line">    c=<span class="number">10</span>  </div><div class="line">    w=[<span class="number">2</span>,<span class="number">2</span>,<span class="number">6</span>,<span class="number">5</span>,<span class="number">4</span>]  </div><div class="line">    v=[<span class="number">6</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">6</span>]  </div><div class="line">    res=bag(n,c,w,v)  </div><div class="line">    show(n,c,w,res)</div></pre></td></tr></table></figure>
-<p>​</p>
+<li><p>数据消减</p>
+<p>缩小所挖掘数据的规模，但却不会影响(或基本不影响)最终的挖掘结果。</p>
+<ul>
+<li>数据聚合</li>
+<li>消减维数</li>
+<li>数据压缩</li>
+<li>数据块消减</li>
+</ul>
+</li>
+</ul>
+<h1 id="数据清洗"><a href="#数据清洗" class="headerlink" title="数据清洗"></a>数据清洗</h1><ol>
+<li><p>处理空数据</p>
+<ul>
+<li>忽略该数据</li>
+<li>手工填补</li>
+<li>利用缺省填补</li>
+<li>利用均值填补</li>
+<li>利用同类别均值</li>
+<li>利用最可能的值<ul>
+<li>回归分析</li>
+<li>贝叶斯计算公式</li>
+</ul>
+</li>
+</ul>
+<p>​最后一种是最常用的。</p>
+</li>
+<li><p>噪声处理</p>
+<ul>
+<li>Bin方法 — 排序，分组，平滑处理（分组取均值、按边界等）</li>
+<li>聚类方法</li>
+<li>人机结合检查方法</li>
+<li>回归方法 — 借助回归曲线</li>
+</ul>
 </li>
 </ol>
+<h1 id="数据的集成与转换"><a href="#数据的集成与转换" class="headerlink" title="数据的集成与转换"></a>数据的集成与转换</h1><ol>
+<li><p>数据的集成处理</p>
+<p>几个问题：</p>
+<ul>
+<li><p>模式集成，例如：”custom_id”, “cum_num” 是不是同一个模式？</p>
+</li>
+<li><p>冗余问题，若一个属性能从其他属性推算出来，那么它是冗余的。</p>
+<p>我们可以通过相关系数的推算来确定：</p>
+<script type="math/tex; mode=display">
+r_{A,B} = \frac{\sum{A-\bar{A}}}{(n-1)\sigma_A \sigma_B}</script></li>
+<li><p>数据值冲突检测与消除，比如单位不同，语意偏差。</p>
+</li>
+</ul>
+</li>
+<li><p>数据的转化处理</p>
+<ol>
+<li><p>平滑处理，bin、聚类、回归</p>
+</li>
+<li><p>合计处理，对数据进行总结合计操作。</p>
+</li>
+<li><p>数据泛化处理，例如：年龄映射到老年、中老年、青年等。</p>
+</li>
+<li><p>规格化，例如：将成绩(可能总分是10分、20分或100分)折算成4分制绩点。</p>
+<ul>
+<li><p>最大最小规格化方法 — 一种线性规格化，绩点的处理属于这种</p>
+</li>
+<li><p>零均值规格化方法</p>
+<script type="math/tex; mode=display">
+v' = \frac{v - \bar{v}}{\sigma}</script></li>
+<li><p>十基数变换规格化方法</p>
+<script type="math/tex; mode=display">
+v' = \frac{v}{10^j}</script></li>
+</ul>
+</li>
+<li><p>属性构造，根据已有的属性构造新的属性，例如根据高宽生成面积。</p>
+</li>
+</ol>
+</li>
+</ol>
+<h1 id="数据消减"><a href="#数据消减" class="headerlink" title="数据消减"></a>数据消减</h1><p>数据消减技术正是用于帮助从原有庞大数据集中获得一个精简的数据集合，并使这一精简数据集保持原有数据集的完整性，这样在精简数据集上进行数据挖掘显然效率 更高，并且挖掘出来的结果与使用原有数据集所获得结果基本相同。</p>
+<ol>
+<li><p>数据立方合计</p>
+<p>以三个轴，生成一个数据立方。</p>
+<p>每一层次的数据立方都是对其低一层数据的进一步抽象，因此它是一种有效的数据消减。</p>
+</li>
+<li><p>维数消减</p>
+</li>
+<li><p>数据压缩</p>
+<ul>
+<li>小波分析</li>
+<li>主要素分析</li>
+</ul>
+</li>
+<li><p>数据块消减</p>
+<ul>
+<li>回归与线性对数模型</li>
+<li>直方图</li>
+<li>聚类</li>
+<li>采样</li>
+</ul>
+</li>
+<li><p>离散化与概念层次生成</p>
+<ul>
+<li>bin方法</li>
+<li>直方图</li>
+<li>聚类</li>
+<li>基于熵的离散化</li>
+<li>自然划分分段法</li>
+</ul>
+</li>
+</ol>
+<h1 id="自动生成概念层次树"><a href="#自动生成概念层次树" class="headerlink" title="自动生成概念层次树"></a>自动生成概念层次树</h1><p>对于数值属性，可以利用划分规则、直方图分析和聚类分析方法对数据进行分段并构造相应的概念层次树；而对于类别属性，则可以利用概念层次树所涉及属性的不同值个数，构造相应的概念层次树。 </p>
 
       
     </div>
@@ -400,7 +520,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/algo/" rel="tag"># algo</a>
+            <a href="/tags/datamining/" rel="tag"># datamining</a>
           
             <a href="/tags/programming/" rel="tag"># programming</a>
           
@@ -411,8 +531,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/27/Note-of-learning-Algo/" rel="next" title="算法笔记 Note of learning Algo">
-                <i class="fa fa-chevron-left"></i> 算法笔记 Note of learning Algo
+              <a href="/2016/12/06/Note-of-datamining/" rel="next" title="数据挖掘笔记 Note of datamining">
+                <i class="fa fa-chevron-left"></i> 数据挖掘笔记 Note of datamining
               </a>
             
           </div>
@@ -421,8 +541,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/11/27/compression/" rel="prev" title="编码解码 compression">
-                编码解码 compression <i class="fa fa-chevron-right"></i>
+              <a href="/2016/12/08/datamining-qualitative-induction/" rel="prev" title="数据挖掘-定性归纳">
+                数据挖掘-定性归纳 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -470,8 +590,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -524,6 +653,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#数据清洗"><span class="nav-number">1.</span> <span class="nav-text">数据清洗</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据的集成与转换"><span class="nav-number">2.</span> <span class="nav-text">数据的集成与转换</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据消减"><span class="nav-number">3.</span> <span class="nav-text">数据消减</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#自动生成概念层次树"><span class="nav-number">4.</span> <span class="nav-text">自动生成概念层次树</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
