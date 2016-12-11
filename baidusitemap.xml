@@ -3,6 +3,50 @@
 
 
     
+  <url>
+    <loc>https://codeurJue.github.io/2016/12/10/management-of-the-firm/</loc>
+    <lastmod>2016-12-11T18:26:41.000Z</lastmod>
+    <data>
+        <display>
+        <title>企业管理复习笔记</title>
+        <pubTime>2016-12-10T16:48:37.000Z</pubTime>
+        
+        <tag>management</tag>
+         
+        <tag>firm</tag>
+         
+         
+           
+             
+              <breadCrumb title="other" url="https://codeurJue.github.io/categories/other/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://codeurJue.github.io/2016/12/01/proba-ch5/</loc>
+    <lastmod>2016-12-11T11:05:17.000Z</lastmod>
+    <data>
+        <display>
+        <title>proba-ch5 数列和随机变量系列</title>
+        <pubTime>2016-12-01T22:14:28.000Z</pubTime>
+        
+        <tag>math</tag>
+         
+        <tag>probability</tag>
+         
+         
+           
+             
+              <breadCrumb title="math" url="https://codeurJue.github.io/categories/math/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
     
   <url>
     <loc>https://codeurJue.github.io/2016/12/08/datamining-qualitative-induction/</loc>
@@ -12,9 +56,9 @@
         <title>数据挖掘-定性归纳</title>
         <pubTime>2016-12-08T20:31:50.000Z</pubTime>
         
-        <tag>programming</tag>
-         
         <tag>datamining</tag>
+         
+        <tag>programming</tag>
          
         <tag>qualitative-induction</tag>
          
@@ -39,9 +83,9 @@
         <title>数据挖掘-预处理</title>
         <pubTime>2016-12-06T21:05:57.000Z</pubTime>
         
-        <tag>programming</tag>
-         
         <tag>datamining</tag>
+         
+        <tag>programming</tag>
          
          
            
@@ -105,28 +149,6 @@
         <display>
         <title>概率论笔记 Note of probability</title>
         <pubTime>2016-11-30T18:35:53.000Z</pubTime>
-        
-        <tag>math</tag>
-         
-        <tag>probability</tag>
-         
-         
-           
-             
-              <breadCrumb title="math" url="https://codeurJue.github.io/categories/math/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://codeurJue.github.io/2016/12/01/proba-ch5/</loc>
-    <lastmod>2016-12-02T21:11:45.000Z</lastmod>
-    <data>
-        <display>
-        <title>proba-ch5 数列和随机变量系列</title>
-        <pubTime>2016-12-01T22:14:28.000Z</pubTime>
         
         <tag>math</tag>
          
