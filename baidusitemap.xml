@@ -4,21 +4,21 @@
 
     
   <url>
-    <loc>https://codeurJue.github.io/2016/12/13/QuadTree/</loc>
-    <lastmod>2016-12-13T18:27:37.000Z</lastmod>
+    <loc>http://lorrin.cn/2016/12/06/participe-present-et-gerondif/</loc>
+    <lastmod>2016-12-13T21:28:32.000Z</lastmod>
     <data>
         <display>
-        <title>四叉树 QuadTree</title>
-        <pubTime>2016-12-13T17:45:37.000Z</pubTime>
+        <title>participe présent et gérondif</title>
+        <pubTime>2016-12-06T11:31:56.000Z</pubTime>
         
-        <tag>algo</tag>
+        <tag>francais</tag>
          
-        <tag>data-structure</tag>
+        <tag>language</tag>
          
          
            
              
-              <breadCrumb title="programming" url="https://codeurJue.github.io/categories/programming/"/>
+              <breadCrumb title="francais" url="http://lorrin.cn/categories/francais/"/>
           
         </display>
     </data>
@@ -26,31 +26,8 @@
 
     
   <url>
-    <loc>https://codeurJue.github.io/2016/12/12/machine-learning/</loc>
-    <lastmod>2016-12-12T21:07:40.000Z</lastmod>
-    <data>
-        <display>
-        <title>machine learning</title>
-        <pubTime>2016-12-12T21:04:47.000Z</pubTime>
-        
-        <tag>machine-learning</tag>
-         
-         
-           
-             
-              <breadCrumb title="programming" url="https://codeurJue.github.io/categories/programming/"/>
-          
-             
-              <breadCrumb title="unfinished" url="https://codeurJue.github.io/categories/programming/unfinished/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://codeurJue.github.io/2016/12/10/management-of-the-firm/</loc>
-    <lastmod>2016-12-11T18:59:16.000Z</lastmod>
+    <loc>http://lorrin.cn/2016/12/10/management-of-the-firm/</loc>
+    <lastmod>2016-12-13T21:26:46.000Z</lastmod>
     <data>
         <display>
         <title>企业管理复习笔记</title>
@@ -63,7 +40,7 @@
          
            
              
-              <breadCrumb title="other" url="https://codeurJue.github.io/categories/other/"/>
+              <breadCrumb title="other" url="http://lorrin.cn/categories/other/"/>
           
         </display>
     </data>
@@ -71,7 +48,52 @@
 
     
   <url>
-    <loc>https://codeurJue.github.io/2016/12/01/proba-ch5/</loc>
+    <loc>http://lorrin.cn/2016/12/13/QuadTree/</loc>
+    <lastmod>2016-12-13T21:20:12.000Z</lastmod>
+    <data>
+        <display>
+        <title>四叉树 QuadTree</title>
+        <pubTime>2016-12-13T17:45:37.000Z</pubTime>
+        
+        <tag>algo</tag>
+         
+        <tag>data-structure</tag>
+         
+         
+           
+             
+              <breadCrumb title="programming" url="http://lorrin.cn/categories/programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://lorrin.cn/2016/12/12/machine-learning/</loc>
+    <lastmod>2016-12-12T21:07:40.000Z</lastmod>
+    <data>
+        <display>
+        <title>machine learning</title>
+        <pubTime>2016-12-12T21:04:47.000Z</pubTime>
+        
+        <tag>machine-learning</tag>
+         
+         
+           
+             
+              <breadCrumb title="programming" url="http://lorrin.cn/categories/programming/"/>
+          
+             
+              <breadCrumb title="unfinished" url="http://lorrin.cn/categories/programming/unfinished/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://lorrin.cn/2016/12/01/proba-ch5/</loc>
     <lastmod>2016-12-11T11:05:17.000Z</lastmod>
     <data>
         <display>
@@ -85,7 +107,7 @@
          
            
              
-              <breadCrumb title="math" url="https://codeurJue.github.io/categories/math/"/>
+              <breadCrumb title="math" url="http://lorrin.cn/categories/math/"/>
           
         </display>
     </data>
@@ -94,7 +116,7 @@
     
     
   <url>
-    <loc>https://codeurJue.github.io/2016/12/08/datamining-qualitative-induction/</loc>
+    <loc>http://lorrin.cn/2016/12/08/datamining-qualitative-induction/</loc>
     <lastmod>2016-12-08T22:09:10.000Z</lastmod>
     <data>
         <display>
@@ -110,10 +132,10 @@
          
            
              
-              <breadCrumb title="programming" url="https://codeurJue.github.io/categories/programming/"/>
+              <breadCrumb title="programming" url="http://lorrin.cn/categories/programming/"/>
           
              
-              <breadCrumb title="unfinished" url="https://codeurJue.github.io/categories/programming/unfinished/"/>
+              <breadCrumb title="unfinished" url="http://lorrin.cn/categories/programming/unfinished/"/>
           
         </display>
     </data>
@@ -121,7 +143,7 @@
 
     
   <url>
-    <loc>https://codeurJue.github.io/2016/12/06/datamining-pretreatment/</loc>
+    <loc>http://lorrin.cn/2016/12/06/datamining-pretreatment/</loc>
     <lastmod>2016-12-08T20:29:26.000Z</lastmod>
     <data>
         <display>
@@ -135,7 +157,7 @@
          
            
              
-              <breadCrumb title="programming" url="https://codeurJue.github.io/categories/programming/"/>
+              <breadCrumb title="programming" url="http://lorrin.cn/categories/programming/"/>
           
         </display>
     </data>
@@ -143,7 +165,7 @@
 
     
   <url>
-    <loc>https://codeurJue.github.io/2016/12/06/Note-of-datamining/</loc>
+    <loc>http://lorrin.cn/2016/12/06/Note-of-datamining/</loc>
     <lastmod>2016-12-06T21:04:53.000Z</lastmod>
     <data>
         <display>
@@ -155,10 +177,10 @@
          
            
              
-              <breadCrumb title="programming" url="https://codeurJue.github.io/categories/programming/"/>
+              <breadCrumb title="programming" url="http://lorrin.cn/categories/programming/"/>
           
              
-              <breadCrumb title="unfinished" url="https://codeurJue.github.io/categories/programming/unfinished/"/>
+              <breadCrumb title="unfinished" url="http://lorrin.cn/categories/programming/unfinished/"/>
           
         </display>
     </data>
@@ -166,29 +188,7 @@
 
     
   <url>
-    <loc>https://codeurJue.github.io/2016/12/06/participe-present-et-gerondif/</loc>
-    <lastmod>2016-12-06T11:39:59.000Z</lastmod>
-    <data>
-        <display>
-        <title>participe présent et gérondif</title>
-        <pubTime>2016-12-06T11:31:56.000Z</pubTime>
-        
-        <tag>francais</tag>
-         
-        <tag>language</tag>
-         
-         
-           
-             
-              <breadCrumb title="francais" url="https://codeurJue.github.io/categories/francais/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://codeurJue.github.io/2016/11/30/Note-of-probability/</loc>
+    <loc>http://lorrin.cn/2016/11/30/Note-of-probability/</loc>
     <lastmod>2016-12-05T14:16:49.000Z</lastmod>
     <data>
         <display>
@@ -202,7 +202,7 @@
          
            
              
-              <breadCrumb title="math" url="https://codeurJue.github.io/categories/math/"/>
+              <breadCrumb title="math" url="http://lorrin.cn/categories/math/"/>
           
         </display>
     </data>
@@ -210,7 +210,7 @@
 
     
   <url>
-    <loc>https://codeurJue.github.io/2016/12/02/proba-ch6/</loc>
+    <loc>http://lorrin.cn/2016/12/02/proba-ch6/</loc>
     <lastmod>2016-12-02T21:09:54.000Z</lastmod>
     <data>
         <display>
@@ -224,7 +224,7 @@
          
            
              
-              <breadCrumb title="math" url="https://codeurJue.github.io/categories/math/"/>
+              <breadCrumb title="math" url="http://lorrin.cn/categories/math/"/>
           
         </display>
     </data>
@@ -232,7 +232,7 @@
 
     
   <url>
-    <loc>https://codeurJue.github.io/2016/12/01/proba-ch4/</loc>
+    <loc>http://lorrin.cn/2016/12/01/proba-ch4/</loc>
     <lastmod>2016-12-01T22:12:24.000Z</lastmod>
     <data>
         <display>
@@ -248,7 +248,7 @@
          
            
              
-              <breadCrumb title="math" url="https://codeurJue.github.io/categories/math/"/>
+              <breadCrumb title="math" url="http://lorrin.cn/categories/math/"/>
           
         </display>
     </data>
@@ -256,7 +256,7 @@
 
     
   <url>
-    <loc>https://codeurJue.github.io/2016/12/01/proba-ch3/</loc>
+    <loc>http://lorrin.cn/2016/12/01/proba-ch3/</loc>
     <lastmod>2016-12-01T15:28:37.000Z</lastmod>
     <data>
         <display>
@@ -270,7 +270,7 @@
          
            
              
-              <breadCrumb title="math" url="https://codeurJue.github.io/categories/math/"/>
+              <breadCrumb title="math" url="http://lorrin.cn/categories/math/"/>
           
         </display>
     </data>
@@ -278,7 +278,7 @@
 
     
   <url>
-    <loc>https://codeurJue.github.io/2016/12/01/proba-ch2/</loc>
+    <loc>http://lorrin.cn/2016/12/01/proba-ch2/</loc>
     <lastmod>2016-12-01T13:44:00.000Z</lastmod>
     <data>
         <display>
@@ -294,7 +294,7 @@
          
            
              
-              <breadCrumb title="math" url="https://codeurJue.github.io/categories/math/"/>
+              <breadCrumb title="math" url="http://lorrin.cn/categories/math/"/>
           
         </display>
     </data>
@@ -302,7 +302,7 @@
 
     
   <url>
-    <loc>https://codeurJue.github.io/2016/12/01/proba-ch1/</loc>
+    <loc>http://lorrin.cn/2016/12/01/proba-ch1/</loc>
     <lastmod>2016-12-01T11:19:38.000Z</lastmod>
     <data>
         <display>
@@ -316,7 +316,7 @@
          
            
              
-              <breadCrumb title="math" url="https://codeurJue.github.io/categories/math/"/>
+              <breadCrumb title="math" url="http://lorrin.cn/categories/math/"/>
           
         </display>
     </data>
@@ -324,7 +324,7 @@
 
     
   <url>
-    <loc>https://codeurJue.github.io/2016/11/27/graph/</loc>
+    <loc>http://lorrin.cn/2016/11/27/graph/</loc>
     <lastmod>2016-12-01T08:47:54.000Z</lastmod>
     <data>
         <display>
@@ -340,10 +340,10 @@
          
            
              
-              <breadCrumb title="programming" url="https://codeurJue.github.io/categories/programming/"/>
+              <breadCrumb title="programming" url="http://lorrin.cn/categories/programming/"/>
           
              
-              <breadCrumb title="unfinished" url="https://codeurJue.github.io/categories/programming/unfinished/"/>
+              <breadCrumb title="unfinished" url="http://lorrin.cn/categories/programming/unfinished/"/>
           
         </display>
     </data>
@@ -351,7 +351,7 @@
 
     
   <url>
-    <loc>https://codeurJue.github.io/2016/11/30/hexo-with-latex/</loc>
+    <loc>http://lorrin.cn/2016/11/30/hexo-with-latex/</loc>
     <lastmod>2016-11-30T21:45:34.000Z</lastmod>
     <data>
         <display>
@@ -369,7 +369,7 @@
          
            
              
-              <breadCrumb title="other" url="https://codeurJue.github.io/categories/other/"/>
+              <breadCrumb title="other" url="http://lorrin.cn/categories/other/"/>
           
         </display>
     </data>
@@ -377,7 +377,7 @@
 
     
   <url>
-    <loc>https://codeurJue.github.io/2016/11/30/projet-enjeu-plugin-chrome-101/</loc>
+    <loc>http://lorrin.cn/2016/11/30/projet-enjeu-plugin-chrome-101/</loc>
     <lastmod>2016-11-30T11:19:02.000Z</lastmod>
     <data>
         <display>
@@ -391,7 +391,7 @@
          
            
              
-              <breadCrumb title="programming" url="https://codeurJue.github.io/categories/programming/"/>
+              <breadCrumb title="programming" url="http://lorrin.cn/categories/programming/"/>
           
         </display>
     </data>
@@ -399,7 +399,7 @@
 
     
   <url>
-    <loc>https://codeurJue.github.io/2016/11/27/Note-of-learning-Algo/</loc>
+    <loc>http://lorrin.cn/2016/11/27/Note-of-learning-Algo/</loc>
     <lastmod>2016-11-30T10:56:38.000Z</lastmod>
     <data>
         <display>
@@ -413,7 +413,7 @@
          
            
              
-              <breadCrumb title="programming" url="https://codeurJue.github.io/categories/programming/"/>
+              <breadCrumb title="programming" url="http://lorrin.cn/categories/programming/"/>
           
         </display>
     </data>
@@ -421,7 +421,7 @@
 
     
   <url>
-    <loc>https://codeurJue.github.io/2016/11/27/compression/</loc>
+    <loc>http://lorrin.cn/2016/11/27/compression/</loc>
     <lastmod>2016-11-30T10:46:12.000Z</lastmod>
     <data>
         <display>
@@ -437,7 +437,7 @@
          
            
              
-              <breadCrumb title="programming" url="https://codeurJue.github.io/categories/programming/"/>
+              <breadCrumb title="programming" url="http://lorrin.cn/categories/programming/"/>
           
         </display>
     </data>
@@ -445,7 +445,7 @@
 
     
   <url>
-    <loc>https://codeurJue.github.io/2016/11/27/Method-of-programming-facing-to-exams/</loc>
+    <loc>http://lorrin.cn/2016/11/27/Method-of-programming-facing-to-exams/</loc>
     <lastmod>2016-11-30T10:45:24.000Z</lastmod>
     <data>
         <display>
@@ -459,7 +459,7 @@
          
            
              
-              <breadCrumb title="programming" url="https://codeurJue.github.io/categories/programming/"/>
+              <breadCrumb title="programming" url="http://lorrin.cn/categories/programming/"/>
           
         </display>
     </data>
@@ -467,7 +467,7 @@
 
     
   <url>
-    <loc>https://codeurJue.github.io/2016/11/27/complexity/</loc>
+    <loc>http://lorrin.cn/2016/11/27/complexity/</loc>
     <lastmod>2016-11-30T10:43:08.000Z</lastmod>
     <data>
         <display>
@@ -483,7 +483,7 @@
          
            
              
-              <breadCrumb title="programming" url="https://codeurJue.github.io/categories/programming/"/>
+              <breadCrumb title="programming" url="http://lorrin.cn/categories/programming/"/>
           
         </display>
     </data>
