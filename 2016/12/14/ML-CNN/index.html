@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="math,probability," />
+  <meta name="keywords" content="machine-learning,programming,algo,CNN," />
 
 
 
@@ -84,52 +84,55 @@
 
 
 
-<meta name="description" content="几种常见分布
- 若不在区间内，f=0
+<meta name="description" content="笔记向
+目前来说，深度学习中比较火的两大类是卷积神经网络(CNN)和递归神经网络(RNN)。
+全连接层全连接层一般由两个部分— 线性部分和非线性部分组成。
+线性部分输入：
 
-loi uniforme
+x = [x_0,x_1,...,x_n]^T输出：
 
-f(x)=\frac{1}{b-a} si\ x \in [a,b]
-loi exponentielle
+z = [z_0,z_1,...,z_m]^T参数为一个矩阵
 
-f(x) = \lambda e^{-\lambda x} si\ x \ge 0 \\
-E[X] = \frac{1}{\lambda}, Var(X) = \lambda^2
-Loi de weibull
+W_{m \times n}偏执项：
 
-f(x)">
+b = [b_0,b_1,...,b_m]^T于是：
+
+W * x">
 <meta property="og:type" content="article">
-<meta property="og:title" content="proba-ch3 实域概率和特征方程">
-<meta property="og:url" content="http://lorrin.cn/2016/12/01/proba-ch3/index.html">
+<meta property="og:title" content="ML CNN">
+<meta property="og:url" content="http://lorrin.cn/2016/12/14/ML-CNN/index.html">
 <meta property="og:site_name" content="Jue's Blog">
-<meta property="og:description" content="几种常见分布
- 若不在区间内，f=0
+<meta property="og:description" content="笔记向
+目前来说，深度学习中比较火的两大类是卷积神经网络(CNN)和递归神经网络(RNN)。
+全连接层全连接层一般由两个部分— 线性部分和非线性部分组成。
+线性部分输入：
 
-loi uniforme
+x = [x_0,x_1,...,x_n]^T输出：
 
-f(x)=\frac{1}{b-a} si\ x \in [a,b]
-loi exponentielle
+z = [z_0,z_1,...,z_m]^T参数为一个矩阵
 
-f(x) = \lambda e^{-\lambda x} si\ x \ge 0 \\
-E[X] = \frac{1}{\lambda}, Var(X) = \lambda^2
-Loi de weibull
+W_{m \times n}偏执项：
 
-f(x)">
-<meta property="og:updated_time" content="2016-12-01T15:28:37.000Z">
+b = [b_0,b_1,...,b_m]^T于是：
+
+W * x">
+<meta property="og:updated_time" content="2016-12-15T15:36:49.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="proba-ch3 实域概率和特征方程">
-<meta name="twitter:description" content="几种常见分布
- 若不在区间内，f=0
+<meta name="twitter:title" content="ML CNN">
+<meta name="twitter:description" content="笔记向
+目前来说，深度学习中比较火的两大类是卷积神经网络(CNN)和递归神经网络(RNN)。
+全连接层全连接层一般由两个部分— 线性部分和非线性部分组成。
+线性部分输入：
 
-loi uniforme
+x = [x_0,x_1,...,x_n]^T输出：
 
-f(x)=\frac{1}{b-a} si\ x \in [a,b]
-loi exponentielle
+z = [z_0,z_1,...,z_m]^T参数为一个矩阵
 
-f(x) = \lambda e^{-\lambda x} si\ x \ge 0 \\
-E[X] = \frac{1}{\lambda}, Var(X) = \lambda^2
-Loi de weibull
+W_{m \times n}偏执项：
 
-f(x)">
+b = [b_0,b_1,...,b_m]^T于是：
+
+W * x">
 
 
 
@@ -157,13 +160,13 @@ f(x)">
 
 
 
-  <link rel="canonical" href="http://lorrin.cn/2016/12/01/proba-ch3/"/>
+  <link rel="canonical" href="http://lorrin.cn/2016/12/14/ML-CNN/"/>
 
 
 
 
 
-  <title> proba-ch3 实域概率和特征方程 | Jue's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> ML CNN | Jue's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -284,7 +287,7 @@ f(x)">
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://lorrin.cn/2016/12/01/proba-ch3/">
+  <link itemprop="mainEntityOfPage" href="http://lorrin.cn/2016/12/14/ML-CNN/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Jue">
@@ -308,7 +311,7 @@ f(x)">
             
             
               
-                proba-ch3 实域概率和特征方程
+                ML CNN
               
             
           </h1>
@@ -321,8 +324,8 @@ f(x)">
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-01T14:54:10+01:00">
-                2016-12-01
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-14T10:34:43+01:00">
+                2016-12-14
               </time>
             
 
@@ -340,8 +343,19 @@ f(x)">
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/math/" itemprop="url" rel="index">
-                    <span itemprop="name">math</span>
+                  <a href="/categories/programming/" itemprop="url" rel="index">
+                    <span itemprop="name">programming</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/programming/unfinished/" itemprop="url" rel="index">
+                    <span itemprop="name">unfinished</span>
                   </a>
                 </span>
 
@@ -375,95 +389,32 @@ f(x)">
       
 
       
-        <ol>
-<li><p>几种常见分布</p>
-<p> 若不在区间内，f=0</p>
+        <p>笔记向</p>
+<p>目前来说，深度学习中比较火的两大类是卷积神经网络(CNN)和递归神经网络(RNN)。</p>
+<h1 id="全连接层"><a href="#全连接层" class="headerlink" title="全连接层"></a>全连接层</h1><p>全连接层一般由两个部分— 线性部分和非线性部分组成。</p>
+<h2 id="线性部分"><a href="#线性部分" class="headerlink" title="线性部分"></a>线性部分</h2><p>输入：</p>
+<script type="math/tex; mode=display">
+x = [x_0,x_1,...,x_n]^T</script><p>输出：</p>
+<script type="math/tex; mode=display">
+z = [z_0,z_1,...,z_m]^T</script><p>参数为一个矩阵</p>
+<script type="math/tex; mode=display">
+W_{m \times n}</script><p>偏执项：</p>
+<script type="math/tex; mode=display">
+b = [b_0,b_1,...,b_m]^T</script><p>于是：</p>
+<script type="math/tex; mode=display">
+W * x + b = z</script><h2 id="非线性部分"><a href="#非线性部分" class="headerlink" title="非线性部分"></a>非线性部分</h2><p>根据我们线性代数的知识，如果一系列变换都是线形变换，那么我们可以使用一次线形变换来代替之前的所有变换。也就是说，若没有非线性部分，那么<strong>多元</strong>神经元在这里也就没有意义了(因为只需要一层神经元就可以代替其他所有的)。</p>
+<p>当然，非线性部分也不是为了存在而存在的，用途我们会在后面有更深的理解。</p>
+<p>非线性部分的模型也不是唯一的，但是我们常常使用以下几种。</p>
 <ol>
-<li><p>loi uniforme</p>
+<li><p>sigmoid</p>
+<p>记得就在前几天，在数理统计的书上也看到了这个函数— sigmoid。</p>
+<p>先写出它的形式：</p>
 <script type="math/tex; mode=display">
-f(x)=\frac{1}{b-a} si\ x \in [a,b]</script></li>
-<li><p>loi exponentielle</p>
-<script type="math/tex; mode=display">
-f(x) = \lambda e^{-\lambda x} si\ x \ge 0 \\
-E[X] = \frac{1}{\lambda}, Var(X) = \lambda^2</script></li>
-<li><p>Loi de weibull</p>
-<script type="math/tex; mode=display">
-f(x) = \alpha \lambda^\alpha x^{\alpha-1}e^{-(\lambda x)^\alpha} si\ x \ge 0\\
-E[X] = \frac{\Gamma(1+1/\alpha)}{\lambda}, Var(X) = \frac{\Gamma(1+2/\alpha)}{\lambda^2}</script></li>
-<li><p>loi gamma</p>
-<script type="math/tex; mode=display">
-f(x) = \frac{\lambda}{\Gamma(p)}(\lambda x)^{p-1}e^{-\lambda x}\\
-E[X] = \frac{p}{\lambda}, Var(X) = \frac{p}{\lambda^2}</script></li>
-<li><p>loi normale</p>
-<script type="math/tex; mode=display">
-f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp[-\frac{(x-m)^2}{2\sigma^2}], x \in R\\
-E[X] = m, Var(X) = \sigma^2</script></li>
-<li><p>Loi lognormale</p>
-<script type="math/tex; mode=display">
-f(x) = \frac{1}{\sqrt{2\pi}\sigma x}exp[-\frac{(\ln x-m)^2}{2\sigma^2}], x \ge 0 \\
-E[X] = e^{m+\sigma^2/2}, Var(X) = e^{2m+\sigma^2}(e^{\sigma^@}-1)</script></li>
-<li><p>Loi du $ \chi^2 $</p>
-<script type="math/tex; mode=display">
-X = U_1^2+...+U_n^2 \\
-U_i\ est\ de\ loi\ \mathcal{N}(0,1) \\
-E[X] = n, Var(X) = 2n</script></li>
-<li><p>Loi de Student</p>
-<script type="math/tex; mode=display">
-X = \frac{U}{\sqrt{\frac{Z}{n}}} \\
-U\ suit\ la\ loi\ normale\ \mathcal{N}(0,1) \\
-Z\text{ est independante de U et suit la loi du }\chi^2\text{ a n degres de liberte}</script></li>
-</ol>
+f(x) = \frac{1}{1+e^{-x}}</script><p>这个函数把一个取值在R上的变量，变成了一个取值在(0, 1)上的变量。</p>
 </li>
-<li><p>特征函数</p>
+<li><p>双曲正切</p>
 <script type="math/tex; mode=display">
-\varphi_X: \mathbb{R^N} \rightarrow \mathbb{C} \\
-t \rightarrow \varphi_X(t) = E[e^{i<t,X>}] = \int_{\mathbb{R}^N}{e^{i<t,X>}P_X(dx)}</script><p>我们说特征函数是对X进行基于PX的傅立叶变换 = =好绕</p>
-<p>若PX存在概率密度 $f \in L^1$</p>
-<script type="math/tex; mode=display">
-\varphi_X(t) = \int_{\mathbb{R}^N}{e^{i<t,X>}f(x)dx}</script><ul>
-<li><p>性质</p>
-<ul>
-<li><script type="math/tex; mode=display">
-\forall t \in \mathbb{R}^N, |\varphi_X(t)| \le 1=> \varphi_X(0) = 1</script><script type="math/tex; mode=display">
-\varphi_{\lambda X+a}(t) = e^{iat}\varphi_X(\lambda t)</script><script type="math/tex; mode=display">
-\varphi_X 是一个半正函数，即 \\
-\forall z_1,...,z_n\in \mathbb{C}, \sum_{1 \le j, k\le n}{z_j \varphi_X(t_j-t_k)\bar{z_k}} \ge 0</script></li>
-</ul>
-</li>
-<li><p>其他性质</p>
-<ul>
-<li><p>特征函数连续</p>
-</li>
-<li><p>PX以lebesgue测度绝对连续，则</p>
-</li>
-<li><script type="math/tex; mode=display">
-\lim_{|t|\rightarrow \infty}{\varphi_X(t)} = 0</script></li>
-<li><p>XY，它们拥有相同的P，当且仅当</p>
-</li>
-<li><script type="math/tex; mode=display">
-\varphi_X=\varphi_Y</script></li>
-<li><p>逆变换</p>
-</li>
-<li><script type="math/tex; mode=display">
-\forall x \in \mathbb{R}^N, f(x)=\frac{1}{(2\pi)^N}\int_{\mathbb{R}^N}{e^{-i<t,X>}\varphi_X(t)}dt</script></li>
-</ul>
-</li>
-<li><p>特征方程和独立性</p>
-<ul>
-<li><p>定理</p>
-<script type="math/tex; mode=display">
-X_1,...,X_N \text{ 是独立的，当且仅当它们的特征方程满足：} \\
-\forall t = (t_1,...,t_N) \in \mathbb{R}^N; \varphi_X(t) = \prod_{k=1}^{N}{\varphi_{X_k}(t_k) } \\
-where\ X = (X_1,...,X_N)</script></li>
-<li><p>性质</p>
-<script type="math/tex; mode=display">
-X_1,...,X_n independants, P_{X_1},...,P_{X_N}. \\
-\text{La loi de } \sum{X_i} \text{est le produit de concolution } \prod{P_{X_i}} \\
-\text{Pour fonction caracteristique } \sum{\varphi_{X_i}} \text{definie par} \\
-\forall t \in \mathbb{R}^N; \varphi_{X+...+X_n}(t) = \prod_{i=1}^{n}{\varphi_{X_i}(t) }</script></li>
-</ul>
-</li>
-</ul>
+f(x) = \frac{e^x - e^{-x}}{e^x+e^{-x}}</script><p>它的取值范围是(-1,1)。可以看出，它是有正有负的，而sigmoid是全为正的。</p>
 </li>
 </ol>
 
@@ -489,9 +440,13 @@ X_1,...,X_n independants, P_{X_1},...,P_{X_N}. \\
       
         <div class="post-tags">
           
-            <a href="/tags/math/" rel="tag"># math</a>
+            <a href="/tags/machine-learning/" rel="tag"># machine-learning</a>
           
-            <a href="/tags/probability/" rel="tag"># probability</a>
+            <a href="/tags/programming/" rel="tag"># programming</a>
+          
+            <a href="/tags/algo/" rel="tag"># algo</a>
+          
+            <a href="/tags/CNN/" rel="tag"># CNN</a>
           
         </div>
       
@@ -500,8 +455,8 @@ X_1,...,X_n independants, P_{X_1},...,P_{X_N}. \\
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/12/01/proba-ch2/" rel="next" title="proba-ch2 随机变量">
-                <i class="fa fa-chevron-left"></i> proba-ch2 随机变量
+              <a href="/2016/12/13/QuadTree/" rel="next" title="四叉树 QuadTree">
+                <i class="fa fa-chevron-left"></i> 四叉树 QuadTree
               </a>
             
           </div>
@@ -509,10 +464,6 @@ X_1,...,X_n independants, P_{X_1},...,P_{X_N}. \\
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/12/01/proba-ch4/" rel="prev" title="proba-ch4 高斯向量">
-                proba-ch4 高斯向量 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -559,8 +510,17 @@ X_1,...,X_n independants, P_{X_1},...,P_{X_N}. \\
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -613,6 +573,22 @@ X_1,...,X_n independants, P_{X_1},...,P_{X_N}. \\
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#全连接层"><span class="nav-number">1.</span> <span class="nav-text">全连接层</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#线性部分"><span class="nav-number">1.1.</span> <span class="nav-text">线性部分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#非线性部分"><span class="nav-number">1.2.</span> <span class="nav-text">非线性部分</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
