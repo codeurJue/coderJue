@@ -4,12 +4,86 @@
 
     
   <url>
+    <loc>http://lorrin.cn/2016/12/26/datamining-class-pred/</loc>
+    <lastmod>2016-12-26T15:52:42.000Z</lastmod>
+    <data>
+        <display>
+        <title>数据挖掘-分类与预测</title>
+        <pubTime>2016-12-26T06:56:57.000Z</pubTime>
+        
+        <tag>programming</tag>
+         
+        <tag>datamining</tag>
+         
+        <tag>classification</tag>
+         
+        <tag>prediction</tag>
+         
+         
+           
+             
+              <breadCrumb title="programming" url="http://lorrin.cn/categories/programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://lorrin.cn/2016/12/08/datamining-qualitative-induction/</loc>
+    <lastmod>2016-12-23T06:55:11.000Z</lastmod>
+    <data>
+        <display>
+        <title>数据挖掘-定性归纳</title>
+        <pubTime>2016-12-08T13:31:50.000Z</pubTime>
+        
+        <tag>programming</tag>
+         
+        <tag>datamining</tag>
+         
+        <tag>qualitative-induction</tag>
+         
+         
+           
+             
+              <breadCrumb title="programming" url="http://lorrin.cn/categories/programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://lorrin.cn/2016/12/01/proba-ch4/</loc>
+    <lastmod>2016-12-19T13:11:37.000Z</lastmod>
+    <data>
+        <display>
+        <title>proba-ch4 高斯向量</title>
+        <pubTime>2016-12-01T08:28:52.000Z</pubTime>
+        
+        <tag>math</tag>
+         
+        <tag>probability</tag>
+         
+        <tag>vector</tag>
+         
+         
+           
+             
+              <breadCrumb title="math" url="http://lorrin.cn/categories/math/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://lorrin.cn/2016/12/14/ML-CNN/</loc>
     <lastmod>2016-12-15T15:36:49.000Z</lastmod>
     <data>
         <display>
         <title>ML CNN</title>
-        <pubTime>2016-12-14T09:34:43.000Z</pubTime>
+        <pubTime>2016-12-14T02:34:43.000Z</pubTime>
         
         <tag>machine-learning</tag>
          
@@ -38,7 +112,7 @@
     <data>
         <display>
         <title>participe présent et gérondif</title>
-        <pubTime>2016-12-06T11:31:56.000Z</pubTime>
+        <pubTime>2016-12-06T04:31:56.000Z</pubTime>
         
         <tag>francais</tag>
          
@@ -60,7 +134,7 @@
     <data>
         <display>
         <title>企业管理复习笔记</title>
-        <pubTime>2016-12-10T16:48:37.000Z</pubTime>
+        <pubTime>2016-12-10T09:48:37.000Z</pubTime>
         
         <tag>management</tag>
          
@@ -82,7 +156,7 @@
     <data>
         <display>
         <title>四叉树 QuadTree</title>
-        <pubTime>2016-12-13T17:45:37.000Z</pubTime>
+        <pubTime>2016-12-13T10:45:37.000Z</pubTime>
         
         <tag>algo</tag>
          
@@ -104,7 +178,7 @@
     <data>
         <display>
         <title>machine learning</title>
-        <pubTime>2016-12-12T21:04:47.000Z</pubTime>
+        <pubTime>2016-12-12T14:04:47.000Z</pubTime>
         
         <tag>machine-learning</tag>
          
@@ -127,7 +201,7 @@
     <data>
         <display>
         <title>proba-ch5 数列和随机变量系列</title>
-        <pubTime>2016-12-01T22:14:28.000Z</pubTime>
+        <pubTime>2016-12-01T15:14:28.000Z</pubTime>
         
         <tag>math</tag>
          
@@ -145,39 +219,12 @@
     
     
   <url>
-    <loc>http://lorrin.cn/2016/12/08/datamining-qualitative-induction/</loc>
-    <lastmod>2016-12-08T22:09:10.000Z</lastmod>
-    <data>
-        <display>
-        <title>数据挖掘-定性归纳</title>
-        <pubTime>2016-12-08T20:31:50.000Z</pubTime>
-        
-        <tag>programming</tag>
-         
-        <tag>datamining</tag>
-         
-        <tag>qualitative-induction</tag>
-         
-         
-           
-             
-              <breadCrumb title="programming" url="http://lorrin.cn/categories/programming/"/>
-          
-             
-              <breadCrumb title="unfinished" url="http://lorrin.cn/categories/programming/unfinished/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://lorrin.cn/2016/12/06/datamining-pretreatment/</loc>
     <lastmod>2016-12-08T20:29:26.000Z</lastmod>
     <data>
         <display>
         <title>数据挖掘-预处理</title>
-        <pubTime>2016-12-06T21:05:57.000Z</pubTime>
+        <pubTime>2016-12-06T14:05:57.000Z</pubTime>
         
         <tag>programming</tag>
          
@@ -199,7 +246,7 @@
     <data>
         <display>
         <title>数据挖掘笔记 Note of datamining</title>
-        <pubTime>2016-12-06T14:35:24.000Z</pubTime>
+        <pubTime>2016-12-06T07:35:24.000Z</pubTime>
         
         <tag>datamining</tag>
          
@@ -222,7 +269,7 @@
     <data>
         <display>
         <title>概率论笔记 Note of probability</title>
-        <pubTime>2016-11-30T18:35:53.000Z</pubTime>
+        <pubTime>2016-11-30T11:35:53.000Z</pubTime>
         
         <tag>math</tag>
          
@@ -244,35 +291,11 @@
     <data>
         <display>
         <title>proba-ch6 条件期望</title>
-        <pubTime>2016-12-02T20:32:30.000Z</pubTime>
+        <pubTime>2016-12-02T13:32:30.000Z</pubTime>
         
         <tag>math</tag>
          
         <tag>probability</tag>
-         
-         
-           
-             
-              <breadCrumb title="math" url="http://lorrin.cn/categories/math/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://lorrin.cn/2016/12/01/proba-ch4/</loc>
-    <lastmod>2016-12-01T22:12:24.000Z</lastmod>
-    <data>
-        <display>
-        <title>proba-ch4 高斯向量</title>
-        <pubTime>2016-12-01T15:28:52.000Z</pubTime>
-        
-        <tag>math</tag>
-         
-        <tag>probability</tag>
-         
-        <tag>vector</tag>
          
          
            
@@ -290,7 +313,7 @@
     <data>
         <display>
         <title>proba-ch3 实域概率和特征方程</title>
-        <pubTime>2016-12-01T13:54:10.000Z</pubTime>
+        <pubTime>2016-12-01T06:54:10.000Z</pubTime>
         
         <tag>math</tag>
          
@@ -312,7 +335,7 @@
     <data>
         <display>
         <title>proba-ch2 随机变量</title>
-        <pubTime>2016-12-01T11:17:33.000Z</pubTime>
+        <pubTime>2016-12-01T04:17:33.000Z</pubTime>
         
         <tag>math</tag>
          
@@ -336,7 +359,7 @@
     <data>
         <display>
         <title>proba-ch1 概率空间</title>
-        <pubTime>2016-12-01T11:17:29.000Z</pubTime>
+        <pubTime>2016-12-01T04:17:29.000Z</pubTime>
         
         <tag>math</tag>
          
@@ -358,7 +381,7 @@
     <data>
         <display>
         <title>图论 graph</title>
-        <pubTime>2016-11-27T13:42:24.000Z</pubTime>
+        <pubTime>2016-11-27T06:42:24.000Z</pubTime>
         
         <tag>programming</tag>
          
@@ -385,7 +408,7 @@
     <data>
         <display>
         <title>解决hexo使用公式冲突问题 hexo with latex</title>
-        <pubTime>2016-11-30T21:19:02.000Z</pubTime>
+        <pubTime>2016-11-30T14:19:02.000Z</pubTime>
         
         <tag>hexo</tag>
          
@@ -411,7 +434,7 @@
     <data>
         <display>
         <title>Chrome插件开发 - Hello world</title>
-        <pubTime>2016-11-30T11:01:24.000Z</pubTime>
+        <pubTime>2016-11-30T04:01:24.000Z</pubTime>
         
         <tag>web</tag>
          
@@ -433,7 +456,7 @@
     <data>
         <display>
         <title>算法笔记 Note of learning Algo</title>
-        <pubTime>2016-11-27T11:38:32.000Z</pubTime>
+        <pubTime>2016-11-27T04:38:32.000Z</pubTime>
         
         <tag>programming</tag>
          
@@ -455,7 +478,7 @@
     <data>
         <display>
         <title>编码解码 compression</title>
-        <pubTime>2016-11-27T13:22:11.000Z</pubTime>
+        <pubTime>2016-11-27T06:22:11.000Z</pubTime>
         
         <tag>programming</tag>
          
@@ -479,7 +502,7 @@
     <data>
         <display>
         <title>面向考试常用编程思想 Method of programming facing to exams</title>
-        <pubTime>2016-11-27T12:49:31.000Z</pubTime>
+        <pubTime>2016-11-27T05:49:31.000Z</pubTime>
         
         <tag>programming</tag>
          
@@ -501,7 +524,7 @@
     <data>
         <display>
         <title>复杂度 complexity</title>
-        <pubTime>2016-11-27T09:52:05.000Z</pubTime>
+        <pubTime>2016-11-27T02:52:05.000Z</pubTime>
         
         <tag>programming</tag>
          

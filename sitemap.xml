@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://lorrin.cn/2016/12/26/datamining-class-pred/</loc>
+    
+    <lastmod>2016-12-26T15:52:42.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://lorrin.cn/2016/12/08/datamining-qualitative-induction/</loc>
+    
+    <lastmod>2016-12-23T06:55:11.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://lorrin.cn/2016/12/01/proba-ch4/</loc>
+    
+    <lastmod>2016-12-19T13:11:37.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://lorrin.cn/2016/12/14/ML-CNN/</loc>
     
     <lastmod>2016-12-15T15:36:49.000Z</lastmod>
@@ -51,13 +72,6 @@
   </url>
   
   <url>
-    <loc>http://lorrin.cn/2016/12/08/datamining-qualitative-induction/</loc>
-    
-    <lastmod>2016-12-08T22:09:10.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://lorrin.cn/2016/12/06/datamining-pretreatment/</loc>
     
     <lastmod>2016-12-08T20:29:26.000Z</lastmod>
@@ -82,13 +96,6 @@
     <loc>http://lorrin.cn/2016/12/02/proba-ch6/</loc>
     
     <lastmod>2016-12-02T21:09:54.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://lorrin.cn/2016/12/01/proba-ch4/</loc>
-    
-    <lastmod>2016-12-01T22:12:24.000Z</lastmod>
     
   </url>
   
