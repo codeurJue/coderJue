@@ -98,7 +98,7 @@
 这里我们假设要估计的参数为$\theta$，简单来说，经典统计学派认为$\theta$是一个未知但固定的常数，而贝叶斯学派认为$\theta$是一个变量。
 贝叶斯公式我们为什么需要贝叶斯估计呢？
 我们不妨看">
-<meta property="og:updated_time" content="2017-01-07T16:31:15.000Z">
+<meta property="og:updated_time" content="2017-01-07T16:48:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="贝叶斯估计 Bayes estimation">
 <meta name="twitter:description" content="在机器学习中，贝叶斯这个名字被不止一次的提到。正好又看到了贝叶斯参数估计，简单记录方法，可能没有严谨的数学推导，见谅。
@@ -382,6 +382,11 @@ p(\widetilde{x}|\theta) = p(\widetilde{x} |T = t)p_T(t|\theta) \varpropto p_T(t|
 <li>后验分布的期望进行估计</li>
 </ul>
 <p>总结一下，贝叶斯估计就是，认为被估计参数是一个随机变量，通过已有的数据得到一个先验分布，结合这个先验分布再通过现有的条件，最后得到一个较为合理的后验分布。</p>
+<p>注：</p>
+<ul>
+<li>如果x的方差趋于无穷，意味着样本没有任何意义，估计结果等于先验估计。</li>
+<li>如果样本数量趋于无穷，则估计结果与先验估计无关。这说明先验估计实际上是为了弥补样本的不足。</li>
+</ul>
 
       
     </div>
