@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://lorrin.cn/2017/01/07/Bayes-estimation/</loc>
+    
+    <lastmod>2017-01-07T16:31:15.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://lorrin.cn/2016/12/28/learning-OS-and-building-LorriOS/</loc>
+    
+    <lastmod>2016-12-28T07:43:50.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://lorrin.cn/2016/12/26/datamining-class-pred/</loc>
     
     <lastmod>2016-12-26T15:52:42.000Z</lastmod>
