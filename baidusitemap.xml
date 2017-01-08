@@ -4,6 +4,31 @@
 
     
   <url>
+    <loc>http://lorrin.cn/2016/12/28/learning-OS-and-building-LorriOS/</loc>
+    <lastmod>2017-01-08T17:41:00.000Z</lastmod>
+    <data>
+        <display>
+        <title>learning OS and building LorriOS</title>
+        <pubTime>2016-12-28T14:00:08.000Z</pubTime>
+        
+        <tag>OS</tag>
+         
+        <tag>kernel</tag>
+         
+         
+           
+             
+              <breadCrumb title="programming" url="http://lorrin.cn/categories/programming/"/>
+          
+             
+              <breadCrumb title="unfinished" url="http://lorrin.cn/categories/programming/unfinished/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://lorrin.cn/2017/01/07/Bayes-estimation/</loc>
     <lastmod>2017-01-07T16:48:18.000Z</lastmod>
     <data>
@@ -19,33 +44,6 @@
            
              
               <breadCrumb title="math" url="http://lorrin.cn/categories/math/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://lorrin.cn/2016/12/28/learning-OS-and-building-LorriOS/</loc>
-    <lastmod>2016-12-28T07:43:50.000Z</lastmod>
-    <data>
-        <display>
-        <title>learning OS and building LorriOS</title>
-        <pubTime>2016-12-28T14:00:08.000Z</pubTime>
-        
-        <tag>OS</tag>
-         
-        <tag>kernel</tag>
-         
-        <tag>uv6</tag>
-         
-         
-           
-             
-              <breadCrumb title="programming" url="http://lorrin.cn/categories/programming/"/>
-          
-             
-              <breadCrumb title="unfinished" url="http://lorrin.cn/categories/programming/unfinished/"/>
           
         </display>
     </data>
@@ -134,11 +132,11 @@
         <title>ML CNN</title>
         <pubTime>2016-12-14T09:34:43.000Z</pubTime>
         
-        <tag>machine-learning</tag>
+        <tag>algo</tag>
          
         <tag>programming</tag>
          
-        <tag>algo</tag>
+        <tag>machine-learning</tag>
          
         <tag>CNN</tag>
          
@@ -432,9 +430,9 @@
         <title>图论 graph</title>
         <pubTime>2016-11-27T13:42:24.000Z</pubTime>
         
-        <tag>programming</tag>
-         
         <tag>algo</tag>
+         
+        <tag>programming</tag>
          
         <tag>graph</tag>
          
@@ -507,9 +505,9 @@
         <title>算法笔记 Note of learning Algo</title>
         <pubTime>2016-11-27T11:38:32.000Z</pubTime>
         
-        <tag>programming</tag>
-         
         <tag>algo</tag>
+         
+        <tag>programming</tag>
          
          
            
@@ -529,9 +527,9 @@
         <title>编码解码 compression</title>
         <pubTime>2016-11-27T13:22:11.000Z</pubTime>
         
-        <tag>programming</tag>
-         
         <tag>algo</tag>
+         
+        <tag>programming</tag>
          
         <tag>compression</tag>
          
@@ -553,9 +551,9 @@
         <title>面向考试常用编程思想 Method of programming facing to exams</title>
         <pubTime>2016-11-27T12:49:31.000Z</pubTime>
         
-        <tag>programming</tag>
-         
         <tag>algo</tag>
+         
+        <tag>programming</tag>
          
          
            
@@ -575,9 +573,9 @@
         <title>复杂度 complexity</title>
         <pubTime>2016-11-27T09:52:05.000Z</pubTime>
         
-        <tag>programming</tag>
-         
         <tag>algo</tag>
+         
+        <tag>programming</tag>
          
         <tag>complexity</tag>
          
