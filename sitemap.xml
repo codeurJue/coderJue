@@ -2,9 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://lorrin.cn/2017/02/11/Hilbert-space/</loc>
+    
+    <lastmod>2017-02-11T12:57:32.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://lorrin.cn/2016/11/27/graph/</loc>
+    
+    <lastmod>2017-02-11T12:08:30.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://lorrin.cn/2017/02/07/EDP-basic-matrix-review/</loc>
+    
+    <lastmod>2017-02-07T10:40:09.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://lorrin.cn/2017/01/28/Note-of-statistic/</loc>
+    
+    <lastmod>2017-01-28T18:02:06.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://lorrin.cn/2016/12/28/learning-OS-and-building-LorriOS/</loc>
     
-    <lastmod>2017-01-08T17:41:00.000Z</lastmod>
+    <lastmod>2017-01-10T11:58:38.000Z</lastmod>
     
   </url>
   
@@ -79,13 +107,6 @@
   </url>
   
   <url>
-    <loc>http://lorrin.cn/google50e2fbd5160eafe4.html</loc>
-    
-    <lastmod>2016-12-08T22:22:25.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://lorrin.cn/2016/12/06/datamining-pretreatment/</loc>
     
     <lastmod>2016-12-08T20:29:26.000Z</lastmod>
@@ -131,13 +152,6 @@
     <loc>http://lorrin.cn/2016/12/01/proba-ch1/</loc>
     
     <lastmod>2016-12-01T11:19:38.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://lorrin.cn/2016/11/27/graph/</loc>
-    
-    <lastmod>2016-12-01T08:47:54.000Z</lastmod>
     
   </url>
   

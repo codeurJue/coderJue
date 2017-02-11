@@ -4,8 +4,103 @@
 
     
   <url>
+    <loc>http://lorrin.cn/2017/02/11/Hilbert-space/</loc>
+    <lastmod>2017-02-11T12:57:32.000Z</lastmod>
+    <data>
+        <display>
+        <title>Hilbert space</title>
+        <pubTime>2017-02-11T12:10:06.000Z</pubTime>
+        
+        <tag>math</tag>
+         
+        <tag>Hilbert</tag>
+         
+        <tag>analyse</tag>
+         
+         
+           
+             
+              <breadCrumb title="math" url="http://lorrin.cn/categories/math/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://lorrin.cn/2016/11/27/graph/</loc>
+    <lastmod>2017-02-11T12:08:30.000Z</lastmod>
+    <data>
+        <display>
+        <title>图论 graph</title>
+        <pubTime>2016-11-27T13:42:24.000Z</pubTime>
+        
+        <tag>programming</tag>
+         
+        <tag>algo</tag>
+         
+        <tag>graph</tag>
+         
+         
+           
+             
+              <breadCrumb title="programming" url="http://lorrin.cn/categories/programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://lorrin.cn/2017/02/07/EDP-basic-matrix-review/</loc>
+    <lastmod>2017-02-07T10:40:09.000Z</lastmod>
+    <data>
+        <display>
+        <title>EDP基础：矩阵的复习</title>
+        <pubTime>2017-02-07T09:22:27.000Z</pubTime>
+        
+        <tag>EDP</tag>
+         
+        <tag>matrix</tag>
+         
+         
+           
+             
+              <breadCrumb title="math" url="http://lorrin.cn/categories/math/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://lorrin.cn/2017/01/28/Note-of-statistic/</loc>
+    <lastmod>2017-01-28T18:02:06.000Z</lastmod>
+    <data>
+        <display>
+        <title>Note of statistic</title>
+        <pubTime>2017-01-28T17:13:13.000Z</pubTime>
+        
+        <tag>statistic</tag>
+         
+        <tag>math</tag>
+         
+         
+           
+             
+              <breadCrumb title="math" url="http://lorrin.cn/categories/math/"/>
+          
+             
+              <breadCrumb title="unfinished" url="http://lorrin.cn/categories/math/unfinished/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://lorrin.cn/2016/12/28/learning-OS-and-building-LorriOS/</loc>
-    <lastmod>2017-01-08T17:41:00.000Z</lastmod>
+    <lastmod>2017-01-10T11:58:38.000Z</lastmod>
     <data>
         <display>
         <title>learning OS and building LorriOS</title>
@@ -132,11 +227,11 @@
         <title>ML CNN</title>
         <pubTime>2016-12-14T09:34:43.000Z</pubTime>
         
-        <tag>algo</tag>
+        <tag>machine-learning</tag>
          
         <tag>programming</tag>
          
-        <tag>machine-learning</tag>
+        <tag>algo</tag>
          
         <tag>CNN</tag>
          
@@ -263,7 +358,6 @@
     </data>
     </url>
 
-    
     
   <url>
     <loc>http://lorrin.cn/2016/12/06/datamining-pretreatment/</loc>
@@ -423,33 +517,6 @@
 
     
   <url>
-    <loc>http://lorrin.cn/2016/11/27/graph/</loc>
-    <lastmod>2016-12-01T08:47:54.000Z</lastmod>
-    <data>
-        <display>
-        <title>图论 graph</title>
-        <pubTime>2016-11-27T13:42:24.000Z</pubTime>
-        
-        <tag>algo</tag>
-         
-        <tag>programming</tag>
-         
-        <tag>graph</tag>
-         
-         
-           
-             
-              <breadCrumb title="programming" url="http://lorrin.cn/categories/programming/"/>
-          
-             
-              <breadCrumb title="unfinished" url="http://lorrin.cn/categories/programming/unfinished/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://lorrin.cn/2016/11/30/hexo-with-latex/</loc>
     <lastmod>2016-11-30T21:45:34.000Z</lastmod>
     <data>
@@ -505,9 +572,9 @@
         <title>算法笔记 Note of learning Algo</title>
         <pubTime>2016-11-27T11:38:32.000Z</pubTime>
         
-        <tag>algo</tag>
-         
         <tag>programming</tag>
+         
+        <tag>algo</tag>
          
          
            
@@ -527,9 +594,9 @@
         <title>编码解码 compression</title>
         <pubTime>2016-11-27T13:22:11.000Z</pubTime>
         
-        <tag>algo</tag>
-         
         <tag>programming</tag>
+         
+        <tag>algo</tag>
          
         <tag>compression</tag>
          
@@ -551,9 +618,9 @@
         <title>面向考试常用编程思想 Method of programming facing to exams</title>
         <pubTime>2016-11-27T12:49:31.000Z</pubTime>
         
-        <tag>algo</tag>
-         
         <tag>programming</tag>
+         
+        <tag>algo</tag>
          
          
            
@@ -573,9 +640,9 @@
         <title>复杂度 complexity</title>
         <pubTime>2016-11-27T09:52:05.000Z</pubTime>
         
-        <tag>algo</tag>
-         
         <tag>programming</tag>
+         
+        <tag>algo</tag>
          
         <tag>complexity</tag>
          
