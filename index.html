@@ -312,17 +312,6 @@
 
                 
                 
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/math/unfinished/" itemprop="url" rel="index">
-                    <span itemprop="name">unfinished</span>
-                  </a>
-                </span>
-
-                
-                
               
             </span>
           
@@ -374,23 +363,24 @@
 <script type="math/tex; mode=display">
 \begin{equation}
   \begin{cases}
-    - \frac{d}{dx} ( k \frac{d\theta}{dx})(x) + \theta(x) = f(x) 0<x<L, \\
-    \theta(0) = \theta_0, \theta(L) = \theta_L \\
-  \end{cases}
-\end{equation}</script></li>
-</ol>
-<p>   <strong>Remark:</strong></p>
+- \frac{d}{dx} ( k \frac{d\theta}{dx})(x) + \theta(x) = f(x) 0<x<L, \\
+  \theta(0) = \theta_0, \theta(L) = \theta_L \\
+\end{cases}
+\end{equation}</script><p><strong>Remark:</strong></p>
 <ul>
 <li>如果k是常数，解为指数函数；若否，我们可以用两种数值计算：les differences finies et les elements finis.</li>
 <li>可以使用<em>射击法</em>，认为$\theta(L)$由$\theta’(0)$得到，接下来就是验证是否能找到一个好的$\theta’(0)$使$\theta(L)=\theta(L) = \theta_L$</li>
 </ul>
+</li>
+</ol>
 <h3 id="Physic-examples"><a href="#Physic-examples" class="headerlink" title="Physic examples"></a>Physic examples</h3><ul>
 <li><p>Fluide environnant au repos</p>
 <script type="math/tex; mode=display">
 \rho c_v \partial_t{\theta} - div(k\cdot\overrightarrow{grad}(\theta)) = f</script><ul>
-<li><p>init condition:</p>
-<script type="math/tex; mode=display">
+<li>init condition:<script type="math/tex; mode=display">
 \theta(0,.) = \theta_0</script></li>
+</ul>
+</li>
 <li><p>condition at the edges could be:</p>
 <ul>
 <li><p>condition of Dirichlet:</p>
@@ -400,8 +390,6 @@
 <script type="math/tex; mode=display">
 \overrightarrow{grad}(\theta)(t,.) \cdot \vec{n}= h(t)</script></li>
 <li><p>Condition of Dirichlet and Neumann: Mix</p>
-</li>
-</ul>
 </li>
 </ul>
 </li>
