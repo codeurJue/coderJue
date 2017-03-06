@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="math,probability," />
+  <meta name="keywords" content="math,EDP," />
 
 
 
@@ -84,52 +84,28 @@
 
 
 
-<meta name="description" content="几种常见分布
- 若不在区间内，f=0
-
-loi uniforme
-
-f(x)=\frac{1}{b-a} si\ x \in [a,b]
-loi exponentielle
-
-f(x) = \lambda e^{-\lambda x} si\ x \ge 0 \\
-E[X] = \frac{1}{\lambda}, Var(X) = \lambda^2
-Loi de weibull
-
-f(x)">
+<meta name="description" content="Examples of moedels
+Problem of Cauchy
+Nomenclature : problem of Cauchy
+Equation : system of 2 differential equations of order 2
+Conditions : initials (all the data from the same point) i.e. fix time">
 <meta property="og:type" content="article">
-<meta property="og:title" content="proba-ch3 实域概率和特征方程">
-<meta property="og:url" content="https://codeurJue.github.io/2016/12/01/proba-ch3/index.html">
+<meta property="og:title" content="EDP basic models">
+<meta property="og:url" content="https://codeurJue.github.io/2017/03/06/EDP-basic-models/index.html">
 <meta property="og:site_name" content="Jue's Blog">
-<meta property="og:description" content="几种常见分布
- 若不在区间内，f=0
-
-loi uniforme
-
-f(x)=\frac{1}{b-a} si\ x \in [a,b]
-loi exponentielle
-
-f(x) = \lambda e^{-\lambda x} si\ x \ge 0 \\
-E[X] = \frac{1}{\lambda}, Var(X) = \lambda^2
-Loi de weibull
-
-f(x)">
-<meta property="og:updated_time" content="2016-12-01T15:28:37.000Z">
+<meta property="og:description" content="Examples of moedels
+Problem of Cauchy
+Nomenclature : problem of Cauchy
+Equation : system of 2 differential equations of order 2
+Conditions : initials (all the data from the same point) i.e. fix time">
+<meta property="og:updated_time" content="2017-03-06T11:09:17.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="proba-ch3 实域概率和特征方程">
-<meta name="twitter:description" content="几种常见分布
- 若不在区间内，f=0
-
-loi uniforme
-
-f(x)=\frac{1}{b-a} si\ x \in [a,b]
-loi exponentielle
-
-f(x) = \lambda e^{-\lambda x} si\ x \ge 0 \\
-E[X] = \frac{1}{\lambda}, Var(X) = \lambda^2
-Loi de weibull
-
-f(x)">
+<meta name="twitter:title" content="EDP basic models">
+<meta name="twitter:description" content="Examples of moedels
+Problem of Cauchy
+Nomenclature : problem of Cauchy
+Equation : system of 2 differential equations of order 2
+Conditions : initials (all the data from the same point) i.e. fix time">
 
 
 
@@ -157,13 +133,13 @@ f(x)">
 
 
 
-  <link rel="canonical" href="https://codeurJue.github.io/2016/12/01/proba-ch3/"/>
+  <link rel="canonical" href="https://codeurJue.github.io/2017/03/06/EDP-basic-models/"/>
 
 
 
 
 
-  <title> proba-ch3 实域概率和特征方程 | Jue's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> EDP basic models | Jue's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -284,7 +260,7 @@ f(x)">
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://codeurJue.github.io/2016/12/01/proba-ch3/">
+  <link itemprop="mainEntityOfPage" href="https://codeurJue.github.io/2017/03/06/EDP-basic-models/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Jue">
@@ -308,7 +284,7 @@ f(x)">
             
             
               
-                proba-ch3 实域概率和特征方程
+                EDP basic models
               
             
           </h1>
@@ -321,8 +297,8 @@ f(x)">
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-01T14:54:10+01:00">
-                2016-12-01
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-06T10:04:58+01:00">
+                2017-03-06
               </time>
             
 
@@ -342,6 +318,17 @@ f(x)">
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/math/" itemprop="url" rel="index">
                     <span itemprop="name">math</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/math/unfinished/" itemprop="url" rel="index">
+                    <span itemprop="name">unfinished</span>
                   </a>
                 </span>
 
@@ -375,97 +362,66 @@ f(x)">
       
 
       
-        <ol>
-<li><p>几种常见分布</p>
-<p> 若不在区间内，f=0</p>
-<ol>
-<li><p>loi uniforme</p>
+        <h1 id="Examples-of-moedels"><a href="#Examples-of-moedels" class="headerlink" title="Examples of moedels"></a>Examples of moedels</h1><ol>
+<li><p>Problem of Cauchy</p>
+<p><strong>Nomenclature</strong> : problem of Cauchy</p>
+<p><strong>Equation</strong> : system of 2 differential equations of order 2</p>
+<p><strong>Conditions</strong> : initials (all the data from the same point) i.e. fix time</p>
 <script type="math/tex; mode=display">
-f(x)=\frac{1}{b-a} si\ x \in [a,b]</script></li>
-<li><p>loi exponentielle</p>
+\begin{equation}
+  \begin{cases}
+    \frac{dS}{dt}(t) = F(S,R)  ,  \\
+    \frac{dR}{dt}(t) = G(S,R) ,  \\
+    S(0) = S^0 \\
+    R(0) = R^0
+  \end{cases}
+\end{equation}</script></li>
+<li><p>Problem of Dirichlet</p>
+<p><strong>Nomenclature</strong> : problem of Dirichlet</p>
+<p><strong>Equation</strong> : scalar differential equation of order 2.</p>
+<p><strong>Conditions</strong> : prescribed value at the edge</p>
 <script type="math/tex; mode=display">
-f(x) = \lambda e^{-\lambda x} si\ x \ge 0 \\
-E[X] = \frac{1}{\lambda}, Var(X) = \lambda^2</script></li>
-<li><p>Loi de weibull</p>
-<script type="math/tex; mode=display">
-f(x) = \alpha \lambda^\alpha x^{\alpha-1}e^{-(\lambda x)^\alpha} si\ x \ge 0\\
-E[X] = \frac{\Gamma(1+1/\alpha)}{\lambda}, Var(X) = \frac{\Gamma(1+2/\alpha)}{\lambda^2}</script></li>
-<li><p>loi gamma</p>
-<script type="math/tex; mode=display">
-f(x) = \frac{\lambda}{\Gamma(p)}(\lambda x)^{p-1}e^{-\lambda x}\\
-E[X] = \frac{p}{\lambda}, Var(X) = \frac{p}{\lambda^2}</script></li>
-<li><p>loi normale</p>
-<script type="math/tex; mode=display">
-f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp[-\frac{(x-m)^2}{2\sigma^2}], x \in R\\
-E[X] = m, Var(X) = \sigma^2</script></li>
-<li><p>Loi lognormale</p>
-<script type="math/tex; mode=display">
-f(x) = \frac{1}{\sqrt{2\pi}\sigma x}exp[-\frac{(\ln x-m)^2}{2\sigma^2}], x \ge 0 \\
-E[X] = e^{m+\sigma^2/2}, Var(X) = e^{2m+\sigma^2}(e^{\sigma^@}-1)</script></li>
-<li><p>Loi du $ \chi^2 $</p>
-<script type="math/tex; mode=display">
-X = U_1^2+...+U_n^2 \\
-U_i\ est\ de\ loi\ \mathcal{N}(0,1) \\
-E[X] = n, Var(X) = 2n</script></li>
-<li><p>Loi de Student</p>
-<script type="math/tex; mode=display">
-X = \frac{U}{\sqrt{\frac{Z}{n}}} \\
-U\ suit\ la\ loi\ normale\ \mathcal{N}(0,1) \\
-Z\text{ est independante de U et suit la loi du }\chi^2\text{ a n degres de liberte}</script></li>
+\begin{equation}
+  \begin{cases}
+    - \frac{d}{dx} ( k \frac{d\theta}{dx})(x) + \theta(x) = f(x) 0<x<L, \\
+    \theta(0) = \theta_0, \theta(L) = \theta_L \\
+  \end{cases}
+\end{equation}</script></li>
 </ol>
-</li>
-<li><p>特征函数</p>
-<script type="math/tex; mode=display">
-\varphi_X: \mathbb{R^N} \rightarrow \mathbb{C} \\
-t \rightarrow \varphi_X(t) = E[e^{i<t,X>}] = \int_{\mathbb{R}^N}{e^{i<t,X>}P_X(dx)}</script><p>我们说特征函数是对X进行基于PX的傅立叶变换 = =好绕</p>
-<p>若PX存在概率密度 $f \in L^1$</p>
-<script type="math/tex; mode=display">
-\varphi_X(t) = \int_{\mathbb{R}^N}{e^{i<t,X>}f(x)dx}</script><ul>
-<li><p>性质</p>
+<p>   <strong>Remark:</strong></p>
 <ul>
-<li><script type="math/tex; mode=display">
-\forall t \in \mathbb{R}^N, |\varphi_X(t)| \le 1=> \varphi_X(0) = 1</script><script type="math/tex; mode=display">
-\varphi_{\lambda X+a}(t) = e^{iat}\varphi_X(\lambda t)</script><script type="math/tex; mode=display">
-\varphi_X 是一个半正函数，即 \\
-\forall z_1,...,z_n\in \mathbb{C}, \sum_{1 \le j, k\le n}{z_j \varphi_X(t_j-t_k)\bar{z_k}} \ge 0</script></li>
+<li>如果k是常数，解为指数函数；若否，我们可以用两种数值计算：les differences finies et les elements finis.</li>
+<li>可以使用<em>射击法</em>，认为$\theta(L)$由$\theta’(0)$得到，接下来就是验证是否能找到一个好的$\theta’(0)$使$\theta(L)=\theta(L) = \theta_L$</li>
 </ul>
-</li>
-<li><p>其他性质</p>
-<ul>
-<li><p>特征函数连续</p>
-</li>
-<li><p>PX以lebesgue测度绝对连续，则</p>
-</li>
-<li><script type="math/tex; mode=display">
-\lim_{|t|\rightarrow \infty}{\varphi_X(t)} = 0</script></li>
-<li><p>XY，它们拥有相同的P，当且仅当</p>
-</li>
-<li><script type="math/tex; mode=display">
-\varphi_X=\varphi_Y</script></li>
-<li><p>逆变换</p>
-</li>
-<li><script type="math/tex; mode=display">
-\forall x \in \mathbb{R}^N, f(x)=\frac{1}{(2\pi)^N}\int_{\mathbb{R}^N}{e^{-i<t,X>}\varphi_X(t)}dt</script></li>
-</ul>
-</li>
-<li><p>特征方程和独立性</p>
-<ul>
-<li><p>定理</p>
+<h3 id="Physic-examples"><a href="#Physic-examples" class="headerlink" title="Physic examples"></a>Physic examples</h3><ul>
+<li><p>Fluide environnant au repos</p>
 <script type="math/tex; mode=display">
-X_1,...,X_N \text{ 是独立的，当且仅当它们的特征方程满足：} \\
-\forall t = (t_1,...,t_N) \in \mathbb{R}^N; \varphi_X(t) = \prod_{k=1}^{N}{\varphi_{X_k}(t_k) } \\
-where\ X = (X_1,...,X_N)</script></li>
-<li><p>性质</p>
+\rho c_v \partial_t{\theta} - div(k\cdot\overrightarrow{grad}(\theta)) = f</script><ul>
+<li><p>init condition:</p>
 <script type="math/tex; mode=display">
-X_1,...,X_n independants, P_{X_1},...,P_{X_N}. \\
-\text{La loi de } \sum{X_i} \text{est le produit de concolution } \prod{P_{X_i}} \\
-\text{Pour fonction caracteristique } \sum{\varphi_{X_i}} \text{definie par} \\
-\forall t \in \mathbb{R}^N; \varphi_{X+...+X_n}(t) = \prod_{i=1}^{n}{\varphi_{X_i}(t) }</script></li>
-</ul>
+\theta(0,.) = \theta_0</script></li>
+<li><p>condition at the edges could be:</p>
+<ul>
+<li><p>condition of Dirichlet:</p>
+<script type="math/tex; mode=display">
+\theta(t,.) = g(t)</script></li>
+<li><p>Condition of Neumann:</p>
+<script type="math/tex; mode=display">
+\overrightarrow{grad}(\theta)(t,.) \cdot \vec{n}= h(t)</script></li>
+<li><p>Condition of Dirichlet and Neumann: Mix</p>
 </li>
 </ul>
 </li>
-</ol>
+</ul>
+</li>
+<li><p>Fluide environnant en mouvement a une vitesse $\vec u(t,x)$</p>
+<script type="math/tex; mode=display">
+\rho c_v \partial_t{\theta} - div(\rho c_v \theta \vec u) - div(k\cdot\overrightarrow{grad}(\theta)) = f</script><p>si le fluide est incompressible i.e $\partial_t \rho = 0$ soit encore $div(\vec u) = 0$ (直观上理解，若不可压缩，则速度场一定是连续的，不然一定会在局部压缩), alors:</p>
+<script type="math/tex; mode=display">
+\rho c_v \partial_t{\theta} - \vec u \cdot div(\rho c_v \theta ) - div(k\cdot\overrightarrow{grad}(\theta)) = f</script><p>​</p>
+<p>​</p>
+</li>
+</ul>
 
       
     </div>
@@ -491,7 +447,7 @@ X_1,...,X_n independants, P_{X_1},...,P_{X_N}. \\
           
             <a href="/tags/math/" rel="tag"># math</a>
           
-            <a href="/tags/probability/" rel="tag"># probability</a>
+            <a href="/tags/EDP/" rel="tag"># EDP</a>
           
         </div>
       
@@ -500,8 +456,8 @@ X_1,...,X_n independants, P_{X_1},...,P_{X_N}. \\
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/12/01/proba-ch2/" rel="next" title="proba-ch2 随机变量">
-                <i class="fa fa-chevron-left"></i> proba-ch2 随机变量
+              <a href="/2017/02/11/Sobolev-space/" rel="next" title="Sobolev space">
+                <i class="fa fa-chevron-left"></i> Sobolev space
               </a>
             
           </div>
@@ -509,10 +465,6 @@ X_1,...,X_n independants, P_{X_1},...,P_{X_N}. \\
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/12/01/proba-ch4/" rel="prev" title="proba-ch4 高斯向量">
-                proba-ch4 高斯向量 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -559,8 +511,17 @@ X_1,...,X_n independants, P_{X_1},...,P_{X_N}. \\
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -613,6 +574,22 @@ X_1,...,X_n independants, P_{X_1},...,P_{X_N}. \\
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Examples-of-moedels"><span class="nav-number">1.</span> <span class="nav-text">Examples of moedels</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Physic-examples"><span class="nav-number">1.0.1.</span> <span class="nav-text">Physic examples</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>

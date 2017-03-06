@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="math,probability," />
+  <meta name="keywords" content="math,EDP,analyse,Sobolev," />
 
 
 
@@ -84,52 +84,34 @@
 
 
 
-<meta name="description" content="几种常见分布
- 若不在区间内，f=0
+<meta name="description" content="索伯列夫空间 Sobolev space感性认识摘自wiki：
 
-loi uniforme
+数学上，一个索博列夫空间是一个由函数组成的赋范向量空间，对于某个给定的p ≥ 1，它对一个函数f和它的直到某个k阶导数加上有限Lp范数的这个条件。
 
-f(x)=\frac{1}{b-a} si\ x \in [a,b]
-loi exponentielle
-
-f(x) = \lambda e^{-\lambda x} si\ x \ge 0 \\
-E[X] = \frac{1}{\lambda}, Var(X) = \lambda^2
-Loi de weibull
-
-f(x)">
+我们通常在C1(函数1阶可导并且1阶导数连续)上研究微分方程的解，但是在偏微分方程上并不是特别方便，人们便开始研究索伯列夫空间。
+范数
+||f||_{k,p} = (\sum_{i=0">
 <meta property="og:type" content="article">
-<meta property="og:title" content="proba-ch3 实域概率和特征方程">
-<meta property="og:url" content="https://codeurJue.github.io/2016/12/01/proba-ch3/index.html">
+<meta property="og:title" content="Sobolev space">
+<meta property="og:url" content="https://codeurJue.github.io/2017/02/11/Sobolev-space/index.html">
 <meta property="og:site_name" content="Jue's Blog">
-<meta property="og:description" content="几种常见分布
- 若不在区间内，f=0
+<meta property="og:description" content="索伯列夫空间 Sobolev space感性认识摘自wiki：
 
-loi uniforme
+数学上，一个索博列夫空间是一个由函数组成的赋范向量空间，对于某个给定的p ≥ 1，它对一个函数f和它的直到某个k阶导数加上有限Lp范数的这个条件。
 
-f(x)=\frac{1}{b-a} si\ x \in [a,b]
-loi exponentielle
-
-f(x) = \lambda e^{-\lambda x} si\ x \ge 0 \\
-E[X] = \frac{1}{\lambda}, Var(X) = \lambda^2
-Loi de weibull
-
-f(x)">
-<meta property="og:updated_time" content="2016-12-01T15:28:37.000Z">
+我们通常在C1(函数1阶可导并且1阶导数连续)上研究微分方程的解，但是在偏微分方程上并不是特别方便，人们便开始研究索伯列夫空间。
+范数
+||f||_{k,p} = (\sum_{i=0">
+<meta property="og:updated_time" content="2017-02-11T16:48:47.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="proba-ch3 实域概率和特征方程">
-<meta name="twitter:description" content="几种常见分布
- 若不在区间内，f=0
+<meta name="twitter:title" content="Sobolev space">
+<meta name="twitter:description" content="索伯列夫空间 Sobolev space感性认识摘自wiki：
 
-loi uniforme
+数学上，一个索博列夫空间是一个由函数组成的赋范向量空间，对于某个给定的p ≥ 1，它对一个函数f和它的直到某个k阶导数加上有限Lp范数的这个条件。
 
-f(x)=\frac{1}{b-a} si\ x \in [a,b]
-loi exponentielle
-
-f(x) = \lambda e^{-\lambda x} si\ x \ge 0 \\
-E[X] = \frac{1}{\lambda}, Var(X) = \lambda^2
-Loi de weibull
-
-f(x)">
+我们通常在C1(函数1阶可导并且1阶导数连续)上研究微分方程的解，但是在偏微分方程上并不是特别方便，人们便开始研究索伯列夫空间。
+范数
+||f||_{k,p} = (\sum_{i=0">
 
 
 
@@ -157,13 +139,13 @@ f(x)">
 
 
 
-  <link rel="canonical" href="https://codeurJue.github.io/2016/12/01/proba-ch3/"/>
+  <link rel="canonical" href="https://codeurJue.github.io/2017/02/11/Sobolev-space/"/>
 
 
 
 
 
-  <title> proba-ch3 实域概率和特征方程 | Jue's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> Sobolev space | Jue's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -284,7 +266,7 @@ f(x)">
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://codeurJue.github.io/2016/12/01/proba-ch3/">
+  <link itemprop="mainEntityOfPage" href="https://codeurJue.github.io/2017/02/11/Sobolev-space/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Jue">
@@ -308,7 +290,7 @@ f(x)">
             
             
               
-                proba-ch3 实域概率和特征方程
+                Sobolev space
               
             
           </h1>
@@ -321,8 +303,8 @@ f(x)">
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-01T14:54:10+01:00">
-                2016-12-01
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-11T14:37:53+01:00">
+                2017-02-11
               </time>
             
 
@@ -342,6 +324,17 @@ f(x)">
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/math/" itemprop="url" rel="index">
                     <span itemprop="name">math</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/math/unfinished/" itemprop="url" rel="index">
+                    <span itemprop="name">unfinished</span>
                   </a>
                 </span>
 
@@ -375,98 +368,24 @@ f(x)">
       
 
       
-        <ol>
-<li><p>几种常见分布</p>
-<p> 若不在区间内，f=0</p>
-<ol>
-<li><p>loi uniforme</p>
+        <h1 id="索伯列夫空间-Sobolev-space"><a href="#索伯列夫空间-Sobolev-space" class="headerlink" title="索伯列夫空间 Sobolev space"></a>索伯列夫空间 Sobolev space</h1><h2 id="感性认识"><a href="#感性认识" class="headerlink" title="感性认识"></a>感性认识</h2><p>摘自wiki：</p>
+<blockquote>
+<p>数学上，一个索博列夫空间是一个由函数组成的赋范向量空间，对于某个给定的p ≥ 1，它对一个函数f和它的直到某个k阶导数加上有限Lp范数的这个条件。</p>
+</blockquote>
+<p>我们通常在C1(函数1阶可导并且1阶导数连续)上研究微分方程的解，但是在偏微分方程上并不是特别方便，人们便开始研究索伯列夫空间。</p>
+<h2 id="范数"><a href="#范数" class="headerlink" title="范数"></a>范数</h2><script type="math/tex; mode=display">
+||f||_{k,p} = (\sum_{i=0}^k{||f^{(i)}||_p^p})^{1/p} \\
+=||f^{(i)}||_p +||f||_p</script><p>赋予了范数的$W^{k,p}$是一个完备空间。</p>
+<h2 id="H-k"><a href="#H-k" class="headerlink" title="$H^k$"></a>$H^k$</h2><p>一些记号：</p>
 <script type="math/tex; mode=display">
-f(x)=\frac{1}{b-a} si\ x \in [a,b]</script></li>
-<li><p>loi exponentielle</p>
+H^k = W^{k,2} \\
+H^1(\Omega) := \{ v\in L^2(\Omega) : \nabla v \in (L^2(\Omega))^d \} \\ \\
+(.,.)_{H^1} : (u,v) \in H^1 \times H^1 \mapsto (u,v)_{L^2} +(\nabla u,\nabla v)_{L^2} \\
+\qquad \qquad \qquad = \int_\Omega {uv} + \sum_{i=1}^d{\int_ \Omega {\partial_{x_i}{u} \partial_{x_i}{v}}}</script><p>范数和半范数：</p>
 <script type="math/tex; mode=display">
-f(x) = \lambda e^{-\lambda x} si\ x \ge 0 \\
-E[X] = \frac{1}{\lambda}, Var(X) = \lambda^2</script></li>
-<li><p>Loi de weibull</p>
-<script type="math/tex; mode=display">
-f(x) = \alpha \lambda^\alpha x^{\alpha-1}e^{-(\lambda x)^\alpha} si\ x \ge 0\\
-E[X] = \frac{\Gamma(1+1/\alpha)}{\lambda}, Var(X) = \frac{\Gamma(1+2/\alpha)}{\lambda^2}</script></li>
-<li><p>loi gamma</p>
-<script type="math/tex; mode=display">
-f(x) = \frac{\lambda}{\Gamma(p)}(\lambda x)^{p-1}e^{-\lambda x}\\
-E[X] = \frac{p}{\lambda}, Var(X) = \frac{p}{\lambda^2}</script></li>
-<li><p>loi normale</p>
-<script type="math/tex; mode=display">
-f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp[-\frac{(x-m)^2}{2\sigma^2}], x \in R\\
-E[X] = m, Var(X) = \sigma^2</script></li>
-<li><p>Loi lognormale</p>
-<script type="math/tex; mode=display">
-f(x) = \frac{1}{\sqrt{2\pi}\sigma x}exp[-\frac{(\ln x-m)^2}{2\sigma^2}], x \ge 0 \\
-E[X] = e^{m+\sigma^2/2}, Var(X) = e^{2m+\sigma^2}(e^{\sigma^@}-1)</script></li>
-<li><p>Loi du $ \chi^2 $</p>
-<script type="math/tex; mode=display">
-X = U_1^2+...+U_n^2 \\
-U_i\ est\ de\ loi\ \mathcal{N}(0,1) \\
-E[X] = n, Var(X) = 2n</script></li>
-<li><p>Loi de Student</p>
-<script type="math/tex; mode=display">
-X = \frac{U}{\sqrt{\frac{Z}{n}}} \\
-U\ suit\ la\ loi\ normale\ \mathcal{N}(0,1) \\
-Z\text{ est independante de U et suit la loi du }\chi^2\text{ a n degres de liberte}</script></li>
-</ol>
-</li>
-<li><p>特征函数</p>
-<script type="math/tex; mode=display">
-\varphi_X: \mathbb{R^N} \rightarrow \mathbb{C} \\
-t \rightarrow \varphi_X(t) = E[e^{i<t,X>}] = \int_{\mathbb{R}^N}{e^{i<t,X>}P_X(dx)}</script><p>我们说特征函数是对X进行基于PX的傅立叶变换 = =好绕</p>
-<p>若PX存在概率密度 $f \in L^1$</p>
-<script type="math/tex; mode=display">
-\varphi_X(t) = \int_{\mathbb{R}^N}{e^{i<t,X>}f(x)dx}</script><ul>
-<li><p>性质</p>
-<ul>
-<li><script type="math/tex; mode=display">
-\forall t \in \mathbb{R}^N, |\varphi_X(t)| \le 1=> \varphi_X(0) = 1</script><script type="math/tex; mode=display">
-\varphi_{\lambda X+a}(t) = e^{iat}\varphi_X(\lambda t)</script><script type="math/tex; mode=display">
-\varphi_X 是一个半正函数，即 \\
-\forall z_1,...,z_n\in \mathbb{C}, \sum_{1 \le j, k\le n}{z_j \varphi_X(t_j-t_k)\bar{z_k}} \ge 0</script></li>
-</ul>
-</li>
-<li><p>其他性质</p>
-<ul>
-<li><p>特征函数连续</p>
-</li>
-<li><p>PX以lebesgue测度绝对连续，则</p>
-</li>
-<li><script type="math/tex; mode=display">
-\lim_{|t|\rightarrow \infty}{\varphi_X(t)} = 0</script></li>
-<li><p>XY，它们拥有相同的P，当且仅当</p>
-</li>
-<li><script type="math/tex; mode=display">
-\varphi_X=\varphi_Y</script></li>
-<li><p>逆变换</p>
-</li>
-<li><script type="math/tex; mode=display">
-\forall x \in \mathbb{R}^N, f(x)=\frac{1}{(2\pi)^N}\int_{\mathbb{R}^N}{e^{-i<t,X>}\varphi_X(t)}dt</script></li>
-</ul>
-</li>
-<li><p>特征方程和独立性</p>
-<ul>
-<li><p>定理</p>
-<script type="math/tex; mode=display">
-X_1,...,X_N \text{ 是独立的，当且仅当它们的特征方程满足：} \\
-\forall t = (t_1,...,t_N) \in \mathbb{R}^N; \varphi_X(t) = \prod_{k=1}^{N}{\varphi_{X_k}(t_k) } \\
-where\ X = (X_1,...,X_N)</script></li>
-<li><p>性质</p>
-<script type="math/tex; mode=display">
-X_1,...,X_n independants, P_{X_1},...,P_{X_N}. \\
-\text{La loi de } \sum{X_i} \text{est le produit de concolution } \prod{P_{X_i}} \\
-\text{Pour fonction caracteristique } \sum{\varphi_{X_i}} \text{definie par} \\
-\forall t \in \mathbb{R}^N; \varphi_{X+...+X_n}(t) = \prod_{i=1}^{n}{\varphi_{X_i}(t) }</script></li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
-
+||.||_{H^1}: v \mapsto \sqrt{||v||_{L^2}^2+||\nabla v||_{L^2}^2} \\
+|.|_{H^1(\Omega)} := ||\nabla .||_{L^2(\Omega)} \\
+||.||_{H_0^1} := |.|_{H^1}</script>
       
     </div>
 
@@ -491,7 +410,11 @@ X_1,...,X_n independants, P_{X_1},...,P_{X_N}. \\
           
             <a href="/tags/math/" rel="tag"># math</a>
           
-            <a href="/tags/probability/" rel="tag"># probability</a>
+            <a href="/tags/EDP/" rel="tag"># EDP</a>
+          
+            <a href="/tags/analyse/" rel="tag"># analyse</a>
+          
+            <a href="/tags/Sobolev/" rel="tag"># Sobolev</a>
           
         </div>
       
@@ -500,8 +423,8 @@ X_1,...,X_n independants, P_{X_1},...,P_{X_N}. \\
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/12/01/proba-ch2/" rel="next" title="proba-ch2 随机变量">
-                <i class="fa fa-chevron-left"></i> proba-ch2 随机变量
+              <a href="/2017/02/11/Hilbert-space/" rel="next" title="Hilbert space">
+                <i class="fa fa-chevron-left"></i> Hilbert space
               </a>
             
           </div>
@@ -510,8 +433,8 @@ X_1,...,X_n independants, P_{X_1},...,P_{X_N}. \\
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/12/01/proba-ch4/" rel="prev" title="proba-ch4 高斯向量">
-                proba-ch4 高斯向量 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/03/06/EDP-basic-models/" rel="prev" title="EDP basic models">
+                EDP basic models <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -559,8 +482,17 @@ X_1,...,X_n independants, P_{X_1},...,P_{X_N}. \\
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -613,6 +545,22 @@ X_1,...,X_n independants, P_{X_1},...,P_{X_N}. \\
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#索伯列夫空间-Sobolev-space"><span class="nav-number">1.</span> <span class="nav-text">索伯列夫空间 Sobolev space</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#感性认识"><span class="nav-number">1.1.</span> <span class="nav-text">感性认识</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#范数"><span class="nav-number">1.2.</span> <span class="nav-text">范数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#H-k"><span class="nav-number">1.3.</span> <span class="nav-text">$H^k$</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
