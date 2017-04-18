@@ -246,6 +246,384 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://codeurJue.github.io/2016/12/01/proba-ch4/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Jue">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.gif">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Jue's Blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Jue's Blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/12/01/proba-ch4/" itemprop="url">
+                  proba-ch4 高斯向量
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-01T16:28:52+01:00">
+                2016-12-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/math/" itemprop="url" rel="index">
+                    <span itemprop="name">math</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>定义</p>
+<p>Un vecteur aléatoire est dit gaussien si toute combinaison linéaire de ses composantes suit une loi gaussienne.</p>
+<p>也就是：</p>
+<script type="math/tex; mode=display">
+\forall \lambda_1,...,\lambda_N \in \mathbb{R} , \sum_{j=1}^{N}{\lambda_jX_j \text{ suit une loi normale.}}</script><ul>
+<li><p>特征函数</p>
+<script type="math/tex; mode=display">
+\varphi_X: t \rightarrow e^{i < \mu, t> -\frac{1}{2}<t,Dt>} \\
+=> \varphi_X = e^{i\sum_{j=1}^{N}{\mu_j t_j}- \frac{1}{2}\sum_{1\le j,k\le N}{t_j D_{j,k}t_k}}</script><p>$\mu$, le vecteur moyenne, 平均向量</p>
+<p>D, la matrice de covariances de X, 协方差矩阵</p>
+</li>
+<li><p>理论，X=(X1,…,XN) 是高斯向量，则Xj相互独立当仅当其协方差矩阵D为对角线矩阵。（也就是只有自己和自己的协方差不为零）</p>
+</li>
+<li><p>Densite de la loi d’un vecteur gaussien</p>
+<script type="math/tex; mode=display">
+D \ne 0 \\
+\mathcal{N}(\mu,D) \text{在Lebesgue测度下，在}\mathbb{R}^N\text{上绝对连续} \\
+x \longmapsto \frac{1}{(2\pi)^{N/2}\sqrt{\det D}}e^{-\frac{1}{2}<x-\mu,D^{-1}(x-\mu)>}</script></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://codeurJue.github.io/2016/12/01/proba-ch3/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Jue">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.gif">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Jue's Blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Jue's Blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/12/01/proba-ch3/" itemprop="url">
+                  proba-ch3 实域概率和特征方程
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-01T14:54:10+01:00">
+                2016-12-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/math/" itemprop="url" rel="index">
+                    <span itemprop="name">math</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li><p>几种常见分布</p>
+<p> 若不在区间内，f=0</p>
+<ol>
+<li><p>loi uniforme</p>
+<script type="math/tex; mode=display">
+f(x)=\frac{1}{b-a} si\ x \in [a,b]</script></li>
+<li><p>loi exponentielle</p>
+<script type="math/tex; mode=display">
+f(x) = \lambda e^{-\lambda x} si\ x \ge 0 \\
+E[X] = \frac{1}{\lambda}, Var(X) = \lambda^2</script></li>
+<li><p>Loi de weibull</p>
+<script type="math/tex; mode=display">
+f(x) = \alpha \lambda^\alpha x^{\alpha-1}e^{-(\lambda x)^\alpha} si\ x \ge 0\\
+E[X] = \frac{\Gamma(1+1/\alpha)}{\lambda}, Var(X) = \frac{\Gamma(1+2/\alpha)}{\lambda^2}</script></li>
+<li><p>loi gamma</p>
+<script type="math/tex; mode=display">
+f(x) = \frac{\lambda}{\Gamma(p)}(\lambda x)^{p-1}e^{-\lambda x}\\
+E[X] = \frac{p}{\lambda}, Var(X) = \frac{p}{\lambda^2}</script></li>
+<li><p>loi normale</p>
+<script type="math/tex; mode=display">
+f(x) = \frac{1}{\sqrt{2\pi}\sigma}exp[-\frac{(x-m)^2}{2\sigma^2}], x \in R\\
+E[X] = m, Var(X) = \sigma^2</script></li>
+<li><p>Loi lognormale</p>
+<script type="math/tex; mode=display">
+f(x) = \frac{1}{\sqrt{2\pi}\sigma x}exp[-\frac{(\ln x-m)^2}{2\sigma^2}], x \ge 0 \\
+E[X] = e^{m+\sigma^2/2}, Var(X) = e^{2m+\sigma^2}(e^{\sigma^@}-1)</script></li>
+<li><p>Loi du $ \chi^2 $</p>
+<script type="math/tex; mode=display">
+X = U_1^2+...+U_n^2 \\
+U_i\ est\ de\ loi\ \mathcal{N}(0,1) \\
+E[X] = n, Var(X) = 2n</script></li>
+<li><p>Loi de Student</p>
+<script type="math/tex; mode=display">
+X = \frac{U}{\sqrt{\frac{Z}{n}}} \\
+U\ suit\ la\ loi\ normale\ \mathcal{N}(0,1) \\
+Z\text{ est independante de U et suit la loi du }\chi^2\text{ a n degres de liberte}</script></li>
+</ol>
+</li>
+<li><p>特征函数</p>
+<script type="math/tex; mode=display">
+\varphi_X: \mathbb{R^N} \rightarrow \mathbb{C} \\
+t \rightarrow \varphi_X(t) = E[e^{i<t,X>}] = \int_{\mathbb{R}^N}{e^{i<t,X>}P_X(dx)}</script><p>我们说特征函数是对X进行基于PX的傅立叶变换 = =好绕</p>
+<p>若PX存在概率密度 $f \in L^1$</p>
+<script type="math/tex; mode=display">
+\varphi_X(t) = \int_{\mathbb{R}^N}{e^{i<t,X>}f(x)dx}</script><ul>
+<li><p>性质</p>
+<ul>
+<li><script type="math/tex; mode=display">
+\forall t \in \mathbb{R}^N, |\varphi_X(t)| \le 1=> \varphi_X(0) = 1</script><script type="math/tex; mode=display">
+\varphi_{\lambda X+a}(t) = e^{iat}\varphi_X(\lambda t)</script><script type="math/tex; mode=display">
+\varphi_X 是一个半正函数，即 \\
+\forall z_1,...,z_n\in \mathbb{C}, \sum_{1 \le j, k\le n}{z_j \varphi_X(t_j-t_k)\bar{z_k}} \ge 0</script></li>
+</ul>
+</li>
+<li><p>其他性质</p>
+<ul>
+<li><p>特征函数连续</p>
+</li>
+<li><p>PX以lebesgue测度绝对连续，则</p>
+</li>
+<li><script type="math/tex; mode=display">
+\lim_{|t|\rightarrow \infty}{\varphi_X(t)} = 0</script></li>
+<li><p>XY，它们拥有相同的P，当且仅当</p>
+</li>
+<li><script type="math/tex; mode=display">
+\varphi_X=\varphi_Y</script></li>
+<li><p>逆变换</p>
+</li>
+<li><script type="math/tex; mode=display">
+\forall x \in \mathbb{R}^N, f(x)=\frac{1}{(2\pi)^N}\int_{\mathbb{R}^N}{e^{-i<t,X>}\varphi_X(t)}dt</script></li>
+</ul>
+</li>
+<li><p>特征方程和独立性</p>
+<ul>
+<li><p>定理</p>
+<script type="math/tex; mode=display">
+X_1,...,X_N \text{ 是独立的，当且仅当它们的特征方程满足：} \\
+\forall t = (t_1,...,t_N) \in \mathbb{R}^N; \varphi_X(t) = \prod_{k=1}^{N}{\varphi_{X_k}(t_k) } \\
+where\ X = (X_1,...,X_N)</script></li>
+<li><p>性质</p>
+<script type="math/tex; mode=display">
+X_1,...,X_n independants, P_{X_1},...,P_{X_N}. \\
+\text{La loi de } \sum{X_i} \text{est le produit de concolution } \prod{P_{X_i}} \\
+\text{Pour fonction caracteristique } \sum{\varphi_{X_i}} \text{definie par} \\
+\forall t \in \mathbb{R}^N; \varphi_{X+...+X_n}(t) = \prod_{i=1}^{n}{\varphi_{X_i}(t) }</script></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="https://codeurJue.github.io/2016/12/01/proba-ch2/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1618,388 +1996,11 @@ E[X] = \lambda, Var(X) = \lambda</script></li>
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://codeurJue.github.io/2016/11/27/Note-of-learning-Algo/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Jue">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.gif">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Jue's Blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Jue's Blog" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/27/Note-of-learning-Algo/" itemprop="url">
-                  算法笔记 Note of learning Algo
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-27T12:38:32+01:00">
-                2016-11-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/programming/" itemprop="url" rel="index">
-                    <span itemprop="name">programming</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Data-Structure"><a href="#Data-Structure" class="headerlink" title="Data Structure"></a>Data Structure</h1><a href="/2016/11/27/complexity/" title="How to calcul the complexity?">How to calcul the complexity?</a> 
-<a href="/2016/11/27/compression/" title="How to make a compression?">How to make a compression?</a>
-<ol>
-<li>The data : int, double, etc.</li>
-<li>The basic data structure<ul>
-<li>Container</li>
-<li>Table </li>
-<li>Stack </li>
-<li>Queue </li>
-<li>List</li>
-</ul>
-</li>
-<li>Tree<ul>
-<li>Arbres binaires - 二叉树<ul>
-<li>ABR - 二叉树的查询</li>
-</ul>
-</li>
-<li>Arbres n-aires</li>
-</ul>
-</li>
-<li>Dictionary <ul>
-<li>Hash table - Table de hachage - 哈希表</li>
-</ul>
-</li>
-<li><strong>Heap - Tas - 堆 </strong><ul>
-<li>二叉堆</li>
-<li>堆排序</li>
-</ul>
-</li>
-<li>Find-Union</li>
-</ol>
-<h1 id="Method-of-programming"><a href="#Method-of-programming" class="headerlink" title="Method of programming"></a>Method of programming</h1><a href="/2016/11/27/Method-of-programming-facing-to-exams/" title="Savoir plus">Savoir plus</a>
-<ol>
-<li>Echaustive / force brute - 穷举法</li>
-<li>Try-error - Essai-erreur 试错法</li>
-<li>Glouton - 贪心法</li>
-<li>Recursif - recursive - 递归</li>
-<li>Divede merge - Diviser pour regner - 分治</li>
-<li>Dynamic - Dynamique - 动态规划</li>
-</ol>
-<h1 id="Graph"><a href="#Graph" class="headerlink" title="Graph"></a>Graph</h1><a href="/2016/11/27/graph/" title="Savoir plus">Savoir plus</a>
-<ol>
-<li>Traversal - parcours - 遍历<ul>
-<li>BFS</li>
-<li>DFS</li>
-</ul>
-</li>
-<li>Critical path method - plus court chemin<ul>
-<li>Dijkstra</li>
-<li>Floyd</li>
-<li>Bellman-Ford</li>
-</ul>
-</li>
-<li>Tree - arbre<ul>
-<li>Prim</li>
-<li>Kruskal</li>
-</ul>
-</li>
-</ol>
-<p>*backtracking</p>
-<p>*Branch and bound</p>
-<h1 id="Others"><a href="#Others" class="headerlink" title="Others"></a>Others</h1><ol>
-<li>排序<ul>
-<li>选择，冒泡</li>
-<li>分治（fusion）</li>
-<li>快速</li>
-<li>tas </li>
-</ul>
-</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://codeurJue.github.io/2016/11/27/complexity/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Jue">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.gif">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Jue's Blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Jue's Blog" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/27/complexity/" itemprop="url">
-                  复杂度 complexity
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-27T10:52:05+01:00">
-                2016-11-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/programming/" itemprop="url" rel="index">
-                    <span itemprop="name">programming</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="计算复杂度-Calcul-the-complexity"><a href="#计算复杂度-Calcul-the-complexity" class="headerlink" title="计算复杂度 - Calcul the complexity"></a>计算复杂度 - Calcul the complexity</h1><p>这里我们只考虑时间复杂度。</p>
-<p>There, we only discuss the time complexity.</p>
-<h2 id="通常-Normal"><a href="#通常-Normal" class="headerlink" title="通常 - Normal"></a>通常 - Normal</h2><ol>
-<li><p>Single operation - O(1)</p>
-</li>
-<li><p>Loop</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">fun</span><span class="params">(n)</span>:</span></div><div class="line">	<span class="keyword">for</span> i <span class="keyword">in</span> range(n):</div><div class="line">   		<span class="keyword">pass</span></div></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">fun</span><span class="params">(n)</span>:</span></div><div class="line">	<span class="keyword">while</span> i &lt; n :</div><div class="line">    	i += <span class="number">1</span></div></pre></td></tr></table></figure>
-<p>— O(n)</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">fun</span><span class="params">(n)</span>:</span></div><div class="line">    <span class="keyword">while</span> i &lt; n :</div><div class="line">        i *= <span class="number">2</span></div></pre></td></tr></table></figure>
-<p>— O(logn)</p>
-<p>Etc.</p>
-<h2 id="递归-Recursion"><a href="#递归-Recursion" class="headerlink" title="递归 - Recursion"></a>递归 - Recursion</h2><ol>
-<li><p>代入法</p>
-<p>预估其复杂度，代入原方程，若相符，则可能为解。</p>
-<p>ex:</p>
-<p>T(n) = 2*T(n/2) + O(n)</p>
-<p>假设 T(n) = kn^2</p>
-<p>代入原式，成立。</p>
-<p>接下来用数学归纳法验证。</p>
-</li>
-<li><p>迭代法</p>
-<p>   迭代地展开递归方程的右端，使其成为一个非递归的和式，随后进行复杂度计算</p>
-<p>   ex:</p>
-<p>   T(n) = T(n-1) + O(1)</p>
-<p>   T(1) = O(1)</p>
-<p>   所以，T(n) = T(n-1) + O(1) = T(n-1) + 2 <em> O(1) = … = n</em>O(1) = O(n)</p>
-</li>
-<li><p>套用公式</p>
-<p>   对于形如</p>
-<p>   T(n) = aT(n/b) +f(n)</p>
-<p>   的方程已有固定判断法，套用公式即可。</p>
-</li>
-<li><p>差分方程法</p>
-<p>   利用查分方程解，这个比较复杂，这里先占个位，以后在补。</p>
-</li>
-</ol>
-</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2040,7 +2041,7 @@ E[X] = \lambda, Var(X) = \lambda</script></li>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">30</span>
+              <span class="site-state-item-count">32</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -2057,7 +2058,7 @@ E[X] = \lambda, Var(X) = \lambda</script></li>
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-count">36</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
