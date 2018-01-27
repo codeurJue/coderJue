@@ -86,7 +86,7 @@
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Jue's Blog">
-<meta property="og:url" content="https://codeurJue.github.io/index.html">
+<meta property="og:url" content="https://LorrinWWW.github.io/index.html">
 <meta property="og:site_name" content="Jue's Blog">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Jue's Blog">
@@ -117,7 +117,7 @@
 
 
 
-  <link rel="canonical" href="https://codeurJue.github.io/"/>
+  <link rel="canonical" href="https://LorrinWWW.github.io/"/>
 
 
 
@@ -246,7 +246,1454 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://codeurJue.github.io/2017/06/22/MongoDB-Docker-and-Python/">
+  <link itemprop="mainEntityOfPage" href="https://LorrinWWW.github.io/2018/01/21/[2018.1.21]Event-detection-and-co-referentce/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Jue">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.gif">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Jue's Blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Jue's Blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/01/21/[2018.1.21]Event-detection-and-co-referentce/" itemprop="url">
+                  Event detection and co-reference with minimal supervision 笔记
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-21T08:00:00+01:00">
+                2018-01-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/research/" itemprop="url" rel="index">
+                    <span itemprop="name">research</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Event-detection-and-co-reference-with-minimal-supervision-1"><a href="#Event-detection-and-co-reference-with-minimal-supervision-1" class="headerlink" title="Event detection and co-reference with minimal supervision [1]"></a>Event detection and co-reference with minimal supervision [1]</h2><p><strong>摘要：</strong>该论文使用了一种弱监督的算法解决了事件检测与共指问题。事件共指问题可以看作是一种事件之间的相似度计算问题，而在该文中，事件检测问题也被看作是一种相似度检测问题。对于ACE或rich ERE划分的所有事件类型，使用每个类型中的几个实例作为该类型事件的向量，然后计算新事件向量与每个类型事件向量之间的相似度，根据这一相似度对事件进行判断。该文的另一个特点在于事件特征的选择，在将事件表示为向量的过程中，使用了Freebase作为特征来对事件进行表示。</p>
+<h3 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h3><p><img src="overview.png" width="70%"></p>
+<p>上图是论文提出的MSEP（Minimally Supervised Event Pipeline）框架。这里 Event examples 是唯一的监督来源，用于产生 Example vectors。在MSEP框架中不需要训练。</p>
+<p>这篇论文主要是针对两个问题：</p>
+<ul>
+<li>Event detection 指的是对一段文本内容，检测是否存在符合要求的事件。</li>
+<li>Co-reference problem. 为了更好的理解和利用事件的信息，我们需要从文本中提取出时间、地点、人物、行为等信息。此外，我们还需要了解两个事件的关系，例如，判断两个事件是否表示同一个事件，这就是Co-reference problem。</li>
+</ul>
+<p>在本文中，我们提出了一种更加可行且更加可测的方法来描述事件。对于一个事件e，event detection 所要做的就是判断是否存在一个事件集合，事件e在语义上是否有关联，以至于可以被划分到该集合内；而 co-reference problem 则是判断两个事件e1、e2是否在语义上表述足够接近，以至于我们认为它们所表示的实际上是同一个事件。可以看到两个任务实际上都需要判断相似性，我们可以把它们转化为语义相似性问题。</p>
+<p>现在主要问题有：1. 如何表示一个事件；2. 如何表达相似性。前者我们采用了semantic role labeling  representation（SRL），来结构化地描述一个事件；对于后者，我们将对事件做一个embedding，通过计算其余弦距离来表达相似性。</p>
+<p>我们提出了一个通用事件检测和指代消解框架，它基本上不需要标记数据。在实践中，为了将一个事件提法（event mention）和一个事件本体（event ontology）相联系起来，我们只需要一些事件示例。这种定义类型的方式是非常合理的，因为给出例子是定义事件类型的最简单的方法。我们的方法比标准的无监督方法要求更少假设，在我们的模型中，给定事件类型的定义（以事件例子的形式），我们可以将单个事件分类到已知本体，并确定两个事件是否是 co-reference 的。</p>
+<h3 id="2-The-MSEP-System"><a href="#2-The-MSEP-System" class="headerlink" title="2. The MSEP System"></a>2. The MSEP System</h3><h4 id="2-1-Structured-Vector-Representation"><a href="#2-1-Structured-Vector-Representation" class="headerlink" title="2.1 Structured Vector Representation"></a>2.1 Structured Vector Representation</h4><p>事件结构和句子结构之间有一个平行关系。我们发现一般来说，事件的触发词往往是谓语，所以可以针对谓语对其做一些改进：</p>
+<p><img src="basic_event.png" alt="basic"></p>
+<p><strong>Basic event vector representation</strong>。基本事件向量由它的各个组成部分组成。</p>
+<p><img src="augmented_event.png" alt="basic"></p>
+<p><strong>Augmented event vector representation</strong>。在这里，“+” 表示我们首先将文本片段放在一起，然后将组合的文本片段转换成ESA向量。</p>
+<h4 id="2-2-Event-Mention-Detection"><a href="#2-2-Event-Mention-Detection" class="headerlink" title="2.2 Event Mention Detection"></a>2.2 Event Mention Detection</h4><p>我们定义 Event type representation 为该类别下的事件向量的平均值。</p>
+<p>我们定义定义相似度如下</p>
+<script type="math/tex; mode=display">
+S(e_1, e_2) = \frac{vec(e_1) · vec(e_2)}{||vec(e_1)||·||vec(e_2)||} \\
+= \frac{\sum_a{vec(a_1) · vec(a_2)}}{\sqrt{\sum_a{||vec(a_1)||^2} · \sum_a{||vec(a_2)||^2}}}</script><p>其中 e1 是待处理事件，e2 是事件的类别。a 就是事件里的各个组件。若遇到 a 缺失的情况（如地点、时间等），我们用非缺失的部分的平均值来代替它。具体的操作方法参见原文。</p>
+<h4 id="2-3-Event-co-reference"><a href="#2-3-Event-co-reference" class="headerlink" title="2.3 Event co-reference"></a>2.3 Event co-reference</h4><p>这里如上一节的内容所说，通过余弦距离$S(e_1, e_2)$来计算两个事件的相似度。</p>
+<p>对于每一个事件，我们分别比较$agnet<em>{sub}, agnet</em>{obj}$，若都不相同，我们认为它们是独立的；如果有缺失，我们认为它和任意值匹配。这样，我们可以得到一个不重复的事件集合，$Set_{conflict}$。</p>
+<p>接下来遍历所有事件，对于事件k+1，</p>
+<script type="math/tex; mode=display">
+e_p = argmax_{e\in \{e_1,...,e_k\} e \notin Set_{conflit}} {S(e_p, e_{k+1})}</script><p>如果$S(e<em>p, e</em>{k+1})$的值大于我们设定的阈值，我们就认为它是同一个事件；否则，我们把他分为一个新的类。</p>
+<h3 id="3-Vector-Representation"><a href="#3-Vector-Representation" class="headerlink" title="3. Vector Representation"></a>3. Vector Representation</h3><p>我们可以看到，其实文章之前的内容都不依赖于 embedding 的具体选择，事实上，作者也测试了很多的方法，可以根据实际情况来选择。</p>
+<ul>
+<li>Explicit Semantic Analysis</li>
+<li>Brown Cluster</li>
+<li>Word2Vec</li>
+<li>Dependency-Based Embedding</li>
+</ul>
+<h3 id="4-Semantic-Role-Labeling"><a href="#4-Semantic-Role-Labeling" class="headerlink" title="4. Semantic Role Labeling"></a>4. Semantic Role Labeling</h3><p>上面工作建立在已经完成了 Semantic Role Labeling 的情况下，这里我们在讨论一下如何进行 Semantic Role Labeling。</p>
+<p>对于标注任务来说大同小异，现在往往使用神经网络模型来进行标注，例如[2]，缺点是需要大量标注数据。目前业内比较主流的解决方案是RNN-CRF模型，一般来说分为：</p>
+<ul>
+<li>Embedding layer</li>
+<li>Bi-directional RNN (usually LSTM) layer</li>
+<li>Tanh hidden layer</li>
+<li>CRF layer</li>
+</ul>
+<p>在实际应用上，可能还会增加Attention机制等来进一步提高它的效果。</p>
+<p>目前已有的系统如哈工大的语言技术平台LTP，能够用于 Semantic Role Labeling 等。</p>
+<h3 id="5-Conclusion"><a href="#5-Conclusion" class="headerlink" title="5. Conclusion"></a>5. Conclusion</h3><p>这一篇文章提出了一种新颖的事件检测和指代消解方法。其最重要的部分就是提出了一种结构化的向量，能够更好地表示event，用以进行事件分类、指代消解等工作。这个方法在一些关键指标上甚至能优于最新的监督方法，并且能够更好地适应新的领域。</p>
+<h2 id="Bibliography"><a href="#Bibliography" class="headerlink" title="Bibliography"></a>Bibliography</h2><p>[1] Peng, H., Song, Y., &amp; Roth, D. (2016). Event Detection and Co-reference with Minimal Supervision. In <em>EMNLP</em> (pp. 392-402).</p>
+<p>[2] Zhou, J., &amp; Xu, W. (2015). End-to-end learning of semantic role labeling using recurrent neural networks. In <em>ACL (1)</em> (pp. 1127-1137).</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://LorrinWWW.github.io/2018/01/14/[2018.1.14]Models-for-relation-extraction/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Jue">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.gif">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Jue's Blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Jue's Blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/01/14/[2018.1.14]Models-for-relation-extraction/" itemprop="url">
+                  几个 relation extraction 远程监督模型
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-14T08:00:00+01:00">
+                2018-01-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/research/" itemprop="url" rel="index">
+                    <span itemprop="name">research</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="几个-relation-extraction-远程监督模型"><a href="#几个-relation-extraction-远程监督模型" class="headerlink" title="几个 relation extraction 远程监督模型"></a>几个 relation extraction 远程监督模型</h2><p><strong>摘要：</strong>远程监督（Distant supervision）显著地减少了建立用于分类任务的训练集所需要的人工。但是这一项技术也会带来很大的噪音，并可能因此而大大地影响了模型的性能表现。这里，我们以 relation extraction 这项任务为例，深入讨论分析该噪声的分布。文献[1]提出了 dynamic-transition matrix，并证明了它能很好地代表了由 distant supervision 所带来的噪声。通过该矩阵，我们能够大大提高 relation extraction 的效果。文献[2]则是一种经典的方法，通过定义规则，定义否定模式（negative pattern）过滤掉一些噪音数据，可以很大程度提高性能。缺点是规则依赖人工定义，但是方法本身简单有效。文献[3]将 relation extraction 定义为一个 Multi-instance Multi-label 学习问题，一定程度上解决了错误标签的问题。</p>
+<h3 id="1-Problem-of-distant-supervision"><a href="#1-Problem-of-distant-supervision" class="headerlink" title="1. Problem of distant supervision"></a>1. Problem of distant supervision</h3><p>Distant supervision 是一种生成关系抽取训练集的常用方法。它把现有知识库中的三元组 \<e1, r,="" e2\=""> （或写成\<subj, r,="" obj\="">）作为种子，匹配同时含有 e1 和 e2 的文本，得到的文本用作关系 r 的标注数据。这样可以省去大量人工标记的工作。</subj,></e1,></p>
+<p>但是，相比于人工标注方法，这种匹配方式会产生很多噪音：比如三元组\<donaldtrump, born-in,="" new="" york\="">，可能对齐到“Donald Trump was born in New York”，也可能对齐到“DonaldTrump worked in New York”。其中前一句是我们想要的标注数据，后一句则是噪音数据，它并不表示born-in关系。如何去除这些噪音数据，是一个重要的研究课题。</donaldtrump,></p>
+<h3 id="2-Approaches-to-this-problems"><a href="#2-Approaches-to-this-problems" class="headerlink" title="2. Approaches to this problems"></a>2. Approaches to this problems</h3><ul>
+<li>拟合噪音<ul>
+<li>dynamic-transition matrix [1]</li>
+</ul>
+</li>
+<li>去除噪音<ul>
+<li>通过定义规则过滤掉一些噪音数据[2]，缺点是依赖人工定义，并且被关系种类所限制。</li>
+<li>Multi-instance learning[3], 把训练语句分包学习，包内取平均值，或者用 attention 加权，可以中和掉包内的噪音数据。缺点是受限于 at-least-one-assumption：每个包内至少有一个正确的数据。</li>
+</ul>
+</li>
+</ul>
+<p>下面我们简单介绍这几个模型。</p>
+<h4 id="2-1-Learning-with-dynamic-transition-matrix-1"><a href="#2-1-Learning-with-dynamic-transition-matrix-1" class="headerlink" title="2.1 Learning with dynamic-transition matrix [1]"></a>2.1 Learning with dynamic-transition matrix [1]</h4><p>文献[1] 提出了 dynamic-transition matrix，用于表达 Distant supervision 所产生的噪声。dynamic-transition matrix 可以通过基于 curriculum learning 的方法训练得到。通过该矩阵，我们能够大大提高 relation extraction 的效果，能够达到目前该领域的 state-of-the-art。</p>
+<p><img src="overview.png" alt="overview"></p>
+<p>Transition matrix 是一个转移矩阵，记为T，大小为 n*n，n是关系种类的数目。T 的元素，$T_{ij}$的值是 p( j| i )，即该句子代表关系为 i，但被误判为 j 的概率。</p>
+<p>这样我们就可以得到：𝑃𝑟𝑒𝑑𝑖𝑐𝑡𝑒𝑑 𝑑𝑖𝑠𝑡𝑟𝑖𝑏𝑢𝑡𝑖𝑜𝑛 × 𝑇𝑟𝑎𝑠𝑖𝑡𝑖𝑜𝑛 𝑚𝑎𝑡𝑟𝑖𝑥=𝑂𝑏𝑠𝑒𝑟𝑣𝑒𝑑 𝑑𝑖𝑠𝑡𝑟𝑖𝑏𝑢𝑡𝑖𝑜𝑛</p>
+<p>其中，predicted 是我们想要的真实分布，observed 是我们观测到的噪音分布，这样就可以用噪音数据进行联合训练了。作者在 timeRE 和 entityRE(NYT) 上均进行了训练，取得了降噪的 state-of-art。具体分析结果可以参照论文。</p>
+<h4 id="2-2-Reducing-Wrong-Labels-2"><a href="#2-2-Reducing-Wrong-Labels-2" class="headerlink" title="2.2 Reducing Wrong Labels [2]"></a>2.2 Reducing Wrong Labels [2]</h4><p>在关系提取方面，远程监督试图通过使用知识库（如Freebase）作为监督来源，从文本中提取实体之间的关系。 当一个句子和一个知识库引用同一个实体对时，这种方法试图用知识库中的对应关系来启发式地标注句子。 然而，这种启发式可能会导致一些句子被错误地标记。 这种嘈杂的标记数据导致较差的抽取性能。 在本文中，我们提出了一种减少错误标签数量的方法。 我们提出了一个新的生成模型，直接模拟远程监督的启发式标签过程。 该模型通过其隐藏变量来预测分配的标签是正确的还是错误的。在实验中，我们也发现错误的标签减少提高了关系抽取的性能。</p>
+<p><img src="wrong_label_reduction.png" width="70%"></p>
+<p>NegPat(r)即为事先定义的对于r的否定模式（negative pattern）。在我们的方法中，我们按如下所示去除错误标签：（i）给定一个已标注的语料库，我们首先验证其中的模式是否表达一种relation，然后（ii）使用否定模式列表（NegPat）去除错误的标签， 即该模式被定义为不表示relation的模式。 第一步，我们引入新的生成模型，直接模拟DS的标注过程并进行预测。 第二步在算法1中描述，见上图。对于关系提取，我们使用上述得到的标注数据来训练分类器（给定实体对，该分类器预测所属关系）。</p>
+<h4 id="2-3-Multi-instance-Multi-label-Learning-3"><a href="#2-3-Multi-instance-Multi-label-Learning-3" class="headerlink" title="2.3 Multi-instance Multi-label Learning [3]"></a>2.3 Multi-instance Multi-label Learning [3]</h4><p>很多的共现 entities 都没有什么关系，仅仅是出现在同一个句子中；而有的 entities 之间的关系其实并不仅仅只有一种，可能有多种，比如奥巴马和美国的关系，可能是 born in，也可能是 is the president of 的关系。</p>
+<p>因此训练集会产生大量的错误标记，比如两个实体有多种关系或者根本在这句话中没有任何关系，这样的训练数据会对关系抽取器产生影响。正因为如此，传统的监督式学习，假设每个实例明确地映射到一个标签，是不合适的。</p>
+<p>对于这个问题，我们将关系抽取定义为一个 Multi-instance Multi-label 学习问题，它使用带有潜在变量的图模型，对文本中一对实体的所有实例以及它们的所有标签进行联合建模。 该模型在 relation extraction 领域表现出色。</p>
+<h3 id="3-Conclusion"><a href="#3-Conclusion" class="headerlink" title="3. Conclusion"></a>3. Conclusion</h3><p>上面提到的几个模型都有其新颖的地方，其中[1]这种拟合噪音的思想很有创新点，实际的效果也很理想；而后两个模型主要都是在数据预处理阶段进行，因此可以和其他 relation extraction 模型很好的结合。</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><p>*笔记部分参考<a href="https://mp.weixin.qq.com/s/O9JaalDhoX97DMoUBFxmtg" target="_blank" rel="external">论文浅尝 | Learning with Noise: Supervised Relation Extraction</a></p>
+<p>[1] Luo, Bingfeng, et al. “Learning with noise: enhance distantly supervised relation extraction with dynamic transition matrix.” <em>arXiv preprint arXiv:1705.03995</em> (2017).</p>
+<p>[2] Takamatsu, Shingo, Issei Sato, and Hiroshi Nakagawa. “Reducing wrong labels in distant supervision for relation extraction.” <em>Proceedings of the 50th Annual Meeting of the Association for Computational Linguistics: Long Papers-Volume 1</em>. Association for Computational Linguistics, 2012.</p>
+<p>[3] Surdeanu, Mihai, et al. “Multi-instance multi-label learning for relation extraction.” <em>Proceedings of the 2012 joint conference on empirical methods in natural language processing and computational natural language learning</em>. Association for Computational Linguistics, 2012.</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://LorrinWWW.github.io/2018/01/04/[2018.1.4]Overcoming-Limited-Supervision-in-Relation-Extraction/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Jue">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.gif">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Jue's Blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Jue's Blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/01/04/[2018.1.4]Overcoming-Limited-Supervision-in-Relation-Extraction/" itemprop="url">
+                  Overcoming Limited Supervision in Relation Extraction 笔记
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-04T08:00:00+01:00">
+                2018-01-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/research/" itemprop="url" rel="index">
+                    <span itemprop="name">research</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>这次主要阅读的论文是《Overcoming Limited Supervision in Relation Extraction: A Pattern-enhanced Distributional Representation Approach》[1]。该文主要针对了现有模型对标注数据的依赖，提出一种比较有意思的思路。基于分布的方法（distributional approach）利用两个实体共同出现的统计频率来预测他们的关系，需要大量标注数据，而基于模式的方法（pattern-based approach）一般使用神经网络建模，但这种方法需要更多的标注数据。本文同时建立两个模型，互相为对方提供监督。以分布模型作为判别模型，模式模型作为生成模型。训练过程中不断迭代，从而提升两个模型的性能。</p>
+<p><img src="illustration.png" alt="illustration"></p>
+<h3 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h3><h4 id="1-1-Weakly-Supervised-Learning"><a href="#1-1-Weakly-Supervised-Learning" class="headerlink" title="1.1 Weakly Supervised Learning"></a>1.1 Weakly Supervised Learning</h4><p>弱监督学习介于监督学习和无监督学习之间，它提供的标注数据带有较大的噪音，或标注的相对粗糙，标注结果可能出错。对于关系抽取而言，就是将一些关系实例作为seed，用它们从大型语料库中去除冗余信息并提取更多的实例。</p>
+<p>弱监督学习的基本思路：</p>
+<ol>
+<li>用容易获得的标注替代较难获得的标注</li>
+<li>选择最需要做精细标注的样例</li>
+<li>模型训练和自动标注交替进行</li>
+</ol>
+<h4 id="1-2-Co-training-strategy"><a href="#1-2-Co-training-strategy" class="headerlink" title="1.2 Co-training strategy"></a>1.2 Co-training strategy</h4><p>以往的工作主要是单个模型，该文采用了co-training策略[2]，将两个模型互相协作，取得了比较好的效果。</p>
+<p>co-training策略是一种半监督方法，核心就是利用少量已标记样本，通过两个（或多个）模型去学习，对未标记样本进行标记，挑选置信度最高的样本加入已标记样本阵营。</p>
+<h4 id="1-3-REPEL-Relation-Extraction-with-pattern-enhanced-Embedding"><a href="#1-3-REPEL-Relation-Extraction-with-pattern-enhanced-Embedding" class="headerlink" title="1.3 REPEL (Relation Extraction with pattern-enhanced Embedding)"></a>1.3 REPEL (Relation Extraction with pattern-enhanced Embedding)</h4><p>REPEL是本文提出的一个模型。基于模式的模型学习用于关系抽取文本的模式，基于分布的模型作为分类器，两者互补，互相提供监督。前者相当于一个生成器，基于模式生成候选实例；而后者作为判别器，从中选择最优实例，并将选择结果反馈给前者。训练完成相当于得到了两个关系抽取模型。</p>
+<h3 id="2-Problem-definition"><a href="#2-Problem-definition" class="headerlink" title="2. Problem definition"></a>2. Problem definition</h3><p>实体识别：使用现成的工具标注。</p>
+<p>关系识别：实体对 $(e_h, e_t)$，三元组$(e_h, e_t, r)$</p>
+<p>给定语料库D，关系集合R。给定少量seed实例$ {(e<em>h^{r(k)}, e_t^{r(k)}, r)} </em>{k=1}^{N<em>r} $，提取尽可能多的$ {(e_h^{r(i)}, e_t^{r(i)}, r)} </em>{i=1}^M $；换言之，对于每个$ r \in R $，我们要提取尽可能多的$ {(e<em>h^{r(i)}, e_t^{r(i)})} </em>{i=1}^{M_r} $。</p>
+<h3 id="3-REPEL-Framework"><a href="#3-REPEL-Framework" class="headerlink" title="3. REPEL Framework"></a>3. REPEL Framework</h3><p>模式模型：找到文本中的模式集合</p>
+<p>分布模型：学习实体表示，以及打分函数</p>
+<p>目标函数：</p>
+<script type="math/tex; mode=display">
+max_{P,D}O = max_{P,D}\{O_p + O_d + \lambda O_i\}</script><p>上面公式中，P表示模式模型的参数，给定关系的全部模式集合。D表示分布模型的参数，实体表示和打分函数。Op和Od分别表示两个目标函数，Oi表示两个模型交互的目标。</p>
+<p>注意这里只考虑关系抽取，实体识别使用现有的工具或模型。</p>
+<h4 id="3-1-Pattern-Module"><a href="#3-1-Pattern-Module" class="headerlink" title="3.1 Pattern Module"></a>3.1 Pattern Module</h4><p>对于一个指定的关系r，我们的目标是找到K个最可靠的模式，然后进一步使用它们来发现更多的关系实例。</p>
+<p>基于模式关系抽取主要分为两种：path-based pattern、meta pattern。对于一句话中的实体对，前者定义为两个实体通过依存信息跳转的最短路径；后者则是两个实体附近的文字序列。利用这两种模式从语料库中寻找匹配的实体对。这样就得到了很多候选模式，每个模式又能分别找到许多匹配的实体对。</p>
+<p>对于一个模式$\pi$，我们通过以下式子计算它的置信度：</p>
+<script type="math/tex; mode=display">
+R(\pi)=\frac{|G(\pi)\cap S_{pair}|}{|G(\pi)|}</script><p>$G(\pi)$表示被模式$\pi$所匹配的所有实体对，$S_{pair}$表示seed实体对。可以看到，R实际表示的是，在满足$\pi$模式的实体对中，seed实体对所占的比例。显然，该比值越高，该模式越符合seed的分布。由此，我们定义：</p>
+<script type="math/tex; mode=display">
+O_p = \sum_{\pi \in P}R(\pi)</script><p>下面说明一下整个进行的过程：</p>
+<ul>
+<li>给定seed实体对，我们通过模式关系抽取的方法获得一系列候选模式。</li>
+<li>计算每个候选模式的R值，取最高的K个</li>
+</ul>
+<h4 id="3-2-Distributional-Module"><a href="#3-2-Distributional-Module" class="headerlink" title="3.2 Distributional Module"></a>3.2 Distributional Module</h4><p>该模块学习语料中的实体全局分布信息。我们利用给定的关系实例作为打分函数。</p>
+<p>对于一个实体e，和一个词w</p>
+<script type="math/tex; mode=display">
+P(w|e) =\frac{exp(x_e*c_w)}{Z}</script><p>$x_e$表示需要训练的实体表示向量， $c_w$是预训练的word embedding，Z是归一化项。</p>
+<script type="math/tex; mode=display">
+O_{text} = \sum_{w,e}n_{w,e}log(P(w|e))</script><p>$n_{w,e}$是字与实体之间边的权重，也就是实体和这个字同时出现的统计频率。我们希望分布概率能够拟合经验分布概率。</p>
+<p>定义打分函数：</p>
+<script type="math/tex; mode=display">
+L_D(f|r)=1-||x_{e_h} + y_r- x_{e_t} ||^2_2</script><p>实体向量$(x<em>{e_h} - x</em>{e_t})$和$y_r$（关系r的表示，也是要学习的参数）越接近，$L_D$就越接近1；反之则会非常小。</p>
+<script type="math/tex; mode=display">
+O_{seed} = \sum_{f\in S_{pair}} \sum_{f'\in(e'_h,e'_t)} {min\{1, L_D(f|r) - L_D(f'|r)\}}</script><p>$(e’_h,e’_t)$是随机选取的实体对。最小值函数是为了防止两个分数差距太多，因为往往$L_D(f’|r)$会是一个很小的负数。</p>
+<p>最后有总目标函数中的Od：</p>
+<script type="math/tex; mode=display">
+O_d = O_{text} + \eta O_{seed}</script><p>$\eta$用于调整两部分的比值。</p>
+<h4 id="3-3-Modeling-the-Module-Interaction"><a href="#3-3-Modeling-the-Module-Interaction" class="headerlink" title="3.3 Modeling the Module Interaction"></a>3.3 Modeling the Module Interaction</h4><script type="math/tex; mode=display">
+O_i = E_{f\in G(P)}[L_D(f|r)]</script><p>这里E指的是期望。</p>
+<p>我们给模式模型生成的实体对也打分。Oi作为目标函数，为了最大化它，模式集合P应该尽可能包含那些可靠有效的模式。也就是说，模式模型生成的实体对应该得到的打分越大越好。这样一来分布模型就能为模式模型提供监督（打分）。并且，对于分布模型来说，最大化该目标函数能够给实体对分配更高的打分（也就是说，要令Oi最大化，G(P)和LD都要合适）。通过这种方式两个模型能够互相提供监督。</p>
+<h3 id="4-The-Joint-Optimization-Problem"><a href="#4-The-Joint-Optimization-Problem" class="headerlink" title="4. The Joint Optimization Problem"></a>4. The Joint Optimization Problem</h3><p><img src="algo.png" alt="algo"></p>
+<p>具体算法如上图原文，为了优化总目标函数，采用协梯度下降算法。</p>
+<p>先固定模式模型，将seed实体对$S_{pair}$和模式模型生成的实体对$G(P)$训练分布模型。图中的Eqn.11就是下式：</p>
+<script type="math/tex; mode=display">
+max_D \{ O_d + \lambda O_i \} = max_D \{ O_d + \lambda E_{f \in G(P)}[L_D(f|r)] \}</script><p>然后再固定分布模型，对实体对筛选后得到的$S_{pair}$训练模式模型。图中的Eqn.12就是下式：</p>
+<script type="math/tex; mode=display">
+max_P \{ O_p + \lambda O_i \} = max_P \{ \sum_{\pi \in P}(R(\pi) + \lambda E_{f \in G(\pi)}[L_D(f|r)]) \}</script><p>往复迭代。</p>
+<h3 id="5-Conclusion"><a href="#5-Conclusion" class="headerlink" title="5. Conclusion"></a>5. Conclusion</h3><p>利用两个模型进行互补的思路很新颖，从论文的测试结果上来看，本文提出的模型并不逊色于神经网络，可见两个模型互补的效果是相当不错的。但是这种弱监督学习需要的人工标注数据非常少，降低了对标注数据的依赖性。</p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>*笔记部分参考<a href="https://zhuanlan.zhihu.com/p/32364723" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/32364723</a></p>
+<p>[1] Qu, M., Ren, X., Zhang, Y., &amp; Han, J. (2017). Overcoming Limited Supervision in Relation Extraction: A Pattern-enhanced Distributional Representation Approach. <em>arXiv preprint arXiv:1711.03226</em>.</p>
+<p>[2] Blum, Avrim, and Tom Mitchell. “Combining labeled and unlabeled data with co-training.” <em>Proceedings of the eleventh annual conference on Computational learning theory</em>. ACM, 1998.</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://LorrinWWW.github.io/2017/12/17/[2017.12.17]Relation-Classification-via-Attention-Model/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Jue">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.gif">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Jue's Blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Jue's Blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/12/17/[2017.12.17]Relation-Classification-via-Attention-Model/" itemprop="url">
+                  Relation Classification via Attention Model 笔记
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-17T08:00:00+01:00">
+                2017-12-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/research/" itemprop="url" rel="index">
+                    <span itemprop="name">research</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Relation-Classification-via-Attention-Model"><a href="#Relation-Classification-via-Attention-Model" class="headerlink" title="Relation Classification via Attention Model"></a>Relation Classification via Attention Model</h2><p>这个笔记主要是阅读论文[1]，它的工作重点是在神经网络构成的端到端学习的关系抽取任务中加入Attention机制。作者主要通过自动学习关系句中注意力较高的部分，而引入attention机制，对反映实体关系更加重要的词语给予更大的attention，较好地提高了关系抽取的效果。</p>
+<p><img src="https://github.com/lawlietAi/relation-classification-via-attention-model/raw/master/acnn_structure.png" width="50%"></p>
+<h3 id="1-Attention"><a href="#1-Attention" class="headerlink" title="1. Attention"></a>1. Attention</h3><h4 id="1-1-概述"><a href="#1-1-概述" class="headerlink" title="1.1 概述"></a>1.1 概述</h4><p>Attention机制最早是在视觉图像领域被提出来的。在NLP任务上，Bahdanau[2]等人使用类似attention的机制在机器翻译任务上将翻译和对齐同时进行。接着类似的基于attention机制的深度学习模型开始广泛应用到各种NLP任务中。</p>
+<h4 id="1-2-Recurrent-Models-of-Visual-Attention"><a href="#1-2-Recurrent-Models-of-Visual-Attention" class="headerlink" title="1.2 Recurrent Models of Visual Attention"></a>1.2 Recurrent Models of Visual Attention</h4><p>人们在进行观察图像的时候，其实并不是一次就把整幅图像的每个位置像素都看过，大多是根据需求将注意力集中到图像的特定部分。由此，在传统的RNN上加入了attention机制，每次当前状态，都会根据前一个状态学习得到的要关注的位置和当前输入的图像，去处理注意力部分像素。可以看到应用Attention机制后，任务的复杂度被降低了很多。</p>
+<h4 id="1-3-Attention-based-RNN-in-NLP"><a href="#1-3-Attention-based-RNN-in-NLP" class="headerlink" title="1.3 Attention-based RNN in NLP"></a>1.3 Attention-based RNN in NLP</h4><p>[1]的成果是在机器翻译任务，一般机器翻译工作由一个Encoder和一个Decoder构成，一个典型的Seq2seq任务。Encoder将源句子进行编码，再利用Decoder将编码后的向量解码成目标语言。</p>
+<p>我们在求注意力分配概率分布的时候，对于输入句子中任意一个单词都给出个概率，从而得到一个概率分布，再对输入句子所有单词的概率进行加权求和，得到Decoder的注意力分配。如下图。</p>
+<p><img src="http://img.blog.csdn.net/20170806205924785?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbXBrX25vMQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" width="30%"></p>
+<p>另一个扩展性更好的论文是[3]，他们的工作告诉了大家attention在RNN中可以如何进行扩展。</p>
+<h4 id="1-4-Attention-based-CNN-in-NLP"><a href="#1-4-Attention-based-CNN-in-NLP" class="headerlink" title="1.4 Attention-based CNN in NLP"></a>1.4 Attention-based CNN in NLP</h4><p>[4]这篇论文研究的是两个CNN网络，分别处理两个句子，最后输入到分类器中处理。但是这样的模型在输入分类器前句对间是没有相互联系的，作者就想通过设计attention机制将不同cnn通道的句对联系起来。于是提出了3中在CNN中使用attention的方法。</p>
+<ul>
+<li>ABCNN-1: 在卷积前进行attention，通过attention矩阵计算出相应句对的attention feature map，然后连同原来的feature map一起输入到卷积层。</li>
+<li>ABCNN-2: 在池化时进行attention，通过attention对卷积后的表达重新加权，然后再进行池化.</li>
+<li>ABCNN-3: ABCNN-1 + ABCNN-2</li>
+</ul>
+<h3 id="2-Relation-Classification"><a href="#2-Relation-Classification" class="headerlink" title="2. Relation Classification"></a>2. Relation Classification</h3><p><img src="https://github.com/lawlietAi/relation-classification-via-attention-model/raw/master/acnn_structure.png" width="50%"></p>
+<h4 id="2-1-Classification-Objective"><a href="#2-1-Classification-Objective" class="headerlink" title="2.1 Classification Objective"></a>2.1 Classification Objective</h4><p>作者提出了一种距离函数，即正则化向量差的L2范数：</p>
+<script type="math/tex; mode=display">
+\delta_{\theta}(S,y) = ||\frac{w^O}{|w^O|} - W_y^L||_{L^2} \\
+S:\text{Sentence}, y:\text{Output relation}, w^O: \text{Network output}, W^L:\text{Relation embedding}</script><p>基于此，作者定义了目标函数：</p>
+<script type="math/tex; mode=display">
+\mathcal{L} = [\delta_\theta(S,y) + (1-\delta_\theta(S, \hat{y}^-))] + \beta||\theta||^2 \\
+\hat{y}^- : \text{A selected incorrect relation label chosen as the one with the highest score among all i.e.} \\
+\hat{y}^- = argmax_{y'\in \mathcal{Y},y'\ne y}(\delta(S, y'))</script><p>目标中的两个距离分别为网络输出向量与正例和与某负例的距离，该负例是所有错误类别中与该输出最接近的。最后加上一个正则项，通过使该目标函数最小化来训练网络中的各参数，$\beta$用于控制其比重。</p>
+<h4 id="2-2-Input-Representation"><a href="#2-2-Input-Representation" class="headerlink" title="2.2 Input Representation"></a>2.2 Input Representation</h4><p>现有句子，以及两个已知的实体e1,e2：</p>
+<script type="math/tex; mode=display">
+S = (w_1,w_2,...,w_n) \\
+e_1 := w_p, e_2 := w_t . p,t\in [1,n], p\ne t</script><p>为了得到它们的关系，我们把所有词转为词向量；并且根据每个词与实体的相对位置，也转为word position embeddings，每个词与两个实体有两个相对位置，所以得到第i个词的Embedding：</p>
+<script type="math/tex; mode=display">
+w_i^M = [(w_i^d)^T, (w_{i,2}^p)^T,(w_{i,2}^p)^T]^T</script><p>为了充分得到上下文的信息，再考虑大小为k的滑窗，得到最终的input representation</p>
+<script type="math/tex; mode=display">
+z_i = [(w_{i - (k-1)/2}^M)^T,...,(w_{i + (k-1)/2}^M)^T]^T</script><h4 id="2-3-Input-Attention-Mechanism"><a href="#2-3-Input-Attention-Mechanism" class="headerlink" title="2.3 Input Attention Mechanism"></a>2.3 Input Attention Mechanism</h4><p><img src="https://pic3.zhimg.com/50/v2-2399a406ad0960c422702728b6418fa3_hd.jpg" width="70%"></p>
+<p>输入级的attention机制是设计两个关于实体对上下文相关的对角矩阵，该矩阵中各元素反映该词语与给定实体间联系的强弱，如$A_{i,i}^j=f(e_j,w_i)$反映了wi和ej之间的联系强弱，这里作者给的 f 就是内积。我们定义：</p>
+<script type="math/tex; mode=display">
+\alpha_i^j = \frac{exp(A_{i,i}^j)}{\sum_{i'=1}^{n}{exp(A_{i',i}^j)}}</script><p>对于j=1,2 两个相关因子，作者提出了三种处理方式:</p>
+<ul>
+<li><p>平均</p>
+<script type="math/tex; mode=display">
+r_i = z_i \frac{\alpha_i^1 + \alpha_i^2}{2}</script></li>
+<li><p>串联</p>
+<script type="math/tex; mode=display">
+r_i = [(z_i \alpha_i^1)^T, (z_i \alpha_i^2)^T]^T</script></li>
+<li><p>距离</p>
+<script type="math/tex; mode=display">
+r_i = z_i \frac{\alpha_i^1 - \alpha_i^2}{2}</script></li>
+</ul>
+<p>最终得到$R = [r_1, r_2,…,r_n]$</p>
+<h4 id="2-4-Convolutional-Max-Pooling-with-Secondary-Attention"><a href="#2-4-Convolutional-Max-Pooling-with-Secondary-Attention" class="headerlink" title="2.4 Convolutional Max-Pooling with Secondary Attention"></a>2.4 Convolutional Max-Pooling with Secondary Attention</h4><p>将前面得到的矩阵R送入卷积核大小为dc的卷积层，卷积操作可形式化表示为:</p>
+<script type="math/tex; mode=display">
+R^* = tanh(W_fR+B_f), \text{where the siaze of Wf is } d^c \times k(d^w+2d^p)</script><p>然后构建一个相关性矩阵来捕获卷积层输出R*与实体关系WL之间的联系</p>
+<script type="math/tex; mode=display">
+G = R^{*T}UW^L, \\U :\text{weighting matrix learnt by the network}</script><p>再用softmax函数来处理相关性矩阵G，获得attention pooling matrix Ap:</p>
+<script type="math/tex; mode=display">
+A_{i,j}^p = \frac{exp(G_{i,j})}{\sum_{i'=1}^n{exp(G_{i',j})}}</script><p>最后用Ap与卷积层输出R*相乘，也就是加入混合中的attention，然后取出每一维度的最大值，得到网络的输出</p>
+<script type="math/tex; mode=display">
+w_i^O = max_j(R^*A^p)_{i,j}</script><h3 id="3-总结"><a href="#3-总结" class="headerlink" title="3. 总结"></a>3. 总结</h3><p>从[1]中提到的结果上看，attention的表现确实是在重要的词上有更好的权重，在Sem-Eval-2010 Task 8数据集上取得了显著的效果提升。对于关系抽取来说无疑是非常大的一个进步。</p>
+<p>但是还是有一些不足：</p>
+<ul>
+<li>它要求实体已知，因此需要其他工作来完成实体的识别，使得一些信息的丢失以及错误累加。此时并行模型或端到端模型，同时完成实体识别可能效果会更好；</li>
+<li>关系是事先定义的集合，因此更多的是对关系的分类，若能启发式地抽取关系可能会有更广的应用空间；</li>
+<li>对于一些上下文没有明显帮助的隐式关系或是使用了比喻之类的修辞，较为容易出错。</li>
+</ul>
+<p>这次选择读这篇文章也是想更具体地了解Attention机制，同时了解一些关系抽取的方案，它也有一个pytorch版本的<a href="https://github.com/lawlietAi/relation-classification-via-attention-model" target="_blank" rel="external">实现</a>，可以辅以参考。</p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>*笔记部分参考<a href="https://zhuanlan.zhihu.com/p/22867750" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/22867750</a></p>
+<p>[1] Wang, L., Cao, Z., Melo, G. D., &amp; Liu, Z. (2016). Relation Classification via Multi-Level Attention CNNs. <em>Meeting of the Association for Computational Linguistics</em> (pp.1298-1307).</p>
+<p>[2] Bahdanau, D., Cho, K., &amp; Bengio, Y. (2014). Neural machine translation by jointly learning to align and translate. <em>Computer Science</em>.</p>
+<p>[3] Luong, M. T., Pham, H., &amp; Manning, C. D. (2015). Effective approaches to attention-based neural machine translation. <em>Computer Science</em>.</p>
+<p>[4] Yin, W., Schütze, H., Xiang, B., &amp; Zhou, B. (2015). Abcnn: attention-based convolutional neural network for modeling sentence pairs. <em>Computer Science</em>.</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://LorrinWWW.github.io/2017/12/10/[2017.12.10]Entity-resolution/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Jue">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.gif">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Jue's Blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Jue's Blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/12/10/[2017.12.10]Entity-resolution/" itemprop="url">
+                  实体解析 Entity resolution
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-10T08:00:00+01:00">
+                2017-12-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/research/" itemprop="url" rel="index">
+                    <span itemprop="name">research</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1-Entity-resolution"><a href="#1-Entity-resolution" class="headerlink" title="1. Entity resolution"></a>1. Entity resolution</h2><h3 id="1-1-Sequence-labeling"><a href="#1-1-Sequence-labeling" class="headerlink" title="1.1 Sequence labeling"></a>1.1 Sequence labeling</h3><p>我们通常在ML中把Named Entity Recognition任务认为是一个Sequence labeling任务，事实上很多nlp任务都可以被转化为sequence labeling。暑假实习的时候也在这方面看了一些文献。目前业内比较主流的解决方案是RNN-CRF模型，一般来说分为：</p>
+<ul>
+<li>Embedding layer</li>
+<li>Bi-directional RNN (usually LSTM) layer</li>
+<li>Tanh hidden layer</li>
+<li>CRF layer</li>
+</ul>
+<p>从结果上来看，该模型对大多数sequence labeling任务有较好的效果，如named entity recognition等。但是对于一些更灵活的标注任务（如暑假实习时，我曾试图将event recognition转化为seq labeling任务），尤其是在训练集不足的情况下，往往效果还是不能令人满意。</p>
+<h4 id="1-1-1-应用Attention"><a href="#1-1-1-应用Attention" class="headerlink" title="1.1.1 应用Attention"></a>1.1.1 应用Attention</h4><blockquote>
+<p>[1]在 RNN-CRF 模型结构基础上，重点改进了词向量与字符向量的拼接。使用 attention 机制将原始的字符向量和词向量拼接改进为了权重求和，使用两层传统神经网络隐层来学习 attention 的权值，这样就使得模型可以动态地利用词向量和字符向量信息。实验结果表明比原始的拼接方法效果更好。</p>
+<p>[2]在原始 BiLSTM-CRF 模型上，加入了音韵特征，并在字符向量上使用 attention 机制来学习关注更有效的字符。</p>
+<p>​                      — from paperweekly</p>
+</blockquote>
+<h4 id="1-1-2-使用少量标注数据"><a href="#1-1-2-使用少量标注数据" class="headerlink" title="1.1.2 使用少量标注数据"></a>1.1.2 使用少量标注数据</h4><p>深度学习方法一般需要大量标注数据，但是在一些领域很难有海量的标注数据。所以在基于神经网络结构方法中如何使用少量标注数据也是一个重点。</p>
+<ul>
+<li><p><a href="https://openreview.net/forum?id=ry018WZAZ" target="_blank" rel="external">Deep Active Learning for Named Entity Recognition</a>[7]</p>
+<p>ICLR 2018看到的paper。这片文章把active learning应用到了CNN-CNN-LSTM模型，用于处理NER问题，也就是seq labeling问题。它能够仅使用25%的数据，达到state-of-the-art的水平。</p>
+<p>这篇paper总结了很多做seq labeling的方法，本身的思路也深入简出。decoder使用了LSTM而不是常用的CRF，发现LSTM比CRF有一些的优势。同时该文也证明了active learning能提高seq labeling的表现。</p>
+</li>
+<li><p>Semi-supervised sequence tagging with bidirectional language models[4]</p>
+<p>该论文使用海量无标注语料库训练了一个双向神经网络语言模型，然后使用这个训练好的语言模型来获取当前要标注词的语言模型向量（LM embedding），然后将该向量作为特征加入到原始的双向 RNN-CRF 模型中。</p>
+<p>实验结果表明，在少量标注数据上，加入这个语言模型向量能够大幅度提高 NER 效果，即使在大量的标注训练数据上，加入这个语言模型向量仍能提供原始 RNN-CRF 模型的效果。</p>
+</li>
+</ul>
+<h3 id="1-2-Relation-extraction"><a href="#1-2-Relation-extraction" class="headerlink" title="1.2 Relation extraction"></a>1.2 Relation extraction</h3><p>实体的关系的抽取方法可以简单分为两类：一类是pipeline抽取方法。另一类是并行或联合抽取方法。</p>
+<p>pipeline方法需要先识别entity，然后采用关系抽取模型得到实体对之间的关系。缺点是实体识别的结果会进一步影响关系抽取的结果，导致误差累积，也降低信息使用率，分开抽取也造成了信息冗余。</p>
+<p>[9]提出了一种联合实体检测参数共享的关系抽取模型，模型中有两个双向的LSTM-RNN，一个是基于word sequence（bidirectional sequential LSTM-RNNs），主要用于实体检测；一个基于Tree Structures （bidirectional tree- structured LSTM-RNNs），主要用于关系抽取；后者堆在前者上，前者的输出和隐含层作为后者输入的一部分。下图为整个模型的结构图：</p>
+<p><img src="https://pic3.zhimg.com/v2-8a44b362fb60fff951dbfaa2bc4469f3_r.jpg" alt="LSTM-RNNs"></p>
+<p>该paper用了参数共享，实体的识别过程和关系的判断过程并没有交互的过程，还无法称其为真正意义上的joint。</p>
+<p>[7]提出了一种端到端的基于序列标注的的方法进行关系抽取，它将实体发现任务和关系抽取任务转化为一个标注任务。在 encoder-decoder 框架下，采用主流的 bi-lstm 为 encoder，lstm 为 decoder。对每个词标注上 BIEM+关系类型+实体的序号。目前这种思路有人测试下来发现，总的来说，联合抽取比pipeline的方法好，序列标注联合抽取要比其他联合抽取方法好，然而目前实体关系抽取任务的 F1 值仍然不到 0.5。因此虽然效果还可以，但是就实际使用还有一段距离。</p>
+<p>此外，该模型还无法处理一个句子有多个关系三元组，和一个实体在多个关系中出现的一对多的问题。一个改进方向是把最后的softmax改成多分类器以实现多标签，这样就能实现一个实体的多关系抽取。其次，该方法是非开放域的关系抽取，关系词是从预定义的关系集里抽取的。</p>
+<h2 id="2-Others"><a href="#2-Others" class="headerlink" title="2. Others"></a>2. Others</h2><p>这里主要是有相关性不强但挺有意思，或泛用性很强的一些文章。</p>
+<ol>
+<li><p>Ngram2vec[5]</p>
+<p>一个词向量生成的方法，基于经典的 word2vec 的思想，在其之上加入了 ngram 的共现信息，取得了更好的结果。代码实现：<a href="http://link.zhihu.com/?target=https%3A//github.com/zhezhaoa/ngram2vec/" target="_blank" rel="external">https://github.com/zhezhaoa/ngram2vec/</a></p>
+</li>
+<li><p><a href="https://research.googleblog.com/2017/05/using-machine-learning-to-explore.html" target="_blank" rel="external">AutoML</a></p>
+<p>google在五月份发布的模型，主要思想是将reinforcement learning应用在神经网络的构建、参数确定上。我们对网络进行测试，将反馈的结果返回到控制器中，以此来帮助提升下一次循环中的训练设定。生成新的架构、测试、把反馈传送给控制器以吸取经验。以此往复以得到更优的结构。</p>
+</li>
+<li><p>Introspection:Accelerating Neural Network Training By Learning Weight Evolution[6]</p>
+<p>这个本质上是meta learning的问题。他们训练了一个网络，网络的输入是某个时间点之前随机选取的4个旧参数的值，输出就是新的参数。因此可以将训练其他模型时得到的这个网络，用于加速其他模型。他们训练了mnist的两层conv net，用该任务的参数更新历史训练网络。他们最后将pretrained好的这个网络用于更新大网络，结果都能更好。</p>
+</li>
+</ol>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] Rei, M., Crichton, G. K., &amp; Pyysalo, S. (2016). Attending to Characters in Neural Sequence Labeling Models. <em>arXiv preprint arXiv:1611.04361</em>.</p>
+<p>[2] Mortensen, A. B. D., &amp; Carbonell, C. D. J. G. (2016). Phonologically aware neural model for named entity recognition in low resource transfer settings.</p>
+<p>[3] Yang, Z., Salakhutdinov, R., &amp; Cohen, W. W. (2017). Transfer learning for sequence tagging with hierarchical recurrent networks. <em>arXiv preprint arXiv:1703.06345</em>.</p>
+<p>[4] Peters, M. E., Ammar, W., Bhagavatula, C., &amp; Power, R. (2017). Semi-supervised sequence tagging with bidirectional language models. <em>arXiv preprint arXiv:1705.00108</em>.</p>
+<p>[5] Zhao, Z., Liu, T., Li, S., Li, B., &amp; Du, X. (2017). Ngram2vec: Learning Improved Word Representations from Ngram Co-occurrence Statistics. In <em>Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing</em> (pp. 244-253).</p>
+<p>[6] Sinha, A., Sarkar, M., Mukherjee, A., &amp; Krishnamurthy, B. (2017). Introspection: Accelerating Neural Network Training By Learning Weight Evolution. <em>arXiv preprint arXiv:1704.04959</em>.</p>
+<p>[7] Shen, Yanyao, Yun, Hyokun, Lipton, Zachary C, Kronrod, Yakov, &amp; Anandkumar, Animashree. (2017). Deep active learning for named entity recognition.</p>
+<p>[8] Zheng, S., Wang, F., Bao, H., Hao, Y., Zhou, P., &amp; Xu, B. (2017). Joint Extraction of Entities and Relations Based on a Novel Tagging Scheme. <em>arXiv preprint arXiv:1706.05075</em>.</p>
+<p>[9] Miwa, M., &amp; Bansal, M. (2016). End-to-end relation extraction using lstms on sequences and tree structures. <em>arXiv preprint arXiv:1601.00770</em>.</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://LorrinWWW.github.io/2017/06/26/Note-of-NLP/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Jue">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.gif">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Jue's Blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Jue's Blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/06/26/Note-of-NLP/" itemprop="url">
+                  Note of NLP
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-26T20:52:45+02:00">
+                2017-06-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/programming/" itemprop="url" rel="index">
+                    <span itemprop="name">programming</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="NLP"><a href="#NLP" class="headerlink" title="NLP"></a>NLP</h1><ol>
+<li><p>“One-hot” representation</p>
+<p>每一个词都作为一个特征，用一个很大的向量来描述文章。</p>
+<script type="math/tex; mode=display">
+[0,0,0,0,0,0,0,0,0,1,0,0,0]</script></li>
+<li><p>Main idea of word2vec</p>
+<p>Two algorithms</p>
+<ol>
+<li>Skip-grams</li>
+<li>Continuous bag of words (CBOW)</li>
+</ol>
+<p>Two training methods</p>
+<ol>
+<li>Hierarchical softmax</li>
+<li>Negative sampling</li>
+</ol>
+</li>
+</ol>
+<h2 id="基于深度学习的关系提取"><a href="#基于深度学习的关系提取" class="headerlink" title="基于深度学习的关系提取"></a>基于深度学习的关系提取</h2><blockquote>
+<p>[Zeng et al. 2014] 提出采用卷积神经网络进行关系抽取。他们采用词汇向量和词的位置向量作为卷积神经网络的输入，通过卷积层、池化层和非线性层得到句子表示。通过考虑实体的位置向量和其他相关的词汇特征，句子中的实体信息能够被较好地考虑到关系抽取中。后来，[Santos et al. 2015]还提出了一种新的卷积神经网络进行关系抽取，其中采用了新的损失函数，能够有效地提高不同关系类别之间的区分性。</p>
+<p>[Miwa et al. 2016] 提出了一种基于端到端神经网络的关系抽取模型。该模型使用双向 LSTM（Long-Short Term Memory，长短时记忆模型）和树形 LSTM 同时对实体和句子进行建模。目前，基于卷积神经网络的方法在关系抽取的标准数据集 SemEval-2010 Task 8 上取得了最好的效果。</p>
+<p>—基于深度学习的关系抽取技术进展<em>刘知远</em>熊德意</p>
+</blockquote>
+<p>RNN在NLP中应用较多，有关它的文章：<a href="http://karpathy.github.io/2015/05/21/rnn-effectiveness/" target="_blank" rel="external">The Unreasonable Effectiveness of Recurrent Neural Networks</a> 译文<a href="http://www.csdn.net/article/2015-08-28/2825569" target="_blank" rel="external">递归神经网络不可思议的有效性</a></p>
+<p>其中目前比较流行的是LSTM，有关它的文章：<a href="http://colah.github.io/posts/2015-08-Understanding-LSTMs/" target="_blank" rel="external">Understanding LSTM Networks</a> 译文 <a href="http://blog.csdn.net/jerr__y/article/details/58598296" target="_blank" rel="external">理解LSTM网络</a></p>
+<p><a href="http://blog.csdn.net/jerr__y/article/details/61195257" target="_blank" rel="external">LSTM的tensorflow简单实现</a></p>
+<h3 id="GAN"><a href="#GAN" class="headerlink" title="GAN ?"></a>GAN ?</h3><p>ACGAN可用于分类问题，Discriminator输出正伪的同时还会输出类别。适合类别数量已给定的情况。</p>
+<p>InfoGAN。</p>
+<p>半监督GAN。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://LorrinWWW.github.io/2017/06/25/Generative-Adversarial-Network/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Jue">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.gif">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Jue's Blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Jue's Blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/06/25/Generative-Adversarial-Network/" itemprop="url">
+                  Generative Adversarial Network
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-25T14:41:15+02:00">
+                2017-06-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/programming/" itemprop="url" rel="index">
+                    <span itemprop="name">programming</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Generative-Adversarial-Network"><a href="#Generative-Adversarial-Network" class="headerlink" title="Generative Adversarial Network"></a>Generative Adversarial Network</h1><h2 id="Generater"><a href="#Generater" class="headerlink" title="Generater"></a>Generater</h2><ol>
+<li><p>Auto encoder</p>
+<p>input =&gt; nn encoder =&gt; code =&gt; nn decoder =&gt; output</p>
+<p>Output compared with input as close as possible</p>
+<p>[code =&gt; nn decoder =&gt; output] := a generater</p>
+</li>
+<li><p>VAE</p>
+<p>Auto-encoder Variational Bayes:</p>
+<p>input =&gt; nn encoder </p>
+<p>=&gt; {</p>
+<p>​    code : [$m_i$],</p>
+<p>​    variation : [$\sigma_i$],</p>
+<p>​    error : [$e_i$],</p>
+<p>} </p>
+<p>=&gt; {$c_i = exp(\sigma_i) \times e_i + m_i$}</p>
+<p>=&gt; nn decoder =&gt; output</p>
+<p>The goal is to monimize the expression as followed:</p>
+<script type="math/tex; mode=display">
+\sum(exp(\sigma_i) - (1+\sigma_i) + (m_i)^2)</script></li>
+</ol>
+<h2 id="GAN"><a href="#GAN" class="headerlink" title="GAN"></a>GAN</h2><p>相当于是由一个生成器和分类器(true or false)</p>
+<p>极大似然$P_{data}(x; \theta) , P_G(x;\theta)$</p>
+<ul>
+<li><p>Generator G</p>
+<ul>
+<li>G is a function, input z, output x</li>
+<li>Given a prior distribution $P_{prior}(z)$, a probability distribution $P_G(x)$ is defined by function G</li>
+</ul>
+</li>
+<li><p>Discriminator D</p>
+<ul>
+<li>D is a function, input x, output scalar</li>
+<li>Evaluate the “difference” between $P<em>G(x)$ and $P</em>{data}(x)$</li>
+</ul>
+</li>
+<li><p>Function V(G, D)</p>
+<script type="math/tex; mode=display">
+G^* = {arg} {min}_G {max}_D V(G,D)</script></li>
+</ul>
+<p>从G*中可以看出，D是在给定G的情况下，尽其所能地提高V，即发现$P_{data}$和$P_G$的最多的差异。而G则是使该值尽量减小。在G和D的博弈中模型逐渐完善。</p>
+<p>给定V</p>
+<script type="math/tex; mode=display">
+V = E_{x~P_{data}}[logD(x)]+ E_{x~P_G}[log(1-D(x))] \\
+= \int_x P_{data}(x)logD(x)dx +\int_xP_G(x)log(1-D(X))dx \\
+= \int_x[P_{data}(x)logD(x) + P_G(x)log(1-D(x))]dx</script><p>要让V的大小可以由积分内的式子决定，即</p>
+<script type="math/tex; mode=display">
+P_{data}(x)logD(x) + P_G(x)log(1-D(x))</script><p>i.e. find D* maximizing: $f(D) = alog(D)+blog(1-D)$</p>
+<script type="math/tex; mode=display">
+=> D^* = \frac{a}{a+b} = \frac{P_{data}(x)}{P_{data}(x)+P_{G}(x)}</script><p>所以</p>
+<script type="math/tex; mode=display">
+max_D V(G,D) = V(G, D^*) \\
+= -2log2 + \int_x P_{data}(x) log\frac{P_{data}(x)}{(P_{data}(x)+P_{G}(x))/2}dx \\ + \int_x P_{data}(x) log\frac{P_{G}(x)}{(P_{data}(x)+P_{G}(x))/2}dx \\
+= -2log2 + KL(P_{data}(x) ||\frac{P_{data}(x)+P_{G}(x)}{2}) \\ 
++ KL(P_{G}(x) ||\frac{P_{data}(x)+P_{G}(x)}{2}) \\
+= -2log2 + 2JSD(P_{data}(X||P_G(x))</script><p>其中</p>
+<script type="math/tex; mode=display">
+KL := KL divergence \\
+JSD(P||Q) = \frac{1}{2}(KL(P||M) + KL(Q||M)), M= \frac{P+Q}{2}</script><p>所以$max<em>D(G,D)$，当且仅当$P_G = P</em>{data}$</p>
+<h3 id="总结一下算法"><a href="#总结一下算法" class="headerlink" title="总结一下算法"></a><strong>总结一下算法</strong></h3><ul>
+<li>Given $G_0$</li>
+<li>Find $D_0^*$ maximizing $V(G_0,D)$</li>
+<li>$\theta_G \leftarrow \theta_G - \eta \partial V(G, D_0^*)/ \partial \theta_G $ =&gt; Obtain G1</li>
+<li>Find $D_1^*$ maximizing $V(G_1,D)$</li>
+<li>…</li>
+</ul>
+<h4 id="实际操作"><a href="#实际操作" class="headerlink" title="实际操作"></a>实际操作</h4><p>我们知道实际上是不能求期望，即作不能作积分的。因此需要一定的近似。</p>
+<p>我们需要将其离散化，取m个样本，V可以写为</p>
+<script type="math/tex; mode=display">
+V = \frac{1}{m}\sum logD(x_i) + \frac{1}{m} \sum log(1-D(x_i^G)) \\
+where \{x_1, ..., x_m\}  from P_{data}(x), \{x_1^G,...,x_m^G\} from P_G(x)</script>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://LorrinWWW.github.io/2017/06/25/Note-of-knowledge-graph/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Jue">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.gif">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Jue's Blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Jue's Blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/06/25/Note-of-knowledge-graph/" itemprop="url">
+                  Note of knowledge graph
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-25T11:21:18+02:00">
+                2017-06-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/programming/" itemprop="url" rel="index">
+                    <span itemprop="name">programming</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="知识图谱-Knowledge-graph"><a href="#知识图谱-Knowledge-graph" class="headerlink" title="知识图谱 Knowledge graph"></a>知识图谱 Knowledge graph</h1><p>知识图谱的概念由Google提出，目前成为一大热点。总体而言，英文知识图谱的文献相对齐全。中英文知识图谱的差别主要体现于对自然语言的处理，对于中文而言，首先准确的分词，其次要应对中文想对自由的语法和语言形式。</p>
+<p>下面是一些笔记。</p>
+<p>知识图谱的构建：</p>
+<h2 id="1-信息抽取-information-extraction"><a href="#1-信息抽取-information-extraction" class="headerlink" title="1. 信息抽取 information extraction"></a>1. 信息抽取 information extraction</h2><p>我们需要能够自动化地从结构化、半结构化和无结构数据中抽取实体(entity)、关系(relationship)以及实体属性等。</p>
+<ol>
+<li>实体抽取 entity extraction<ul>
+<li>实体提取：<ul>
+<li>liu等人，Knn算法和条件随机场模型</li>
+<li>lin等人，字典和最大熵算法</li>
+</ul>
+</li>
+<li>实体分类：<ul>
+<li>2012，ling等人，借鉴freebase归纳实体分类方法，条件随机场模型进行实体边界识别，自适应感知机算法实现对实体的自动分类，结果优于Stanford NER等主流命名实体识别系统</li>
+<li>预定义实体分类并不好，新思路：对于给定实体，采用统计机器学习等方法，从目标数据集中抽取与之俱有相似的上下文特征等实体，从而实现实体的分类和聚类。参考whitelaw的解决方案</li>
+<li>​</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>关系抽取 relationship extraction</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://LorrinWWW.github.io/2017/06/22/MongoDB-Docker-and-Python/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Jue">
@@ -286,7 +1733,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-22T14:53:44+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-22T14:53:44+02:00">
                 2017-06-22
               </time>
             
@@ -393,7 +1840,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://codeurJue.github.io/2017/06/21/Hands-on-Scrapy/">
+  <link itemprop="mainEntityOfPage" href="https://LorrinWWW.github.io/2017/06/21/Hands-on-Scrapy/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Jue">
@@ -433,7 +1880,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-21T20:00:27+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-21T20:00:27+02:00">
                 2017-06-21
               </time>
             
@@ -568,1444 +2015,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://codeurJue.github.io/2017/04/15/OS-notes/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Jue">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.gif">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Jue's Blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Jue's Blog" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/15/OS-notes/" itemprop="url">
-                  OS notes
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-15T18:59:08+08:00">
-                2017-04-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/programming/" itemprop="url" rel="index">
-                    <span itemprop="name">programming</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/programming/unfinished/" itemprop="url" rel="index">
-                    <span itemprop="name">unfinished</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Operating-System"><a href="#Operating-System" class="headerlink" title="Operating System"></a>Operating System</h1><p>This is the note or keywords of a course in udacity.</p>
-<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
-<li>Processes and process management</li>
-<li>Threads and concurrency</li>
-<li>resource management</li>
-<li>OS services</li>
-<li>OS support for distributed services</li>
-<li>Data cendter and cloud</li>
-</ul>
-<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><h3 id="OS-Elements"><a href="#OS-Elements" class="headerlink" title="OS Elements"></a>OS Elements</h3><p>Abstractions</p>
-<ul>
-<li>Process, thread, file, socket, memory pape</li>
-</ul>
-<p>Mechanisms</p>
-<ul>
-<li>Create, schedule, open, write, allocate</li>
-</ul>
-<p>Policies</p>
-<ul>
-<li>Least - recently used (LRU) etc.</li>
-</ul>
-<h3 id="System-call"><a href="#System-call" class="headerlink" title="System call"></a>System call</h3><p>Two ways for a user process to execute a priviledged call.</p>
-<ul>
-<li>User process calls hardware directly, and that will cause a trap, the kernel check if it is legal</li>
-<li>User process executes system call.</li>
-</ul>
-<p>user/kernel transitions are not cheap!</p>
-<h3 id="OS-services"><a href="#OS-services" class="headerlink" title="OS services"></a>OS services</h3><ul>
-<li>Scheduler =&gt; CPU</li>
-<li>Mem manager</li>
-<li>Block device driver</li>
-<li>file system</li>
-<li>…</li>
-</ul>
-<h3 id="Linux-Architecture"><a href="#Linux-Architecture" class="headerlink" title="Linux Architecture"></a>Linux Architecture</h3><p>User interface : <strong>Users</strong> &lt;= user mode</p>
-<p>Library interface : <strong>Standards utility programs</strong> (shell, editor, compilors) &lt;= user mode</p>
-<p>System call interface : <strong>Standard licrary</strong> (open, close, read, write, fork) &lt;= user mode</p>
-<p><strong>Linux operating system</strong> &lt;= kernel mode</p>
-<p><strong>Hardware</strong></p>
-<h2 id="Processes-and-Process-Management"><a href="#Processes-and-Process-Management" class="headerlink" title="Processes and Process Management"></a>Processes and Process Management</h2><p>A process:</p>
-<ul>
-<li>state of execution<ul>
-<li>Program counter</li>
-<li>stack</li>
-</ul>
-</li>
-<li>parts and temporary holding area<ul>
-<li>Data, register</li>
-</ul>
-</li>
-<li>May require special hardware<ul>
-<li>IO devices</li>
-</ul>
-</li>
-</ul>
-<p>Process == state of a program when executing.</p>
-<h3 id="Process-Control-Block-PCB"><a href="#Process-Control-Block-PCB" class="headerlink" title="Process Control Block (PCB)"></a>Process Control Block (PCB)</h3><p>a data structure storing status of a process</p>
-<ul>
-<li>PCB created when process is created</li>
-<li>Certain filds are updated when process state changes</li>
-<li>other fields change too frequently</li>
-</ul>
-<h3 id="Context-switch"><a href="#Context-switch" class="headerlink" title="Context switch"></a>Context switch</h3><p>Hot cache, cold cache</p>
-<h3 id="CPU-scheduler"><a href="#CPU-scheduler" class="headerlink" title="CPU scheduler"></a>CPU scheduler</h3><p>OS must </p>
-<ul>
-<li>preempt</li>
-<li>schedule</li>
-<li>dispatch</li>
-</ul>
-<h3 id="Multi-Processes"><a href="#Multi-Processes" class="headerlink" title="Multi Processes"></a>Multi Processes</h3><p>P1(web server), P2(Database)</p>
-<p>Inter - process communication (IPC) : </p>
-<ul>
-<li>Message - passing IPC</li>
-</ul>
-<ul>
-<li>Shared memory IPC</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://codeurJue.github.io/2017/03/31/EDP-finite-element-method/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Jue">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.gif">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Jue's Blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Jue's Blog" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/31/EDP-finite-element-method/" itemprop="url">
-                  EDP finite element method
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-31T22:42:08+08:00">
-                2017-03-31
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/math/" itemprop="url" rel="index">
-                    <span itemprop="name">math</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/math/unfinished/" itemprop="url" rel="index">
-                    <span itemprop="name">unfinished</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://codeurJue.github.io/2017/03/06/EDP-basic-models/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Jue">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.gif">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Jue's Blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Jue's Blog" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/06/EDP-basic-models/" itemprop="url">
-                  EDP basic models
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-06T10:04:58+08:00">
-                2017-03-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/math/" itemprop="url" rel="index">
-                    <span itemprop="name">math</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Examples-of-moedels"><a href="#Examples-of-moedels" class="headerlink" title="Examples of moedels"></a>Examples of moedels</h1><ol>
-<li><p>Problem of Cauchy</p>
-<p><strong>Nomenclature</strong> : problem of Cauchy</p>
-<p><strong>Equation</strong> : system of 2 differential equations of order 2</p>
-<p><strong>Conditions</strong> : initials (all the data from the same point) i.e. fix time</p>
-<script type="math/tex; mode=display">
-\begin{equation}
-  \begin{cases}
-    \frac{dS}{dt}(t) = F(S,R)  ,  \\
-    \frac{dR}{dt}(t) = G(S,R) ,  \\
-    S(0) = S^0 \\
-    R(0) = R^0
-  \end{cases}
-\end{equation}</script></li>
-<li><p>Problem of Dirichlet</p>
-<p><strong>Nomenclature</strong> : problem of Dirichlet</p>
-<p><strong>Equation</strong> : scalar differential equation of order 2.</p>
-<p><strong>Conditions</strong> : prescribed value at the edge</p>
-<script type="math/tex; mode=display">
-\begin{equation}
-  \begin{cases}
-- \frac{d}{dx} ( k \frac{d\theta}{dx})(x) + \theta(x) = f(x) 0<x<L, \\
-  \theta(0) = \theta_0, \theta(L) = \theta_L \\
-\end{cases}
-\end{equation}</script><p><strong>Remark:</strong></p>
-<ul>
-<li>如果k是常数，解为指数函数；若否，我们可以用两种数值计算：les differences finies et les elements finis.</li>
-<li>可以使用<em>射击法</em>，认为$\theta(L)$由$\theta’(0)$得到，接下来就是验证是否能找到一个好的$\theta’(0)$使$\theta(L)=\theta(L) = \theta_L$</li>
-</ul>
-</li>
-</ol>
-<h3 id="Physic-examples"><a href="#Physic-examples" class="headerlink" title="Physic examples"></a>Physic examples</h3><ul>
-<li><p>Fluide environnant au repos</p>
-<script type="math/tex; mode=display">
-\rho c_v \partial_t{\theta} - div(k\cdot\overrightarrow{grad}(\theta)) = f</script><ul>
-<li>init condition:<script type="math/tex; mode=display">
-\theta(0,.) = \theta_0</script></li>
-</ul>
-</li>
-<li><p>condition at the edges could be:</p>
-<ul>
-<li><p>condition of Dirichlet:</p>
-<script type="math/tex; mode=display">
-\theta(t,.) = g(t)</script></li>
-<li><p>Condition of Neumann:</p>
-<script type="math/tex; mode=display">
-\overrightarrow{grad}(\theta)(t,.) \cdot \vec{n}= h(t)</script></li>
-<li><p>Condition of Dirichlet and Neumann: Mix</p>
-</li>
-</ul>
-</li>
-<li><p>Fluide environnant en mouvement a une vitesse $\vec u(t,x)$</p>
-<script type="math/tex; mode=display">
-\rho c_v \partial_t{\theta} - div(\rho c_v \theta \vec u) - div(k\cdot\overrightarrow{grad}(\theta)) = f</script><p>si le fluide est incompressible i.e $\partial_t \rho = 0$ soit encore $div(\vec u) = 0$ (直观上理解，若不可压缩，则速度场一定是连续的，不然一定会在局部压缩), alors:</p>
-<script type="math/tex; mode=display">
-\rho c_v \partial_t{\theta} - \vec u \cdot div(\rho c_v \theta ) - div(k\cdot\overrightarrow{grad}(\theta)) = f</script><p>​</p>
-<p>​</p>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://codeurJue.github.io/2017/02/11/Sobolev-space/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Jue">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.gif">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Jue's Blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Jue's Blog" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/02/11/Sobolev-space/" itemprop="url">
-                  Sobolev space
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-11T14:37:53+08:00">
-                2017-02-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/math/" itemprop="url" rel="index">
-                    <span itemprop="name">math</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/math/unfinished/" itemprop="url" rel="index">
-                    <span itemprop="name">unfinished</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="索伯列夫空间-Sobolev-space"><a href="#索伯列夫空间-Sobolev-space" class="headerlink" title="索伯列夫空间 Sobolev space"></a>索伯列夫空间 Sobolev space</h1><h2 id="感性认识"><a href="#感性认识" class="headerlink" title="感性认识"></a>感性认识</h2><p>摘自wiki：</p>
-<blockquote>
-<p>数学上，一个索博列夫空间是一个由函数组成的赋范向量空间，对于某个给定的p ≥ 1，它对一个函数f和它的直到某个k阶导数加上有限Lp范数的这个条件。</p>
-</blockquote>
-<p>我们通常在C1(函数1阶可导并且1阶导数连续)上研究微分方程的解，但是在偏微分方程上并不是特别方便，人们便开始研究索伯列夫空间。</p>
-<h2 id="范数"><a href="#范数" class="headerlink" title="范数"></a>范数</h2><script type="math/tex; mode=display">
-||f||_{k,p} = (\sum_{i=0}^k{||f^{(i)}||_p^p})^{1/p} \\
-=||f^{(i)}||_p +||f||_p</script><p>赋予了范数的$W^{k,p}$是一个完备空间。</p>
-<h2 id="H-k"><a href="#H-k" class="headerlink" title="$H^k$"></a>$H^k$</h2><p>一些记号：</p>
-<script type="math/tex; mode=display">
-H^k = W^{k,2} \\
-H^1(\Omega) := \{ v\in L^2(\Omega) : \nabla v \in (L^2(\Omega))^d \} \\ \\
-(.,.)_{H^1} : (u,v) \in H^1 \times H^1 \mapsto (u,v)_{L^2} +(\nabla u,\nabla v)_{L^2} \\
-\qquad \qquad \qquad = \int_\Omega {uv} + \sum_{i=1}^d{\int_ \Omega {\partial_{x_i}{u} \partial_{x_i}{v}}}</script><p>范数和半范数：</p>
-<script type="math/tex; mode=display">
-||.||_{H^1}: v \mapsto \sqrt{||v||_{L^2}^2+||\nabla v||_{L^2}^2} \\
-|.|_{H^1(\Omega)} := ||\nabla .||_{L^2(\Omega)} \\
-||.||_{H_0^1} := |.|_{H^1}</script>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://codeurJue.github.io/2017/02/11/Hilbert-space/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Jue">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.gif">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Jue's Blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Jue's Blog" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/02/11/Hilbert-space/" itemprop="url">
-                  Hilbert space
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-11T13:10:06+08:00">
-                2017-02-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/math/" itemprop="url" rel="index">
-                    <span itemprop="name">math</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="希尔伯特空间-Hilbert-space"><a href="#希尔伯特空间-Hilbert-space" class="headerlink" title="希尔伯特空间 Hilbert space"></a>希尔伯特空间 Hilbert space</h1><h2 id="感性认识"><a href="#感性认识" class="headerlink" title="感性认识"></a>感性认识</h2><p>摘自wiki:</p>
-<blockquote>
-<p>在数学里，<strong>希尔伯特空间</strong>即<strong>完备的内积空间</strong>，也就是说一个带有内积的完备向量空间。</p>
-</blockquote>
-<p>要弄清楚希尔伯特空间，我们需要从几个基本的地方出发。</p>
-<h3 id="几个形容词"><a href="#几个形容词" class="headerlink" title="几个形容词"></a>几个形容词</h3><ul>
-<li><p>线性</p>
-<p>有线性结构的。</p>
-</li>
-<li><p>赋范</p>
-<p>空间中用于度量“长度”，引入范数。</p>
-</li>
-<li><p>完备(complet)</p>
-<p>其上所有的柯西序列会收敛到此空间里的一点，序列的极限依然在此空间内。通俗的说，我们认为这个空间是不缺点、有皮的。</p>
-</li>
-<li><p>内积</p>
-<p>补充“角度”概念，引入内积。</p>
-</li>
-</ul>
-<h3 id="几类空间"><a href="#几类空间" class="headerlink" title="几类空间"></a>几类空间</h3><ul>
-<li><p>线性空间</p>
-</li>
-<li><p>度量空间</p>
-<p>最基本的空间。前者有线性结构，后者有度量空间，二者没有交集。</p>
-</li>
-<li><p>赋范线性空间</p>
-<p>引入范数</p>
-</li>
-<li><p>内积空间</p>
-<p>内积空间是赋范线性空间。</p>
-</li>
-<li><p>希尔伯特空间</p>
-<p>希尔伯特空间是完备的内积空间</p>
-</li>
-</ul>
-<p>((线性空间 + 范数  = 赋范空间 + 线性结构) + 内积 = 内积空间) + 完备性 = 希尔伯特空间</p>
-<h2 id="可以由以下空间获得"><a href="#可以由以下空间获得" class="headerlink" title="可以由以下空间获得"></a>可以由以下空间获得</h2><ul>
-<li><p>欧几里得空间</p>
-<p>定义内积。</p>
-</li>
-<li><p>序列空间</p>
-</li>
-<li><p>勒贝格空间</p>
-<p>特指L^2空间，定义其内积:</p>
-<p>​</p>
-<script type="math/tex; mode=display">
-(f|g) = \int{\overline{f}g}</script><p>还需证明其完备性.</p>
-</li>
-<li><p>索伯列夫空间</p>
-<p>一般表示为H^s或W^(s,2)。在偏微分方程中常用。</p>
-</li>
-</ul>
-<h2 id="希尔伯特空间的基"><a href="#希尔伯特空间的基" class="headerlink" title="希尔伯特空间的基"></a>希尔伯特空间的基</h2><ul>
-<li>所有基的范数为1</li>
-<li>彼此正交</li>
-<li>其线性扩张稠密：即其中的所有元素的有限的线性组合是H的一个稠密子集。</li>
-</ul>
-<h2 id="相关"><a href="#相关" class="headerlink" title="相关"></a>相关</h2><ul>
-<li><p>内积(produit scalaire)</p>
-<p>满足以下四个条件：</p>
-</li>
-</ul>
-<script type="math/tex; mode=display">
-\forall (x,y) \in H^2 \qquad \varphi(y,x) = \overline{\varphi(x,y)} \\
-\forall (x,y,z) \in H^3, \forall(\lambda,\mu) \in \mathbb{C}^2 \qquad \varphi(z,\lambda x+\mu y) = \lambda\varphi(z,x) + \mu \varphi(z,y) \\
-\forall x \in H^2 \qquad \varphi(x,x) \ge 0 \\
-\varphi (x,x) = 0 \Longrightarrow x = 0</script>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://codeurJue.github.io/2017/02/07/EDP-basic-matrix-review/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Jue">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.gif">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Jue's Blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Jue's Blog" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/02/07/EDP-basic-matrix-review/" itemprop="url">
-                  EDP基础：矩阵的复习
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-07T10:22:27+08:00">
-                2017-02-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/math/" itemprop="url" rel="index">
-                    <span itemprop="name">math</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="注意点："><a href="#注意点：" class="headerlink" title="注意点："></a>注意点：</h2><ol>
-<li>A est une matrice hermitienne &lt;=&gt; A=A* et donc A est normale</li>
-<li>A est une matrice  unitaire (酉矩阵) &lt;=&gt; A^-1 = A* et donc A est normale</li>
-<li>A est une matrice orthogonale &lt;=&gt; A=A^T</li>
-</ol>
-<h2 id="Schur定理（矩陣三角化）"><a href="#Schur定理（矩陣三角化）" class="headerlink" title="Schur定理（矩陣三角化）"></a>Schur定理（矩陣三角化）</h2><script type="math/tex; mode=display">
-A = [a_{ij}]_{n\times n} , 特征值\lambda_i , 对应特征向量x_i \\
-S = [x_1,...,x_n], D = diag[\lambda_1,...,\lambda_n] \\
-则,A是可对角化矩阵 \\
-A = SDS^{-1}</script><p>如果<strong>A</strong>是<em>n</em>阶的复方阵，则存在<em>n</em>阶酉矩阵U，<em>n</em>阶上三角矩阵T，使得：</p>
-<script type="math/tex; mode=display">
-A = UTU^{-1}</script><h2 id="酉矩阵"><a href="#酉矩阵" class="headerlink" title="酉矩阵"></a>酉矩阵</h2><script type="math/tex; mode=display">
-UU^* = I \\
-i.e. \to U^*= U^{-1}</script><p>U是酉矩阵。</p>
-<h2 id="Cholesky分解"><a href="#Cholesky分解" class="headerlink" title="Cholesky分解"></a>Cholesky分解</h2><p>条件：</p>
-<ol>
-<li>une matrice hermitienne：矩阵中的元素共轭对称（复数域的定义，类比于实数对称矩阵）。Hermitiank意味着对于任意向量x和y，(x*)Ay共轭相等</li>
-<li>Positive-definite：正定矩阵A意味着，对于任何向量x，(x^T)Ax总是大于零(复数域是(x*)Ax&gt;0)</li>
-</ol>
-<p>则存在L为下三角矩阵，使得 A = LL*。</p>
-<h2 id="QR分解"><a href="#QR分解" class="headerlink" title="QR分解"></a>QR分解</h2><p>目标：A = QR，<em>Q</em>是正交矩阵（意味着<em>Q</em>T<em>Q</em> = <em>I</em>）而<em>R</em>是上三角矩阵。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://codeurJue.github.io/2017/01/28/Note-of-statistic/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Jue">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.gif">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Jue's Blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Jue's Blog" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/01/28/Note-of-statistic/" itemprop="url">
-                  Note of statistic
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-28T18:13:13+08:00">
-                2017-01-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/math/" itemprop="url" rel="index">
-                    <span itemprop="name">math</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/math/unfinished/" itemprop="url" rel="index">
-                    <span itemprop="name">unfinished</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="各种定理"><a href="#各种定理" class="headerlink" title="各种定理"></a>各种定理</h1><h3 id="大数定理，中心极限定理"><a href="#大数定理，中心极限定理" class="headerlink" title="大数定理，中心极限定理"></a>大数定理，中心极限定理</h3><p>略</p>
-<h3 id="Slutsky"><a href="#Slutsky" class="headerlink" title="Slutsky"></a>Slutsky</h3><p>if</p>
-<script type="math/tex; mode=display">
-\Upsilon_n \to(loi) \Upsilon \text{ et } Z_n \to (P)c</script><p>then</p>
-<script type="math/tex; mode=display">
-\Upsilon_n + Z_n \to(L) \Upsilon+c \text{ et } \Upsilon_n Z_n \to(L) \Upsilon c</script><h1 id="假设检验"><a href="#假设检验" class="headerlink" title="假设检验"></a>假设检验</h1><h2 id="un-test-de-chi-2"><a href="#un-test-de-chi-2" class="headerlink" title="un test de $\chi^2$"></a>un test de $\chi^2$</h2><p>列表：</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>Liste</th>
-<th>a</th>
-<th>b</th>
-<th>c</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>pi</td>
-<td>xx</td>
-<td>xx</td>
-<td>xx</td>
-</tr>
-<tr>
-<td>npi</td>
-<td>xx</td>
-<td>xx</td>
-<td>xx</td>
-</tr>
-<tr>
-<td>ni</td>
-<td>xx</td>
-<td>xx</td>
-<td>xx</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>计算：</p>
-<script type="math/tex; mode=display">
-T= \sum_{j=1}^n{\frac{(n_i-np_i)^2}{np_i}}</script><p>其服从卡方分布，自由度为n-1，从而进行检验。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://codeurJue.github.io/2017/01/07/Bayes-estimation/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Jue">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.gif">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Jue's Blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Jue's Blog" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/01/07/Bayes-estimation/" itemprop="url">
-                  贝叶斯估计 Bayes estimation
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-07T16:46:31+08:00">
-                2017-01-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/math/" itemprop="url" rel="index">
-                    <span itemprop="name">math</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>在机器学习中，贝叶斯这个名字被不止一次的提到。正好又看到了贝叶斯参数估计，简单记录方法，可能没有严谨的数学推导，见谅。</p>
-<p>首先我们必须提及的就是历史上的两大学派——经典统计学派和贝叶斯统计学派。</p>
-<p>这里我们假设要估计的参数为$\theta$，简单来说，经典统计学派认为$\theta$是一个未知但固定的常数，而贝叶斯学派认为$\theta$是一个变量。</p>
-<h2 id="贝叶斯公式"><a href="#贝叶斯公式" class="headerlink" title="贝叶斯公式"></a>贝叶斯公式</h2><p>我们为什么需要贝叶斯估计呢？</p>
-<p>我们不妨看一个例子，经典统计学派我们使用极大似然估计法。</p>
-<p>假如学生在做一道题，当一个学生会做这道题时，他的正确率是98%。当他不会做这道题时，答题的正确率为5%。现在，有一个学生的对这道题测验结果为错误，问这个人会做这道题吗？<br>既然会做并做对的概率为98%，不会做但做对的概率为5%，如果用最大似然估计的方法，我们认为这个人已经感染了病毒。 </p>
-<p>但是如果如果这道题十分容易呢？比如，题目是1+1=？，事实上，就算是幼儿园的小孩也会做。那么这个估计结果其实是有时偏颇的。</p>
-<p>此时我们用贝叶斯方法进行估计，如果我们得知有一个先验概率，比如整体学生中只有1%的人会感染此种病毒，那么由贝叶斯公式： </p>
-<script type="math/tex; mode=display">
-p(y_i|x) = \frac{p(x|y_i)p(y_i)}{p(x)}</script><script type="math/tex; mode=display">
-p(不会做|做错)=\frac{p(做错|不会做)p(不会做)}{p(做错)}=\frac{0.95\times 0.01}{0.95 \times 0.01 + 0.02 \times 0.99} = 0.324</script><p>这么看来，还是会做的概率比较高，只不过这个学生比较粗心罢了。</p>
-<h2 id="利用贝叶斯进行参数估计"><a href="#利用贝叶斯进行参数估计" class="headerlink" title="利用贝叶斯进行参数估计"></a>利用贝叶斯进行参数估计</h2><p>贝叶斯估计中，需要对参数有一个先验估计，并记录其分布为：</p>
-<script type="math/tex; mode=display">
-\theta: \pi(\theta)</script><p>已知样本为</p>
-<script type="math/tex; mode=display">
-\widetilde{X} = \{ X_1,...,X_n \}</script><p>参数的联合分布为</p>
-<script type="math/tex; mode=display">
-p(\widetilde{x},\theta) = p(\widetilde{x} |\theta)\pi(\theta)</script><p>所以</p>
-<script type="math/tex; mode=display">
-\pi(\theta|\widetilde{x} ) = \frac{p(\widetilde{x} ,\theta)}{p(\widetilde{x})} \\
-= \frac{p(\widetilde{x} |\theta)\pi(\theta)}{\int{p(\widetilde{x} |\theta)\pi(\theta) d\theta}}</script><p>特别的，若T是一个充分统计量</p>
-<script type="math/tex; mode=display">
-p(\widetilde{x}|\theta) = p(\widetilde{x} |T = t)p_T(t|\theta) \varpropto p_T(t|\theta)</script><p>从而</p>
-<script type="math/tex; mode=display">
-\pi(\theta|\widetilde{x} ) = \pi(\theta|t )</script><p>这样，参数的分布就已经得到了，接下来一般通过三种方法进行估计：</p>
-<ul>
-<li>后验分布的众数进行估计</li>
-<li>后验分布的中位数进行估计</li>
-<li>后验分布的期望进行估计</li>
-</ul>
-<p>总结一下，贝叶斯估计就是，认为被估计参数是一个随机变量，通过已有的数据得到一个先验分布，结合这个先验分布再通过现有的条件，最后得到一个较为合理的后验分布。</p>
-<p>注：</p>
-<ul>
-<li>如果x的方差趋于无穷，意味着样本没有任何意义，估计结果等于先验估计。</li>
-<li>如果样本数量趋于无穷，则估计结果与先验估计无关。这说明先验估计实际上是为了弥补样本的不足。</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2046,7 +2060,7 @@ p(\widetilde{x}|\theta) = p(\widetilde{x} |T = t)p_T(t|\theta) \varpropto p_T(t|
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">34</span>
+              <span class="site-state-item-count">42</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -2054,7 +2068,7 @@ p(\widetilde{x}|\theta) = p(\widetilde{x} |T = t)p_T(t|\theta) \varpropto p_T(t|
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -2063,7 +2077,7 @@ p(\widetilde{x}|\theta) = p(\widetilde{x} |T = t)p_T(t|\theta) \varpropto p_T(t|
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">43</span>
+                <span class="site-state-item-count">59</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -2103,7 +2117,7 @@ p(\widetilde{x}|\theta) = p(\widetilde{x} |T = t)p_T(t|\theta) \varpropto p_T(t|
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
