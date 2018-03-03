@@ -246,6 +246,567 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://LorrinWWW.github.io/2018/02/26/[2018.2.26]Open-World-Knowledge-Graph-Completion/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Jue">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.gif">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Jue's Blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Jue's Blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/02/26/[2018.2.26]Open-World-Knowledge-Graph-Completion/" itemprop="url">
+                  Open-World Knowledge Graph Completion 笔记
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-26T08:00:00+01:00">
+                2018-02-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/research/" itemprop="url" rel="index">
+                    <span itemprop="name">research</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Open-World-Knowledge-Graph-Completion"><a href="#Open-World-Knowledge-Graph-Completion" class="headerlink" title="Open-World Knowledge Graph Completion"></a>Open-World Knowledge Graph Completion</h2><p><strong>摘要</strong>：[1]文首先讨论了Closed-World KGC，它无法处理从 KG 外部加入的新实体，并严重依赖已有KG连接的，不能对弱连接有好的预测。为此定义了 Open-World KGC，可以接收 新的实体并链接到 KG；并依此提出了ConMask模型，在给定关系和实体名、实体描述的前提下，利用attention机制通过关系定位实体描述中最相关的词，再以这些词和实体得到要链接的实体。</p>
+<h3 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h3><p>知识图谱（KG）是一种信息网络，它用三元组 $(h,r,t)$ 来表示知识（h: head entity, t: tail entity, r: relation），目前比较出名的KG有 DBPedia，ConceptNet 等，目前的大多数KG都有噪音且不完整，比如基于Wikipedia的DBPedia有460万个实体，但其中一半实体拥有少于5个的关系。</p>
+<p>这说明了大部分的知识图谱仍然是非常不完善的，我们必须从一开始就要考虑系统的修改、补充完善的可能性。这项任务被定义为Knowledge Graph Completion (KGC)。</p>
+<h4 id="Closed-World-KGC"><a href="#Closed-World-KGC" class="headerlink" title="Closed-World KGC"></a>Closed-World KGC</h4><p>给定一个不完整的KG $G=(E,R,T)$ 其中 $E,R,T$ 分别表示实体集，关系集以及三元组集，Closed-World KGC的任务就是通过找到一系列丢失的三元组 $ T’ = { <h,r,t>|h \in E, r \in R, t \in E, <h,r,t> \notin T }$ 来补充现有的 $G$.</h,r,t></h,r,t></p>
+<p>一个很重要的地方在于，Closed-World KGC 假定了新的实体、关系都被原有的 $G$ 包含，对于不在 $G$ 中的实体则一筹莫展。</p>
+<p>目前的Closed-World KGC方法很多往往使用TranE或者低维特征表示模型，前者的核心思想就是 $h+r=t$ ，后者则指 Embedding 等。</p>
+<p>该方法仅对固定的或者缓慢更新的KG有效，对于快速变更的KG则效果一般。</p>
+<h4 id="Open-World-KGC"><a href="#Open-World-KGC" class="headerlink" title="Open-World KGC"></a>Open-World KGC</h4><p>给定一个不完整的KG $G=(E,R,T)$ 其中 $E,R,T$ 分别表示实体集，关系集以及三元组集，Open-World KGC 的任务就是找到 <img src="https://www.zhihu.com/equation?tex=G" alt="G"> 中没有的三元组集，$T’ ={<h,r,t>|h\in E^i,r\in R, t\in E^i,<h,r,t>\notin T}$ 其中 $E^i$ 是G的实体超集。</h,r,t></h,r,t></p>
+<p>Closed-World方法就是根据知识图谱的拓扑结构更新一个随机的向量作为实体和关系的embedding，但对于不在网络中的实体，这个方法就失效了，这个时候就需要用别的特征来代替这个用网络拓扑结构得到的特征。</p>
+<p>一般直觉就是用实体的描述（entity description），根据实体的描述来得到特征，但从非结构化文本中学习向量表示比在网络的拓扑结构中要难得多，原因如下：</p>
+<ol>
+<li>在Closed-world KGC模型中，每个实体都有一个embedding (从与它相连的实体上学得的)，但Open-World KGC模型则需要从实体描述的word embedding中得到entity embedding。而无论实体之间的联系情况是什么，word embedding的更新都会导致有相同词的entities的更新。</li>
+<li>因为使用了非结构化文本，所以Open-World KGC模型可能会引入噪音或者冗余信息。</li>
+</ol>
+<h3 id="2-Closed-World-KGC"><a href="#2-Closed-World-KGC" class="headerlink" title="2. Closed-World KGC"></a>2. Closed-World KGC</h3><p>在 Closed-World KGC 中，最为常用也最为基础的方法是一种给予强化学习(RL)的模型，被称为TransE [2]. 它有一个简单实用的假设：</p>
+<script type="math/tex; mode=display">
+h+r = t</script><p>其中h是head entity的向量，t是tail entity的向量，r是关系向量。</p>
+<p>TransE定义了loss function：</p>
+<script type="math/tex; mode=display">
+\mathcal{L(T)} = \sum_{<h,r,t>\in T} [\gamma + E(<h,r,t>) - E(<h',r',t'>)]_+</script><p>其中 $T​$ 代表一个三元组的集合；$E(<h,r,t>) = ||h+r-t||_{L_n}​$是energy function；$<h,r,t>​$是G中的一个三元组；$&lt;h’,r’,t’&gt;​$代表一个不存在于 $T​$ 的三元组，通过随机替换一部分$<h,r,t>​$来得到。</h,r,t></h,r,t></h,r,t></p>
+<p>这里还略去了很多TransE的变体等其他模型，但它们都是基于Closed-World KGC来做的。</p>
+<h3 id="3-ConMask-for-Open-World-KGC"><a href="#3-ConMask-for-Open-World-KGC" class="headerlink" title="3. ConMask for Open-World KGC"></a>3. ConMask for Open-World KGC</h3><p>首先通过一个例子来说明：</p>
+<p><strong>任务：</strong>填补三元组\<ameen sayani,="" residence,="" ?="" \="">，其中KG中并没有Ameen Sayani这个实体。</ameen></p>
+<p><strong>描述：</strong>“… <strong>Ameen Sayani</strong> was introduced to All India Radio, <strong>Bombay</strong>, by his brother Hamid Sayani. Ameen participated in English programmes there for ten years …” ，</p>
+<p><strong>目标预测实体：</strong>Bombay (or Mumbai)</p>
+<p>为了找到Ameen Sayani的住址，在处理这个任务的过程中，我们不会从头看到尾，而是找到相关的关键词比如家庭或工作相关的词。这里，我们发现Ameen Sayani的工作地点All India Radio在Bombay，因此我们推测Ameen Sayani也住在Bombay（Bombay就是现在的Mumbai）。</p>
+<p>这个过程也可以被归纳为：</p>
+<ol>
+<li>定位与该任务相关的信息。</li>
+<li>根据上下文和相关文本推断。</li>
+<li>根据相关文本推出正确目标实体。</li>
+</ol>
+<p>仿照这个过程，ConMask的工作方式被设计为：</p>
+<ol>
+<li><strong>Relationship-dependent content masking</strong> — 标记那些与任务相关的词语。</li>
+<li><strong>Target fusion</strong> — 从相关文本中抽取目标实体的embedding。</li>
+<li><strong>Target entity resolution</strong> — 通过计算KG中的候选目标实体，2中抽取出的实体embedding以及其它文本特征之间的相似度来选定目标实体。</li>
+</ol>
+<p><img src="illustration.png" width="60%"></p>
+<p>ConMask模型总体结构如上，ConMask通过选择与给定关系相关的词来避免引入不相关的和有噪音的词。对于相关的文本，ConMask通过全连接卷积神经网络（FCN）来提取word-embedding。最后它将提取的embedding于KG中存在的实体进行比较，从而获得一系列目标实体。</p>
+<h4 id="3-1-Relationship-dependent-content-masking"><a href="#3-1-Relationship-dependent-content-masking" class="headerlink" title="3.1 Relationship-dependent content masking"></a>3.1 Relationship-dependent content masking</h4><p>ConMask根据给定的关系预处理输入文本，来选择一些相关的小片段，从而屏蔽掉无关文本。content-masking这一灵感来源于基于attention机制的RNN网络[3]，关于attention之前的笔记也有学习过。</p>
+<p>基于相似度得到选择最相关的词，具体公式如下：</p>
+<script type="math/tex; mode=display">
+\tau(\phi(e), \psi(r)) = W_{\phi(e)} \circ f_w(W_{\phi(e)}, W_{\psi(r)})</script><p>其中 $e$ 是一个实体，$r$ 是某个关系, $\phi$ 是description function并返回一个向量用于表示对一个实体或关系的描述，$\psi$ 是name mapping function并返回一个向量用于表示一个实体或关系的名字， $W<em>{\phi{(e)}} \in \mathbb{R}^{|\phi(r)|\times k} $ 是一个描述矩阵每一行表示一个k维的描述中的word-embedding， $W</em>{\phi{(e)}} \in \mathbb{R}^{|\phi(r)|\times k} $ 是一个名字矩阵每一行表示一个k维的实体名字word-embedding，$\circ$ 是row-wise product，$f_w$ 用于计算的每一行的屏蔽比重。</p>
+<p>作者给了一个简单的$f_w$ ，Maximal Word-Relationship Weights(MWRW)，就是计算实体描述中每个词向量与关系名称的每个词向量的最大cos相似度:</p>
+<script type="math/tex; mode=display">
+f_w^{MWRW}(W_{\phi(e)}, W_{\psi(r)})_{[i]} =  max_j(\frac{\sum_m^k{W_{\phi(e)[i,m]} W_{\psi(r)[j,m]}}}{\sqrt{\sum_m^k{W^2_{\phi(e)[i,m]}}}\sqrt{\sum_m^k{W^2_{\psi(e)[j,m]}}}})</script><p>这个公式会给与给定关系无关的词更小的权重，与关系语义接近的词更大的权重，但权重最高的词一般不是目标实体，如下图所示，给定关系spouse，得到最大权重的是married，虽然married与spouse在语义上接近，但它并不是目标实体，因此作者称这种有着最大MWRW权重的词为指示词（indicator word），因为正确的词一般就在该词附近，在下图例子中可以发现目标实体barack obama就在married后面。</p>
+<p>为了给目标实体word正确的权重，作者改进了这个公式，具体公式如下，这个公式就是每个词的权重不会小于之前 $k_m$ 称为 Maximal Context-Relationship Weights (MCRW)：</p>
+<script type="math/tex; mode=display">
+f_w^{MCRW}(W_{\phi(e)}, W_{\psi(r)})_{[i]} =  max(f_w^{MWRW}(W_{\phi(e)}, W_{\psi(r)})_{[i-k_m:i]})</script><p><img src="MWRW.png"></p>
+<h4 id="3-2-Target-Fusion"><a href="#3-2-Target-Fusion" class="headerlink" title="3.2 Target Fusion"></a>3.2 Target Fusion</h4><p>这一步骤用于输出基于词的实体embedding，这个过程记为$\xi$，使用Conetent Masking $\tau$ 的输出。它使用全连接卷积网络，其结构如下：</p>
+<p><img src="arch.png"></p>
+<p><strong>Semantic Averaging</strong></p>
+<p>我们可以对所有实体进行embedding，但是这会产生大量的参数，使计算变得非常复杂。事实上，因为Target fusion函数用于抽取，所以对不需要抽取的实体名字使用target fusion就会显得很奇怪也很没有必要。</p>
+<p>这里作者提出了一个简单的语义平均法来计算这些实体的embedding：$\eta(W) = \frac{1}{k_l}\sum_i^{k_i}W_i$</p>
+<h4 id="3-3-Loss-function"><a href="#3-3-Loss-function" class="headerlink" title="3.3 Loss function"></a>3.3 Loss function</h4><p>为了加速训练，我们参考 list-wise ranking loss function (Shi and Weninger 2017)，并设计 partial list-wise ranking loss function，拥有正负目标采样。正样本就是训练集的标注内容，记为$E^+$；负样本就是替换正样本的head entity或tail entity所得到的，记为$E^-$ 。</p>
+<script type="math/tex; mode=display">
+\mathcal{L}(h, r, t) =  \begin{cases}
+\sum_{h_+\in E^+}{-\frac{log(S(h_+,r,t,E^+\cup E^-))}{|E^+|}}, & \text{if }p_c > 0.5; \\
+\sum_{h_+\in E^+}{-\frac{log(S(h,r,t_+,E^+\cup E^-))}{|E^+|}}, & \text{if }p_c \le 0.5; .
+\end{cases}</script><p>$p_c$ 服从$[0,1]$的均匀分布，大于0.5时，把输入实体作为tail entity，小于0.5的时候就是作为head entity，表示替换head entity和tail entity的概率各为50%。另有$S$, 即 softmax normalized output of ConMask：</p>
+<script type="math/tex; mode=display">
+S(h,r,t,E^+) = \begin{cases}
+\sum_{e \in E^\pm}^{exp(ConMask(h,r,t))}{exp(ConMask(e,r,t))} & \text{if } p_c > 0.5 \\
+\sum_{e \in E^\pm}^{exp(ConMask(e,r,t))}{exp(ConMask(h,r,t))} & \text{if } p_c \le 0.5 \\
+\end{cases}</script><h3 id="4-Results"><a href="#4-Results" class="headerlink" title="4. Results"></a>4. Results</h3><p>从结果上看，对比其他模型，在开放领域，ConMask获得了最佳的效果；在Closed-World中，尽管ConMask不是为此设计的，但是对比TransE和TransR依然不逊色，结果相仿。</p>
+<p>目前而言，ConMask模型只能预测在实体描述中表达的关系，将来还应考虑扩展它，使其能够发现新的或隐含的关系。</p>
+<h2 id="Bibliographies"><a href="#Bibliographies" class="headerlink" title="Bibliographies"></a>Bibliographies</h2><p>笔记参考：<a href="https://zhuanlan.zhihu.com/p/33026043，http://blog.csdn.net/TgqDT3gGaMdkHasLZv/article/details/79224178" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/33026043，http://blog.csdn.net/TgqDT3gGaMdkHasLZv/article/details/79224178</a></p>
+<p>代码实现：<a href="https://github.com/bxshi/ConMask" target="_blank" rel="external">https://github.com/bxshi/ConMask</a></p>
+<p>[1] Shi, Baoxu, and Tim Weninger. “Open-World Knowledge Graph Completion.” <em>arXiv preprint arXiv:1711.03438</em> (2017).</p>
+<p>[2] Bordes, A., Usunier, N., Garcia-Duran, A., Weston, J., &amp; Yakhnenko, O. (2013). Translating embeddings for modeling multi-relational data. In <em>Advances in neural information processing systems</em> (pp. 2787-2795).</p>
+<p>[3] Chorowski, J. K., Bahdanau, D., Serdyuk, D., Cho, K., &amp; Bengio, Y. (2015). Attention-based models for speech recognition. In <em>Advances in neural information processing systems</em> (pp. 577-585).</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://LorrinWWW.github.io/2018/02/05/[2018.2.5]Nested-LSTMs/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Jue">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.gif">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Jue's Blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Jue's Blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/02/05/[2018.2.5]Nested-LSTMs/" itemprop="url">
+                  Nested LSTMs 笔记
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-05T08:00:00+01:00">
+                2018-02-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/research/" itemprop="url" rel="index">
+                    <span itemprop="name">research</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Nested-LSTMs"><a href="#Nested-LSTMs" class="headerlink" title="Nested LSTMs"></a>Nested LSTMs</h2><p><strong>摘要</strong>：最近，一种新的 Nested LSTMs 网络被提出。在通常的LSTM网络中，我们通过将LSTM单元堆叠，从而形成深度RNN网络，提高其效果；Nested LSTM则通过嵌套而不是堆栈来增添LSTM的深度。在NLSTM中，记忆单元的值是由LSTM单元计算的，其中，LSTM单元具有自身内在的记忆单元。具体而言，NLSTM记忆单元并不是按照等式：$c<em>t^{outer} = f_t \odot c</em>{t-1} + i<em>t \odot g_t$ 对（外部）记忆单元的值进行计算，而是使用级联：$(f_t \odot c</em>{t-1}, i_t \odot g_t)$ 将其作为内部LSTM（或NLSTM）记忆单元的输入，并设定 $c_t^{outer} = h_t^{inner}$。在访问内部记忆时，Nested LSTM 相比传统的堆栈 LSTM 有更高的自由度，从而能处理更长时间规模的内部记忆；实验也表明，在参数数量相似的情况下，NLSTM 在多种任务上都超越了堆栈 LSTM。作者认为Nested LSTM 有潜力直接取代堆栈 LSTM。</p>
+<h3 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h3><p>学习长期的依赖关系是当前人工智能领域中，尤其是在nlp领域，机器学习方法的关键性挑战。基于循环神经网络的体系结构已经在使得机器能够模仿这种能力方面取得了显著进展。</p>
+<h4 id="single-layer-LSTM"><a href="#single-layer-LSTM" class="headerlink" title="single-layer LSTM"></a>single-layer LSTM</h4><p><img src="singleLSTM.png" width="90%"></p>
+<p>RNN的输入是以当前的状态为依据，适合学习时间上的抽象特征。在实践中，许多专家已经证明，更为复杂的体系结构是解决许多任务的关键。其中一个原因是梯度消失问题（Hochreiter于1991年、Bengio等人于1994年提出），它使得简单的RNN难以学习长期依赖关系。Hochreiter和Schmidhuber于1997年提出了LSTM，包含能够改善梯度消失问题的记忆机制。单层LSTM如上图，图中的三个单元实际上是同一个单元，它循环地将内部的参数传递给自己。</p>
+<h4 id="Stacked-LSTMs"><a href="#Stacked-LSTMs" class="headerlink" title="Stacked LSTMs"></a>Stacked LSTMs</h4><p><img src="StackedLSTM.png" width="60%"></p>
+<p>堆栈 LSTM 架构使用一系列 LSTM 一层层地堆叠在一起来处理数据，一层的输出成为下一层的输入。上图为一个两层的LSTM网络。</p>
+<p>引入多层的结构，即将多个LSTM单元堆叠，每一层的输出成为下一层的输入。 每层处理我们希望解决的任务的一部分，并将其传递给下一层。额外的隐藏层可以添加到多层感知器神经网络，使其有更深入的“理解”。 额外的隐藏层被认为重新组合了来自先前层的学习表示，并在高度抽象层次上找到新的表示。 例如，从线条到形状到对象。</p>
+<h4 id="Nested-LSTMs-1"><a href="#Nested-LSTMs-1" class="headerlink" title="Nested LSTMs"></a>Nested LSTMs</h4><p>在 NLSTM 中，LSTM 的记忆单元可以访问内部记忆。相比于传统的堆栈 LSTM，这一关键特征使得该模型能实现更有效的时间层级。在 NLSTM 中，外部记忆单元可自由选择读取、编写的相关长期信息到内部单元。相比之下，在Stacked LSTM 中，高层级的激活（类似内部记忆）直接生成输出，因此必须包含所有的与当前预测相关的短期信息。换言之，Stacked LSTM 与Nested LSTM 之间的主要不同在于，NLSTM 可以选择性地访问内部记忆。这使得，即使这些事件与当前事件不相关，内部记忆也能够记住、处理更长时间规模上的事件。我们在后面一章更详细地介绍它。</p>
+<h3 id="2-Model-of-Nested-LSTMs"><a href="#2-Model-of-Nested-LSTMs" class="headerlink" title="2. Model of Nested LSTMs"></a>2. Model of Nested LSTMs</h3><p>LSTM 中的输出门会编码可能与当前的时间步骤不相关，但是仍然值得记忆的信息。Nested LSTM 根据这一直观理解来创造一种记忆的时间层级。以同样的方式被gate控访问内部记忆，因此长期信息只有在情景相关的条件下才能选择性地访问。</p>
+<p><img src="NestedLSTM.png" width="80%"></p>
+<h4 id="The-architecture"><a href="#The-architecture" class="headerlink" title="The architecture"></a>The architecture</h4><p>在 LSTM 网络中，单元状态的更新公式和门控机制可以表示为以下方程式：</p>
+<script type="math/tex; mode=display">
+i_t = \sigma_i (x_t W_{xi} + h_{t-1} W_{hi} + b_i) \\
+f_t = \sigma_t (x_t W_{xf} + h_{t-1} W_{hf} + b_i) \\
+c_t = f_t \odot c_{c-1} + \sigma_c (x_t W_{xc} + h_{t-1} W_{hc} + b_c) \\
+o_t = \sigma_o (x_t W_{xo} + h_{t-1} W_{ho} + b_o) \\
+h_t = o_t \odot \sigma_h(c_t)</script><p>Nested LSTM 使用已学习的状态函数 $c<em>t = m_t(f_t\odot c</em>{t−1}, i<em>t \odot g_t)​$ 来替代 LSTM 中计算 $c_t​$ 的加运算。我们将函数的状态表示为 m 在时间 t 的内部记忆（inner memory），调用该函数以计算 $c_t​$ 和 $m</em>{t+1}​$。我们可以使用另一个 LSTM 单元来实现该记忆函数，就生成了 Nested LSTM。同样，该记忆函数能够由另一个 Nested LSTM 单元替换，因此就能构建任意深的嵌套网络。</p>
+<p>因此，我们得到NLSTM 中记忆函数的输入和隐藏状态：</p>
+<script type="math/tex; mode=display">
+\tilde{h}_{t-1} = f_t \odot c_{t-1} \\
+\tilde{x}_t = i_t \odot \sigma_c (x_t W_{xc} + h_{t-1} W_{hc} + b_c)</script><p>注意如果记忆函数是加性的，那么$c<em>t = f_t \odot c</em>{c-1} + \sigma<em>c (x_t W</em>{xc} + h<em>{t-1} W</em>{hc} + b<em>c) =  \tilde{h}</em>{t-1} + \tilde{x}_t $，整个系统将退化到经典的 LSTM。</p>
+<p><img src="ComputationalGraph.png"></p>
+<p><em>LSTM、Stacked LSTM 和 Nested LSTM 的计算图形。隐藏的状态、外部记忆单元和内部记忆单元分别由h、c和d进行表示。虽然当前的隐藏状态可以直接影响下一个内部记忆单元的内容，但内部记忆只有通过外部记忆才能够影响隐藏状态。</em></p>
+<script type="math/tex; mode=display">
+\widetilde{i}_t = \widetilde{\sigma}_i (\widetilde{x}_t \widetilde{W}_{xi} + \widetilde{h}_{t-1} \widetilde{W}_{hi} + \widetilde{b}_i) \\
+\widetilde{f}_t = \widetilde{\sigma}_t (\widetilde{x}_t \widetilde{W}_{xf} + \widetilde{h}_{t-1} \widetilde{W}_{hf} + \widetilde{b}_i) \\
+\widetilde{c}_t = \widetilde{f}_t \odot \widetilde{c}_{c-1} + \widetilde{\sigma}_c (\widetilde{x}_t \widetilde{W}_{xc} + \widetilde{h}_{t-1} \widetilde{W}_{hc} + \widetilde{b}_c) \\
+\widetilde{o_t} = \widetilde{\sigma}_o (\widetilde{x}_t \widetilde{W}_{xo} + \widetilde{h}_{t-1} \widetilde{W}_{ho} + \widetilde{b}_o) \\
+\widetilde{h}_t = \widetilde{o}_t \odot \widetilde{\sigma}_h(\widetilde{c}_t)</script><p>现在，外部 LSTM 的单元状态更新方式为 $ c<em>t = \tilde{h}</em>{t} $ 。</p>
+<h3 id="3-Experiments"><a href="#3-Experiments" class="headerlink" title="3. Experiments"></a>3. Experiments</h3><p>见附件论文[1]</p>
+<h3 id="4-Conclusion"><a href="#4-Conclusion" class="headerlink" title="4. Conclusion"></a>4. Conclusion</h3><p>Nested LSTM（NLSTM）是LSTM模型的简单扩展，通过嵌套来增加深度，而不是通过堆叠。 NLSTM的内部存储器单元形成内部存储器，其仅通过外部存储器单元被其他计算元件访问，实现了时间层级的形式。</p>
+<p>论文[1]的实验表明，在相似的参数设置下，Nested LSTM 在多种字符级语言建模任务中的表现都超越了Stacked LSTM和single-layer LSTM，并且和Stacked LSTM 的高层级单元相比，LSTM 的内部记忆可以学习更长期的依赖关系。</p>
+<p><a href="https://github.com/hannw/nlstm" target="_blank" rel="external">NLSTM的Tensorflow实现</a></p>
+<p><a href="https://github.com/titu1994/Nested-LSTM" target="_blank" rel="external">NLSTM的Keras实现</a></p>
+<h2 id="Bibliographies"><a href="#Bibliographies" class="headerlink" title="Bibliographies"></a>Bibliographies</h2><p>笔记参考：<a href="http://www.sohu.com/a/220745456_390227，http://posts.careerengine.us/p/5a768ab3381fe136215b3de5?from=latest-posts-panel&amp;type=title" target="_blank" rel="external">http://www.sohu.com/a/220745456_390227，http://posts.careerengine.us/p/5a768ab3381fe136215b3de5?from=latest-posts-panel&amp;type=title</a></p>
+<p>[1] Moniz, Joel Ruben Antony, and David Krueger. “Nested LSTMs.” <em>Asian Conference on Machine Learning</em>. 2017.</p>
+<p>[2] Hochreiter, Sepp, and Jürgen Schmidhuber. “Long short-term memory.” <em>Neural computation</em> 9.8 (1997): 1735-1780.</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://LorrinWWW.github.io/2018/01/29/[2018.1.29]A-convolution BiLSTM-neural-network-model-for-chinese-event-extraction/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Jue">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.gif">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Jue's Blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Jue's Blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/01/29/[2018.1.29]A-convolution BiLSTM-neural-network-model-for-chinese-event-extraction/" itemprop="url">
+                  A convolution BiLSTM neural network model for chinese event extraction 笔记
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-29T08:00:00+01:00">
+                2018-01-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/research/" itemprop="url" rel="index">
+                    <span itemprop="name">research</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="A-convolution-BiLSTM-neural-network-model-for-chinese-event-extraction"><a href="#A-convolution-BiLSTM-neural-network-model-for-chinese-event-extraction" class="headerlink" title="A convolution BiLSTM neural network model for chinese event extraction"></a>A convolution BiLSTM neural network model for chinese event extraction</h2><p><strong>摘要：</strong>中文事件提取是信息抽取中的一项具有挑战性的任务，以前的方法高度依赖于复杂的特征工程和复杂的自然语言处理（NLP）工具。 在文献[1]中，提出了一种结合LSTM和CNN的卷积双向LSTM神经网络来捕获句级和词汇信息。最终的测试中达到相当不错的水平。</p>
+<h3 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h3><p>在事件提取中，我们需要提取事件类别、参与者和其他属性（时间、地点等）。根据Automatic Content Extraction（ACE）定义的事件抽取任务，我们定义：</p>
+<ul>
+<li>触发词：最主要的、用于表达一个事件的词，通常是句子的谓语。</li>
+<li>事件属性：实体、短语或数值。在一个事件中扮演特定作用。</li>
+</ul>
+<p>因此，我们把事件抽取分为两步，即<strong>触发词标注</strong>和<strong>事件属性标注</strong>。例如：</p>
+<p>S1：Intel在中国<strong>成立</strong>了研究中心。</p>
+<p>其中，“成立”表明该句子表达了一个商业事件；Intel、中国、研究中心则是事件的属性，属性将被标注为参与者、地点、时间等。</p>
+<p>目前的 state-of-the-art [2-4] 通常很依赖于特征的选择。这些特征通常可以被划分为<strong>语义特征</strong>和<strong>结构特征</strong>。再给两个包含”成立“的例子，但它在其中并不表达一个商业事件。</p>
+<p>S2：它<strong>成立</strong>于1994年，现在是一支深受欢迎的摇滚乐队。</p>
+<p>S3：医院已<strong>成立</strong>救援中心。</p>
+<p>从结构特征上来看，S2可以被缩写为“它是乐队”，因此“成立”在这个句子中不是一个触发词，这个句子不是一个事件。</p>
+<p>从语义特征上来看，S3中的“救援中心”的语义上看，这个事件不是一个商业行为，因此“成立”不表达一个商业事件。</p>
+<p>传统的方法[2, 3]通常依赖于大量的NLP工具，对于语义特征而言，有词性标注、命名实体识别等；对于结构特征而言，有依存关系分析。尽管最终效果很好，但是这需要大量的人工特征，并且需要忍受传递误差。</p>
+<p>Chen et al. [5] 提出了一个用于完成事件抽取的卷积神经网络。受此激发，本文提出一个卷积双向LSTM神经网络，用来同时捕获语义特征和结构特征。我们首先使用双向LSTM将整个句子中的单词的语义编码成句子级别的特征。 然后，我们可以利用卷积神经网络来捕获突出的局部词汇特征，以便在没有任何POS标签或NER帮助的情况下进行触发词消歧。</p>
+<h3 id="2-Trigger-Labeling"><a href="#2-Trigger-Labeling" class="headerlink" title="2. Trigger Labeling"></a>2. Trigger Labeling</h3><h4 id="2-1-Language-Specific-Issues"><a href="#2-1-Language-Specific-Issues" class="headerlink" title="2.1 Language Specific Issues"></a>2.1 Language Specific Issues</h4><p>由于中文的特殊性，触发词可以被分为两类：</p>
+<ul>
+<li>多词触发词：任何拆开后就无法被人为是触发词的，我们把它组合起来认为是触发词。例如“犯罪嫌疑人都落入法网”，其中“落入法网”被认为是触发词。</li>
+<li>单词触发词：往往是谓语，但也可以是组合词中的一部分。例如“警察击毙了一名歹徒”中的“击毙”，“这是一件预谋的凶杀案”中的“凶杀”</li>
+</ul>
+<p>为了解决这个问题，我们将事件检测视为序列标记任务而不是分类任务。 采用BIO方案，其中标记B是事件触发词的开始，I型是在触发词内，否则标记为O。我们利用卷积双向LSTM神经网络来完成这个任务。</p>
+<p><img src="trigger_labeling.png" alt="trigger-labeling"></p>
+<p>我们基于单词模型的主要架构。 （a）中的每个词wt的局部上下文特征ct（灰色矩形）由CNN计算（b）所示。 我们的卷积神经网络学习了关于中心词“落入”的本地上下文信息的表示。 这里的上下文大小是7（中心词的左右各3个词），我们使用一个大小为4的内核与两个特征映射。 （b）句子中的符号P表示填充词。</p>
+<h4 id="2-2-Word-Based-Method"><a href="#2-2-Word-Based-Method" class="headerlink" title="2.2 Word-Based Method"></a>2.2 Word-Based Method</h4><p><strong>LSTM Network</strong>  在nlp任务中LSTM相对常用，特别的，双向LSTM能够联系历史和未来的信息，能够重复利用句子信息，有利于我们进行判断。因为之前的报告已经叙述过，故这里略写。</p>
+<p><strong>CNN</strong>  卷积神经网络最一开始用于图像领域，近年也在nlp领域大放光彩。这里，我们采用卷积神经网络来提取句子中每个单词的局部上下文信息。</p>
+<p>给定一个包含n个单词{w1, w2, … , wn}的句子和当前中心词wt，卷积运算包含一个内核，将其应用于wt周围的单词以生成特征映射。 我们可以利用不同宽度的多个内核来提取不同粒度的局部特征。 然后在每个map上执行最大汇集，以便仅记录每个特征地图的最大数量。 池的一个特性是它产生一个固定大小的输出向量，这使我们能够应用不同的大小内核。 而通过执行最大操作，我们保持最显着的信息。 最后，将固定长度的输出向量cwt作为关于中心词wt的本地上下文信息的表示。</p>
+<p>在我们的实现中，滑动窗口大小为7（中心词的左右各3个词），并且我们使用不同的内核来捕获各种粒度的上下文信息。</p>
+<p><strong>Output Layer</strong>  我们将BiLSTM的隐藏状态与CNN在每个时间步t提取的上下文特征cwt连接起来。 然后[ht; cwt]被送入softmax层以产生wt的每个标记的对数概率。<br>然而，基于单词的方法仍然不能解决内部词触发引起的一致性问题，即无法识别长词内部的触发词。</p>
+<h4 id="2-3-Character-Based-Method"><a href="#2-3-Character-Based-Method" class="headerlink" title="2.3 Character-Based Method"></a>2.3 Character-Based Method</h4><p>为了解决一致性问题，我们可以采用Character-embedding，唯一的区别就在input layer。</p>
+<p><img src="character.png" alt="character"></p>
+<h3 id="3-Argument-Labeling"><a href="#3-Argument-Labeling" class="headerlink" title="3. Argument Labeling"></a>3. Argument Labeling</h3><p>上面介绍的触发词标注模型依然可以被沿用，我们将介绍用于触发词标注和事件属性标注的模型之间的主要区别。</p>
+<h4 id="3-1-Input-Layer"><a href="#3-1-Input-Layer" class="headerlink" title="3.1 Input Layer"></a>3.1 Input Layer</h4><p>作为一个pipeline系统，除了word embeddings之外，还可以使用从上面触发词标记任务中提取的信息。 因此，我们提出了另外四种类型的特征embedding来形成BiLSTM和CNN的输入层。</p>
+<ul>
+<li>触发位置特征：一个单词是否属于触发词的一部分</li>
+<li>触发类型特征：单词触发类型，NONE类型对于非触发词</li>
+<li>实体位置特征：一个单词是否属于实体的一部分</li>
+<li>实体类型特征：单词的实体类型，NONE类型对于非实体。 ACE数据集提供了实体识别的结果，无需使用外部NLP工具。（<em>思考</em>：若数据集不提供实体信息，两种解决方法：1. 不embed实体特征；2. 借助外部工具）<br>然后，我们通过查表将这些特征转换成矢量，并将它们与原始单词嵌入级联，作为BiLSTM和CNN的最终输入层。</li>
+</ul>
+<h4 id="3-2-Output-Layer"><a href="#3-2-Output-Layer" class="headerlink" title="3.2 Output Layer"></a>3.2 Output Layer</h4><p>值得一提的是，事件属性标注不再是一个序列标注任务，而是一个分类任务。 ACE数据集提供了实体识别的结果，它保证了事件属性只能出现在这些实体。 因此，我们只需要预测标记实体的角色，而不是整个句子中的每个单词。 例如，S4中有三个触发器（粗体字）和三个实体（斜体字），它们共同组成九对要分类的触发词和事件属性候选。</p>
+<p>S7：六起<strong>谋杀案</strong>发生在<em>法国</em>，包括<em>Bob</em>的<strong>暗杀</strong>和<em>Joe</em>的<strong>杀害</strong>。</p>
+<p>我们修改CNN和BiLSTM网络的输出层以适应新的任务。</p>
+<p>对于BiLSTM，我们仍然试图利用其记忆长序列的能力，所以我们把最后一个单词hN的隐藏状态视为句子信息。</p>
+<p>对于CNN，我们把整个句子的所有单词作为上下文，而不是每个中心单词的浅窗口。 最后，我们将来自两个网络的输出向量的串联输入到softmax分类器中，就像处理之前的触发词标注任务一样。</p>
+<h3 id="4-Conclusion"><a href="#4-Conclusion" class="headerlink" title="4. Conclusion"></a>4. Conclusion</h3><p>论文[1]主要提出了卷积双向LSTM神经网络，用以完成中文事件抽取任务，在ACE 2005数据集上获得了不错的结果。我在暑假时，将事件抽取认为为一个序列标注任务，使用BiLSTM+CRF；相比而言，论文[1]的模型考虑更全面，并充分利用已知的实体信息。不过对于现实问题而言，标注实体信息的成本也很高，故在没有实体标注的情况下保持性能也是一个难点。</p>
+<h2 id="Bibliography"><a href="#Bibliography" class="headerlink" title="Bibliography"></a>Bibliography</h2><p>[1] Zeng, Y., Yang, H., Feng, Y., Wang, Z., &amp; Zhao, D. (2016). A convolution BiLSTM neural network model for Chinese event extraction. In <em>Natural Language Understanding and Intelligent Applications</em> (pp. 275-287). Springer, Cham.</p>
+<p>[2] Chen, C., Ng, V.: Joint modeling for Chinese event extraction with rich linguistic features. In: COLING, pp. 529–544. Citeseer (2012)</p>
+<p>[3] Chen, Y., Xu, L., Liu, K., Zeng, D., Zhao, J.: Event extraction via dynamic multipooling convolutional neural networks. In: Proceedings of the 53rd Annual Meeting of the Association for Computational Linguistics and the 7th International Joint Conference on Natural Language Processing, vol. 1, pp. 167–176 (2015)</p>
+<p>[4] Li, Q., Ji, H., Huang, L.: Joint event extraction via structured prediction with global features. In: ACL (1), pp. 73–82 (2013)</p>
+<p>[5] Chen, Y., Xu, L., Liu, K., Zeng, D., Zhao, J.: Event extraction via dynamic multipooling convolutional neural networks. In: Proceedings of the 53rd Annual Meeting of the Association for Computational Linguistics and the 7th International Joint Conference on Natural Language Processing, vol. 1, pp. 167–176 (2015)</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="https://LorrinWWW.github.io/2018/01/21/[2018.1.21]Event-detection-and-co-referentce/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1529,492 +2090,6 @@ where \{x_1, ..., x_m\}  from P_{data}(x), \{x_1^G,...,x_m^G\} from P_G(x)</scri
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://LorrinWWW.github.io/2017/06/25/Note-of-knowledge-graph/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Jue">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.gif">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Jue's Blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Jue's Blog" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/06/25/Note-of-knowledge-graph/" itemprop="url">
-                  Note of knowledge graph
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-25T11:21:18+02:00">
-                2017-06-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/programming/" itemprop="url" rel="index">
-                    <span itemprop="name">programming</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="知识图谱-Knowledge-graph"><a href="#知识图谱-Knowledge-graph" class="headerlink" title="知识图谱 Knowledge graph"></a>知识图谱 Knowledge graph</h1><p>知识图谱的概念由Google提出，目前成为一大热点。总体而言，英文知识图谱的文献相对齐全。中英文知识图谱的差别主要体现于对自然语言的处理，对于中文而言，首先准确的分词，其次要应对中文想对自由的语法和语言形式。</p>
-<p>下面是一些笔记。</p>
-<p>知识图谱的构建：</p>
-<h2 id="1-信息抽取-information-extraction"><a href="#1-信息抽取-information-extraction" class="headerlink" title="1. 信息抽取 information extraction"></a>1. 信息抽取 information extraction</h2><p>我们需要能够自动化地从结构化、半结构化和无结构数据中抽取实体(entity)、关系(relationship)以及实体属性等。</p>
-<ol>
-<li>实体抽取 entity extraction<ul>
-<li>实体提取：<ul>
-<li>liu等人，Knn算法和条件随机场模型</li>
-<li>lin等人，字典和最大熵算法</li>
-</ul>
-</li>
-<li>实体分类：<ul>
-<li>2012，ling等人，借鉴freebase归纳实体分类方法，条件随机场模型进行实体边界识别，自适应感知机算法实现对实体的自动分类，结果优于Stanford NER等主流命名实体识别系统</li>
-<li>预定义实体分类并不好，新思路：对于给定实体，采用统计机器学习等方法，从目标数据集中抽取与之俱有相似的上下文特征等实体，从而实现实体的分类和聚类。参考whitelaw的解决方案</li>
-<li>​</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>关系抽取 relationship extraction</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://LorrinWWW.github.io/2017/06/22/MongoDB-Docker-and-Python/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Jue">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.gif">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Jue's Blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Jue's Blog" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/06/22/MongoDB-Docker-and-Python/" itemprop="url">
-                  MongoDB, Docker and Python
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-22T14:53:44+02:00">
-                2017-06-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/programming/" itemprop="url" rel="index">
-                    <span itemprop="name">programming</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>需要预先安装</p>
-<ul>
-<li>Docker</li>
-<li>Python<ul>
-<li>pymongo</li>
-</ul>
-</li>
-</ul>
-<h2 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h2><p>创建容器。若只使用一次，可以加上—rm；若要后台运行，加上-d</p>
-<p>27017是mongodb的默认端口</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker run --name my-mongo -it -p 27017:27017 mongo</div></pre></td></tr></table></figure>
-<p>创建完成后需要使用时：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker start my-mongo</div></pre></td></tr></table></figure>
-<h2 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> pymongo <span class="keyword">import</span> MongoClient</div><div class="line"></div><div class="line"><span class="comment"># connection</span></div><div class="line">client = MongoClient()</div><div class="line">client.server_info()</div><div class="line">db = client.test</div><div class="line"></div><div class="line"><span class="comment"># loop cursor</span></div><div class="line">cursor = db.cars.find()</div><div class="line"><span class="keyword">for</span> doc <span class="keyword">in</span> cursor:</div><div class="line">    print(doc)</div><div class="line"></div><div class="line"><span class="comment"># or just find one</span></div><div class="line">db.cars.find_one()</div></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://LorrinWWW.github.io/2017/06/21/Hands-on-Scrapy/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Jue">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.gif">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Jue's Blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Jue's Blog" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/06/21/Hands-on-Scrapy/" itemprop="url">
-                  Hands on Scrapy
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-21T20:00:27+02:00">
-                2017-06-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/programming/" itemprop="url" rel="index">
-                    <span itemprop="name">programming</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="各个结构"><a href="#各个结构" class="headerlink" title="各个结构"></a>各个结构</h1><h2 id="新建项目"><a href="#新建项目" class="headerlink" title="新建项目"></a>新建项目</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scrapy startproject &lt;project_name&gt; [project_dir]</div></pre></td></tr></table></figure>
-<p>文件结构：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">├── author.json</div><div class="line">├── runSpider.py</div><div class="line">├── scrapy.cfg</div><div class="line">└── projectname</div><div class="line">    ├── __init__.py</div><div class="line">    ├── items.py</div><div class="line">    ├── middlewares.py</div><div class="line">    ├── pipelines.py</div><div class="line">    ├── settings.py      // 设置</div><div class="line">    └── spiders          // 具体的爬虫</div><div class="line">        ├── __init__.py</div><div class="line">        ├── spider0.py</div><div class="line">        └── spider1.py</div></pre></td></tr></table></figure>
-<h2 id="爬虫主体"><a href="#爬虫主体" class="headerlink" title="爬虫主体"></a>爬虫主体</h2><p>示例如下，一个带登录的爬虫。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> scrapy.spiders <span class="keyword">import</span> CrawlSpider</div><div class="line"><span class="keyword">from</span> scrapy.selector <span class="keyword">import</span> Selector</div><div class="line"><span class="keyword">from</span> scrapy.http <span class="keyword">import</span> Request, FormRequest</div><div class="line"></div><div class="line"><span class="keyword">from</span> tutorial.settings <span class="keyword">import</span> *</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">SampleSpider</span><span class="params">(CrawlSpider)</span>:</span></div><div class="line">    name = <span class="string">'sampleSpider'</span></div><div class="line">    allowed_domains = [<span class="string">'sample.com'</span>]</div><div class="line">    start_url = <span class="string">'https://sample.xxx.xx.x.x.x.xxx'</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        self.headers = HEADER</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">start_requests</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> [Request(</div><div class="line">            <span class="string">"https://sample.com/signin"</span>,</div><div class="line">            meta = &#123;<span class="string">'cookiejar'</span> : <span class="number">1</span>&#125;,</div><div class="line">            callback = self.post_login</div><div class="line">        )]</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">post_login</span><span class="params">(self, response)</span>:</span></div><div class="line">        <span class="keyword">return</span> [FormRequest(</div><div class="line">            <span class="string">'https://www.sample.com/login/'</span>,</div><div class="line">            method=<span class="string">'POST'</span>,</div><div class="line">            meta=&#123;<span class="string">'cookiejar'</span>: response.meta[<span class="string">'cookiejar'</span>]&#125;,</div><div class="line">            formdata = &#123;</div><div class="line">                <span class="string">'email'</span>:<span class="string">'xxxx'</span>,</div><div class="line">                <span class="string">'password'</span>:<span class="string">'yyyy'</span>,</div><div class="line">            &#125;,</div><div class="line">            callback = self.after_login</div><div class="line">        )]</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">after_login</span><span class="params">(self, response)</span>:</span></div><div class="line">        <span class="keyword">return</span> [Request(</div><div class="line">            self.start_url,</div><div class="line">            meta=&#123;<span class="string">'cookiejar'</span>: response.meta[<span class="string">'cookiejar'</span>]&#125;,</div><div class="line">            callback=self.parse,</div><div class="line">            errback=self.parse_err,</div><div class="line">        )]</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse</span><span class="params">(self, response)</span>:</span></div><div class="line">        <span class="comment"># do something</span></div><div class="line">        <span class="keyword">pass</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse_err</span><span class="params">(self, response)</span>:</span></div><div class="line">        print(<span class="string">'eeeerrrrrrooooooorrrrrr!!!!!!'</span>)</div></pre></td></tr></table></figure>
-<h2 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h2><h4 id="自带选择器："><a href="#自带选择器：" class="headerlink" title="自带选择器："></a>自带选择器：</h4><ul>
-<li>CSS Selector</li>
-<li>XPath</li>
-</ul>
-<p>一般情况下CSS选择期即可满足要求，语法忘了google即可。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">query = <span class="string">'h1.title::text'</span></div><div class="line">response.css(query).extract()[<span class="number">0</span>]</div><div class="line">response.css(query).extract_first()</div><div class="line"><span class="comment"># response.css(query).extract_first().strip() # 一般用strip清理多余的空格等</span></div></pre></td></tr></table></figure>
-<h4 id="BeautifulSoup"><a href="#BeautifulSoup" class="headerlink" title="BeautifulSoup"></a>BeautifulSoup</h4><p>方便，但是慢。不能解析js。</p>
-<h4 id="lxml"><a href="#lxml" class="headerlink" title="lxml"></a>lxml</h4><p>用于解析XML，当然也可用于HTML。</p>
-<h2 id="Item"><a href="#Item" class="headerlink" title="Item"></a>Item</h2><p>内建的一种抽象数据结构类，自行定义所需要的。</p>
-<p>使用时可以研究下ItemLoader。</p>
-<h4 id="Item-Pipeline"><a href="#Item-Pipeline" class="headerlink" title="Item Pipeline"></a>Item Pipeline</h4><p>Item被返回是被送往Item Pipeline进行进一步处理，即每次return Item等操作时，都会调用pipeline中的相应函数。一般有以下用途：</p>
-<ul>
-<li><p>验证Item</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> scrapy.exceptions <span class="keyword">import</span> DropItem</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">PricePipeline</span><span class="params">(object)</span>:</span></div><div class="line"></div><div class="line">    vat_factor = <span class="number">1.15</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">process_item</span><span class="params">(self, item, spider)</span>:</span></div><div class="line">        <span class="keyword">if</span> item[<span class="string">'price'</span>]:</div><div class="line">            <span class="keyword">if</span> item[<span class="string">'price_excludes_vat'</span>]:</div><div class="line">                item[<span class="string">'price'</span>] = item[<span class="string">'price'</span>] * self.vat_factor</div><div class="line">            <span class="keyword">return</span> item</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            <span class="keyword">raise</span> DropItem(<span class="string">"Missing price in %s"</span> % item)</div></pre></td></tr></table></figure>
-</li>
-<li><p>写到JSON文件</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> json</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">JsonWriterPipeline</span><span class="params">(object)</span>:</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">open_spider</span><span class="params">(self, spider)</span>:</span></div><div class="line">        self.file = open(<span class="string">'items.jl'</span>, <span class="string">'w'</span>)</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">close_spider</span><span class="params">(self, spider)</span>:</span></div><div class="line">        self.file.close()</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">process_item</span><span class="params">(self, item, spider)</span>:</span></div><div class="line">        line = json.dumps(dict(item)) + <span class="string">"\n"</span></div><div class="line">        self.file.write(line)</div><div class="line">        <span class="keyword">return</span> item</div></pre></td></tr></table></figure>
-</li>
-<li><p>写到MongoDB</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> pymongo</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MongoPipeline</span><span class="params">(object)</span>:</span></div><div class="line"></div><div class="line">    collection_name = <span class="string">'scrapy_items'</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, mongo_uri, mongo_db)</span>:</span></div><div class="line">        self.mongo_uri = mongo_uri</div><div class="line">        self.mongo_db = mongo_db</div><div class="line"></div><div class="line"><span class="meta">    @classmethod</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">from_crawler</span><span class="params">(cls, crawler)</span>:</span></div><div class="line">        <span class="keyword">return</span> cls(</div><div class="line">            mongo_uri=crawler.settings.get(<span class="string">'MONGO_URI'</span>),</div><div class="line">            mongo_db=crawler.settings.get(<span class="string">'MONGO_DATABASE'</span>, <span class="string">'items'</span>)</div><div class="line">        )</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">open_spider</span><span class="params">(self, spider)</span>:</span></div><div class="line">        self.client = pymongo.MongoClient(self.mongo_uri)</div><div class="line">        self.db = self.client[self.mongo_db]</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">close_spider</span><span class="params">(self, spider)</span>:</span></div><div class="line">        self.client.close()</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">process_item</span><span class="params">(self, item, spider)</span>:</span></div><div class="line">        self.db[self.collection_name].insert_one(dict(item))</div><div class="line">        <span class="keyword">return</span> item</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>等。</p>
-<h1 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h1><h2 id="登陆"><a href="#登陆" class="headerlink" title="登陆"></a>登陆</h2><ul>
-<li><p>POST表单模拟登录</p>
-<ol>
-<li>首先要找到表单，在打开chrome的控制台，切换到”network”。</li>
-<li>手动登录，并停止network录制(不然可能随着页面的跳转，记录都被刷掉了)。</li>
-<li>依次查找，主要看headers中的form data，是否有和登录相关的信息</li>
-<li>模拟发送该表单(注意Request url)</li>
-</ol>
-<p>具体写法见上面爬虫的例子</p>
-<p>如果有验证码的情况，简单的可以用pil，复杂的可能就比较困难了，可以考虑使用cookie模拟登录。</p>
-</li>
-<li><p>利用Cookie模拟登录</p>
-<ol>
-<li>同样思路，打开network，并手动登录</li>
-<li>在headers中找cookies</li>
-<li>将cookies整理成字典形式，作为Request的参数即可</li>
-</ol>
-</li>
-</ul>
-<h2 id="CrawlSpider"><a href="#CrawlSpider" class="headerlink" title="CrawlSpider"></a>CrawlSpider</h2><p>区别于普通的Spider，CrawSpider更适合于用于爬全网，注意不能覆盖parse函数。</p>
-<p>CrawlSpider通过Rule来限定搜索区域，parse会根据follow、callback的情况作出不同反应。</p>
-<p>如果需要登录，则使用表单登录后，注意最后一次callback需设置为parse，否则程序将会停止，CrawlSpider失效。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2060,7 +2135,7 @@ where \{x_1, ..., x_m\}  from P_{data}(x), \{x_1^G,...,x_m^G\} from P_G(x)</scri
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">42</span>
+              <span class="site-state-item-count">45</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -2077,7 +2152,7 @@ where \{x_1, ..., x_m\}  from P_{data}(x), \{x_1^G,...,x_m^G\} from P_G(x)</scri
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">59</span>
+                <span class="site-state-item-count">63</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
