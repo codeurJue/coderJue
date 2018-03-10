@@ -1,357 +1,245 @@
-<!doctype html>
-
-
-
-  
-
-
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<!DOCTYPE html>
+<html lang=zh>
 <head>
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-  
-  
-  
-  
-
-  
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
     
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="CNN,knowledge-graph,KGC," />
-
-
-
-
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
-
-
-
-
-
-
-<meta name="description" content="Open-World Knowledge Graph Completion摘要：[1]文首先讨论了Closed-World KGC，它无法处理从 KG 外部加入的新实体，并严重依赖已有KG连接的，不能对弱连接有好的预测。为此定义了 Open-World KGC，可以接收 新的实体并链接到 KG；并依此提出了ConMask模型，在给定关系和实体名、实体描述的前提下，利用attention机制通过关系">
+    <title>Open-World Knowledge Graph Completion 笔记 | Lorrin&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="Open-World Knowledge Graph Completion摘要：[1]文首先讨论了Closed-World KGC，它无法处理从 KG 外部加入的新实体，并严重依赖已有KG连接的，不能对弱连接有好的预测。为此定义了 Open-World KGC，可以接收 新的实体并链接到 KG；并依此提出了ConMask模型，在给定关系和实体名、实体描述的前提下，利用attention机制通过关系">
+<meta name="keywords" content="CNN,knowledge-graph,KGC">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Open-World Knowledge Graph Completion 笔记">
 <meta property="og:url" content="https://LorrinWWW.github.io/2018/02/26/[2018.2.26]Open-World-Knowledge-Graph-Completion/index.html">
-<meta property="og:site_name" content="Jue's Blog">
+<meta property="og:site_name" content="Lorrin&#39;s Blog">
 <meta property="og:description" content="Open-World Knowledge Graph Completion摘要：[1]文首先讨论了Closed-World KGC，它无法处理从 KG 外部加入的新实体，并严重依赖已有KG连接的，不能对弱连接有好的预测。为此定义了 Open-World KGC，可以接收 新的实体并链接到 KG；并依此提出了ConMask模型，在给定关系和实体名、实体描述的前提下，利用attention机制通过关系">
-<meta property="og:image" content="https://www.zhihu.com/equation?tex=G">
-<meta property="og:image" content="https://LorrinWWW.github.io/illustration.png">
-<meta property="og:image" content="https://LorrinWWW.github.io/MWRW.png">
-<meta property="og:image" content="https://LorrinWWW.github.io/arch.png">
-<meta property="og:updated_time" content="2018-03-03T20:21:16.156Z">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://lorrinwww.github.io/2018/02/26/[2018.2.26]Open-World-Knowledge-Graph-Completion/illustration.png">
+<meta property="og:image" content="https://lorrinwww.github.io/2018/02/26/[2018.2.26]Open-World-Knowledge-Graph-Completion/MWRW.png">
+<meta property="og:image" content="https://lorrinwww.github.io/2018/02/26/[2018.2.26]Open-World-Knowledge-Graph-Completion/arch.png">
+<meta property="og:updated_time" content="2018-03-10T22:45:15.003Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Open-World Knowledge Graph Completion 笔记">
 <meta name="twitter:description" content="Open-World Knowledge Graph Completion摘要：[1]文首先讨论了Closed-World KGC，它无法处理从 KG 外部加入的新实体，并严重依赖已有KG连接的，不能对弱连接有好的预测。为此定义了 Open-World KGC，可以接收 新的实体并链接到 KG；并依此提出了ConMask模型，在给定关系和实体名、实体描述的前提下，利用attention机制通过关系">
-<meta name="twitter:image" content="https://www.zhihu.com/equation?tex=G">
+<meta name="twitter:image" content="https://lorrinwww.github.io/2018/02/26/[2018.2.26]Open-World-Knowledge-Graph-Completion/illustration.png">
+    
+
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+    
+    
+    
 
 
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Pisces',
-    sidebar: {"position":"right","display":"post"},
-    fancybox: true,
-    motion: true,
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
-
-
-
-  <link rel="canonical" href="https://LorrinWWW.github.io/2018/02/26/[2018.2.26]Open-World-Knowledge-Graph-Completion/"/>
-
-
-
-
-
-  <title> Open-World Knowledge Graph Completion 笔记 | Jue's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
-  
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-  
-
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container one-collumn sidebar-position-right page-post-detail ">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
-
-  <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Jue's Blog</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
-  </div>
-  <p class="site-subtitle"></p>
-</div>
-
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
-</div>
-
-<nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
-        
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
-
-      
-    </ul>
-  
-
-  
-</nav>
-
-
-
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
-
-  <div id="posts" class="posts-expand">
-    
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://LorrinWWW.github.io/2018/02/26/[2018.2.26]Open-World-Knowledge-Graph-Completion/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Jue">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.gif">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Jue's Blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Jue's Blog" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                Open-World Knowledge Graph Completion 笔记
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-26T08:00:00+01:00">
-                2018-02-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/research/" itemprop="url" rel="index">
-                    <span itemprop="name">research</span>
-                  </a>
-                </span>
-
+<body>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
                 
+                <span class="site-title">Lorrin&#39;s Blog</span>
+            </a>
+            <nav id="main-nav">
                 
-              
-            </span>
-          
-
-          
+                    <a class="main-nav-link" href="/.">Home</a>
+                
+                    <a class="main-nav-link" href="/archives">Archives</a>
+                
+                    <a class="main-nav-link" href="/categories">Categories</a>
+                
+                    <a class="main-nav-link" href="/tags">Tags</a>
+                
+                    <a class="main-nav-link" href="/about">About</a>
+                
+            </nav>
             
-          
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/css/images/avatar.png" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
 
-          
-
-          
-          
-
-          
-
-          
-
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
-      </header>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">Home</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">Archives</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">Categories</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">Tags</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">About</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/css/images/avatar.png" />
+            <h2 id="name">Lorrin</h2>
+            <h3 id="title">半路出家的码农 | 法国留学中</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>Paris, France</span>
+            <a id="follow" target="_blank" href="https://github.com/lorrinWWW/">FOLLOW</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                45
+                <span>posts</span>
+            </div>
+            <div class="article-info-block">
+                63
+                <span>tags</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="https://github.com/lorrinWWW/" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-[2018.2.26]Open-World-Knowledge-Graph-Completion" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            Open-World Knowledge Graph Completion 笔记
+        </h1>
     
 
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/02/26/[2018.2.26]Open-World-Knowledge-Graph-Completion/">
+            <time datetime="2018-02-26T07:00:00.000Z" itemprop="datePublished">2018-02-26</time>
+        </a>
+    </div>
 
-    <div class="post-body" itemprop="articleBody">
 
-      
-      
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/research/">research</a>
+    </div>
 
-      
-        <h2 id="Open-World-Knowledge-Graph-Completion"><a href="#Open-World-Knowledge-Graph-Completion" class="headerlink" title="Open-World Knowledge Graph Completion"></a>Open-World Knowledge Graph Completion</h2><p><strong>摘要</strong>：[1]文首先讨论了Closed-World KGC，它无法处理从 KG 外部加入的新实体，并严重依赖已有KG连接的，不能对弱连接有好的预测。为此定义了 Open-World KGC，可以接收 新的实体并链接到 KG；并依此提出了ConMask模型，在给定关系和实体名、实体描述的前提下，利用attention机制通过关系定位实体描述中最相关的词，再以这些词和实体得到要链接的实体。</p>
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/CNN/">CNN</a>, <a class="tag-link" href="/tags/KGC/">KGC</a>, <a class="tag-link" href="/tags/knowledge-graph/">knowledge-graph</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="Open-World-Knowledge-Graph-Completion"><a href="#Open-World-Knowledge-Graph-Completion" class="headerlink" title="Open-World Knowledge Graph Completion"></a>Open-World Knowledge Graph Completion</h2><p><strong>摘要</strong>：[1]文首先讨论了Closed-World KGC，它无法处理从 KG 外部加入的新实体，并严重依赖已有KG连接的，不能对弱连接有好的预测。为此定义了 Open-World KGC，可以接收 新的实体并链接到 KG；并依此提出了ConMask模型，在给定关系和实体名、实体描述的前提下，利用attention机制通过关系定位实体描述中最相关的词，再以这些词和实体得到要链接的实体。</p>
 <h3 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h3><p>知识图谱（KG）是一种信息网络，它用三元组 $(h,r,t)$ 来表示知识（h: head entity, t: tail entity, r: relation），目前比较出名的KG有 DBPedia，ConceptNet 等，目前的大多数KG都有噪音且不完整，比如基于Wikipedia的DBPedia有460万个实体，但其中一半实体拥有少于5个的关系。</p>
 <p>这说明了大部分的知识图谱仍然是非常不完善的，我们必须从一开始就要考虑系统的修改、补充完善的可能性。这项任务被定义为Knowledge Graph Completion (KGC)。</p>
 <h4 id="Closed-World-KGC"><a href="#Closed-World-KGC" class="headerlink" title="Closed-World KGC"></a>Closed-World KGC</h4><p>给定一个不完整的KG $G=(E,R,T)$ 其中 $E,R,T$ 分别表示实体集，关系集以及三元组集，Closed-World KGC的任务就是通过找到一系列丢失的三元组 $ T’ = { <h,r,t>|h \in E, r \in R, t \in E, <h,r,t> \notin T }$ 来补充现有的 $G$.</h,r,t></h,r,t></p>
 <p>一个很重要的地方在于，Closed-World KGC 假定了新的实体、关系都被原有的 $G$ 包含，对于不在 $G$ 中的实体则一筹莫展。</p>
 <p>目前的Closed-World KGC方法很多往往使用TranE或者低维特征表示模型，前者的核心思想就是 $h+r=t$ ，后者则指 Embedding 等。</p>
 <p>该方法仅对固定的或者缓慢更新的KG有效，对于快速变更的KG则效果一般。</p>
-<h4 id="Open-World-KGC"><a href="#Open-World-KGC" class="headerlink" title="Open-World KGC"></a>Open-World KGC</h4><p>给定一个不完整的KG $G=(E,R,T)$ 其中 $E,R,T$ 分别表示实体集，关系集以及三元组集，Open-World KGC 的任务就是找到 <img src="https://www.zhihu.com/equation?tex=G" alt="G"> 中没有的三元组集，$T’ ={<h,r,t>|h\in E^i,r\in R, t\in E^i,<h,r,t>\notin T}$ 其中 $E^i$ 是G的实体超集。</h,r,t></h,r,t></p>
+<h4 id="Open-World-KGC"><a href="#Open-World-KGC" class="headerlink" title="Open-World KGC"></a>Open-World KGC</h4><p>给定一个不完整的KG $G=(E,R,T)$ 其中 $E,R,T$ 分别表示实体集，关系集以及三元组集，Open-World KGC 的任务就是找到 $G$ 中没有的三元组集，$T’ ={<h,r,t>|h\in E^i,r\in R, t\in E^i,<h,r,t>\notin T}$ 其中 $E^i$ 是G的实体超集。</h,r,t></h,r,t></p>
 <p>Closed-World方法就是根据知识图谱的拓扑结构更新一个随机的向量作为实体和关系的embedding，但对于不在网络中的实体，这个方法就失效了，这个时候就需要用别的特征来代替这个用网络拓扑结构得到的特征。</p>
 <p>一般直觉就是用实体的描述（entity description），根据实体的描述来得到特征，但从非结构化文本中学习向量表示比在网络的拓扑结构中要难得多，原因如下：</p>
 <ol>
@@ -387,7 +275,7 @@ h+r = t</script><p>其中h是head entity的向量，t是tail entity的向量，r
 <h4 id="3-1-Relationship-dependent-content-masking"><a href="#3-1-Relationship-dependent-content-masking" class="headerlink" title="3.1 Relationship-dependent content masking"></a>3.1 Relationship-dependent content masking</h4><p>ConMask根据给定的关系预处理输入文本，来选择一些相关的小片段，从而屏蔽掉无关文本。content-masking这一灵感来源于基于attention机制的RNN网络[3]，关于attention之前的笔记也有学习过。</p>
 <p>基于相似度得到选择最相关的词，具体公式如下：</p>
 <script type="math/tex; mode=display">
-\tau(\phi(e), \psi(r)) = W_{\phi(e)} \circ f_w(W_{\phi(e)}, W_{\psi(r)})</script><p>其中 $e$ 是一个实体，$r$ 是某个关系, $\phi$ 是description function并返回一个向量用于表示对一个实体或关系的描述，$\psi$ 是name mapping function并返回一个向量用于表示一个实体或关系的名字， $W<em>{\phi{(e)}} \in \mathbb{R}^{|\phi(r)|\times k} $ 是一个描述矩阵每一行表示一个k维的描述中的word-embedding， $W</em>{\phi{(e)}} \in \mathbb{R}^{|\phi(r)|\times k} $ 是一个名字矩阵每一行表示一个k维的实体名字word-embedding，$\circ$ 是row-wise product，$f_w$ 用于计算的每一行的屏蔽比重。</p>
+\tau(\phi(e), \psi(r)) = W_{\phi(e)} \circ f_w(W_{\phi(e)}, W_{\psi(r)})</script><p>其中 $e$ 是一个实体，$r$ 是某个关系, $\phi$ 是description function并返回一个向量用于表示对一个实体或关系的描述，$\psi$ 是name mapping function并返回一个向量用于表示一个实体或关系的名字， $ W<em>{\phi{(e)}} \in \mathbb{R}^{|\phi(r)|\times k} $ 是一个描述矩阵每一行表示一个k维的描述中的word-embedding， $W</em>{\phi{(e)}} \in \mathbb{R}^{|\phi(r)|\times k} $ 是一个名字矩阵每一行表示一个k维的实体名字word-embedding，$\circ$ 是row-wise product，$f_w$ 用于计算的每一行的屏蔽比重。</p>
 <p>作者给了一个简单的$f_w$ ，Maximal Word-Relationship Weights(MWRW)，就是计算实体描述中每个词向量与关系名称的每个词向量的最大cos相似度:</p>
 <script type="math/tex; mode=display">
 f_w^{MWRW}(W_{\phi(e)}, W_{\psi(r)})_{[i]} =  max_j(\frac{\sum_m^k{W_{\phi(e)[i,m]} W_{\psi(r)[j,m]}}}{\sqrt{\sum_m^k{W^2_{\phi(e)[i,m]}}}\sqrt{\sum_m^k{W^2_{\psi(e)[j,m]}}}})</script><p>这个公式会给与给定关系无关的词更小的权重，与关系语义接近的词更大的权重，但权重最高的词一般不是目标实体，如下图所示，给定关系spouse，得到最大权重的是married，虽然married与spouse在语义上接近，但它并不是目标实体，因此作者称这种有着最大MWRW权重的词为指示词（indicator word），因为正确的词一般就在该词附近，在下图例子中可以发现目标实体barack obama就在married后面。</p>
@@ -411,295 +299,318 @@ S(h,r,t,E^+) = \begin{cases}
 \sum_{e \in E^\pm}^{exp(ConMask(e,r,t))}{exp(ConMask(h,r,t))} & \text{if } p_c \le 0.5 \\
 \end{cases}</script><h3 id="4-Results"><a href="#4-Results" class="headerlink" title="4. Results"></a>4. Results</h3><p>从结果上看，对比其他模型，在开放领域，ConMask获得了最佳的效果；在Closed-World中，尽管ConMask不是为此设计的，但是对比TransE和TransR依然不逊色，结果相仿。</p>
 <p>目前而言，ConMask模型只能预测在实体描述中表达的关系，将来还应考虑扩展它，使其能够发现新的或隐含的关系。</p>
-<h2 id="Bibliographies"><a href="#Bibliographies" class="headerlink" title="Bibliographies"></a>Bibliographies</h2><p>笔记参考：<a href="https://zhuanlan.zhihu.com/p/33026043，http://blog.csdn.net/TgqDT3gGaMdkHasLZv/article/details/79224178" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/33026043，http://blog.csdn.net/TgqDT3gGaMdkHasLZv/article/details/79224178</a></p>
-<p>代码实现：<a href="https://github.com/bxshi/ConMask" target="_blank" rel="external">https://github.com/bxshi/ConMask</a></p>
+<h2 id="Bibliographies"><a href="#Bibliographies" class="headerlink" title="Bibliographies"></a>Bibliographies</h2><p>笔记参考：<a href="https://zhuanlan.zhihu.com/p/33026043，http://blog.csdn.net/TgqDT3gGaMdkHasLZv/article/details/79224178" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/33026043，http://blog.csdn.net/TgqDT3gGaMdkHasLZv/article/details/79224178</a></p>
+<p>代码实现：<a href="https://github.com/bxshi/ConMask" target="_blank" rel="noopener">https://github.com/bxshi/ConMask</a></p>
 <p>[1] Shi, Baoxu, and Tim Weninger. “Open-World Knowledge Graph Completion.” <em>arXiv preprint arXiv:1711.03438</em> (2017).</p>
 <p>[2] Bordes, A., Usunier, N., Garcia-Duran, A., Weston, J., &amp; Yakhnenko, O. (2013). Translating embeddings for modeling multi-relational data. In <em>Advances in neural information processing systems</em> (pp. 2787-2795).</p>
 <p>[3] Chorowski, J. K., Bahdanau, D., Serdyuk, D., Cho, K., &amp; Bengio, Y. (2015). Attention-based models for speech recognition. In <em>Advances in neural information processing systems</em> (pp. 577-585).</p>
 
-      
-    </div>
-
-    <div>
-      
         
-
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/CNN/" rel="tag"># CNN</a>
-          
-            <a href="/tags/knowledge-graph/" rel="tag"># knowledge-graph</a>
-          
-            <a href="/tags/KGC/" rel="tag"># KGC</a>
-          
         </div>
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2018/02/05/[2018.2.5]Nested-LSTMs/" rel="next" title="Nested LSTMs 笔记">
-                <i class="fa fa-chevron-left"></i> Nested LSTMs 笔记
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </article>
+        <footer class="article-footer">
+            <div class="share-container">
 
 
 
-    <div class="post-spread">
-      
-    </div>
-  </div>
-
-
-          </div>
-          
-
-
-          
-  <div class="comments" id="comments">
-    
-  </div>
-
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
-
-      <section class="site-overview sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/avatar.gif"
-               alt="Jue" />
-          <p class="site-author-name" itemprop="name">Jue</p>
-          <p class="site-description motion-element" itemprop="description"></p>
-        </div>
-        <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">45</span>
-              <span class="site-state-item-name">日志</span>
-            </a>
-          </div>
-
-          
-            <div class="site-state-item site-state-categories">
-              <a href="/categories">
-                <span class="site-state-item-count">7</span>
-                <span class="site-state-item-name">分类</span>
-              </a>
-            </div>
-          
-
-          
-            <div class="site-state-item site-state-tags">
-              <a href="/tags">
-                <span class="site-state-item-count">63</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
-            </div>
-          
-
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
-          
-        </div>
-
-        
-        
-
-        
-        
-
-        
-
-
-      </section>
-
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Open-World-Knowledge-Graph-Completion"><span class="nav-number">1.</span> <span class="nav-text">Open-World Knowledge Graph Completion</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Introduction"><span class="nav-number">1.1.</span> <span class="nav-text">1. Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Closed-World-KGC"><span class="nav-number">1.1.1.</span> <span class="nav-text">Closed-World KGC</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Open-World-KGC"><span class="nav-number">1.1.2.</span> <span class="nav-text">Open-World KGC</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Closed-World-KGC"><span class="nav-number">1.2.</span> <span class="nav-text">2. Closed-World KGC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-ConMask-for-Open-World-KGC"><span class="nav-number">1.3.</span> <span class="nav-text">3. ConMask for Open-World KGC</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-Relationship-dependent-content-masking"><span class="nav-number">1.3.1.</span> <span class="nav-text">3.1 Relationship-dependent content masking</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-Target-Fusion"><span class="nav-number">1.3.2.</span> <span class="nav-text">3.2 Target Fusion</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-Loss-function"><span class="nav-number">1.3.3.</span> <span class="nav-text">3.3 Loss function</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-Results"><span class="nav-number">1.4.</span> <span class="nav-text">4. Results</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bibliographies"><span class="nav-number">2.</span> <span class="nav-text">Bibliographies</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
-      
-
-    </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy; 
-  <span itemprop="copyrightYear">2018</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Jue</span>
 </div>
 
+    <a data-url="https://LorrinWWW.github.io/2018/02/26/[2018.2.26]Open-World-Knowledge-Graph-Completion/" data-id="cjelzltay0027gxm991we8dmo" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
 
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
 
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Pisces
-  </a>
-</div>
+            if ($('#' + id).length) {
+                box = $('#' + id);
 
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
 
-        
+              box = $(html);
 
-        
-      </div>
-    </footer>
+              $('body').append(box);
+            }
 
-    <div class="back-to-top">
-      <i class="fa fa-arrow-up"></i>
-    </div>
-  </div>
+            $('.article-share-box.on').hide();
 
-  
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
 
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
 </script>
 
+            
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2018/02/05/[2018.2.5]Nested-LSTMs/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">Nested LSTMs 笔记</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+
+</section>
+            
+                
+<aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">recent</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/02/26/[2018.2.26]Open-World-Knowledge-Graph-Completion/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/research/">research</a></p>
+                            <p class="item-title"><a href="/2018/02/26/[2018.2.26]Open-World-Knowledge-Graph-Completion/" class="title">Open-World Knowledge Graph Completion 笔记</a></p>
+                            <p class="item-date"><time datetime="2018-02-26T07:00:00.000Z" itemprop="datePublished">2018-02-26</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/02/05/[2018.2.5]Nested-LSTMs/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/research/">research</a></p>
+                            <p class="item-title"><a href="/2018/02/05/[2018.2.5]Nested-LSTMs/" class="title">Nested LSTMs 笔记</a></p>
+                            <p class="item-date"><time datetime="2018-02-05T07:00:00.000Z" itemprop="datePublished">2018-02-05</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/01/29/[2018.1.29]A-convolution BiLSTM-neural-network-model-for-chinese-event-extraction/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/research/">research</a></p>
+                            <p class="item-title"><a href="/2018/01/29/[2018.1.29]A-convolution BiLSTM-neural-network-model-for-chinese-event-extraction/" class="title">A convolution BiLSTM neural network model for chinese event extraction 笔记</a></p>
+                            <p class="item-date"><time datetime="2018-01-29T07:00:00.000Z" itemprop="datePublished">2018-01-29</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/01/21/[2018.1.21]Event-detection-and-co-referentce/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/research/">research</a></p>
+                            <p class="item-title"><a href="/2018/01/21/[2018.1.21]Event-detection-and-co-referentce/" class="title">Event detection and co-reference with minimal supervision 笔记</a></p>
+                            <p class="item-date"><time datetime="2018-01-21T07:00:00.000Z" itemprop="datePublished">2018-01-21</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/01/14/[2018.1.14]Models-for-relation-extraction/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/research/">research</a></p>
+                            <p class="item-title"><a href="/2018/01/14/[2018.1.14]Models-for-relation-extraction/" class="title">几个 relation extraction 远程监督模型</a></p>
+                            <p class="item-date"><time datetime="2018-01-14T07:00:00.000Z" itemprop="datePublished">2018-01-14</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/francais/">francais</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/math/">math</a><span class="category-list-count">14</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/math/unfinished/">unfinished</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/other/">other</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/programming/">programming</a><span class="category-list-count">20</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/unfinished/">unfinished</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/research/">research</a><span class="category-list-count">8</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">8</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bayes/">Bayes</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BiLSTM/">BiLSTM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CNN/">CNN</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EDP/">EDP</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/FEM/">FEM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GAN/">GAN</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hilbert/">Hilbert</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/KGC/">KGC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LSTM/">LSTM</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OS/">OS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RNN/">RNN</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sobolev/">Sobolev</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/aleatoire/">aleatoire</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/algo/">algo</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/analyse/">analyse</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/attention/">attention</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chrome/">chrome</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/classification/">classification</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/co-reference/">co-reference</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/complexity/">complexity</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/compression/">compression</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/convolution/">convolution</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/crawl/">crawl</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-structure/">data-structure</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/datamining/">datamining</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/deep-learning/">deep-learning</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/distant-supervision/">distant-supervision</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/">docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/entity-resolution/">entity-resolution</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/event-detection/">event-detection</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/event-extraction/">event-extraction</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/firm/">firm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/francais/">francais</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/graph/">graph</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kernel/">kernel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/knowledge-graph/">knowledge-graph</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/language/">language</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/latex/">latex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/limited-supervision/">limited-supervision</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/machine-learning/">machine-learning</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/management/">management</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/marked/">marked</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/math/">math</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mathjax/">mathjax</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/matrix/">matrix</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongo/">mongo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb/">mongodb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nlp/">nlp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/prediction/">prediction</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/probability/">probability</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/programming/">programming</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qualitative-induction/">qualitative-induction</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/relation-classification/">relation-classification</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/relation-extraction/">relation-extraction</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/scrapy/">scrapy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sequence-labeling/">sequence-labeling</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spider/">spider</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/statistic/">statistic</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vector/">vector</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/weak-supervision/">weak-supervision</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Bayes/" style="font-size: 10px;">Bayes</a> <a href="/tags/BiLSTM/" style="font-size: 10px;">BiLSTM</a> <a href="/tags/CNN/" style="font-size: 11.43px;">CNN</a> <a href="/tags/EDP/" style="font-size: 12.86px;">EDP</a> <a href="/tags/FEM/" style="font-size: 10px;">FEM</a> <a href="/tags/GAN/" style="font-size: 10px;">GAN</a> <a href="/tags/Hilbert/" style="font-size: 10px;">Hilbert</a> <a href="/tags/KGC/" style="font-size: 10px;">KGC</a> <a href="/tags/LSTM/" style="font-size: 11.43px;">LSTM</a> <a href="/tags/OS/" style="font-size: 11.43px;">OS</a> <a href="/tags/RNN/" style="font-size: 11.43px;">RNN</a> <a href="/tags/Sobolev/" style="font-size: 10px;">Sobolev</a> <a href="/tags/aleatoire/" style="font-size: 10px;">aleatoire</a> <a href="/tags/algo/" style="font-size: 17.14px;">algo</a> <a href="/tags/analyse/" style="font-size: 11.43px;">analyse</a> <a href="/tags/attention/" style="font-size: 10px;">attention</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/classification/" style="font-size: 10px;">classification</a> <a href="/tags/co-reference/" style="font-size: 10px;">co-reference</a> <a href="/tags/complexity/" style="font-size: 10px;">complexity</a> <a href="/tags/compression/" style="font-size: 10px;">compression</a> <a href="/tags/convolution/" style="font-size: 10px;">convolution</a> <a href="/tags/crawl/" style="font-size: 10px;">crawl</a> <a href="/tags/data-structure/" style="font-size: 10px;">data-structure</a> <a href="/tags/datamining/" style="font-size: 15.71px;">datamining</a> <a href="/tags/deep-learning/" style="font-size: 11.43px;">deep-learning</a> <a href="/tags/distant-supervision/" style="font-size: 10px;">distant-supervision</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/entity-resolution/" style="font-size: 10px;">entity-resolution</a> <a href="/tags/event-detection/" style="font-size: 10px;">event-detection</a> <a href="/tags/event-extraction/" style="font-size: 10px;">event-extraction</a> <a href="/tags/firm/" style="font-size: 10px;">firm</a> <a href="/tags/francais/" style="font-size: 10px;">francais</a> <a href="/tags/graph/" style="font-size: 10px;">graph</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/kernel/" style="font-size: 10px;">kernel</a> <a href="/tags/knowledge-graph/" style="font-size: 11.43px;">knowledge-graph</a> <a href="/tags/language/" style="font-size: 10px;">language</a> <a href="/tags/latex/" style="font-size: 10px;">latex</a> <a href="/tags/limited-supervision/" style="font-size: 10px;">limited-supervision</a> <a href="/tags/machine-learning/" style="font-size: 14.29px;">machine-learning</a> <a href="/tags/management/" style="font-size: 10px;">management</a> <a href="/tags/marked/" style="font-size: 10px;">marked</a> <a href="/tags/math/" style="font-size: 20px;">math</a> <a href="/tags/mathjax/" style="font-size: 10px;">mathjax</a> <a href="/tags/matrix/" style="font-size: 10px;">matrix</a> <a href="/tags/mongo/" style="font-size: 10px;">mongo</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/nlp/" style="font-size: 10px;">nlp</a> <a href="/tags/prediction/" style="font-size: 10px;">prediction</a> <a href="/tags/probability/" style="font-size: 17.14px;">probability</a> <a href="/tags/programming/" style="font-size: 18.57px;">programming</a> <a href="/tags/python/" style="font-size: 11.43px;">python</a> <a href="/tags/qualitative-induction/" style="font-size: 10px;">qualitative-induction</a> <a href="/tags/relation-classification/" style="font-size: 10px;">relation-classification</a> <a href="/tags/relation-extraction/" style="font-size: 14.29px;">relation-extraction</a> <a href="/tags/scrapy/" style="font-size: 10px;">scrapy</a> <a href="/tags/sequence-labeling/" style="font-size: 10px;">sequence-labeling</a> <a href="/tags/spider/" style="font-size: 10px;">spider</a> <a href="/tags/statistic/" style="font-size: 11.43px;">statistic</a> <a href="/tags/vector/" style="font-size: 10px;">vector</a> <a href="/tags/weak-supervision/" style="font-size: 10px;">weak-supervision</a> <a href="/tags/web/" style="font-size: 10px;">web</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2018 Lorrin<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+        </div>
+    </div>
+</footer>
+        
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    
 
 
 
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
 
-
-
-
-
-  
-
-
-
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
-
-
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+    </div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
 </script>
@@ -713,38 +624,9 @@ S(h,r,t,E^+) = \begin{cases}
   });
 </script>
 
-<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
-
-
-
-  
-
-
-
-  
-
-
-
-
-	
-
-
-
-
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-
 </body>
 </html>
