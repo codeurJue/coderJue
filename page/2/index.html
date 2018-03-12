@@ -177,7 +177,7 @@ var _hmt = _hmt || [];
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                45
+                46
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -206,6 +206,169 @@ var _hmt = _hmt || [];
 
             
             <section id="main">
+    <article id="post-Generative-Adversarial-Network" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/Generative-Adversarial-Network/">Generative Adversarial Network</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/Generative-Adversarial-Network/">
+            <time datetime="2017-06-25T12:41:15.000Z" itemprop="datePublished">2017-06-25</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/programming/">programming</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/GAN/">GAN</a>, <a class="tag-link" href="/tags/deep-learning/">deep-learning</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><h1 id="Generative-Adversarial-Network"><a href="#Generative-Adversarial-Network" class="headerlink" title="Generative Adversarial Network"></a>Generative Adversarial Network</h1><h2 id="Generater"><a href="#Generater" class="headerlink" title="Generater"></a>Generater</h2><ol>
+<li><p>Auto encoder</p>
+<p>input =&gt; nn encoder =&gt; code =&gt; nn decoder =&gt; output</p>
+<p>Output compared with input as close as possible</p>
+<p>[code =&gt; nn decoder =&gt; output] := a generater</p>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/Generative-Adversarial-Network/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="https://LorrinWWW.github.io/Generative-Adversarial-Network/" data-id="cjeon55vf0002bwdyvvg0wqbl" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="https://LorrinWWW.github.io/Generative-Adversarial-Network/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://LorrinWWW.github.io/Generative-Adversarial-Network/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-Note-of-knowledge-graph" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -248,31 +411,42 @@ var _hmt = _hmt || [];
         
         <div class="article-entry" itemprop="articleBody">
         
+        
             
-            <h1 id="知识图谱-Knowledge-graph"><a href="#知识图谱-Knowledge-graph" class="headerlink" title="知识图谱 Knowledge graph"></a>知识图谱 Knowledge graph</h1><p>知识图谱的概念由Google提出，目前成为一大热点。总体而言，英文知识图谱的文献相对齐全。中英文知识图谱的差别主要体现于对自然语言的处理，对于中文而言，首先准确的分词，其次要应对中文想对自由的语法和语言形式。</p>
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><h1 id="知识图谱-Knowledge-graph"><a href="#知识图谱-Knowledge-graph" class="headerlink" title="知识图谱 Knowledge graph"></a>知识图谱 Knowledge graph</h1><p>知识图谱的概念由Google提出，目前成为一大热点。总体而言，英文知识图谱的文献相对齐全。中英文知识图谱的差别主要体现于对自然语言的处理，对于中文而言，首先准确的分词，其次要应对中文想对自由的语法和语言形式。</p>
 <p>下面是一些笔记。</p>
 <p>知识图谱的构建：</p>
 <h2 id="1-信息抽取-information-extraction"><a href="#1-信息抽取-information-extraction" class="headerlink" title="1. 信息抽取 information extraction"></a>1. 信息抽取 information extraction</h2><p>我们需要能够自动化地从结构化、半结构化和无结构数据中抽取实体(entity)、关系(relationship)以及实体属性等。</p>
 <ol>
-<li>实体抽取 entity extraction<ul>
-<li>实体提取：<ul>
-<li>liu等人，Knn算法和条件随机场模型</li>
-<li>lin等人，字典和最大熵算法</li>
-</ul>
-</li>
-<li>实体分类：<ul>
-<li>2012，ling等人，借鉴freebase归纳实体分类方法，条件随机场模型进行实体边界识别，自适应感知机算法实现对实体的自动分类，结果优于Stanford NER等主流命名实体识别系统</li>
-<li>预定义实体分类并不好，新思路：对于给定实体，采用统计机器学习等方法，从目标数据集中抽取与之俱有相似的上下文特征等实体，从而实现实体的分类和聚类。参考whitelaw的解决方案</li>
-<li>​</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>关系抽取 relationship extraction</li>
-</ol>
-
+<p>
+                
+            
         
-        </div>
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/Note-of-knowledge-graph/#more">Read More</a>
+            </div>
+        
         <footer class="article-footer">
             <div class="share-container">
 
@@ -280,7 +454,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="https://LorrinWWW.github.io/Note-of-knowledge-graph/" data-id="cjeoihlpn000ue9dy5ouekugw" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://LorrinWWW.github.io/Note-of-knowledge-graph/" data-id="cjeon55x30010bwdymt8glshk" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -400,23 +574,42 @@ var _hmt = _hmt || [];
         
         <div class="article-entry" itemprop="articleBody">
         
+        
             
-            <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>需要预先安装</p>
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>需要预先安装</p>
 <ul>
 <li>Docker</li>
 <li>Python<ul>
 <li>pymongo</li>
-</ul>
-</li>
-</ul>
-<h2 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h2><p>创建容器。若只使用一次，可以加上—rm；若要后台运行，加上-d</p>
-<p>27017是mongodb的默认端口</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name my-mongo -it -p 27017:27017 mongo</span><br></pre></td></tr></table></figure>
-<p>创建完成后需要使用时：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker start my-mongo</span><br></pre></td></tr></table></figure>
-<h2 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pymongo <span class="keyword">import</span> MongoClient</span><br><span class="line"></span><br><span class="line"><span class="comment"># connection</span></span><br><span class="line">client = MongoClient()</span><br><span class="line">client.server_info()</span><br><span class="line">db = client.test</span><br><span class="line"></span><br><span class="line"><span class="comment"># loop cursor</span></span><br><span class="line">cursor = db.cars.find()</span><br><span class="line"><span class="keyword">for</span> doc <span class="keyword">in</span> cursor:</span><br><span class="line">    print(doc)</span><br><span class="line"></span><br><span class="line"><span class="comment"># or just find one</span></span><br><span class="line">db.cars.find_one()</span><br></pre></td></tr></table></figure>
+<p>
+                
+            
         
-        </div>
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/MongoDB-Docker-and-Python/#more">Read More</a>
+            </div>
+        
         <footer class="article-footer">
             <div class="share-container">
 
@@ -424,7 +617,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="https://LorrinWWW.github.io/MongoDB-Docker-and-Python/" data-id="cjeoihlpg000me9dy2k7i2p4p" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://LorrinWWW.github.io/MongoDB-Docker-and-Python/" data-id="cjeon55wq000jbwdy1q6bgcba" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -544,60 +737,42 @@ var _hmt = _hmt || [];
         
         <div class="article-entry" itemprop="articleBody">
         
+        
             
-            <h1 id="各个结构"><a href="#各个结构" class="headerlink" title="各个结构"></a>各个结构</h1><h2 id="新建项目"><a href="#新建项目" class="headerlink" title="新建项目"></a>新建项目</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scrapy startproject &lt;project_name&gt; [project_dir]</span><br></pre></td></tr></table></figure>
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><h1 id="各个结构"><a href="#各个结构" class="headerlink" title="各个结构"></a>各个结构</h1><h2 id="新建项目"><a href="#新建项目" class="headerlink" title="新建项目"></a>新建项目</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scrapy startproject &lt;project_name&gt; [project_dir]</span><br></pre></td></tr></table></figure>
 <p>文件结构：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">├── author.json</span><br><span class="line">├── runSpider.py</span><br><span class="line">├── scrapy.cfg</span><br><span class="line">└── projectname</span><br><span class="line">    ├── __init__.py</span><br><span class="line">    ├── items.py</span><br><span class="line">    ├── middlewares.py</span><br><span class="line">    ├── pipelines.py</span><br><span class="line">    ├── settings.py      // 设置</span><br><span class="line">    └── spiders          // 具体的爬虫</span><br><span class="line">        ├── __init__.py</span><br><span class="line">        ├── spider0.py</span><br><span class="line">        └── spider1.py</span><br></pre></td></tr></table></figure>
 <h2 id="爬虫主体"><a href="#爬虫主体" class="headerlink" title="爬虫主体"></a>爬虫主体</h2><p>示例如下，一个带登录的爬虫。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> scrapy.spiders <span class="keyword">import</span> CrawlSpider</span><br><span class="line"><span class="keyword">from</span> scrapy.selector <span class="keyword">import</span> Selector</span><br><span class="line"><span class="keyword">from</span> scrapy.http <span class="keyword">import</span> Request, FormRequest</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> tutorial.settings <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SampleSpider</span><span class="params">(CrawlSpider)</span>:</span></span><br><span class="line">    name = <span class="string">'sampleSpider'</span></span><br><span class="line">    allowed_domains = [<span class="string">'sample.com'</span>]</span><br><span class="line">    start_url = <span class="string">'https://sample.xxx.xx.x.x.x.xxx'</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.headers = HEADER</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">start_requests</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> [Request(</span><br><span class="line">            <span class="string">"https://sample.com/signin"</span>,</span><br><span class="line">            meta = &#123;<span class="string">'cookiejar'</span> : <span class="number">1</span>&#125;,</span><br><span class="line">            callback = self.post_login</span><br><span class="line">        )]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">post_login</span><span class="params">(self, response)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> [FormRequest(</span><br><span class="line">            <span class="string">'https://www.sample.com/login/'</span>,</span><br><span class="line">            method=<span class="string">'POST'</span>,</span><br><span class="line">            meta=&#123;<span class="string">'cookiejar'</span>: response.meta[<span class="string">'cookiejar'</span>]&#125;,</span><br><span class="line">            formdata = &#123;</span><br><span class="line">                <span class="string">'email'</span>:<span class="string">'xxxx'</span>,</span><br><span class="line">                <span class="string">'password'</span>:<span class="string">'yyyy'</span>,</span><br><span class="line">            &#125;,</span><br><span class="line">            callback = self.after_login</span><br><span class="line">        )]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">after_login</span><span class="params">(self, response)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> [Request(</span><br><span class="line">            self.start_url,</span><br><span class="line">            meta=&#123;<span class="string">'cookiejar'</span>: response.meta[<span class="string">'cookiejar'</span>]&#125;,</span><br><span class="line">            callback=self.parse,</span><br><span class="line">            errback=self.parse_err,</span><br><span class="line">        )]</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse</span><span class="params">(self, response)</span>:</span></span><br><span class="line">        <span class="comment"># do something</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse_err</span><span class="params">(self, response)</span>:</span></span><br><span class="line">        print(<span class="string">'eeeerrrrrrooooooorrrrrr!!!!!!'</span>)</span><br></pre></td></tr></table></figure>
-<h2 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h2><h4 id="自带选择器："><a href="#自带选择器：" class="headerlink" title="自带选择器："></a>自带选择器：</h4><ul>
-<li>CSS Selector</li>
-<li>XPath</li>
-</ul>
-<p>一般情况下CSS选择期即可满足要求，语法忘了google即可。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">query = <span class="string">'h1.title::text'</span></span><br><span class="line">response.css(query).extract()[<span class="number">0</span>]</span><br><span class="line">response.css(query).extract_first()</span><br><span class="line"><span class="comment"># response.css(query).extract_first().strip() # 一般用strip清理多余的空格等</span></span><br></pre></td></tr></table></figure>
-<h4 id="BeautifulSoup"><a href="#BeautifulSoup" class="headerlink" title="BeautifulSoup"></a>BeautifulSoup</h4><p>方便，但是慢。不能解析js。</p>
-<h4 id="lxml"><a href="#lxml" class="headerlink" title="lxml"></a>lxml</h4><p>用于解析XML，当然也可用于HTML。</p>
-<h2 id="Item"><a href="#Item" class="headerlink" title="Item"></a>Item</h2><p>内建的一种抽象数据结构类，自行定义所需要的。</p>
-<p>使用时可以研究下ItemLoader。</p>
-<h4 id="Item-Pipeline"><a href="#Item-Pipeline" class="headerlink" title="Item Pipeline"></a>Item Pipeline</h4><p>Item被返回是被送往Item Pipeline进行进一步处理，即每次return Item等操作时，都会调用pipeline中的相应函数。一般有以下用途：</p>
-<ul>
-<li><p>验证Item</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> scrapy.exceptions <span class="keyword">import</span> DropItem</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PricePipeline</span><span class="params">(object)</span>:</span></span><br><span class="line"></span><br><span class="line">    vat_factor = <span class="number">1.15</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">process_item</span><span class="params">(self, item, spider)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> item[<span class="string">'price'</span>]:</span><br><span class="line">            <span class="keyword">if</span> item[<span class="string">'price_excludes_vat'</span>]:</span><br><span class="line">                item[<span class="string">'price'</span>] = item[<span class="string">'price'</span>] * self.vat_factor</span><br><span class="line">            <span class="keyword">return</span> item</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">raise</span> DropItem(<span class="string">"Missing price in %s"</span> % item)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>写到JSON文件</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">JsonWriterPipeline</span><span class="params">(object)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">open_spider</span><span class="params">(self, spider)</span>:</span></span><br><span class="line">        self.file = open(<span class="string">'items.jl'</span>, <span class="string">'w'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">close_spider</span><span class="params">(self, spider)</span>:</span></span><br><span class="line">        self.file.close()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">process_item</span><span class="params">(self, item, spider)</span>:</span></span><br><span class="line">        line = json.dumps(dict(item)) + <span class="string">"\n"</span></span><br><span class="line">        self.file.write(line)</span><br><span class="line">        <span class="keyword">return</span> item</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>写到MongoDB</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pymongo</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MongoPipeline</span><span class="params">(object)</span>:</span></span><br><span class="line"></span><br><span class="line">    collection_name = <span class="string">'scrapy_items'</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, mongo_uri, mongo_db)</span>:</span></span><br><span class="line">        self.mongo_uri = mongo_uri</span><br><span class="line">        self.mongo_db = mongo_db</span><br><span class="line"></span><br><span class="line"><span class="meta">    @classmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">from_crawler</span><span class="params">(cls, crawler)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> cls(</span><br><span class="line">            mongo_uri=crawler.settings.get(<span class="string">'MONGO_URI'</span>),</span><br><span class="line">            mongo_db=crawler.settings.get(<span class="string">'MONGO_DATABASE'</span>, <span class="string">'items'</span>)</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">open_spider</span><span class="params">(self, spider)</span>:</span></span><br><span class="line">        self.client = pymongo.MongoClient(self.mongo_uri)</span><br><span class="line">        self.db = self.client[self.mongo_db]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">close_spider</span><span class="params">(self, spider)</span>:</span></span><br><span class="line">        self.client.close()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">process_item</span><span class="params">(self, item, spider)</span>:</span></span><br><span class="line">        self.db[self.collection_name].insert_one(dict(item))</span><br><span class="line">        <span class="keyword">return</span> item</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>等。</p>
-<h1 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h1><h2 id="登陆"><a href="#登陆" class="headerlink" title="登陆"></a>登陆</h2><ul>
-<li><p>POST表单模拟登录</p>
-<ol>
-<li>首先要找到表单，在打开chrome的控制台，切换到”network”。</li>
-<li>手动登录，并停止network录制(不然可能随着页面的跳转，记录都被刷掉了)。</li>
-<li>依次查找，主要看headers中的form data，是否有和登录相关的信息</li>
-<li>模拟发送该表单(注意Request url)</li>
-</ol>
-<p>具体写法见上面爬虫的例子</p>
-<p>如果有验证码的情况，简单的可以用pil，复杂的可能就比较困难了，可以考虑使用cookie模拟登录。</p>
-</li>
-<li><p>利用Cookie模拟登录</p>
-<ol>
-<li>同样思路，打开network，并手动登录</li>
-<li>在headers中找cookies</li>
-<li>将cookies整理成字典形式，作为Request的参数即可</li>
-</ol>
-</li>
-</ul>
-<h2 id="CrawlSpider"><a href="#CrawlSpider" class="headerlink" title="CrawlSpider"></a>CrawlSpider</h2><p>区别于普通的Spider，CrawSpider更适合于用于爬全网，注意不能覆盖parse函数。</p>
-<p>CrawlSpider通过Rule来限定搜索区域，parse会根据follow、callback的情况作出不同反应。</p>
-<p>如果需要登录，则使用表单登录后，注意最后一次callback需设置为parse，否则程序将会停止，CrawlSpider失效。</p>
-
+<p>
+                
+            
         
-        </div>
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/Hands-on-Scrapy/#more">Read More</a>
+            </div>
+        
         <footer class="article-footer">
             <div class="share-container">
 
@@ -605,7 +780,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="https://LorrinWWW.github.io/Hands-on-Scrapy/" data-id="cjeoihlp4000be9dyqvcwvxu1" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://LorrinWWW.github.io/Hands-on-Scrapy/" data-id="cjeon55ww000qbwdykli1q79z" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -725,87 +900,42 @@ var _hmt = _hmt || [];
         
         <div class="article-entry" itemprop="articleBody">
         
+        
             
-            <h1 id="Operating-System"><a href="#Operating-System" class="headerlink" title="Operating System"></a>Operating System</h1><p>This is the note or keywords of a course in udacity.</p>
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><h1 id="Operating-System"><a href="#Operating-System" class="headerlink" title="Operating System"></a>Operating System</h1><p>This is the note or keywords of a course in udacity.</p>
 <h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
 <li>Processes and process management</li>
 <li>Threads and concurrency</li>
 <li>resource management</li>
-<li>OS services</li>
-<li>OS support for distributed services</li>
-<li>Data cendter and cloud</li>
-</ul>
-<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><h3 id="OS-Elements"><a href="#OS-Elements" class="headerlink" title="OS Elements"></a>OS Elements</h3><p>Abstractions</p>
-<ul>
-<li>Process, thread, file, socket, memory pape</li>
-</ul>
-<p>Mechanisms</p>
-<ul>
-<li>Create, schedule, open, write, allocate</li>
-</ul>
-<p>Policies</p>
-<ul>
-<li>Least - recently used (LRU) etc.</li>
-</ul>
-<h3 id="System-call"><a href="#System-call" class="headerlink" title="System call"></a>System call</h3><p>Two ways for a user process to execute a priviledged call.</p>
-<ul>
-<li>User process calls hardware directly, and that will cause a trap, the kernel check if it is legal</li>
-<li>User process executes system call.</li>
-</ul>
-<p>user/kernel transitions are not cheap!</p>
-<h3 id="OS-services"><a href="#OS-services" class="headerlink" title="OS services"></a>OS services</h3><ul>
-<li>Scheduler =&gt; CPU</li>
-<li>Mem manager</li>
-<li>Block device driver</li>
-<li>file system</li>
-<li>…</li>
-</ul>
-<h3 id="Linux-Architecture"><a href="#Linux-Architecture" class="headerlink" title="Linux Architecture"></a>Linux Architecture</h3><p>User interface : <strong>Users</strong> &lt;= user mode</p>
-<p>Library interface : <strong>Standards utility programs</strong> (shell, editor, compilors) &lt;= user mode</p>
-<p>System call interface : <strong>Standard licrary</strong> (open, close, read, write, fork) &lt;= user mode</p>
-<p><strong>Linux operating system</strong> &lt;= kernel mode</p>
-<p><strong>Hardware</strong></p>
-<h2 id="Processes-and-Process-Management"><a href="#Processes-and-Process-Management" class="headerlink" title="Processes and Process Management"></a>Processes and Process Management</h2><p>A process:</p>
-<ul>
-<li>state of execution<ul>
-<li>Program counter</li>
-<li>stack</li>
-</ul>
-</li>
-<li>parts and temporary holding area<ul>
-<li>Data, register</li>
-</ul>
-</li>
-<li>May require special hardware<ul>
-<li>IO devices</li>
-</ul>
-</li>
-</ul>
-<p>Process == state of a program when executing.</p>
-<h3 id="Process-Control-Block-PCB"><a href="#Process-Control-Block-PCB" class="headerlink" title="Process Control Block (PCB)"></a>Process Control Block (PCB)</h3><p>a data structure storing status of a process</p>
-<ul>
-<li>PCB created when process is created</li>
-<li>Certain filds are updated when process state changes</li>
-<li>other fields change too frequently</li>
-</ul>
-<h3 id="Context-switch"><a href="#Context-switch" class="headerlink" title="Context switch"></a>Context switch</h3><p>Hot cache, cold cache</p>
-<h3 id="CPU-scheduler"><a href="#CPU-scheduler" class="headerlink" title="CPU scheduler"></a>CPU scheduler</h3><p>OS must </p>
-<ul>
-<li>preempt</li>
-<li>schedule</li>
-<li>dispatch</li>
-</ul>
-<h3 id="Multi-Processes"><a href="#Multi-Processes" class="headerlink" title="Multi Processes"></a>Multi Processes</h3><p>P1(web server), P2(Database)</p>
-<p>Inter - process communication (IPC) : </p>
-<ul>
-<li>Message - passing IPC</li>
-</ul>
-<ul>
-<li>Shared memory IPC</li>
-</ul>
-
+<p>
+                
+            
         
-        </div>
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/OS-notes/#more">Read More</a>
+            </div>
+        
         <footer class="article-footer">
             <div class="share-container">
 
@@ -813,7 +943,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="https://LorrinWWW.github.io/OS-notes/" data-id="cjeoihlpy0018e9dyod2g2lp4" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://LorrinWWW.github.io/OS-notes/" data-id="cjeon55xc0018bwdyyyw2r1lb" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -933,10 +1063,19 @@ var _hmt = _hmt || [];
         
         <div class="article-entry" itemprop="articleBody">
         
+        
             
+                
+                
+                    
+                    
+                
             
         
-        </div>
+        
+            
+            </div>
+        
         <footer class="article-footer">
             <div class="share-container">
 
@@ -944,7 +1083,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="https://LorrinWWW.github.io/EDP-finite-element-method/" data-id="cjeoihlom0006e9dy7z6dtlqr" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://LorrinWWW.github.io/EDP-finite-element-method/" data-id="cjeon55vx0007bwdyrhru1fbz" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1064,69 +1203,42 @@ var _hmt = _hmt || [];
         
         <div class="article-entry" itemprop="articleBody">
         
+        
             
-            <h1 id="Examples-of-moedels"><a href="#Examples-of-moedels" class="headerlink" title="Examples of moedels"></a>Examples of moedels</h1><ol>
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><h1 id="Examples-of-moedels"><a href="#Examples-of-moedels" class="headerlink" title="Examples of moedels"></a>Examples of moedels</h1><ol>
 <li><p>Problem of Cauchy</p>
 <p><strong>Nomenclature</strong> : problem of Cauchy</p>
 <p><strong>Equation</strong> : system of 2 differential equations of order 2</p>
 <p><strong>Conditions</strong> : initials (all the data from the same point) i.e. fix time</p>
-<script type="math/tex; mode=display">
-\begin{equation}
-  \begin{cases}
-    \frac{dS}{dt}(t) = F(S,R)  ,  \\
-    \frac{dR}{dt}(t) = G(S,R) ,  \\
-    S(0) = S^0 \\
-    R(0) = R^0
-  \end{cases}
-\end{equation}</script></li>
-<li><p>Problem of Dirichlet</p>
-<p><strong>Nomenclature</strong> : problem of Dirichlet</p>
-<p><strong>Equation</strong> : scalar differential equation of order 2.</p>
-<p><strong>Conditions</strong> : prescribed value at the edge</p>
-<script type="math/tex; mode=display">
-\begin{equation}
-  \begin{cases}
-- \frac{d}{dx} ( k \frac{d\theta}{dx})(x) + \theta(x) = f(x) 0<x<L, \\
-  \theta(0) = \theta_0, \theta(L) = \theta_L \\
-\end{cases}
-\end{equation}</script><p><strong>Remark:</strong></p>
-<ul>
-<li>如果k是常数，解为指数函数；若否，我们可以用两种数值计算：les differences finies et les elements finis.</li>
-<li>可以使用<em>射击法</em>，认为$\theta(L)$由$\theta’(0)$得到，接下来就是验证是否能找到一个好的$\theta’(0)$使$\theta(L)=\theta(L) = \theta_L$</li>
-</ul>
-</li>
-</ol>
-<h3 id="Physic-examples"><a href="#Physic-examples" class="headerlink" title="Physic examples"></a>Physic examples</h3><ul>
-<li><p>Fluide environnant au repos</p>
-<script type="math/tex; mode=display">
-\rho c_v \partial_t{\theta} - div(k\cdot\overrightarrow{grad}(\theta)) = f</script><ul>
-<li>init condition:<script type="math/tex; mode=display">
-\theta(0,.) = \theta_0</script></li>
-</ul>
-</li>
-<li><p>condition at the edges could be:</p>
-<ul>
-<li><p>condition of Dirichlet:</p>
-<script type="math/tex; mode=display">
-\theta(t,.) = g(t)</script></li>
-<li><p>Condition of Neumann:</p>
-<script type="math/tex; mode=display">
-\overrightarrow{grad}(\theta)(t,.) \cdot \vec{n}= h(t)</script></li>
-<li><p>Condition of Dirichlet and Neumann: Mix</p>
-</li>
-</ul>
-</li>
-<li><p>Fluide environnant en mouvement a une vitesse $\vec u(t,x)$</p>
-<script type="math/tex; mode=display">
-\rho c_v \partial_t{\theta} - div(\rho c_v \theta \vec u) - div(k\cdot\overrightarrow{grad}(\theta)) = f</script><p>si le fluide est incompressible i.e $\partial_t \rho = 0$ soit encore $div(\vec u) = 0$ (直观上理解，若不可压缩，则速度场一定是连续的，不然一定会在局部压缩), alors:</p>
-<script type="math/tex; mode=display">
-\rho c_v \partial_t{\theta} - \vec u \cdot div(\rho c_v \theta ) - div(k\cdot\overrightarrow{grad}(\theta)) = f</script><p>​</p>
-<p>​</p>
-</li>
-</ul>
-
+<p>
+                
+            
         
-        </div>
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/EDP-basic-models/#more">Read More</a>
+            </div>
+        
         <footer class="article-footer">
             <div class="share-container">
 
@@ -1134,7 +1246,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="https://LorrinWWW.github.io/EDP-basic-models/" data-id="cjeoihlod0005e9dyxi93cdco" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://LorrinWWW.github.io/EDP-basic-models/" data-id="cjeon55wg000cbwdykb6d6vgg" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1254,27 +1366,42 @@ var _hmt = _hmt || [];
         
         <div class="article-entry" itemprop="articleBody">
         
+        
             
-            <h1 id="索伯列夫空间-Sobolev-space"><a href="#索伯列夫空间-Sobolev-space" class="headerlink" title="索伯列夫空间 Sobolev space"></a>索伯列夫空间 Sobolev space</h1><h2 id="感性认识"><a href="#感性认识" class="headerlink" title="感性认识"></a>感性认识</h2><p>摘自wiki：</p>
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><h1 id="索伯列夫空间-Sobolev-space"><a href="#索伯列夫空间-Sobolev-space" class="headerlink" title="索伯列夫空间 Sobolev space"></a>索伯列夫空间 Sobolev space</h1><h2 id="感性认识"><a href="#感性认识" class="headerlink" title="感性认识"></a>感性认识</h2><p>摘自wiki：</p>
 <blockquote>
 <p>数学上，一个索博列夫空间是一个由函数组成的赋范向量空间，对于某个给定的p ≥ 1，它对一个函数f和它的直到某个k阶导数加上有限Lp范数的这个条件。</p>
 </blockquote>
 <p>我们通常在C1(函数1阶可导并且1阶导数连续)上研究微分方程的解，但是在偏微分方程上并不是特别方便，人们便开始研究索伯列夫空间。</p>
-<h2 id="范数"><a href="#范数" class="headerlink" title="范数"></a>范数</h2><script type="math/tex; mode=display">
-||f||_{k,p} = (\sum_{i=0}^k{||f^{(i)}||_p^p})^{1/p} \\
-=||f^{(i)}||_p +||f||_p</script><p>赋予了范数的$W^{k,p}$是一个完备空间。</p>
-<h2 id="H-k"><a href="#H-k" class="headerlink" title="$H^k$"></a>$H^k$</h2><p>一些记号：</p>
-<script type="math/tex; mode=display">
-H^k = W^{k,2} \\
-H^1(\Omega) := \{ v\in L^2(\Omega) : \nabla v \in (L^2(\Omega))^d \} \\ \\
-(.,.)_{H^1} : (u,v) \in H^1 \times H^1 \mapsto (u,v)_{L^2} +(\nabla u,\nabla v)_{L^2} \\
-\qquad \qquad \qquad = \int_\Omega {uv} + \sum_{i=1}^d{\int_ \Omega {\partial_{x_i}{u} \partial_{x_i}{v}}}</script><p>范数和半范数：</p>
-<script type="math/tex; mode=display">
-||.||_{H^1}: v \mapsto \sqrt{||v||_{L^2}^2+||\nabla v||_{L^2}^2} \\
-|.|_{H^1(\Omega)} := ||\nabla .||_{L^2(\Omega)} \\
-||.||_{H_0^1} := |.|_{H^1}</script>
+<p>
+                
+            
         
-        </div>
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/Sobolev-space/#more">Read More</a>
+            </div>
+        
         <footer class="article-footer">
             <div class="share-container">
 
@@ -1282,7 +1409,7 @@ H^1(\Omega) := \{ v\in L^2(\Omega) : \nabla v \in (L^2(\Omega))^d \} \\ \\
 
 </div>
 
-    <a data-url="https://LorrinWWW.github.io/Sobolev-space/" data-id="cjeoihlq4001ge9dyohbbj07k" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://LorrinWWW.github.io/Sobolev-space/" data-id="cjeon55xj001fbwdy1970n6h2" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1402,76 +1529,42 @@ H^1(\Omega) := \{ v\in L^2(\Omega) : \nabla v \in (L^2(\Omega))^d \} \\ \\
         
         <div class="article-entry" itemprop="articleBody">
         
+        
             
-            <h1 id="希尔伯特空间-Hilbert-space"><a href="#希尔伯特空间-Hilbert-space" class="headerlink" title="希尔伯特空间 Hilbert space"></a>希尔伯特空间 Hilbert space</h1><h2 id="感性认识"><a href="#感性认识" class="headerlink" title="感性认识"></a>感性认识</h2><p>摘自wiki:</p>
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><h1 id="希尔伯特空间-Hilbert-space"><a href="#希尔伯特空间-Hilbert-space" class="headerlink" title="希尔伯特空间 Hilbert space"></a>希尔伯特空间 Hilbert space</h1><h2 id="感性认识"><a href="#感性认识" class="headerlink" title="感性认识"></a>感性认识</h2><p>摘自wiki:</p>
 <blockquote>
 <p>在数学里，<strong>希尔伯特空间</strong>即<strong>完备的内积空间</strong>，也就是说一个带有内积的完备向量空间。</p>
 </blockquote>
 <p>要弄清楚希尔伯特空间，我们需要从几个基本的地方出发。</p>
-<h3 id="几个形容词"><a href="#几个形容词" class="headerlink" title="几个形容词"></a>几个形容词</h3><ul>
-<li><p>线性</p>
-<p>有线性结构的。</p>
-</li>
-<li><p>赋范</p>
-<p>空间中用于度量“长度”，引入范数。</p>
-</li>
-<li><p>完备(complet)</p>
-<p>其上所有的柯西序列会收敛到此空间里的一点，序列的极限依然在此空间内。通俗的说，我们认为这个空间是不缺点、有皮的。</p>
-</li>
-<li><p>内积</p>
-<p>补充“角度”概念，引入内积。</p>
-</li>
-</ul>
-<h3 id="几类空间"><a href="#几类空间" class="headerlink" title="几类空间"></a>几类空间</h3><ul>
-<li><p>线性空间</p>
-</li>
-<li><p>度量空间</p>
-<p>最基本的空间。前者有线性结构，后者有度量空间，二者没有交集。</p>
-</li>
-<li><p>赋范线性空间</p>
-<p>引入范数</p>
-</li>
-<li><p>内积空间</p>
-<p>内积空间是赋范线性空间。</p>
-</li>
-<li><p>希尔伯特空间</p>
-<p>希尔伯特空间是完备的内积空间</p>
-</li>
-</ul>
-<p>((线性空间 + 范数  = 赋范空间 + 线性结构) + 内积 = 内积空间) + 完备性 = 希尔伯特空间</p>
-<h2 id="可以由以下空间获得"><a href="#可以由以下空间获得" class="headerlink" title="可以由以下空间获得"></a>可以由以下空间获得</h2><ul>
-<li><p>欧几里得空间</p>
-<p>定义内积。</p>
-</li>
-<li><p>序列空间</p>
-</li>
-<li><p>勒贝格空间</p>
-<p>特指L^2空间，定义其内积:</p>
-<p>​</p>
-<script type="math/tex; mode=display">
-(f|g) = \int{\overline{f}g}</script><p>还需证明其完备性.</p>
-</li>
-<li><p>索伯列夫空间</p>
-<p>一般表示为H^s或W^(s,2)。在偏微分方程中常用。</p>
-</li>
-</ul>
-<h2 id="希尔伯特空间的基"><a href="#希尔伯特空间的基" class="headerlink" title="希尔伯特空间的基"></a>希尔伯特空间的基</h2><ul>
-<li>所有基的范数为1</li>
-<li>彼此正交</li>
-<li>其线性扩张稠密：即其中的所有元素的有限的线性组合是H的一个稠密子集。</li>
-</ul>
-<h2 id="相关"><a href="#相关" class="headerlink" title="相关"></a>相关</h2><ul>
-<li><p>内积(produit scalaire)</p>
-<p>满足以下四个条件：</p>
-</li>
-</ul>
-<script type="math/tex; mode=display">
-\forall (x,y) \in H^2 \qquad \varphi(y,x) = \overline{\varphi(x,y)} \\
-\forall (x,y,z) \in H^3, \forall(\lambda,\mu) \in \mathbb{C}^2 \qquad \varphi(z,\lambda x+\mu y) = \lambda\varphi(z,x) + \mu \varphi(z,y) \\
-\forall x \in H^2 \qquad \varphi(x,x) \ge 0 \\
-\varphi (x,x) = 0 \Longrightarrow x = 0</script>
+<p>
+                
+            
         
-        </div>
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/Hilbert-space/#more">Read More</a>
+            </div>
+        
         <footer class="article-footer">
             <div class="share-container">
 
@@ -1479,7 +1572,7 @@ H^1(\Omega) := \{ v\in L^2(\Omega) : \nabla v \in (L^2(\Omega))^d \} \\ \\
 
 </div>
 
-    <a data-url="https://LorrinWWW.github.io/Hilbert-space/" data-id="cjeoihloz000ae9dy92zhkoj0" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://LorrinWWW.github.io/Hilbert-space/" data-id="cjeon55w40008bwdybwz8a8sj" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1599,31 +1692,42 @@ H^1(\Omega) := \{ v\in L^2(\Omega) : \nabla v \in (L^2(\Omega))^d \} \\ \\
         
         <div class="article-entry" itemprop="articleBody">
         
+        
             
-            <h2 id="注意点："><a href="#注意点：" class="headerlink" title="注意点："></a>注意点：</h2><ol>
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><h2 id="注意点："><a href="#注意点：" class="headerlink" title="注意点："></a>注意点：</h2><ol>
 <li>A est une matrice hermitienne &lt;=&gt; A=A* et donc A est normale</li>
 <li>A est une matrice  unitaire (酉矩阵) &lt;=&gt; A^-1 = A* et donc A est normale</li>
 <li>A est une matrice orthogonale &lt;=&gt; A=A^T</li>
 </ol>
-<h2 id="Schur定理（矩陣三角化）"><a href="#Schur定理（矩陣三角化）" class="headerlink" title="Schur定理（矩陣三角化）"></a>Schur定理（矩陣三角化）</h2><script type="math/tex; mode=display">
-A = [a_{ij}]_{n\times n} , 特征值\lambda_i , 对应特征向量x_i \\
-S = [x_1,...,x_n], D = diag[\lambda_1,...,\lambda_n] \\
-则,A是可对角化矩阵 \\
-A = SDS^{-1}</script><p>如果<strong>A</strong>是<em>n</em>阶的复方阵，则存在<em>n</em>阶酉矩阵U，<em>n</em>阶上三角矩阵T，使得：</p>
-<script type="math/tex; mode=display">
-A = UTU^{-1}</script><h2 id="酉矩阵"><a href="#酉矩阵" class="headerlink" title="酉矩阵"></a>酉矩阵</h2><script type="math/tex; mode=display">
-UU^* = I \\
-i.e. \to U^*= U^{-1}</script><p>U是酉矩阵。</p>
-<h2 id="Cholesky分解"><a href="#Cholesky分解" class="headerlink" title="Cholesky分解"></a>Cholesky分解</h2><p>条件：</p>
-<ol>
-<li>une matrice hermitienne：矩阵中的元素共轭对称（复数域的定义，类比于实数对称矩阵）。Hermitiank意味着对于任意向量x和y，(x*)Ay共轭相等</li>
-<li>Positive-definite：正定矩阵A意味着，对于任何向量x，(x^T)Ax总是大于零(复数域是(x*)Ax&gt;0)</li>
-</ol>
-<p>则存在L为下三角矩阵，使得 A = LL*。</p>
-<h2 id="QR分解"><a href="#QR分解" class="headerlink" title="QR分解"></a>QR分解</h2><p>目标：A = QR，<em>Q</em>是正交矩阵（意味着<em>Q</em>T<em>Q</em> = <em>I</em>）而<em>R</em>是上三角矩阵。</p>
-
+<p>
+                
+            
         
-        </div>
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/EDP-basic-matrix-review/#more">Read More</a>
+            </div>
+        
         <footer class="article-footer">
             <div class="share-container">
 
@@ -1631,7 +1735,7 @@ i.e. \to U^*= U^{-1}</script><p>U是酉矩阵。</p>
 
 </div>
 
-    <a data-url="https://LorrinWWW.github.io/EDP-basic-matrix-review/" data-id="cjeoihlo60002e9dy5xkj0x4t" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://LorrinWWW.github.io/EDP-basic-matrix-review/" data-id="cjeon55vr0006bwdyuqxwfabw" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1709,178 +1813,6 @@ i.e. \to U^*= U^{-1}</script><p>U是酉矩阵。</p>
 
 
 
-    <article id="post-Note-of-statistic" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/Note-of-statistic/">Note of statistic</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/Note-of-statistic/">
-            <time datetime="2017-01-28T17:13:13.000Z" itemprop="datePublished">2017-01-28</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/math/">math</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/math/unfinished/">unfinished</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/math/">math</a>, <a class="tag-link" href="/tags/statistic/">statistic</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <h1 id="各种定理"><a href="#各种定理" class="headerlink" title="各种定理"></a>各种定理</h1><h3 id="大数定理，中心极限定理"><a href="#大数定理，中心极限定理" class="headerlink" title="大数定理，中心极限定理"></a>大数定理，中心极限定理</h3><p>略</p>
-<h3 id="Slutsky"><a href="#Slutsky" class="headerlink" title="Slutsky"></a>Slutsky</h3><p>if</p>
-<script type="math/tex; mode=display">
-\Upsilon_n \to(loi) \Upsilon \text{ et } Z_n \to (P)c</script><p>then</p>
-<script type="math/tex; mode=display">
-\Upsilon_n + Z_n \to(L) \Upsilon+c \text{ et } \Upsilon_n Z_n \to(L) \Upsilon c</script><h1 id="假设检验"><a href="#假设检验" class="headerlink" title="假设检验"></a>假设检验</h1><h2 id="un-test-de-chi-2"><a href="#un-test-de-chi-2" class="headerlink" title="un test de $\chi^2$"></a>un test de $\chi^2$</h2><p>列表：</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>Liste</th>
-<th>a</th>
-<th>b</th>
-<th>c</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>pi</td>
-<td>xx</td>
-<td>xx</td>
-<td>xx</td>
-</tr>
-<tr>
-<td>npi</td>
-<td>xx</td>
-<td>xx</td>
-<td>xx</td>
-</tr>
-<tr>
-<td>ni</td>
-<td>xx</td>
-<td>xx</td>
-<td>xx</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>计算：</p>
-<script type="math/tex; mode=display">
-T= \sum_{j=1}^n{\frac{(n_i-np_i)^2}{np_i}}</script><p>其服从卡方分布，自由度为n-1，从而进行检验。</p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="https://LorrinWWW.github.io/Note-of-statistic/" data-id="cjeoihlpw0014e9dy4soh021v" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="https://LorrinWWW.github.io/Note-of-statistic/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://LorrinWWW.github.io/Note-of-statistic/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
     <nav id="page-nav">
         <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
@@ -1894,6 +1826,25 @@ T= \sum_{j=1}^n{\frac{(n_i-np_i)^2}{np_i}}</script><p>其服从卡方分布，�
         <h3 class="widget-title">recent</h3>
         <div class="widget">
             <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/[2018.3.10]Several-models-for-kenowledge-graoh-representing-and-completing/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/research/">research</a></p>
+                            <p class="item-title"><a href="/[2018.3.10]Several-models-for-kenowledge-graoh-representing-and-completing/" class="title">Several models for knowledge graph representing and completing 几个知识图谱模型</a></p>
+                            <p class="item-date"><time datetime="2018-03-10T07:00:00.000Z" itemprop="datePublished">2018-03-10</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -1971,25 +1922,6 @@ T= \sum_{j=1}^n{\frac{(n_i-np_i)^2}{np_i}}</script><p>其服从卡方分布，�
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/[2018.1.14]Models-for-relation-extraction/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/research/">research</a></p>
-                            <p class="item-title"><a href="/[2018.1.14]Models-for-relation-extraction/" class="title">几个 relation extraction 远程监督模型</a></p>
-                            <p class="item-date"><time datetime="2018-01-14T07:00:00.000Z" itemprop="datePublished">2018-01-14</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -1999,7 +1931,7 @@ T= \sum_{j=1}^n{\frac{(n_i-np_i)^2}{np_i}}</script><p>其服从卡方分布，�
     <div class="widget-wrap">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/francais/">francais</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/math/">math</a><span class="category-list-count">14</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/math/unfinished/">unfinished</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/other/">other</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/programming/">programming</a><span class="category-list-count">20</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/unfinished/">unfinished</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/research/">research</a><span class="category-list-count">8</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/francais/">francais</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/math/">math</a><span class="category-list-count">14</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/math/unfinished/">unfinished</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/other/">other</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/programming/">programming</a><span class="category-list-count">20</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/unfinished/">unfinished</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/research/">research</a><span class="category-list-count">9</span></li></ul>
         </div>
     </div>
 
@@ -2008,16 +1940,7 @@ T= \sum_{j=1}^n{\frac{(n_i-np_i)^2}{np_i}}</script><p>其服从卡方分布，�
     <div class="widget-wrap">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">8</span></li></ul>
-        </div>
-    </div>
-
-    
-        
-    <div class="widget-wrap">
-        <h3 class="widget-title">tags</h3>
-        <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bayes/">Bayes</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BiLSTM/">BiLSTM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CNN/">CNN</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EDP/">EDP</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/FEM/">FEM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GAN/">GAN</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hilbert/">Hilbert</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/KGC/">KGC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LSTM/">LSTM</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OS/">OS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RNN/">RNN</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sobolev/">Sobolev</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/aleatoire/">aleatoire</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/algo/">algo</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/analyse/">analyse</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/attention/">attention</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chrome/">chrome</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/classification/">classification</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/co-reference/">co-reference</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/complexity/">complexity</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/compression/">compression</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/convolution/">convolution</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/crawl/">crawl</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-structure/">data-structure</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/datamining/">datamining</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/deep-learning/">deep-learning</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/distant-supervision/">distant-supervision</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/">docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/entity-resolution/">entity-resolution</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/event-detection/">event-detection</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/event-extraction/">event-extraction</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/firm/">firm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/francais/">francais</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/graph/">graph</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kernel/">kernel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/knowledge-graph/">knowledge-graph</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/language/">language</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/latex/">latex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/limited-supervision/">limited-supervision</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/machine-learning/">machine-learning</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/management/">management</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/marked/">marked</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/math/">math</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mathjax/">mathjax</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/matrix/">matrix</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongo/">mongo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb/">mongodb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nlp/">nlp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/prediction/">prediction</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/probability/">probability</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/programming/">programming</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qualitative-induction/">qualitative-induction</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/relation-classification/">relation-classification</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/relation-extraction/">relation-extraction</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/scrapy/">scrapy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sequence-labeling/">sequence-labeling</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spider/">spider</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/statistic/">statistic</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vector/">vector</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/weak-supervision/">weak-supervision</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">8</span></li></ul>
         </div>
     </div>
 
@@ -2026,7 +1949,7 @@ T= \sum_{j=1}^n{\frac{(n_i-np_i)^2}{np_i}}</script><p>其服从卡方分布，�
     <div class="widget-wrap">
         <h3 class="widget-title">tag cloud</h3>
         <div class="widget tagcloud">
-            <a href="/tags/Bayes/" style="font-size: 10px;">Bayes</a> <a href="/tags/BiLSTM/" style="font-size: 10px;">BiLSTM</a> <a href="/tags/CNN/" style="font-size: 11.43px;">CNN</a> <a href="/tags/EDP/" style="font-size: 12.86px;">EDP</a> <a href="/tags/FEM/" style="font-size: 10px;">FEM</a> <a href="/tags/GAN/" style="font-size: 10px;">GAN</a> <a href="/tags/Hilbert/" style="font-size: 10px;">Hilbert</a> <a href="/tags/KGC/" style="font-size: 10px;">KGC</a> <a href="/tags/LSTM/" style="font-size: 11.43px;">LSTM</a> <a href="/tags/OS/" style="font-size: 11.43px;">OS</a> <a href="/tags/RNN/" style="font-size: 11.43px;">RNN</a> <a href="/tags/Sobolev/" style="font-size: 10px;">Sobolev</a> <a href="/tags/aleatoire/" style="font-size: 10px;">aleatoire</a> <a href="/tags/algo/" style="font-size: 17.14px;">algo</a> <a href="/tags/analyse/" style="font-size: 11.43px;">analyse</a> <a href="/tags/attention/" style="font-size: 10px;">attention</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/classification/" style="font-size: 10px;">classification</a> <a href="/tags/co-reference/" style="font-size: 10px;">co-reference</a> <a href="/tags/complexity/" style="font-size: 10px;">complexity</a> <a href="/tags/compression/" style="font-size: 10px;">compression</a> <a href="/tags/convolution/" style="font-size: 10px;">convolution</a> <a href="/tags/crawl/" style="font-size: 10px;">crawl</a> <a href="/tags/data-structure/" style="font-size: 10px;">data-structure</a> <a href="/tags/datamining/" style="font-size: 15.71px;">datamining</a> <a href="/tags/deep-learning/" style="font-size: 11.43px;">deep-learning</a> <a href="/tags/distant-supervision/" style="font-size: 10px;">distant-supervision</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/entity-resolution/" style="font-size: 10px;">entity-resolution</a> <a href="/tags/event-detection/" style="font-size: 10px;">event-detection</a> <a href="/tags/event-extraction/" style="font-size: 10px;">event-extraction</a> <a href="/tags/firm/" style="font-size: 10px;">firm</a> <a href="/tags/francais/" style="font-size: 10px;">francais</a> <a href="/tags/graph/" style="font-size: 10px;">graph</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/kernel/" style="font-size: 10px;">kernel</a> <a href="/tags/knowledge-graph/" style="font-size: 11.43px;">knowledge-graph</a> <a href="/tags/language/" style="font-size: 10px;">language</a> <a href="/tags/latex/" style="font-size: 10px;">latex</a> <a href="/tags/limited-supervision/" style="font-size: 10px;">limited-supervision</a> <a href="/tags/machine-learning/" style="font-size: 14.29px;">machine-learning</a> <a href="/tags/management/" style="font-size: 10px;">management</a> <a href="/tags/marked/" style="font-size: 10px;">marked</a> <a href="/tags/math/" style="font-size: 20px;">math</a> <a href="/tags/mathjax/" style="font-size: 10px;">mathjax</a> <a href="/tags/matrix/" style="font-size: 10px;">matrix</a> <a href="/tags/mongo/" style="font-size: 10px;">mongo</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/nlp/" style="font-size: 10px;">nlp</a> <a href="/tags/prediction/" style="font-size: 10px;">prediction</a> <a href="/tags/probability/" style="font-size: 17.14px;">probability</a> <a href="/tags/programming/" style="font-size: 18.57px;">programming</a> <a href="/tags/python/" style="font-size: 11.43px;">python</a> <a href="/tags/qualitative-induction/" style="font-size: 10px;">qualitative-induction</a> <a href="/tags/relation-classification/" style="font-size: 10px;">relation-classification</a> <a href="/tags/relation-extraction/" style="font-size: 14.29px;">relation-extraction</a> <a href="/tags/scrapy/" style="font-size: 10px;">scrapy</a> <a href="/tags/sequence-labeling/" style="font-size: 10px;">sequence-labeling</a> <a href="/tags/spider/" style="font-size: 10px;">spider</a> <a href="/tags/statistic/" style="font-size: 11.43px;">statistic</a> <a href="/tags/vector/" style="font-size: 10px;">vector</a> <a href="/tags/weak-supervision/" style="font-size: 10px;">weak-supervision</a> <a href="/tags/web/" style="font-size: 10px;">web</a>
+            <a href="/tags/Bayes/" style="font-size: 10px;">Bayes</a> <a href="/tags/BiLSTM/" style="font-size: 10px;">BiLSTM</a> <a href="/tags/CNN/" style="font-size: 11.43px;">CNN</a> <a href="/tags/EDP/" style="font-size: 12.86px;">EDP</a> <a href="/tags/FEM/" style="font-size: 10px;">FEM</a> <a href="/tags/GAN/" style="font-size: 10px;">GAN</a> <a href="/tags/Hilbert/" style="font-size: 10px;">Hilbert</a> <a href="/tags/KGC/" style="font-size: 11.43px;">KGC</a> <a href="/tags/LSTM/" style="font-size: 11.43px;">LSTM</a> <a href="/tags/OS/" style="font-size: 11.43px;">OS</a> <a href="/tags/RNN/" style="font-size: 11.43px;">RNN</a> <a href="/tags/Sobolev/" style="font-size: 10px;">Sobolev</a> <a href="/tags/aleatoire/" style="font-size: 10px;">aleatoire</a> <a href="/tags/algo/" style="font-size: 17.14px;">algo</a> <a href="/tags/analyse/" style="font-size: 11.43px;">analyse</a> <a href="/tags/attention/" style="font-size: 10px;">attention</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/classification/" style="font-size: 10px;">classification</a> <a href="/tags/co-reference/" style="font-size: 10px;">co-reference</a> <a href="/tags/complexity/" style="font-size: 10px;">complexity</a> <a href="/tags/compression/" style="font-size: 10px;">compression</a> <a href="/tags/convolution/" style="font-size: 10px;">convolution</a> <a href="/tags/crawl/" style="font-size: 10px;">crawl</a> <a href="/tags/data-structure/" style="font-size: 10px;">data-structure</a> <a href="/tags/datamining/" style="font-size: 15.71px;">datamining</a> <a href="/tags/deep-learning/" style="font-size: 11.43px;">deep-learning</a> <a href="/tags/distant-supervision/" style="font-size: 10px;">distant-supervision</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/entity-resolution/" style="font-size: 10px;">entity-resolution</a> <a href="/tags/event-detection/" style="font-size: 10px;">event-detection</a> <a href="/tags/event-extraction/" style="font-size: 10px;">event-extraction</a> <a href="/tags/firm/" style="font-size: 10px;">firm</a> <a href="/tags/francais/" style="font-size: 10px;">francais</a> <a href="/tags/graph/" style="font-size: 10px;">graph</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/kernel/" style="font-size: 10px;">kernel</a> <a href="/tags/knowledge-graph/" style="font-size: 12.86px;">knowledge-graph</a> <a href="/tags/language/" style="font-size: 10px;">language</a> <a href="/tags/latex/" style="font-size: 10px;">latex</a> <a href="/tags/limited-supervision/" style="font-size: 10px;">limited-supervision</a> <a href="/tags/machine-learning/" style="font-size: 14.29px;">machine-learning</a> <a href="/tags/management/" style="font-size: 10px;">management</a> <a href="/tags/marked/" style="font-size: 10px;">marked</a> <a href="/tags/math/" style="font-size: 20px;">math</a> <a href="/tags/mathjax/" style="font-size: 10px;">mathjax</a> <a href="/tags/matrix/" style="font-size: 10px;">matrix</a> <a href="/tags/mongo/" style="font-size: 10px;">mongo</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/nlp/" style="font-size: 10px;">nlp</a> <a href="/tags/prediction/" style="font-size: 10px;">prediction</a> <a href="/tags/probability/" style="font-size: 17.14px;">probability</a> <a href="/tags/programming/" style="font-size: 18.57px;">programming</a> <a href="/tags/python/" style="font-size: 11.43px;">python</a> <a href="/tags/qualitative-induction/" style="font-size: 10px;">qualitative-induction</a> <a href="/tags/relation-classification/" style="font-size: 10px;">relation-classification</a> <a href="/tags/relation-extraction/" style="font-size: 14.29px;">relation-extraction</a> <a href="/tags/scrapy/" style="font-size: 10px;">scrapy</a> <a href="/tags/sequence-labeling/" style="font-size: 10px;">sequence-labeling</a> <a href="/tags/spider/" style="font-size: 10px;">spider</a> <a href="/tags/statistic/" style="font-size: 11.43px;">statistic</a> <a href="/tags/vector/" style="font-size: 10px;">vector</a> <a href="/tags/weak-supervision/" style="font-size: 10px;">weak-supervision</a> <a href="/tags/web/" style="font-size: 10px;">web</a>
         </div>
     </div>
 
