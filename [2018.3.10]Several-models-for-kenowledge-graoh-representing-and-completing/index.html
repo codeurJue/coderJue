@@ -13,15 +13,15 @@
 <meta property="og:site_name" content="Lorrin&#39;s Blog">
 <meta property="og:description" content="2018.3.10Several models for knowledge graph representing and completing摘要：上次看到的ConMask在开放领域knowledge graph completion有着不错的表现，这次我们不考虑开放领域，介绍几个经典的模型。 1. Series of Trans1.1 TransE [1]TransE [1] 可能是最为常用也最">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://lorrinwww.github.io/[2018.3.10]Several-models-for-kenowledge-graoh-representing-and-completing/transH.png">
-<meta property="og:image" content="https://lorrinwww.github.io/[2018.3.10]Several-models-for-kenowledge-graoh-representing-and-completing/TransD.png">
-<meta property="og:image" content="https://lorrinwww.github.io/[2018.3.10]Several-models-for-kenowledge-graoh-representing-and-completing/TransA.png">
-<meta property="og:image" content="https://lorrinwww.github.io/[2018.3.10]Several-models-for-kenowledge-graoh-representing-and-completing/ProjE.png">
-<meta property="og:updated_time" content="2018-03-12T19:28:29.905Z">
+<meta property="og:image" content="http://oi4yiqiop.bkt.clouddn.com/2018-03-12-202332.jpg">
+<meta property="og:image" content="http://oi4yiqiop.bkt.clouddn.com/2018-03-12-202326.jpg">
+<meta property="og:image" content="http://oi4yiqiop.bkt.clouddn.com/2018-03-12-202330.jpg">
+<meta property="og:image" content="http://oi4yiqiop.bkt.clouddn.com/2018-03-12-202328.jpg">
+<meta property="og:updated_time" content="2018-03-12T20:23:34.399Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Several models for knowledge graph representing and completing 几个知识图谱模型">
 <meta name="twitter:description" content="2018.3.10Several models for knowledge graph representing and completing摘要：上次看到的ConMask在开放领域knowledge graph completion有着不错的表现，这次我们不考虑开放领域，介绍几个经典的模型。 1. Series of Trans1.1 TransE [1]TransE [1] 可能是最为常用也最">
-<meta name="twitter:image" content="https://lorrinwww.github.io/[2018.3.10]Several-models-for-kenowledge-graoh-representing-and-completing/transH.png">
+<meta name="twitter:image" content="http://oi4yiqiop.bkt.clouddn.com/2018-03-12-202332.jpg">
     
 
     
@@ -107,7 +107,7 @@ var _hmt = _hmt || [];
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar" />
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -126,10 +126,10 @@ var _hmt = _hmt || [];
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
+            POSTS: 'Entradas',
             PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            CATEGORIES: 'Categorias',
+            TAGS: 'Etiquetas',
             UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
@@ -160,7 +160,7 @@ var _hmt = _hmt || [];
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar" />
     </div>
 
                 </td>
@@ -180,16 +180,16 @@ var _hmt = _hmt || [];
             <h2 id="name">Lorrin</h2>
             <h3 id="title">半路出家的码农 | 法国留学中</h3>
             <span id="location"><i class="fa fa-map-marker"></i>Paris, France</span>
-            <a id="follow" target="_blank" href="https://github.com/lorrinWWW/">FOLLOW</a>
+            <a id="follow" target="_blank" href="https://github.com/lorrinWWW/">SEGUIR</a>
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
                 46
-                <span>posts</span>
+                <span>Entradas</span>
             </div>
             <div class="article-info-block">
                 63
-                <span>tags</span>
+                <span>Etiquetas</span>
             </div>
         </div>
         
@@ -268,7 +268,7 @@ h+r = t</script><p>其中h是head entity的向量，t是tail entity的向量，r
 <p>算法的核心是令正例的 h+r-t 趋近于 0，而负例的 h+r-t 趋近于无穷大。整个 TransE 模型的训练过程比较简单，首先对头尾节点以及关系进行初始化，然后每对一个正例取一个负例样本，然后利用 hinge loss function 尽可能使正例和负例分开，最后采用 SGD(Stochastic Gradient Descent) 方法更新参数。</p>
 <p>由TransE又衍生出了许多模型。</p>
 <h4 id="1-2-TransH-2"><a href="#1-2-TransH-2" class="headerlink" title="1.2 TransH [2]"></a>1.2 TransH [2]</h4><p>虽然 TransE 模型训练速度快、易于实现，但是它不能够解决多对一和一对多关系的问题。为了解决这个问题并仍然维持较低的复杂度，TransH 不再严格要求 h+r-l=0，而是只需要保证头结点和尾节点在关系平面上的投影在一条直线上，因此能够得到图中头结点向量正确的表示。</p>
-<p><img src="transH.png"></p>
+<p><img src="http://oi4yiqiop.bkt.clouddn.com/2018-03-12-202332.jpg"></p>
 <p>论文另一个亮点是设计了一种负类抽样的方法，即一对多的时候，给head更多的抽样概率， 同样的多对一的时候，给tail更多抽样概率。</p>
 <h4 id="1-3-TransR-CTrans-3"><a href="#1-3-TransR-CTrans-3" class="headerlink" title="1.3 TransR/CTrans [3]"></a>1.3 TransR/CTrans [3]</h4><p>TransE和TransH都假设了实体和关系都在同一个空间内，但由于实体和关系本身的不同，简单地认为它们embedding在同一个空间内是不充分的。因此，对于<strong>每一个r</strong>，我们设置mapping矩阵$M_r$，使得</p>
 <script type="math/tex; mode=display">
@@ -280,12 +280,12 @@ h_{\perp} + r \simeq t_{\perp} \quad \text{where } h_{\perp} = M_{r}*h, t_{\perp
 <li>矩阵与向量的运算的计算比较复杂，如果在一个Knowledge graph里有较多的relation，那么就会有大量的参数，以及较高的复杂度，因此导致计算量过大，无法应用到大规模knowledge graph。</li>
 </ul>
 <p>对于任意一个entity或relation，TransD定义两个向量，第一个表示entity或relation的含义，另一个用于把entity投影到relation空间（或者说用于构造mapping矩阵）。因此对于每个entity-relation pair，都有一个动态生成的唯一的mapping矩阵。此外，上述过程没有用到矩阵向量运算，而用向量的运算代替了。</p>
-<p><img src="TransD.png"></p>
+<p><img src="http://oi4yiqiop.bkt.clouddn.com/2018-03-12-202326.jpg"></p>
 <p>TransD大大降低计算复杂度，但仍然保持不错的效果。</p>
 <h4 id="1-5-TransA-5"><a href="#1-5-TransA-5" class="headerlink" title="1.5 TransA [5]"></a>1.5 TransA [5]</h4><p>前面的模型都是基于欧式距离计算，也就是认为每一维的重要性是相同的。但实际上，有一些维度能较好的区分不同的entity和relation，但也有许多不包含什么有效信息，因此甚至可以被认为是噪音，因此不同维度的重要性显然是不同的。</p>
 <p>TransA 模型通过引入加权矩阵，赋给每一维度权重。</p>
 <p>结果如下图，欧式距离每一维都是同等重要的，体现为圆形；而TransA体现为椭圆形，显然更符合数据的分布。</p>
-<p><img src="TransA.png"></p>
+<p><img src="http://oi4yiqiop.bkt.clouddn.com/2018-03-12-202330.jpg"></p>
 <h3 id="2-ProjE-6"><a href="#2-ProjE-6" class="headerlink" title="2. ProjE [6]"></a>2. ProjE [6]</h3><p>[6]的作者就是Open-World Knowledge Graph Completion的作者，两篇文章分别被AAAI2017和AAAI2018收录，可以认为是KGC任务的 state-of-the-art。这里提一下ProjE的思路。</p>
 <h4 id="2-1-Model-Architecture"><a href="#2-1-Model-Architecture" class="headerlink" title="2.1 Model Architecture"></a>2.1 Model Architecture</h4><p>给出\<h, r,="" ?\="">，已知h、r，要求预测 ? 。通常的做法就是把所有的候选entity都拿来打分，得分最高的就是预测的结果。为了得到这一系列打分，首先我们通过一个运算符来合并h和r，得到一个向量，然后我们把所有候选entity投影到这个向量上，随后运算得到分数。</h,></p>
 <p>现有的模型（包括上面提到的一系列trans）往往通过mapping矩阵来合并entity和relation，这里作者也是这么做，但是他认为目前还不需要考虑各个维度之间的相互作用，因此这个mapping矩阵应该是一个对角矩阵。所以这个合并操作可以被定义为：</p>
@@ -294,7 +294,7 @@ e \oplus r = D_e e + D_r r + b_c</script><p>其中$D_e$和$D_r$就是两个对�
 <p>由此，我们可以定义embedding映射函数：</p>
 <script type="math/tex; mode=display">
 h(e, r) = g(W^c f(e \oplus r) + b_r )</script><p>其中f和g是激活函数(activation function)，我们在后面定义；$W^c$是候选entity构成的矩阵。因此h就是对所有候选entity的打分矩阵。</p>
-<p><img src="ProjE.png"></p>
+<p><img src="http://oi4yiqiop.bkt.clouddn.com/2018-03-12-202328.jpg"></p>
 <p>上图是ProjE的结构，包括两部分神经网络层，其中上半部分是合并操作，即$e \oplus r$；下半部分是映射函数，或者说打分函数，即$h(e,r)$。</p>
 <h4 id="2-2-Loss-function"><a href="#2-2-Loss-function" class="headerlink" title="2.2 Loss function"></a>2.2 Loss function</h4><p>我们这里分析方便只看pointwise loss function：</p>
 <script type="math/tex; mode=display">
@@ -319,7 +319,7 @@ h(e, r) = g(W^c f(e \oplus r) + b_r )</script><p>其中f和g是激活函数(acti
 
 </div>
 
-    <a data-url="https://LorrinWWW.github.io/[2018.3.10]Several-models-for-kenowledge-graoh-representing-and-completing/" data-id="cjeon55y30024bwdym0na1pny" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://LorrinWWW.github.io/[2018.3.10]Several-models-for-kenowledge-graoh-representing-and-completing/" data-id="cjeookh5q002dpldyyxsd4vfc" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -387,7 +387,7 @@ h(e, r) = g(W^c f(e \oplus r) + b_r )</script><p>其中f和g是激活函数(acti
 
             
     
-        <a href="https://LorrinWWW.github.io/[2018.3.10]Several-models-for-kenowledge-graoh-representing-and-completing/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://LorrinWWW.github.io/[2018.3.10]Several-models-for-kenowledge-graoh-representing-and-completing/">Comments</a>
+        <a href="https://LorrinWWW.github.io/[2018.3.10]Several-models-for-kenowledge-graoh-representing-and-completing/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://LorrinWWW.github.io/[2018.3.10]Several-models-for-kenowledge-graoh-representing-and-completing/">Comentarios</a>
     
 
         </footer>
@@ -398,7 +398,7 @@ h(e, r) = g(W^c f(e \oplus r) + b_r )</script><p>其中f和g是激活函数(acti
     
     
         <a href="/[2018.2.26]Open-World-Knowledge-Graph-Completion/" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Older</strong>
+            <strong class="article-nav-caption">Más viejo</strong>
             <div class="article-nav-title">Open-World Knowledge Graph Completion 笔记</div>
         </a>
     
@@ -425,7 +425,7 @@ h(e, r) = g(W^c f(e \oplus r) + b_r )</script><p>其中f和g是激活函数(acti
    
         
     <div class="widget-wrap">
-        <h3 class="widget-title">recent</h3>
+        <h3 class="widget-title">Recientes</h3>
         <div class="widget">
             <ul id="recent-post" class="">
                 
@@ -531,7 +531,7 @@ h(e, r) = g(W^c f(e \oplus r) + b_r )</script><p>其中f和g是激活函数(acti
     
         
     <div class="widget-wrap">
-        <h3 class="widget-title">categories</h3>
+        <h3 class="widget-title">Categorias</h3>
         <div class="widget">
             <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/francais/">francais</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/math/">math</a><span class="category-list-count">14</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/math/unfinished/">unfinished</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/other/">other</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/programming/">programming</a><span class="category-list-count">20</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/unfinished/">unfinished</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/research/">research</a><span class="category-list-count">9</span></li></ul>
         </div>
@@ -540,7 +540,7 @@ h(e, r) = g(W^c f(e \oplus r) + b_r )</script><p>其中f和g是激活函数(acti
     
         
     <div class="widget-wrap">
-        <h3 class="widget-title">archives</h3>
+        <h3 class="widget-title">Archivos</h3>
         <div class="widget">
             <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">8</span></li></ul>
         </div>
@@ -549,7 +549,7 @@ h(e, r) = g(W^c f(e \oplus r) + b_r )</script><p>其中f和g是激活函数(acti
     
         
     <div class="widget-wrap">
-        <h3 class="widget-title">tag cloud</h3>
+        <h3 class="widget-title">Nube de etiquetas</h3>
         <div class="widget tagcloud">
             <a href="/tags/Bayes/" style="font-size: 10px;">Bayes</a> <a href="/tags/BiLSTM/" style="font-size: 10px;">BiLSTM</a> <a href="/tags/CNN/" style="font-size: 11.43px;">CNN</a> <a href="/tags/EDP/" style="font-size: 12.86px;">EDP</a> <a href="/tags/FEM/" style="font-size: 10px;">FEM</a> <a href="/tags/GAN/" style="font-size: 10px;">GAN</a> <a href="/tags/Hilbert/" style="font-size: 10px;">Hilbert</a> <a href="/tags/KGC/" style="font-size: 11.43px;">KGC</a> <a href="/tags/LSTM/" style="font-size: 11.43px;">LSTM</a> <a href="/tags/OS/" style="font-size: 11.43px;">OS</a> <a href="/tags/RNN/" style="font-size: 11.43px;">RNN</a> <a href="/tags/Sobolev/" style="font-size: 10px;">Sobolev</a> <a href="/tags/aleatoire/" style="font-size: 10px;">aleatoire</a> <a href="/tags/algo/" style="font-size: 17.14px;">algo</a> <a href="/tags/analyse/" style="font-size: 11.43px;">analyse</a> <a href="/tags/attention/" style="font-size: 10px;">attention</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/classification/" style="font-size: 10px;">classification</a> <a href="/tags/co-reference/" style="font-size: 10px;">co-reference</a> <a href="/tags/complexity/" style="font-size: 10px;">complexity</a> <a href="/tags/compression/" style="font-size: 10px;">compression</a> <a href="/tags/convolution/" style="font-size: 10px;">convolution</a> <a href="/tags/crawl/" style="font-size: 10px;">crawl</a> <a href="/tags/data-structure/" style="font-size: 10px;">data-structure</a> <a href="/tags/datamining/" style="font-size: 15.71px;">datamining</a> <a href="/tags/deep-learning/" style="font-size: 11.43px;">deep-learning</a> <a href="/tags/distant-supervision/" style="font-size: 10px;">distant-supervision</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/entity-resolution/" style="font-size: 10px;">entity-resolution</a> <a href="/tags/event-detection/" style="font-size: 10px;">event-detection</a> <a href="/tags/event-extraction/" style="font-size: 10px;">event-extraction</a> <a href="/tags/firm/" style="font-size: 10px;">firm</a> <a href="/tags/francais/" style="font-size: 10px;">francais</a> <a href="/tags/graph/" style="font-size: 10px;">graph</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/kernel/" style="font-size: 10px;">kernel</a> <a href="/tags/knowledge-graph/" style="font-size: 12.86px;">knowledge-graph</a> <a href="/tags/language/" style="font-size: 10px;">language</a> <a href="/tags/latex/" style="font-size: 10px;">latex</a> <a href="/tags/limited-supervision/" style="font-size: 10px;">limited-supervision</a> <a href="/tags/machine-learning/" style="font-size: 14.29px;">machine-learning</a> <a href="/tags/management/" style="font-size: 10px;">management</a> <a href="/tags/marked/" style="font-size: 10px;">marked</a> <a href="/tags/math/" style="font-size: 20px;">math</a> <a href="/tags/mathjax/" style="font-size: 10px;">mathjax</a> <a href="/tags/matrix/" style="font-size: 10px;">matrix</a> <a href="/tags/mongo/" style="font-size: 10px;">mongo</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/nlp/" style="font-size: 10px;">nlp</a> <a href="/tags/prediction/" style="font-size: 10px;">prediction</a> <a href="/tags/probability/" style="font-size: 17.14px;">probability</a> <a href="/tags/programming/" style="font-size: 18.57px;">programming</a> <a href="/tags/python/" style="font-size: 11.43px;">python</a> <a href="/tags/qualitative-induction/" style="font-size: 10px;">qualitative-induction</a> <a href="/tags/relation-classification/" style="font-size: 10px;">relation-classification</a> <a href="/tags/relation-extraction/" style="font-size: 14.29px;">relation-extraction</a> <a href="/tags/scrapy/" style="font-size: 10px;">scrapy</a> <a href="/tags/sequence-labeling/" style="font-size: 10px;">sequence-labeling</a> <a href="/tags/spider/" style="font-size: 10px;">spider</a> <a href="/tags/statistic/" style="font-size: 11.43px;">statistic</a> <a href="/tags/vector/" style="font-size: 10px;">vector</a> <a href="/tags/weak-supervision/" style="font-size: 10px;">weak-supervision</a> <a href="/tags/web/" style="font-size: 10px;">web</a>
         </div>
@@ -558,7 +558,7 @@ h(e, r) = g(W^c f(e \oplus r) + b_r )</script><p>其中f和g是激活函数(acti
     
         
     <div class="widget-wrap widget-list">
-        <h3 class="widget-title">links</h3>
+        <h3 class="widget-title">Links</h3>
         <div class="widget">
             <ul>
                 
