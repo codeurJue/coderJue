@@ -57,11 +57,13 @@ var _hmt = _hmt || [];
     var s = document.getElementsByTagName("script")[0];
     s.parentNode.insertBefore(hm, s);
 })();
-</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</script>
 
     
 
 
+
+    <script src="/js/baidupush.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body>
@@ -214,7 +216,7 @@ var _hmt = _hmt || [];
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/[2018.3.10]Several-models-for-kenowledge-graoh-representing-and-completing/">Several models for knowledge graph representing and completing 几个知识图谱模型</a>
+            <a class="article-title" href="/posts/[2018.3.10]Several-models-for-kenowledge-graoh-representing-and-completing/">Several models for knowledge graph representing and completing 几个知识图谱模型</a>
         </h1>
     
 
@@ -223,7 +225,7 @@ var _hmt = _hmt || [];
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/[2018.3.10]Several-models-for-kenowledge-graoh-representing-and-completing/">
+        <a href="/posts/[2018.3.10]Several-models-for-kenowledge-graoh-representing-and-completing/">
             <time datetime="2018-03-10T07:00:00.000Z" itemprop="datePublished">2018-03-10</time>
         </a>
     </div>
@@ -270,10 +272,10 @@ var _hmt = _hmt || [];
                 
                     
                     <p><h1 id="2018-3-10"><a href="#2018-3-10" class="headerlink" title="2018.3.10"></a>2018.3.10</h1><h2 id="Several-models-for-knowledge-graph-representing-and-completing"><a href="#Several-models-for-knowledge-graph-representing-and-completing" class="headerlink" title="Several models for knowledge graph representing and completing"></a>Several models for knowledge graph representing and completing</h2><p><strong>摘要</strong>：上次看到的ConMask在开放领域knowledge graph completion有着不错的表现，这次我们不考虑开放领域，介绍几个经典的模型。</p>
-<h3 id="1-Series-of-Trans"><a href="#1-Series-of-Trans" class="headerlink" title="1. Series of Trans"></a>1. Series of Trans</h3><h4 id="1-1-TransE-1"><a href="#1-1-TransE-1" class="headerlink" title="1.1 TransE [1]"></a>1.1 TransE [1]</h4><p>TransE [1] 可能是最为常用也最为基础的方法是一种基于强化学习(RL)的模型. 它有一个简单实用的假设：</p>
-<script type="math/tex; mode=display">
-h+r = t</script><p>其中h是head entity的向量，t是tail entity的向量，r是关系向量。</p>
-<p>TransE定义了loss function：</p>
+<h3 id="1-Series-of-Trans"><a href="#1-Series-of-Trans" class="headerlink" title="1. Series of Trans"></a>1. Series of Trans</h3><h4 id="1-1-TransE-1"><a href="#1-1-TransE-1" class="headerlink" title="1.1 TransE [1]"></a>1.1 TransE [1]</h4><p>TransE [1] 可能是最为常用也最为基础的方法是一种基于强化学习(RL)的模型. 它有一个简单实用的假设：<br>$$<br>h+r = t<br>$$<br>其中h是head entity的向量，t是tail entity的向量，r是关系向量。</p>
+<p>TransE定义了loss function：<br>$$<br>\mathcal{L(T)} = \sum_{&lt;h,r,t&gt;\in T} [\gamma + E(&lt;h,r,t&gt;) - E(&lt;h’,r’,t’&gt;)]_+<br>$$<br>其中 $T$ 代表一个三元组的集合；$E(&lt;h,r,t&gt;) = ||h+r-t||_{L_n}$是energy function；$&lt;h,r,t&gt;$是G中的一个三元组；$&lt;h’,r’,t’&gt;$代表一个不存在于 $T$ 的三元组，通过随机替换一部分$&lt;h,r,t&gt;$来得到；$\gamma$ 表示边际距离</p>
+<p>算法的核心是令正例的 h+r-t 趋近于 0，而负例的 h+r-t 趋近于无穷大。整个 TransE 模型的训练过程比较简单，首先对头尾节点以及关系进行初始化，然后每对一个正例取一个负例样本，然后利用 hinge loss function 尽可能使正例和负例分开，最后采用 SGD(Stochastic Gradient Descent) 方法更新参数。</p>
+<p>由TransE又衍生出了许多模型。</p>
 <p>
                 
             
@@ -281,7 +283,7 @@ h+r = t</script><p>其中h是head entity的向量，t是tail entity的向量，r
         
             </div>   
             <div class="article-more-link">
-                <a href="/[2018.3.10]Several-models-for-kenowledge-graoh-representing-and-completing/#more">Read More</a>
+                <a href="/posts/[2018.3.10]Several-models-for-kenowledge-graoh-representing-and-completing/#more">Read More</a>
             </div>
         
         <footer class="article-footer">
@@ -291,7 +293,7 @@ h+r = t</script><p>其中h是head entity的向量，t是tail entity的向量，r
 
 </div>
 
-    <a data-url="https://LorrinWWW.github.io/[2018.3.10]Several-models-for-kenowledge-graoh-representing-and-completing/" data-id="cjeora3av002dtkm9gdoe7ppf" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://LorrinWWW.github.io/posts/[2018.3.10]Several-models-for-kenowledge-graoh-representing-and-completing/" data-id="cjeq6bipr002b1hm9r5fimo16" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -359,7 +361,7 @@ h+r = t</script><p>其中h是head entity的向量，t是tail entity的向量，r
 
             
     
-        <a href="https://LorrinWWW.github.io/[2018.3.10]Several-models-for-kenowledge-graoh-representing-and-completing/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://LorrinWWW.github.io/[2018.3.10]Several-models-for-kenowledge-graoh-representing-and-completing/">Comments</a>
+        <a href="https://LorrinWWW.github.io/posts/[2018.3.10]Several-models-for-kenowledge-graoh-representing-and-completing/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://LorrinWWW.github.io/posts/[2018.3.10]Several-models-for-kenowledge-graoh-representing-and-completing/">Comments</a>
     
 
         </footer>
@@ -377,7 +379,7 @@ h+r = t</script><p>其中h是head entity的向量，t是tail entity的向量，r
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/[2018.2.26]Open-World-Knowledge-Graph-Completion/">Open-World Knowledge Graph Completion 笔记</a>
+            <a class="article-title" href="/posts/[2018.2.26]Open-World-Knowledge-Graph-Completion/">Open-World Knowledge Graph Completion 笔记</a>
         </h1>
     
 
@@ -386,7 +388,7 @@ h+r = t</script><p>其中h是head entity的向量，t是tail entity的向量，r
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/[2018.2.26]Open-World-Knowledge-Graph-Completion/">
+        <a href="/posts/[2018.2.26]Open-World-Knowledge-Graph-Completion/">
             <time datetime="2018-02-26T07:00:00.000Z" itemprop="datePublished">2018-02-26</time>
         </a>
     </div>
@@ -444,7 +446,7 @@ h+r = t</script><p>其中h是head entity的向量，t是tail entity的向量，r
         
             </div>   
             <div class="article-more-link">
-                <a href="/[2018.2.26]Open-World-Knowledge-Graph-Completion/#more">Read More</a>
+                <a href="/posts/[2018.2.26]Open-World-Knowledge-Graph-Completion/#more">Read More</a>
             </div>
         
         <footer class="article-footer">
@@ -454,7 +456,7 @@ h+r = t</script><p>其中h是head entity的向量，t是tail entity的向量，r
 
 </div>
 
-    <a data-url="https://LorrinWWW.github.io/[2018.2.26]Open-World-Knowledge-Graph-Completion/" data-id="cjeora3ao0026tkm914ga3yrg" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://LorrinWWW.github.io/posts/[2018.2.26]Open-World-Knowledge-Graph-Completion/" data-id="cjeq6bipk00241hm91mhyahx3" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -522,7 +524,7 @@ h+r = t</script><p>其中h是head entity的向量，t是tail entity的向量，r
 
             
     
-        <a href="https://LorrinWWW.github.io/[2018.2.26]Open-World-Knowledge-Graph-Completion/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://LorrinWWW.github.io/[2018.2.26]Open-World-Knowledge-Graph-Completion/">Comments</a>
+        <a href="https://LorrinWWW.github.io/posts/[2018.2.26]Open-World-Knowledge-Graph-Completion/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://LorrinWWW.github.io/posts/[2018.2.26]Open-World-Knowledge-Graph-Completion/">Comments</a>
     
 
         </footer>
@@ -540,7 +542,7 @@ h+r = t</script><p>其中h是head entity的向量，t是tail entity的向量，r
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/[2018.2.5]Nested-LSTMs/">Nested LSTMs 笔记</a>
+            <a class="article-title" href="/posts/[2018.2.5]Nested-LSTMs/">Nested LSTMs 笔记</a>
         </h1>
     
 
@@ -549,7 +551,7 @@ h+r = t</script><p>其中h是head entity的向量，t是tail entity的向量，r
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/[2018.2.5]Nested-LSTMs/">
+        <a href="/posts/[2018.2.5]Nested-LSTMs/">
             <time datetime="2018-02-05T07:00:00.000Z" itemprop="datePublished">2018-02-05</time>
         </a>
     </div>
@@ -595,7 +597,7 @@ h+r = t</script><p>其中h是head entity的向量，t是tail entity的向量，r
                 
                 
                     
-                    <p><h2 id="Nested-LSTMs"><a href="#Nested-LSTMs" class="headerlink" title="Nested LSTMs"></a>Nested LSTMs</h2><p><strong>摘要</strong>：最近，一种新的 Nested LSTMs 网络被提出。在通常的LSTM网络中，我们通过将LSTM单元堆叠，从而形成深度RNN网络，提高其效果；Nested LSTM则通过嵌套而不是堆栈来增添LSTM的深度。在NLSTM中，记忆单元的值是由LSTM单元计算的，其中，LSTM单元具有自身内在的记忆单元。具体而言，NLSTM记忆单元并不是按照等式：$c<em>t^{outer} = f_t \odot c</em>{t-1} + i<em>t \odot g_t$ 对（外部）记忆单元的值进行计算，而是使用级联：$(f_t \odot c</em>{t-1}, i_t \odot g_t)$ 将其作为内部LSTM（或NLSTM）记忆单元的输入，并设定 $c_t^{outer} = h_t^{inner}$。在访问内部记忆时，Nested LSTM 相比传统的堆栈 LSTM 有更高的自由度，从而能处理更长时间规模的内部记忆；实验也表明，在参数数量相似的情况下，NLSTM 在多种任务上都超越了堆栈 LSTM。作者认为Nested LSTM 有潜力直接取代堆栈 LSTM。</p>
+                    <p><h2 id="Nested-LSTMs"><a href="#Nested-LSTMs" class="headerlink" title="Nested LSTMs"></a>Nested LSTMs</h2><p><strong>摘要</strong>：最近，一种新的 Nested LSTMs 网络被提出。在通常的LSTM网络中，我们通过将LSTM单元堆叠，从而形成深度RNN网络，提高其效果；Nested LSTM则通过嵌套而不是堆栈来增添LSTM的深度。在NLSTM中，记忆单元的值是由LSTM单元计算的，其中，LSTM单元具有自身内在的记忆单元。具体而言，NLSTM记忆单元并不是按照等式：$c_t^{outer} = f_t \odot c_{t-1} + i_t \odot g_t$ 对（外部）记忆单元的值进行计算，而是使用级联：$(f_t \odot c_{t-1}, i_t \odot g_t)$ 将其作为内部LSTM（或NLSTM）记忆单元的输入，并设定 $c_t^{outer} = h_t^{inner}$。在访问内部记忆时，Nested LSTM 相比传统的堆栈 LSTM 有更高的自由度，从而能处理更长时间规模的内部记忆；实验也表明，在参数数量相似的情况下，NLSTM 在多种任务上都超越了堆栈 LSTM。作者认为Nested LSTM 有潜力直接取代堆栈 LSTM。</p>
 <h3 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h3><p>学习长期的依赖关系是当前人工智能领域中，尤其是在nlp领域，机器学习方法的关键性挑战。基于循环神经网络的体系结构已经在使得机器能够模仿这种能力方面取得了显著进展。</p>
 <h4 id="single-layer-LSTM"><a href="#single-layer-LSTM" class="headerlink" title="single-layer LSTM"></a>single-layer LSTM</h4><p><img src="http://oi4yiqiop.bkt.clouddn.com/2018-03-12-202251.jpg" width="90%"></p>
 <p>RNN的输入是以当前的状态为依据，适合学习时间上的抽象特征。在实践中，许多专家已经证明，更为复杂的体系结构是解决许多任务的关键。其中一个原因是梯度消失问题（Hochreiter于1991年、Bengio等人于1994年提出），它使得简单的RNN难以学习长期依赖关系。Hochreiter和Schmidhuber于1997年提出了LSTM，包含能够改善梯度消失问题的记忆机制。单层LSTM如上图，图中的三个单元实际上是同一个单元，它循环地将内部的参数传递给自己。</p>
@@ -607,7 +609,7 @@ h+r = t</script><p>其中h是head entity的向量，t是tail entity的向量，r
         
             </div>   
             <div class="article-more-link">
-                <a href="/[2018.2.5]Nested-LSTMs/#more">Read More</a>
+                <a href="/posts/[2018.2.5]Nested-LSTMs/#more">Read More</a>
             </div>
         
         <footer class="article-footer">
@@ -617,7 +619,7 @@ h+r = t</script><p>其中h是head entity的向量，t是tail entity的向量，r
 
 </div>
 
-    <a data-url="https://LorrinWWW.github.io/[2018.2.5]Nested-LSTMs/" data-id="cjeora3ar0029tkm9y5u3njhx" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://LorrinWWW.github.io/posts/[2018.2.5]Nested-LSTMs/" data-id="cjeq6bipn00271hm9f021idjw" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -685,7 +687,7 @@ h+r = t</script><p>其中h是head entity的向量，t是tail entity的向量，r
 
             
     
-        <a href="https://LorrinWWW.github.io/[2018.2.5]Nested-LSTMs/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://LorrinWWW.github.io/[2018.2.5]Nested-LSTMs/">Comments</a>
+        <a href="https://LorrinWWW.github.io/posts/[2018.2.5]Nested-LSTMs/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://LorrinWWW.github.io/posts/[2018.2.5]Nested-LSTMs/">Comments</a>
     
 
         </footer>
@@ -703,7 +705,7 @@ h+r = t</script><p>其中h是head entity的向量，t是tail entity的向量，r
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/[2018.1.29]A-convolution BiLSTM-neural-network-model-for-chinese-event-extraction/">A convolution BiLSTM neural network model for chinese event extraction 笔记</a>
+            <a class="article-title" href="/posts/[2018.1.29]A-convolution BiLSTM-neural-network-model-for-chinese-event-extraction/">A convolution BiLSTM neural network model for chinese event extraction 笔记</a>
         </h1>
     
 
@@ -712,7 +714,7 @@ h+r = t</script><p>其中h是head entity的向量，t是tail entity的向量，r
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/[2018.1.29]A-convolution BiLSTM-neural-network-model-for-chinese-event-extraction/">
+        <a href="/posts/[2018.1.29]A-convolution BiLSTM-neural-network-model-for-chinese-event-extraction/">
             <time datetime="2018-01-29T07:00:00.000Z" itemprop="datePublished">2018-01-29</time>
         </a>
     </div>
@@ -770,7 +772,7 @@ h+r = t</script><p>其中h是head entity的向量，t是tail entity的向量，r
         
             </div>   
             <div class="article-more-link">
-                <a href="/[2018.1.29]A-convolution BiLSTM-neural-network-model-for-chinese-event-extraction/#more">Read More</a>
+                <a href="/posts/[2018.1.29]A-convolution BiLSTM-neural-network-model-for-chinese-event-extraction/#more">Read More</a>
             </div>
         
         <footer class="article-footer">
@@ -780,7 +782,7 @@ h+r = t</script><p>其中h是head entity的向量，t是tail entity的向量，r
 
 </div>
 
-    <a data-url="https://LorrinWWW.github.io/[2018.1.29]A-convolution BiLSTM-neural-network-model-for-chinese-event-extraction/" data-id="cjeora3ak001ztkm9kb01cvii" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://LorrinWWW.github.io/posts/[2018.1.29]A-convolution BiLSTM-neural-network-model-for-chinese-event-extraction/" data-id="cjeq6bipf001x1hm990it7cg7" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -848,7 +850,7 @@ h+r = t</script><p>其中h是head entity的向量，t是tail entity的向量，r
 
             
     
-        <a href="https://LorrinWWW.github.io/[2018.1.29]A-convolution BiLSTM-neural-network-model-for-chinese-event-extraction/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://LorrinWWW.github.io/[2018.1.29]A-convolution BiLSTM-neural-network-model-for-chinese-event-extraction/">Comments</a>
+        <a href="https://LorrinWWW.github.io/posts/[2018.1.29]A-convolution BiLSTM-neural-network-model-for-chinese-event-extraction/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://LorrinWWW.github.io/posts/[2018.1.29]A-convolution BiLSTM-neural-network-model-for-chinese-event-extraction/">Comments</a>
     
 
         </footer>
@@ -866,7 +868,7 @@ h+r = t</script><p>其中h是head entity的向量，t是tail entity的向量，r
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/[2018.1.21]Event-detection-and-co-referentce/">Event detection and co-reference with minimal supervision 笔记</a>
+            <a class="article-title" href="/posts/[2018.1.21]Event-detection-and-co-referentce/">Event detection and co-reference with minimal supervision 笔记</a>
         </h1>
     
 
@@ -875,7 +877,7 @@ h+r = t</script><p>其中h是head entity的向量，t是tail entity的向量，r
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/[2018.1.21]Event-detection-and-co-referentce/">
+        <a href="/posts/[2018.1.21]Event-detection-and-co-referentce/">
             <time datetime="2018-01-21T07:00:00.000Z" itemprop="datePublished">2018-01-21</time>
         </a>
     </div>
@@ -933,7 +935,7 @@ h+r = t</script><p>其中h是head entity的向量，t是tail entity的向量，r
         
             </div>   
             <div class="article-more-link">
-                <a href="/[2018.1.21]Event-detection-and-co-referentce/#more">Read More</a>
+                <a href="/posts/[2018.1.21]Event-detection-and-co-referentce/#more">Read More</a>
             </div>
         
         <footer class="article-footer">
@@ -943,7 +945,7 @@ h+r = t</script><p>其中h是head entity的向量，t是tail entity的向量，r
 
 </div>
 
-    <a data-url="https://LorrinWWW.github.io/[2018.1.21]Event-detection-and-co-referentce/" data-id="cjeora3ai001wtkm9vnsuu7ei" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://LorrinWWW.github.io/posts/[2018.1.21]Event-detection-and-co-referentce/" data-id="cjeq6bip2001u1hm92eocwopf" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1011,7 +1013,7 @@ h+r = t</script><p>其中h是head entity的向量，t是tail entity的向量，r
 
             
     
-        <a href="https://LorrinWWW.github.io/[2018.1.21]Event-detection-and-co-referentce/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://LorrinWWW.github.io/[2018.1.21]Event-detection-and-co-referentce/">Comments</a>
+        <a href="https://LorrinWWW.github.io/posts/[2018.1.21]Event-detection-and-co-referentce/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://LorrinWWW.github.io/posts/[2018.1.21]Event-detection-and-co-referentce/">Comments</a>
     
 
         </footer>
@@ -1029,7 +1031,7 @@ h+r = t</script><p>其中h是head entity的向量，t是tail entity的向量，r
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/[2018.1.14]Models-for-relation-extraction/">几个 relation extraction 远程监督模型</a>
+            <a class="article-title" href="/posts/[2018.1.14]Models-for-relation-extraction/">几个 relation extraction 远程监督模型</a>
         </h1>
     
 
@@ -1038,7 +1040,7 @@ h+r = t</script><p>其中h是head entity的向量，t是tail entity的向量，r
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/[2018.1.14]Models-for-relation-extraction/">
+        <a href="/posts/[2018.1.14]Models-for-relation-extraction/">
             <time datetime="2018-01-14T07:00:00.000Z" itemprop="datePublished">2018-01-14</time>
         </a>
     </div>
@@ -1085,8 +1087,8 @@ h+r = t</script><p>其中h是head entity的向量，t是tail entity的向量，r
                 
                     
                     <p><h2 id="几个-relation-extraction-远程监督模型"><a href="#几个-relation-extraction-远程监督模型" class="headerlink" title="几个 relation extraction 远程监督模型"></a>几个 relation extraction 远程监督模型</h2><p><strong>摘要：</strong>远程监督（Distant supervision）显著地减少了建立用于分类任务的训练集所需要的人工。但是这一项技术也会带来很大的噪音，并可能因此而大大地影响了模型的性能表现。这里，我们以 relation extraction 这项任务为例，深入讨论分析该噪声的分布。文献[1]提出了 dynamic-transition matrix，并证明了它能很好地代表了由 distant supervision 所带来的噪声。通过该矩阵，我们能够大大提高 relation extraction 的效果。文献[2]则是一种经典的方法，通过定义规则，定义否定模式（negative pattern）过滤掉一些噪音数据，可以很大程度提高性能。缺点是规则依赖人工定义，但是方法本身简单有效。文献[3]将 relation extraction 定义为一个 Multi-instance Multi-label 学习问题，一定程度上解决了错误标签的问题。</p>
-<h3 id="1-Problem-of-distant-supervision"><a href="#1-Problem-of-distant-supervision" class="headerlink" title="1. Problem of distant supervision"></a>1. Problem of distant supervision</h3><p>Distant supervision 是一种生成关系抽取训练集的常用方法。它把现有知识库中的三元组 \<e1, r,="" e2\=""> （或写成\<subj, r,="" obj\="">）作为种子，匹配同时含有 e1 和 e2 的文本，得到的文本用作关系 r 的标注数据。这样可以省去大量人工标记的工作。</subj,></e1,></p>
-<p>但是，相比于人工标注方法，这种匹配方式会产生很多噪音：比如三元组\<donaldtrump, born-in,="" new="" york\="">，可能对齐到“Donald Trump was born in New York”，也可能对齐到“DonaldTrump worked in New York”。其中前一句是我们想要的标注数据，后一句则是噪音数据，它并不表示born-in关系。如何去除这些噪音数据，是一个重要的研究课题。</donaldtrump,></p>
+<h3 id="1-Problem-of-distant-supervision"><a href="#1-Problem-of-distant-supervision" class="headerlink" title="1. Problem of distant supervision"></a>1. Problem of distant supervision</h3><p>Distant supervision 是一种生成关系抽取训练集的常用方法。它把现有知识库中的三元组 \&lt;e1, r, e2> （或写成\&lt;subj, r, obj>）作为种子，匹配同时含有 e1 和 e2 的文本，得到的文本用作关系 r 的标注数据。这样可以省去大量人工标记的工作。</p>
+<p>但是，相比于人工标注方法，这种匹配方式会产生很多噪音：比如三元组\&lt;DonaldTrump, born-in, New York>，可能对齐到“Donald Trump was born in New York”，也可能对齐到“DonaldTrump worked in New York”。其中前一句是我们想要的标注数据，后一句则是噪音数据，它并不表示born-in关系。如何去除这些噪音数据，是一个重要的研究课题。</p>
 <h3 id="2-Approaches-to-this-problems"><a href="#2-Approaches-to-this-problems" class="headerlink" title="2. Approaches to this problems"></a>2. Approaches to this problems</h3><ul>
 <li>拟合噪音<ul>
 <p>
@@ -1096,7 +1098,7 @@ h+r = t</script><p>其中h是head entity的向量，t是tail entity的向量，r
         
             </div>   
             <div class="article-more-link">
-                <a href="/[2018.1.14]Models-for-relation-extraction/#more">Read More</a>
+                <a href="/posts/[2018.1.14]Models-for-relation-extraction/#more">Read More</a>
             </div>
         
         <footer class="article-footer">
@@ -1106,7 +1108,7 @@ h+r = t</script><p>其中h是head entity的向量，t是tail entity的向量，r
 
 </div>
 
-    <a data-url="https://LorrinWWW.github.io/[2018.1.14]Models-for-relation-extraction/" data-id="cjeora3ag001stkm95i7ee0h4" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://LorrinWWW.github.io/posts/[2018.1.14]Models-for-relation-extraction/" data-id="cjeq6bioz001q1hm96po9b60g" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1174,7 +1176,7 @@ h+r = t</script><p>其中h是head entity的向量，t是tail entity的向量，r
 
             
     
-        <a href="https://LorrinWWW.github.io/[2018.1.14]Models-for-relation-extraction/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://LorrinWWW.github.io/[2018.1.14]Models-for-relation-extraction/">Comments</a>
+        <a href="https://LorrinWWW.github.io/posts/[2018.1.14]Models-for-relation-extraction/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://LorrinWWW.github.io/posts/[2018.1.14]Models-for-relation-extraction/">Comments</a>
     
 
         </footer>
@@ -1192,7 +1194,7 @@ h+r = t</script><p>其中h是head entity的向量，t是tail entity的向量，r
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/[2018.1.4]Overcoming-Limited-Supervision-in-Relation-Extraction/">Overcoming Limited Supervision in Relation Extraction 笔记</a>
+            <a class="article-title" href="/posts/[2018.1.4]Overcoming-Limited-Supervision-in-Relation-Extraction/">Overcoming Limited Supervision in Relation Extraction 笔记</a>
         </h1>
     
 
@@ -1201,7 +1203,7 @@ h+r = t</script><p>其中h是head entity的向量，t是tail entity的向量，r
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/[2018.1.4]Overcoming-Limited-Supervision-in-Relation-Extraction/">
+        <a href="/posts/[2018.1.4]Overcoming-Limited-Supervision-in-Relation-Extraction/">
             <time datetime="2018-01-04T07:00:00.000Z" itemprop="datePublished">2018-01-04</time>
         </a>
     </div>
@@ -1259,7 +1261,7 @@ h+r = t</script><p>其中h是head entity的向量，t是tail entity的向量，r
         
             </div>   
             <div class="article-more-link">
-                <a href="/[2018.1.4]Overcoming-Limited-Supervision-in-Relation-Extraction/#more">Read More</a>
+                <a href="/posts/[2018.1.4]Overcoming-Limited-Supervision-in-Relation-Extraction/#more">Read More</a>
             </div>
         
         <footer class="article-footer">
@@ -1269,7 +1271,7 @@ h+r = t</script><p>其中h是head entity的向量，t是tail entity的向量，r
 
 </div>
 
-    <a data-url="https://LorrinWWW.github.io/[2018.1.4]Overcoming-Limited-Supervision-in-Relation-Extraction/" data-id="cjeora3am0022tkm91o5jx2kx" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://LorrinWWW.github.io/posts/[2018.1.4]Overcoming-Limited-Supervision-in-Relation-Extraction/" data-id="cjeq6biph00201hm9g2e4i3f5" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1337,7 +1339,7 @@ h+r = t</script><p>其中h是head entity的向量，t是tail entity的向量，r
 
             
     
-        <a href="https://LorrinWWW.github.io/[2018.1.4]Overcoming-Limited-Supervision-in-Relation-Extraction/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://LorrinWWW.github.io/[2018.1.4]Overcoming-Limited-Supervision-in-Relation-Extraction/">Comments</a>
+        <a href="https://LorrinWWW.github.io/posts/[2018.1.4]Overcoming-Limited-Supervision-in-Relation-Extraction/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://LorrinWWW.github.io/posts/[2018.1.4]Overcoming-Limited-Supervision-in-Relation-Extraction/">Comments</a>
     
 
         </footer>
@@ -1355,7 +1357,7 @@ h+r = t</script><p>其中h是head entity的向量，t是tail entity的向量，r
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/[2017.12.17]Relation-Classification-via-Attention-Model/">Relation Classification via Attention Model 笔记</a>
+            <a class="article-title" href="/posts/[2017.12.17]Relation-Classification-via-Attention-Model/">Relation Classification via Attention Model 笔记</a>
         </h1>
     
 
@@ -1364,7 +1366,7 @@ h+r = t</script><p>其中h是head entity的向量，t是tail entity的向量，r
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/[2017.12.17]Relation-Classification-via-Attention-Model/">
+        <a href="/posts/[2017.12.17]Relation-Classification-via-Attention-Model/">
             <time datetime="2017-12-17T07:00:00.000Z" itemprop="datePublished">2017-12-17</time>
         </a>
     </div>
@@ -1413,8 +1415,8 @@ h+r = t</script><p>其中h是head entity的向量，t是tail entity的向量，r
                     <p><h2 id="Relation-Classification-via-Attention-Model"><a href="#Relation-Classification-via-Attention-Model" class="headerlink" title="Relation Classification via Attention Model"></a>Relation Classification via Attention Model</h2><p>这个笔记主要是阅读论文[1]，它的工作重点是在神经网络构成的端到端学习的关系抽取任务中加入Attention机制。作者主要通过自动学习关系句中注意力较高的部分，而引入attention机制，对反映实体关系更加重要的词语给予更大的attention，较好地提高了关系抽取的效果。</p>
 <p><img src="https://github.com/lawlietAi/relation-classification-via-attention-model/raw/master/acnn_structure.png" width="50%"></p>
 <h3 id="1-Attention"><a href="#1-Attention" class="headerlink" title="1. Attention"></a>1. Attention</h3><h4 id="1-1-概述"><a href="#1-1-概述" class="headerlink" title="1.1 概述"></a>1.1 概述</h4><p>Attention机制最早是在视觉图像领域被提出来的。在NLP任务上，Bahdanau[2]等人使用类似attention的机制在机器翻译任务上将翻译和对齐同时进行。接着类似的基于attention机制的深度学习模型开始广泛应用到各种NLP任务中。</p>
-<h4 id="1-2-Recurrent-Models-of-Visual-Attention"><a href="#1-2-Recurrent-Models-of-Visual-Attention" class="headerlink" title="1.2 Recurrent Models of Visual Attention"></a>1.2 Recurrent Models of Visual Attention</h4><p>人们在进行观察图像的时候，其实并不是一次就把整幅图像的每个位置像素都看过，大多是根据需求将注意力集中到图像的特定部分。由此，在传统的RNN上加入了attention机制，每次当前状态，都会根据前一个状态学习得到的要关注的位置和当前输入的图像，去处理注意力部分像素。可以看到应用Attention机制后，任务的复杂度被降低了很多。</p>
-<h4 id="1-3-Attention-based-RNN-in-NLP"><a href="#1-3-Attention-based-RNN-in-NLP" class="headerlink" title="1.3 Attention-based RNN in NLP"></a>1.3 Attention-based RNN in NLP</h4><p>[1]的成果是在机器翻译任务，一般机器翻译工作由一个Encoder和一个Decoder构成，一个典型的Seq2seq任务。Encoder将源句子进行编码，再利用Decoder将编码后的向量解码成目标语言。</p>
+<p>####1.2 Recurrent Models of Visual Attention </p>
+<p>人们在进行观察图像的时候，其实并不是一次就把整幅图像的每个位置像素都看过，大多是根据需求将注意力集中到图像的特定部分。由此，在传统的RNN上加入了attention机制，每次当前状态，都会根据前一个状态学习得到的要关注的位置和当前输入的图像，去处理注意力部分像素。可以看到应用Attention机制后，任务的复杂度被降低了很多。</p>
 <p>
                 
             
@@ -1422,7 +1424,7 @@ h+r = t</script><p>其中h是head entity的向量，t是tail entity的向量，r
         
             </div>   
             <div class="article-more-link">
-                <a href="/[2017.12.17]Relation-Classification-via-Attention-Model/#more">Read More</a>
+                <a href="/posts/[2017.12.17]Relation-Classification-via-Attention-Model/#more">Read More</a>
             </div>
         
         <footer class="article-footer">
@@ -1432,7 +1434,7 @@ h+r = t</script><p>其中h是head entity的向量，t是tail entity的向量，r
 
 </div>
 
-    <a data-url="https://LorrinWWW.github.io/[2017.12.17]Relation-Classification-via-Attention-Model/" data-id="cjeora3ad001otkm9h0d6fqon" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://LorrinWWW.github.io/posts/[2017.12.17]Relation-Classification-via-Attention-Model/" data-id="cjeq6biov001m1hm9xvvsshzw" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1500,7 +1502,7 @@ h+r = t</script><p>其中h是head entity的向量，t是tail entity的向量，r
 
             
     
-        <a href="https://LorrinWWW.github.io/[2017.12.17]Relation-Classification-via-Attention-Model/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://LorrinWWW.github.io/[2017.12.17]Relation-Classification-via-Attention-Model/">Comments</a>
+        <a href="https://LorrinWWW.github.io/posts/[2017.12.17]Relation-Classification-via-Attention-Model/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://LorrinWWW.github.io/posts/[2017.12.17]Relation-Classification-via-Attention-Model/">Comments</a>
     
 
         </footer>
@@ -1518,7 +1520,7 @@ h+r = t</script><p>其中h是head entity的向量，t是tail entity的向量，r
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/[2017.12.10]Entity-resolution/">实体解析 Entity resolution</a>
+            <a class="article-title" href="/posts/[2017.12.10]Entity-resolution/">实体解析 Entity resolution</a>
         </h1>
     
 
@@ -1527,7 +1529,7 @@ h+r = t</script><p>其中h是head entity的向量，t是tail entity的向量，r
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/[2017.12.10]Entity-resolution/">
+        <a href="/posts/[2017.12.10]Entity-resolution/">
             <time datetime="2017-12-10T07:00:00.000Z" itemprop="datePublished">2017-12-10</time>
         </a>
     </div>
@@ -1573,11 +1575,11 @@ h+r = t</script><p>其中h是head entity的向量，t是tail entity的向量，r
                 
                 
                     
-                    <p><h2 id="1-Entity-resolution"><a href="#1-Entity-resolution" class="headerlink" title="1. Entity resolution"></a>1. Entity resolution</h2><h3 id="1-1-Sequence-labeling"><a href="#1-1-Sequence-labeling" class="headerlink" title="1.1 Sequence labeling"></a>1.1 Sequence labeling</h3><p>我们通常在ML中把Named Entity Recognition任务认为是一个Sequence labeling任务，事实上很多nlp任务都可以被转化为sequence labeling。暑假实习的时候也在这方面看了一些文献。目前业内比较主流的解决方案是RNN-CRF模型，一般来说分为：</p>
+                    <p><h2 id="1-Entity-resolution"><a href="#1-Entity-resolution" class="headerlink" title="1. Entity resolution"></a>1. Entity resolution</h2><p>###1.1 Sequence labeling</p>
+<p>我们通常在ML中把Named Entity Recognition任务认为是一个Sequence labeling任务，事实上很多nlp任务都可以被转化为sequence labeling。暑假实习的时候也在这方面看了一些文献。目前业内比较主流的解决方案是RNN-CRF模型，一般来说分为：</p>
 <ul>
 <li>Embedding layer</li>
 <li>Bi-directional RNN (usually LSTM) layer</li>
-<li>Tanh hidden layer</li>
 <p>
                 
             
@@ -1585,7 +1587,7 @@ h+r = t</script><p>其中h是head entity的向量，t是tail entity的向量，r
         
             </div>   
             <div class="article-more-link">
-                <a href="/[2017.12.10]Entity-resolution/#more">Read More</a>
+                <a href="/posts/[2017.12.10]Entity-resolution/#more">Read More</a>
             </div>
         
         <footer class="article-footer">
@@ -1595,7 +1597,7 @@ h+r = t</script><p>其中h是head entity的向量，t是tail entity的向量，r
 
 </div>
 
-    <a data-url="https://LorrinWWW.github.io/[2017.12.10]Entity-resolution/" data-id="cjeora3aa001ltkm9pss2hl8h" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://LorrinWWW.github.io/posts/[2017.12.10]Entity-resolution/" data-id="cjeq6biot001j1hm9ms0rck5m" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1663,7 +1665,7 @@ h+r = t</script><p>其中h是head entity的向量，t是tail entity的向量，r
 
             
     
-        <a href="https://LorrinWWW.github.io/[2017.12.10]Entity-resolution/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://LorrinWWW.github.io/[2017.12.10]Entity-resolution/">Comments</a>
+        <a href="https://LorrinWWW.github.io/posts/[2017.12.10]Entity-resolution/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://LorrinWWW.github.io/posts/[2017.12.10]Entity-resolution/">Comments</a>
     
 
         </footer>
@@ -1681,7 +1683,7 @@ h+r = t</script><p>其中h是head entity的向量，t是tail entity的向量，r
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/Note-of-NLP/">Note of NLP</a>
+            <a class="article-title" href="/posts/Note-of-NLP/">Note of NLP</a>
         </h1>
     
 
@@ -1690,7 +1692,7 @@ h+r = t</script><p>其中h是head entity的向量，t是tail entity的向量，r
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/Note-of-NLP/">
+        <a href="/posts/Note-of-NLP/">
             <time datetime="2017-06-26T18:52:45.000Z" itemprop="datePublished">2017-06-26</time>
         </a>
     </div>
@@ -1738,9 +1740,9 @@ h+r = t</script><p>其中h是head entity的向量，t是tail entity的向量，r
                     
                     <p><h1 id="NLP"><a href="#NLP" class="headerlink" title="NLP"></a>NLP</h1><ol>
 <li><p>“One-hot” representation</p>
-<p>每一个词都作为一个特征，用一个很大的向量来描述文章。</p>
-<script type="math/tex; mode=display">
-[0,0,0,0,0,0,0,0,0,1,0,0,0]</script></li>
+<p>每一个词都作为一个特征，用一个很大的向量来描述文章。<br>$$<br>[0,0,0,0,0,0,0,0,0,1,0,0,0]<br>$$</p>
+</li>
+<li><p>Main idea of word2vec</p>
 <p>
                 
             
@@ -1748,7 +1750,7 @@ h+r = t</script><p>其中h是head entity的向量，t是tail entity的向量，r
         
             </div>   
             <div class="article-more-link">
-                <a href="/Note-of-NLP/#more">Read More</a>
+                <a href="/posts/Note-of-NLP/#more">Read More</a>
             </div>
         
         <footer class="article-footer">
@@ -1758,7 +1760,7 @@ h+r = t</script><p>其中h是head entity的向量，t是tail entity的向量，r
 
 </div>
 
-    <a data-url="https://LorrinWWW.github.io/Note-of-NLP/" data-id="cjeora39o000ptkm95a6f1olp" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://LorrinWWW.github.io/posts/Note-of-NLP/" data-id="cjeq6bio0000n1hm92ng0v96b" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1826,7 +1828,7 @@ h+r = t</script><p>其中h是head entity的向量，t是tail entity的向量，r
 
             
     
-        <a href="https://LorrinWWW.github.io/Note-of-NLP/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://LorrinWWW.github.io/Note-of-NLP/">Comments</a>
+        <a href="https://LorrinWWW.github.io/posts/Note-of-NLP/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://LorrinWWW.github.io/posts/Note-of-NLP/">Comments</a>
     
 
         </footer>
@@ -1848,99 +1850,49 @@ h+r = t</script><p>其中h是head entity的向量，t是tail entity的向量，r
     <div class="widget-wrap">
         <h3 class="widget-title">recent</h3>
         <div class="widget">
-            <ul id="recent-post" class="">
+            <ul id="recent-post" class="no-thumbnail">
                 
                     <li>
                         
-                        <div class="item-thumbnail">
-                            <a href="/[2018.3.10]Several-models-for-kenowledge-graoh-representing-and-completing/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/research/">research</a></p>
-                            <p class="item-title"><a href="/[2018.3.10]Several-models-for-kenowledge-graoh-representing-and-completing/" class="title">Several models for knowledge graph representing and completing 几个知识图谱模型</a></p>
+                            <p class="item-title"><a href="/posts/[2018.3.10]Several-models-for-kenowledge-graoh-representing-and-completing/" class="title">Several models for knowledge graph representing and completing 几个知识图谱模型</a></p>
                             <p class="item-date"><time datetime="2018-03-10T07:00:00.000Z" itemprop="datePublished">2018-03-10</time></p>
                         </div>
                     </li>
                 
                     <li>
                         
-                        <div class="item-thumbnail">
-                            <a href="/[2018.2.26]Open-World-Knowledge-Graph-Completion/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/research/">research</a></p>
-                            <p class="item-title"><a href="/[2018.2.26]Open-World-Knowledge-Graph-Completion/" class="title">Open-World Knowledge Graph Completion 笔记</a></p>
+                            <p class="item-title"><a href="/posts/[2018.2.26]Open-World-Knowledge-Graph-Completion/" class="title">Open-World Knowledge Graph Completion 笔记</a></p>
                             <p class="item-date"><time datetime="2018-02-26T07:00:00.000Z" itemprop="datePublished">2018-02-26</time></p>
                         </div>
                     </li>
                 
                     <li>
                         
-                        <div class="item-thumbnail">
-                            <a href="/[2018.2.5]Nested-LSTMs/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/research/">research</a></p>
-                            <p class="item-title"><a href="/[2018.2.5]Nested-LSTMs/" class="title">Nested LSTMs 笔记</a></p>
+                            <p class="item-title"><a href="/posts/[2018.2.5]Nested-LSTMs/" class="title">Nested LSTMs 笔记</a></p>
                             <p class="item-date"><time datetime="2018-02-05T07:00:00.000Z" itemprop="datePublished">2018-02-05</time></p>
                         </div>
                     </li>
                 
                     <li>
                         
-                        <div class="item-thumbnail">
-                            <a href="/[2018.1.29]A-convolution BiLSTM-neural-network-model-for-chinese-event-extraction/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/research/">research</a></p>
-                            <p class="item-title"><a href="/[2018.1.29]A-convolution BiLSTM-neural-network-model-for-chinese-event-extraction/" class="title">A convolution BiLSTM neural network model for chinese event extraction 笔记</a></p>
+                            <p class="item-title"><a href="/posts/[2018.1.29]A-convolution BiLSTM-neural-network-model-for-chinese-event-extraction/" class="title">A convolution BiLSTM neural network model for chinese event extraction 笔记</a></p>
                             <p class="item-date"><time datetime="2018-01-29T07:00:00.000Z" itemprop="datePublished">2018-01-29</time></p>
                         </div>
                     </li>
                 
                     <li>
                         
-                        <div class="item-thumbnail">
-                            <a href="/[2018.1.21]Event-detection-and-co-referentce/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/research/">research</a></p>
-                            <p class="item-title"><a href="/[2018.1.21]Event-detection-and-co-referentce/" class="title">Event detection and co-reference with minimal supervision 笔记</a></p>
+                            <p class="item-title"><a href="/posts/[2018.1.21]Event-detection-and-co-referentce/" class="title">Event detection and co-reference with minimal supervision 笔记</a></p>
                             <p class="item-date"><time datetime="2018-01-21T07:00:00.000Z" itemprop="datePublished">2018-01-21</time></p>
                         </div>
                     </li>
