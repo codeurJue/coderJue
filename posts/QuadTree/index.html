@@ -257,7 +257,7 @@ var _hmt = _hmt || [];
             
         
         
-            <p>在ECP的实验课用到了四叉树，故来记录一下。</p>
+            <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>在ECP的实验课用到了四叉树，故来记录一下。</p>
 <p>四叉树是一种数据结构，每一个节点有四个孩子。一般需要用到四叉树的情况往往是二位平面，通过把区域分成四个区块来定义。</p>
 <p>在确定并显示一条曲线的具体位置时，需要使用一种算法。一种比较直观的想法就是，将平面细分成小块，通过计算验证曲线是否在这个小块内部。但是这种算法也有一个十分致命的缺点— 复杂度极高，计算量极大。而事实上，平面上大多数的区域是空白的，我们不需要对其每一个小块进行检测。仿照二分法的思路我们可以按如下方法进行。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 确保使用的是等宽字体，用嵌入代码=_=</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">3-------2       </span></span><br><span class="line"><span class="string">|       |</span></span><br><span class="line"><span class="string">|       |</span></span><br><span class="line"><span class="string">|       |</span></span><br><span class="line"><span class="string">0-------1</span></span><br><span class="line"><span class="string">检查曲线是否在内，若是，此节点为枝，分为四个小区域，作为四个儿子；若否，此节点为叶，没有儿子。</span></span><br><span class="line"><span class="string">=&gt;</span></span><br><span class="line"><span class="string">3---7---2</span></span><br><span class="line"><span class="string">|   |   |</span></span><br><span class="line"><span class="string">8---4---6</span></span><br><span class="line"><span class="string">|   |   |</span></span><br><span class="line"><span class="string">0---5---1</span></span><br><span class="line"><span class="string">以此分别对四个儿子执行以上操作，直到达到所需精度。</span></span><br><span class="line"><span class="string">=&gt;</span></span><br><span class="line"><span class="string">...</span></span><br><span class="line"><span class="string">"""</span></span><br></pre></td></tr></table></figure>
@@ -274,7 +274,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="https://LorrinWWW.github.io/posts/QuadTree/" data-id="cjeq6v0fo001bh0m9qhlqo8vb" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://LorrinWWW.github.io/posts/QuadTree/" data-id="cjeuantga001c1djzt7238ykt" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding

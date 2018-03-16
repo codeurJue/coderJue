@@ -259,7 +259,7 @@ var _hmt = _hmt || [];
             
         
         
-            <h2 id="Open-World-Knowledge-Graph-Completion"><a href="#Open-World-Knowledge-Graph-Completion" class="headerlink" title="Open-World Knowledge Graph Completion"></a>Open-World Knowledge Graph Completion</h2><p><strong>摘要</strong>：[1]文首先讨论了Closed-World KGC，它无法处理从 KG 外部加入的新实体，并严重依赖已有KG连接的，不能对弱连接有好的预测。为此定义了 Open-World KGC，可以接收 新的实体并链接到 KG；并依此提出了ConMask模型，在给定关系和实体名、实体描述的前提下，利用attention机制通过关系定位实体描述中最相关的词，再以这些词和实体得到要链接的实体。</p>
+            <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Open-World-Knowledge-Graph-Completion"><a href="#Open-World-Knowledge-Graph-Completion" class="headerlink" title="Open-World Knowledge Graph Completion"></a>Open-World Knowledge Graph Completion</h2><p><strong>摘要</strong>：[1]文首先讨论了Closed-World KGC，它无法处理从 KG 外部加入的新实体，并严重依赖已有KG连接的，不能对弱连接有好的预测。为此定义了 Open-World KGC，可以接收 新的实体并链接到 KG；并依此提出了ConMask模型，在给定关系和实体名、实体描述的前提下，利用attention机制通过关系定位实体描述中最相关的词，再以这些词和实体得到要链接的实体。</p>
 <h3 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h3><p>知识图谱（KG）是一种信息网络，它用三元组 $(h,r,t)$ 来表示知识（h: head entity, t: tail entity, r: relation），目前比较出名的KG有 DBPedia，ConceptNet 等，目前的大多数KG都有噪音且不完整，比如基于Wikipedia的DBPedia有460万个实体，但其中一半实体拥有少于5个的关系。</p>
 <p>这说明了大部分的知识图谱仍然是非常不完善的，我们必须从一开始就要考虑系统的修改、补充完善的可能性。这项任务被定义为Knowledge Graph Completion (KGC)。</p>
 <h4 id="Closed-World-KGC"><a href="#Closed-World-KGC" class="headerlink" title="Closed-World KGC"></a>Closed-World KGC</h4><p>给定一个不完整的KG $G=(E,R,T)$ 其中 $E,R,T$ 分别表示实体集，关系集以及三元组集，Closed-World KGC的任务就是通过找到一系列丢失的三元组 $ T’ = { \langle h,r,t \rangle|h \in E, r \in R, t \in E, \langle h,r,t \rangle \notin T }$ 来补充现有的 $G$.</p>
@@ -322,7 +322,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="https://LorrinWWW.github.io/posts/[2018.2.26]Open-World-Knowledge-Graph-Completion/" data-id="cjeq6v0g70024h0m9jxpnlwof" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://LorrinWWW.github.io/posts/[2018.2.26]Open-World-Knowledge-Graph-Completion/" data-id="cjeuantgz00261djzatx0e2hr" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding

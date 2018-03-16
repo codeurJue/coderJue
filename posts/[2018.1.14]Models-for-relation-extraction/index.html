@@ -258,7 +258,7 @@ var _hmt = _hmt || [];
             
         
         
-            <h2 id="几个-relation-extraction-远程监督模型"><a href="#几个-relation-extraction-远程监督模型" class="headerlink" title="几个 relation extraction 远程监督模型"></a>几个 relation extraction 远程监督模型</h2><p><strong>摘要：</strong>远程监督（Distant supervision）显著地减少了建立用于分类任务的训练集所需要的人工。但是这一项技术也会带来很大的噪音，并可能因此而大大地影响了模型的性能表现。这里，我们以 relation extraction 这项任务为例，深入讨论分析该噪声的分布。文献[1]提出了 dynamic-transition matrix，并证明了它能很好地代表了由 distant supervision 所带来的噪声。通过该矩阵，我们能够大大提高 relation extraction 的效果。文献[2]则是一种经典的方法，通过定义规则，定义否定模式（negative pattern）过滤掉一些噪音数据，可以很大程度提高性能。缺点是规则依赖人工定义，但是方法本身简单有效。文献[3]将 relation extraction 定义为一个 Multi-instance Multi-label 学习问题，一定程度上解决了错误标签的问题。</p>
+            <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="几个-relation-extraction-远程监督模型"><a href="#几个-relation-extraction-远程监督模型" class="headerlink" title="几个 relation extraction 远程监督模型"></a>几个 relation extraction 远程监督模型</h2><p><strong>摘要：</strong>远程监督（Distant supervision）显著地减少了建立用于分类任务的训练集所需要的人工。但是这一项技术也会带来很大的噪音，并可能因此而大大地影响了模型的性能表现。这里，我们以 relation extraction 这项任务为例，深入讨论分析该噪声的分布。文献[1]提出了 dynamic-transition matrix，并证明了它能很好地代表了由 distant supervision 所带来的噪声。通过该矩阵，我们能够大大提高 relation extraction 的效果。文献[2]则是一种经典的方法，通过定义规则，定义否定模式（negative pattern）过滤掉一些噪音数据，可以很大程度提高性能。缺点是规则依赖人工定义，但是方法本身简单有效。文献[3]将 relation extraction 定义为一个 Multi-instance Multi-label 学习问题，一定程度上解决了错误标签的问题。</p>
 <h3 id="1-Problem-of-distant-supervision"><a href="#1-Problem-of-distant-supervision" class="headerlink" title="1. Problem of distant supervision"></a>1. Problem of distant supervision</h3><p>Distant supervision 是一种生成关系抽取训练集的常用方法。它把现有知识库中的三元组 \&lt;e1, r, e2> （或写成\&lt;subj, r, obj>）作为种子，匹配同时含有 e1 和 e2 的文本，得到的文本用作关系 r 的标注数据。这样可以省去大量人工标记的工作。</p>
 <p>但是，相比于人工标注方法，这种匹配方式会产生很多噪音：比如三元组\&lt;DonaldTrump, born-in, New York>，可能对齐到“Donald Trump was born in New York”，也可能对齐到“DonaldTrump worked in New York”。其中前一句是我们想要的标注数据，后一句则是噪音数据，它并不表示born-in关系。如何去除这些噪音数据，是一个重要的研究课题。</p>
 <h3 id="2-Approaches-to-this-problems"><a href="#2-Approaches-to-this-problems" class="headerlink" title="2. Approaches to this problems"></a>2. Approaches to this problems</h3><ul>
@@ -300,7 +300,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="https://LorrinWWW.github.io/posts/[2018.1.14]Models-for-relation-extraction/" data-id="cjeq6v0fx001qh0m9933pes3t" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://LorrinWWW.github.io/posts/[2018.1.14]Models-for-relation-extraction/" data-id="cjeuantgl001s1djzmut30553" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
