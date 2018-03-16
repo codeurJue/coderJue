@@ -6,7 +6,7 @@
     <title>Relation Classification via Attention Model 笔记 | Lorrin&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="Relation Classification via Attention Model这个笔记主要是阅读论文[1]，它的工作重点是在神经网络构成的端到端学习的关系抽取任务中加入Attention机制。作者主要通过自动学习关系句中注意力较高的部分，而引入attention机制，对反映实体关系更加重要的词语给予更大的attention，较好地提高了关系抽取的效果。  1. Attention1.1 概">
-<meta name="keywords" content="relation-extraction,relation-classification,attention">
+<meta name="keywords" content="relation-classification,attention,relation-extraction">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Relation Classification via Attention Model 笔记">
 <meta property="og:url" content="https://LorrinWWW.github.io/posts/[2017.12.17]Relation-Classification-via-Attention-Model/index.html">
@@ -17,7 +17,7 @@
 <meta property="og:image" content="http://oi4yiqiop.bkt.clouddn.com/2018-03-12-201155.jpg">
 <meta property="og:image" content="https://github.com/lawlietAi/relation-classification-via-attention-model/raw/master/acnn_structure.png">
 <meta property="og:image" content="https://pic3.zhimg.com/50/v2-2399a406ad0960c422702728b6418fa3_hd.jpg">
-<meta property="og:updated_time" content="2018-03-12T20:14:01.933Z">
+<meta property="og:updated_time" content="2018-03-16T19:57:06.520Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Relation Classification via Attention Model 笔记">
 <meta name="twitter:description" content="Relation Classification via Attention Model这个笔记主要是阅读论文[1]，它的工作重点是在神经网络构成的端到端学习的关系抽取任务中加入Attention机制。作者主要通过自动学习关系句中注意力较高的部分，而引入attention机制，对反映实体关系更加重要的词语给予更大的attention，较好地提高了关系抽取的效果。  1. Attention1.1 概">
@@ -109,7 +109,7 @@ var _hmt = _hmt || [];
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar" />
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -128,10 +128,10 @@ var _hmt = _hmt || [];
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
+            POSTS: 'Entradas',
             PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            CATEGORIES: 'Categorias',
+            TAGS: 'Etiquetas',
             UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
@@ -162,7 +162,7 @@ var _hmt = _hmt || [];
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar" />
     </div>
 
                 </td>
@@ -182,16 +182,16 @@ var _hmt = _hmt || [];
             <h2 id="name">Lorrin</h2>
             <h3 id="title">半路出家的码农 | 法国留学中</h3>
             <span id="location"><i class="fa fa-map-marker"></i>Paris, France</span>
-            <a id="follow" target="_blank" href="https://github.com/lorrinWWW/">FOLLOW</a>
+            <a id="follow" target="_blank" href="https://github.com/lorrinWWW/">SEGUIR</a>
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
                 46
-                <span>posts</span>
+                <span>Entradas</span>
             </div>
             <div class="article-info-block">
                 63
-                <span>tags</span>
+                <span>Etiquetas</span>
             </div>
         </div>
         
@@ -263,8 +263,7 @@ var _hmt = _hmt || [];
             <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Relation-Classification-via-Attention-Model"><a href="#Relation-Classification-via-Attention-Model" class="headerlink" title="Relation Classification via Attention Model"></a>Relation Classification via Attention Model</h2><p>这个笔记主要是阅读论文[1]，它的工作重点是在神经网络构成的端到端学习的关系抽取任务中加入Attention机制。作者主要通过自动学习关系句中注意力较高的部分，而引入attention机制，对反映实体关系更加重要的词语给予更大的attention，较好地提高了关系抽取的效果。</p>
 <p><img src="https://github.com/lawlietAi/relation-classification-via-attention-model/raw/master/acnn_structure.png" width="50%"></p>
 <h3 id="1-Attention"><a href="#1-Attention" class="headerlink" title="1. Attention"></a>1. Attention</h3><h4 id="1-1-概述"><a href="#1-1-概述" class="headerlink" title="1.1 概述"></a>1.1 概述</h4><p>Attention机制最早是在视觉图像领域被提出来的。在NLP任务上，Bahdanau[2]等人使用类似attention的机制在机器翻译任务上将翻译和对齐同时进行。接着类似的基于attention机制的深度学习模型开始广泛应用到各种NLP任务中。</p>
-<p>####1.2 Recurrent Models of Visual Attention </p>
-<p>人们在进行观察图像的时候，其实并不是一次就把整幅图像的每个位置像素都看过，大多是根据需求将注意力集中到图像的特定部分。由此，在传统的RNN上加入了attention机制，每次当前状态，都会根据前一个状态学习得到的要关注的位置和当前输入的图像，去处理注意力部分像素。可以看到应用Attention机制后，任务的复杂度被降低了很多。</p>
+<h4 id="1-2-Recurrent-Models-of-Visual-Attention"><a href="#1-2-Recurrent-Models-of-Visual-Attention" class="headerlink" title="1.2 Recurrent Models of Visual Attention"></a>1.2 Recurrent Models of Visual Attention</h4><p>人们在进行观察图像的时候，其实并不是一次就把整幅图像的每个位置像素都看过，大多是根据需求将注意力集中到图像的特定部分。由此，在传统的RNN上加入了attention机制，每次当前状态，都会根据前一个状态学习得到的要关注的位置和当前输入的图像，去处理注意力部分像素。可以看到应用Attention机制后，任务的复杂度被降低了很多。</p>
 <h4 id="1-3-Attention-based-RNN-in-NLP"><a href="#1-3-Attention-based-RNN-in-NLP" class="headerlink" title="1.3 Attention-based RNN in NLP"></a>1.3 Attention-based RNN in NLP</h4><p>[1]的成果是在机器翻译任务，一般机器翻译工作由一个Encoder和一个Decoder构成，一个典型的Seq2seq任务。Encoder将源句子进行编码，再利用Decoder将编码后的向量解码成目标语言。</p>
 <p>我们在求注意力分配概率分布的时候，对于输入句子中任意一个单词都给出个概率，从而得到一个概率分布，再对输入句子所有单词的概率进行加权求和，得到Decoder的注意力分配。如下图。</p>
 <p><img src="http://oi4yiqiop.bkt.clouddn.com/2018-03-12-201155.jpg" width="30%"></p>
@@ -289,8 +288,8 @@ var _hmt = _hmt || [];
 </li>
 </ul>
 <p>最终得到$R = [r_1, r_2,…,r_n]$</p>
-<h4 id="2-4-Convolutional-Max-Pooling-with-Secondary-Attention"><a href="#2-4-Convolutional-Max-Pooling-with-Secondary-Attention" class="headerlink" title="2.4 Convolutional Max-Pooling with Secondary Attention"></a>2.4 Convolutional Max-Pooling with Secondary Attention</h4><p>将前面得到的矩阵R送入卷积核大小为dc的卷积层，卷积操作可形式化表示为:<br>$$<br>R^<em> = tanh(W_fR+B_f), \text{where the siaze of Wf is } d^c \times k(d^w+2d^p)<br>$$<br>然后构建一个相关性矩阵来捕获卷积层输出R</em>与实体关系WL之间的联系<br>$$<br>G = R^{*T}UW^L, \\U :\text{weighting matrix learnt by the network}<br>$$</p>
-<p>再用softmax函数来处理相关性矩阵G，获得attention pooling matrix Ap:<br>$$<br>A_{i,j}^p = \frac{exp(G_{i,j})}{\sum_{i’=1}^n{exp(G_{i’,j})}}<br>$$<br>最后用Ap与卷积层输出R<em>相乘，也就是加入混合中的attention，然后取出每一维度的最大值，得到网络的输出<br>$$<br>w_i^O = max_j(R^</em>A^p)_{i,j}<br>$$</p>
+<h4 id="2-4-Convolutional-Max-Pooling-with-Secondary-Attention"><a href="#2-4-Convolutional-Max-Pooling-with-Secondary-Attention" class="headerlink" title="2.4 Convolutional Max-Pooling with Secondary Attention"></a>2.4 Convolutional Max-Pooling with Secondary Attention</h4><p>将前面得到的矩阵R送入卷积核大小为dc的卷积层，卷积操作可形式化表示为:<br>$$<br>R^\star = tanh(W_fR+B_f), \text{where the siaze of Wf is } d^c \times k(d^w+2d^p)<br>$$<br>然后构建一个相关性矩阵来捕获卷积层输出R*与实体关系WL之间的联系<br>$$<br>G = R^{\star T}UW^L, \\U :\text{weighting matrix learnt by the network}<br>$$</p>
+<p>再用softmax函数来处理相关性矩阵G，获得attention pooling matrix Ap:<br>$$<br>A_{i,j}^p = \frac{exp(G_{i,j})}{\sum_{i’=1}^n{exp(G_{i’,j})}}<br>$$<br>最后用Ap与卷积层输出R*相乘，也就是加入混合中的attention，然后取出每一维度的最大值，得到网络的输出<br>$$<br>w_i^O = max_j(R^\star A^p)_{i,j}<br>$$</p>
 <h3 id="3-总结"><a href="#3-总结" class="headerlink" title="3. 总结"></a>3. 总结</h3><p>从[1]中提到的结果上看，attention的表现确实是在重要的词上有更好的权重，在Sem-Eval-2010 Task 8数据集上取得了显著的效果提升。对于关系抽取来说无疑是非常大的一个进步。</p>
 <p>但是还是有一些不足：</p>
 <ul>
@@ -299,7 +298,7 @@ var _hmt = _hmt || [];
 <li>对于一些上下文没有明显帮助的隐式关系或是使用了比喻之类的修辞，较为容易出错。</li>
 </ul>
 <p>这次选择读这篇文章也是想更具体地了解Attention机制，同时了解一些关系抽取的方案，它也有一个pytorch版本的<a href="https://github.com/lawlietAi/relation-classification-via-attention-model" target="_blank" rel="noopener">实现</a>，可以辅以参考。</p>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>*笔记部分参考<a href="https://zhuanlan.zhihu.com/p/22867750" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/22867750</a></p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>笔记部分参考<a href="https://zhuanlan.zhihu.com/p/22867750" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/22867750</a></p>
 <p>[1] Wang, L., Cao, Z., Melo, G. D., &amp; Liu, Z. (2016). Relation Classification via Multi-Level Attention CNNs. <em>Meeting of the Association for Computational Linguistics</em> (pp.1298-1307).</p>
 <p>[2] Bahdanau, D., Cho, K., &amp; Bengio, Y. (2014). Neural machine translation by jointly learning to align and translate. <em>Computer Science</em>.</p>
 <p>[3] Luong, M. T., Pham, H., &amp; Manning, C. D. (2015). Effective approaches to attention-based neural machine translation. <em>Computer Science</em>.</p>
@@ -314,7 +313,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="https://LorrinWWW.github.io/posts/[2017.12.17]Relation-Classification-via-Attention-Model/" data-id="cjeuantgi001o1djzkndk6hql" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://LorrinWWW.github.io/posts/[2017.12.17]Relation-Classification-via-Attention-Model/" data-id="cjeudmioq001gb0jzdjxpcfm8" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -382,7 +381,7 @@ var _hmt = _hmt || [];
 
             
     
-        <a href="https://LorrinWWW.github.io/posts/[2017.12.17]Relation-Classification-via-Attention-Model/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://LorrinWWW.github.io/posts/[2017.12.17]Relation-Classification-via-Attention-Model/">Comments</a>
+        <a href="https://LorrinWWW.github.io/posts/[2017.12.17]Relation-Classification-via-Attention-Model/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://LorrinWWW.github.io/posts/[2017.12.17]Relation-Classification-via-Attention-Model/">Comentarios</a>
     
 
         </footer>
@@ -392,7 +391,7 @@ var _hmt = _hmt || [];
 <nav id="article-nav">
     
         <a href="/posts/[2018.1.4]Overcoming-Limited-Supervision-in-Relation-Extraction/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Newer</strong>
+            <strong class="article-nav-caption">Más nuevo</strong>
             <div class="article-nav-title">
                 
                     Overcoming Limited Supervision in Relation Extraction 笔记
@@ -402,7 +401,7 @@ var _hmt = _hmt || [];
     
     
         <a href="/posts/[2017.12.10]Entity-resolution/" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Older</strong>
+            <strong class="article-nav-caption">Más viejo</strong>
             <div class="article-nav-title">实体解析 Entity resolution</div>
         </a>
     
@@ -429,7 +428,7 @@ var _hmt = _hmt || [];
    
         
     <div class="widget-wrap">
-        <h3 class="widget-title">recent</h3>
+        <h3 class="widget-title">Recientes</h3>
         <div class="widget">
             <ul id="recent-post" class="no-thumbnail">
                 
@@ -485,7 +484,7 @@ var _hmt = _hmt || [];
     
         
     <div class="widget-wrap">
-        <h3 class="widget-title">categories</h3>
+        <h3 class="widget-title">Categorias</h3>
         <div class="widget">
             <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/francais/">francais</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/math/">math</a><span class="category-list-count">14</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/math/unfinished/">unfinished</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/other/">other</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/programming/">programming</a><span class="category-list-count">20</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/unfinished/">unfinished</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/research/">research</a><span class="category-list-count">9</span></li></ul>
         </div>
@@ -494,7 +493,7 @@ var _hmt = _hmt || [];
     
         
     <div class="widget-wrap">
-        <h3 class="widget-title">archives</h3>
+        <h3 class="widget-title">Archivos</h3>
         <div class="widget">
             <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">8</span></li></ul>
         </div>
@@ -503,7 +502,7 @@ var _hmt = _hmt || [];
     
         
     <div class="widget-wrap">
-        <h3 class="widget-title">tag cloud</h3>
+        <h3 class="widget-title">Nube de etiquetas</h3>
         <div class="widget tagcloud">
             <a href="/tags/Bayes/" style="font-size: 10px;">Bayes</a> <a href="/tags/BiLSTM/" style="font-size: 10px;">BiLSTM</a> <a href="/tags/CNN/" style="font-size: 11.43px;">CNN</a> <a href="/tags/EDP/" style="font-size: 12.86px;">EDP</a> <a href="/tags/FEM/" style="font-size: 10px;">FEM</a> <a href="/tags/GAN/" style="font-size: 10px;">GAN</a> <a href="/tags/Hilbert/" style="font-size: 10px;">Hilbert</a> <a href="/tags/KGC/" style="font-size: 11.43px;">KGC</a> <a href="/tags/LSTM/" style="font-size: 11.43px;">LSTM</a> <a href="/tags/OS/" style="font-size: 11.43px;">OS</a> <a href="/tags/RNN/" style="font-size: 11.43px;">RNN</a> <a href="/tags/Sobolev/" style="font-size: 10px;">Sobolev</a> <a href="/tags/aleatoire/" style="font-size: 10px;">aleatoire</a> <a href="/tags/algo/" style="font-size: 17.14px;">algo</a> <a href="/tags/analyse/" style="font-size: 11.43px;">analyse</a> <a href="/tags/attention/" style="font-size: 10px;">attention</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/classification/" style="font-size: 10px;">classification</a> <a href="/tags/co-reference/" style="font-size: 10px;">co-reference</a> <a href="/tags/complexity/" style="font-size: 10px;">complexity</a> <a href="/tags/compression/" style="font-size: 10px;">compression</a> <a href="/tags/convolution/" style="font-size: 10px;">convolution</a> <a href="/tags/crawl/" style="font-size: 10px;">crawl</a> <a href="/tags/data-structure/" style="font-size: 10px;">data-structure</a> <a href="/tags/datamining/" style="font-size: 15.71px;">datamining</a> <a href="/tags/deep-learning/" style="font-size: 11.43px;">deep-learning</a> <a href="/tags/distant-supervision/" style="font-size: 10px;">distant-supervision</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/entity-resolution/" style="font-size: 10px;">entity-resolution</a> <a href="/tags/event-detection/" style="font-size: 10px;">event-detection</a> <a href="/tags/event-extraction/" style="font-size: 10px;">event-extraction</a> <a href="/tags/firm/" style="font-size: 10px;">firm</a> <a href="/tags/francais/" style="font-size: 10px;">francais</a> <a href="/tags/graph/" style="font-size: 10px;">graph</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/kernel/" style="font-size: 10px;">kernel</a> <a href="/tags/knowledge-graph/" style="font-size: 12.86px;">knowledge-graph</a> <a href="/tags/language/" style="font-size: 10px;">language</a> <a href="/tags/latex/" style="font-size: 10px;">latex</a> <a href="/tags/limited-supervision/" style="font-size: 10px;">limited-supervision</a> <a href="/tags/machine-learning/" style="font-size: 14.29px;">machine-learning</a> <a href="/tags/management/" style="font-size: 10px;">management</a> <a href="/tags/marked/" style="font-size: 10px;">marked</a> <a href="/tags/math/" style="font-size: 20px;">math</a> <a href="/tags/mathjax/" style="font-size: 10px;">mathjax</a> <a href="/tags/matrix/" style="font-size: 10px;">matrix</a> <a href="/tags/mongo/" style="font-size: 10px;">mongo</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/nlp/" style="font-size: 10px;">nlp</a> <a href="/tags/prediction/" style="font-size: 10px;">prediction</a> <a href="/tags/probability/" style="font-size: 17.14px;">probability</a> <a href="/tags/programming/" style="font-size: 18.57px;">programming</a> <a href="/tags/python/" style="font-size: 11.43px;">python</a> <a href="/tags/qualitative-induction/" style="font-size: 10px;">qualitative-induction</a> <a href="/tags/relation-classification/" style="font-size: 10px;">relation-classification</a> <a href="/tags/relation-extraction/" style="font-size: 14.29px;">relation-extraction</a> <a href="/tags/scrapy/" style="font-size: 10px;">scrapy</a> <a href="/tags/sequence-labeling/" style="font-size: 10px;">sequence-labeling</a> <a href="/tags/spider/" style="font-size: 10px;">spider</a> <a href="/tags/statistic/" style="font-size: 11.43px;">statistic</a> <a href="/tags/vector/" style="font-size: 10px;">vector</a> <a href="/tags/weak-supervision/" style="font-size: 10px;">weak-supervision</a> <a href="/tags/web/" style="font-size: 10px;">web</a>
         </div>
@@ -512,7 +511,7 @@ var _hmt = _hmt || [];
     
         
     <div class="widget-wrap widget-list">
-        <h3 class="widget-title">links</h3>
+        <h3 class="widget-title">Links</h3>
         <div class="widget">
             <ul>
                 
