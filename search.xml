@@ -228,9 +228,9 @@
       
         <tags>
             
-            <tag> deep-learning </tag>
-            
             <tag> machine-learning </tag>
+            
+            <tag> deep-learning </tag>
             
             <tag> nlp </tag>
             
@@ -298,13 +298,13 @@
       
         <tags>
             
-            <tag> python </tag>
-            
             <tag> mongo </tag>
             
             <tag> mongodb </tag>
             
             <tag> docker </tag>
+            
+            <tag> python </tag>
             
         </tags>
       
@@ -324,9 +324,9 @@
       
         <tags>
             
-            <tag> scrapy </tag>
-            
             <tag> python </tag>
+            
+            <tag> scrapy </tag>
             
             <tag> spider </tag>
             

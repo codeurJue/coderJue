@@ -271,9 +271,9 @@
         <title>Note of NLP</title>
         <pubTime>2017-06-26T18:52:45.000Z</pubTime>
         
-        <tag>deep-learning</tag>
-         
         <tag>machine-learning</tag>
+         
+        <tag>deep-learning</tag>
          
         <tag>nlp</tag>
          
@@ -319,9 +319,9 @@
         <title>Hands on Scrapy</title>
         <pubTime>2017-06-21T18:00:27.000Z</pubTime>
         
-        <tag>scrapy</tag>
-         
         <tag>python</tag>
+         
+        <tag>scrapy</tag>
          
         <tag>spider</tag>
          
@@ -345,13 +345,13 @@
         <title>MongoDB, Docker and Python</title>
         <pubTime>2017-06-22T12:53:44.000Z</pubTime>
         
-        <tag>python</tag>
-         
         <tag>mongo</tag>
          
         <tag>mongodb</tag>
          
         <tag>docker</tag>
+         
+        <tag>python</tag>
          
          
            
