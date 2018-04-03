@@ -3,23 +3,18 @@
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
     
-    <title>几个 relation extraction 远程监督模型 | Lorrin&#39;s Blog</title>
+    <title>Tag: neural-network | Lorrin&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="几个 relation extraction 远程监督模型摘要：远程监督（Distant supervision）显著地减少了建立用于分类任务的训练集所需要的人工。但是这一项技术也会带来很大的噪音，并可能因此而大大地影响了模型的性能表现。这里，我们以 relation extraction 这项任务为例，深入讨论分析该噪声的分布。文献[1]提出了 dynamic-transition matrix">
-<meta name="keywords" content="relation-extraction,distant-supervision">
-<meta property="og:type" content="article">
-<meta property="og:title" content="几个 relation extraction 远程监督模型">
-<meta property="og:url" content="https://LorrinWWW.github.io/posts/[2018.1.14]Models-for-relation-extraction/index.html">
+    <meta name="description" content="分享一些想法，每周更一篇论文阅读">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Lorrin&#39;s Blog">
+<meta property="og:url" content="https://LorrinWWW.github.io/tags/neural-network/index.html">
 <meta property="og:site_name" content="Lorrin&#39;s Blog">
-<meta property="og:description" content="几个 relation extraction 远程监督模型摘要：远程监督（Distant supervision）显著地减少了建立用于分类任务的训练集所需要的人工。但是这一项技术也会带来很大的噪音，并可能因此而大大地影响了模型的性能表现。这里，我们以 relation extraction 这项任务为例，深入讨论分析该噪声的分布。文献[1]提出了 dynamic-transition matrix">
+<meta property="og:description" content="分享一些想法，每周更一篇论文阅读">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://oi4yiqiop.bkt.clouddn.com/2018-03-12-202153.jpg">
-<meta property="og:image" content="http://oi4yiqiop.bkt.clouddn.com/2018-03-12-202150.jpg">
-<meta property="og:updated_time" content="2018-03-12T20:21:58.365Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="几个 relation extraction 远程监督模型">
-<meta name="twitter:description" content="几个 relation extraction 远程监督模型摘要：远程监督（Distant supervision）显著地减少了建立用于分类任务的训练集所需要的人工。但是这一项技术也会带来很大的噪音，并可能因此而大大地影响了模型的性能表现。这里，我们以 relation extraction 这项任务为例，深入讨论分析该噪声的分布。文献[1]提出了 dynamic-transition matrix">
-<meta name="twitter:image" content="http://oi4yiqiop.bkt.clouddn.com/2018-03-12-202153.jpg">
+<meta name="twitter:title" content="Lorrin&#39;s Blog">
+<meta name="twitter:description" content="分享一些想法，每周更一篇论文阅读">
     
 
     
@@ -212,198 +207,50 @@ var _hmt = _hmt || [];
 </aside>
 
             
-            <section id="main"><article id="post-[2018.1.14]Models-for-relation-extraction" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
+            <section id="main">
+<div class="timeline timeline-wrap">
+    <div class="timeline-row timeline-row-major">
+        <span class="node"><i class="fa fa-tag"></i></span>
+        <h1 class="title">#neural-network</h1>
+    </div>
+    
+        <div class="timeline-row">
+            <span class="node"></span>
+            <div class="content">
                 
     
-        <h1 class="article-title" itemprop="name">
-            几个 relation extraction 远程监督模型
+        <h1 itemprop="name">
+            <a class="timeline-article-title" href="/posts/[2018.3.20]Event-detection/">Event detection 的几个神经网络模型</a>
         </h1>
     
 
-                
-                    <div class="article-meta">
-                        
+                <div class="article-meta">
+                    
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/posts/[2018.1.14]Models-for-relation-extraction/">
-            <time datetime="2018-01-14T07:00:00.000Z" itemprop="datePublished">2018-01-14</time>
+        <a href="/posts/[2018.3.20]Event-detection/">
+            <time datetime="2018-03-20T07:00:00.000Z" itemprop="datePublished">2018-03-20</time>
         </a>
     </div>
 
 
-                        
+                    
     <div class="article-category">
     	<i class="fa fa-folder"></i>
         <a class="article-category-link" href="/categories/research/">research</a>
     </div>
 
-                        
+                    
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/distant-supervision/">distant-supervision</a>, <a class="tag-link" href="/tags/relation-extraction/">relation-extraction</a>
+        <a class="tag-link" href="/tags/event-detection/">event-detection</a>, <a class="tag-link" href="/tags/neural-network/">neural-network</a>
     </div>
 
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-        
-        
-            <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="几个-relation-extraction-远程监督模型"><a href="#几个-relation-extraction-远程监督模型" class="headerlink" title="几个 relation extraction 远程监督模型"></a>几个 relation extraction 远程监督模型</h2><p><strong>摘要：</strong>远程监督（Distant supervision）显著地减少了建立用于分类任务的训练集所需要的人工。但是这一项技术也会带来很大的噪音，并可能因此而大大地影响了模型的性能表现。这里，我们以 relation extraction 这项任务为例，深入讨论分析该噪声的分布。文献[1]提出了 dynamic-transition matrix，并证明了它能很好地代表了由 distant supervision 所带来的噪声。通过该矩阵，我们能够大大提高 relation extraction 的效果。文献[2]则是一种经典的方法，通过定义规则，定义否定模式（negative pattern）过滤掉一些噪音数据，可以很大程度提高性能。缺点是规则依赖人工定义，但是方法本身简单有效。文献[3]将 relation extraction 定义为一个 Multi-instance Multi-label 学习问题，一定程度上解决了错误标签的问题。</p>
-<h3 id="1-Problem-of-distant-supervision"><a href="#1-Problem-of-distant-supervision" class="headerlink" title="1. Problem of distant supervision"></a>1. Problem of distant supervision</h3><p>Distant supervision 是一种生成关系抽取训练集的常用方法。它把现有知识库中的三元组 \&lt;e1, r, e2> （或写成\&lt;subj, r, obj>）作为种子，匹配同时含有 e1 和 e2 的文本，得到的文本用作关系 r 的标注数据。这样可以省去大量人工标记的工作。</p>
-<p>但是，相比于人工标注方法，这种匹配方式会产生很多噪音：比如三元组\&lt;DonaldTrump, born-in, New York>，可能对齐到“Donald Trump was born in New York”，也可能对齐到“DonaldTrump worked in New York”。其中前一句是我们想要的标注数据，后一句则是噪音数据，它并不表示born-in关系。如何去除这些噪音数据，是一个重要的研究课题。</p>
-<h3 id="2-Approaches-to-this-problems"><a href="#2-Approaches-to-this-problems" class="headerlink" title="2. Approaches to this problems"></a>2. Approaches to this problems</h3><ul>
-<li>拟合噪音<ul>
-<li>dynamic-transition matrix [1]</li>
-</ul>
-</li>
-<li>去除噪音<ul>
-<li>通过定义规则过滤掉一些噪音数据[2]，缺点是依赖人工定义，并且被关系种类所限制。</li>
-<li>Multi-instance learning[3], 把训练语句分包学习，包内取平均值，或者用 attention 加权，可以中和掉包内的噪音数据。缺点是受限于 at-least-one-assumption：每个包内至少有一个正确的数据。</li>
-</ul>
-</li>
-</ul>
-<p>下面我们简单介绍这几个模型。</p>
-<h4 id="2-1-Learning-with-dynamic-transition-matrix-1"><a href="#2-1-Learning-with-dynamic-transition-matrix-1" class="headerlink" title="2.1 Learning with dynamic-transition matrix [1]"></a>2.1 Learning with dynamic-transition matrix [1]</h4><p>文献[1] 提出了 dynamic-transition matrix，用于表达 Distant supervision 所产生的噪声。dynamic-transition matrix 可以通过基于 curriculum learning 的方法训练得到。通过该矩阵，我们能够大大提高 relation extraction 的效果，能够达到目前该领域的 state-of-the-art。</p>
-<p><img src="http://oi4yiqiop.bkt.clouddn.com/2018-03-12-202153.jpg" alt="overview"></p>
-<p>Transition matrix 是一个转移矩阵，记为T，大小为 n*n，n是关系种类的数目。T 的元素，$T_{ij}$的值是 p( j| i )，即该句子代表关系为 i，但被误判为 j 的概率。</p>
-<p>这样我们就可以得到：𝑃𝑟𝑒𝑑𝑖𝑐𝑡𝑒𝑑 𝑑𝑖𝑠𝑡𝑟𝑖𝑏𝑢𝑡𝑖𝑜𝑛 × 𝑇𝑟𝑎𝑠𝑖𝑡𝑖𝑜𝑛 𝑚𝑎𝑡𝑟𝑖𝑥=𝑂𝑏𝑠𝑒𝑟𝑣𝑒𝑑 𝑑𝑖𝑠𝑡𝑟𝑖𝑏𝑢𝑡𝑖𝑜𝑛</p>
-<p>其中，predicted 是我们想要的真实分布，observed 是我们观测到的噪音分布，这样就可以用噪音数据进行联合训练了。作者在 timeRE 和 entityRE(NYT) 上均进行了训练，取得了降噪的 state-of-art。具体分析结果可以参照论文。</p>
-<h4 id="2-2-Reducing-Wrong-Labels-2"><a href="#2-2-Reducing-Wrong-Labels-2" class="headerlink" title="2.2 Reducing Wrong Labels [2]"></a>2.2 Reducing Wrong Labels [2]</h4><p>在关系提取方面，远程监督试图通过使用知识库（如Freebase）作为监督来源，从文本中提取实体之间的关系。 当一个句子和一个知识库引用同一个实体对时，这种方法试图用知识库中的对应关系来启发式地标注句子。 然而，这种启发式可能会导致一些句子被错误地标记。 这种嘈杂的标记数据导致较差的抽取性能。 在本文中，我们提出了一种减少错误标签数量的方法。 我们提出了一个新的生成模型，直接模拟远程监督的启发式标签过程。 该模型通过其隐藏变量来预测分配的标签是正确的还是错误的。在实验中，我们也发现错误的标签减少提高了关系抽取的性能。</p>
-<p><img src="http://oi4yiqiop.bkt.clouddn.com/2018-03-12-202150.jpg" width="70%"></p>
-<p>NegPat(r)即为事先定义的对于r的否定模式（negative pattern）。在我们的方法中，我们按如下所示去除错误标签：（i）给定一个已标注的语料库，我们首先验证其中的模式是否表达一种relation，然后（ii）使用否定模式列表（NegPat）去除错误的标签， 即该模式被定义为不表示relation的模式。 第一步，我们引入新的生成模型，直接模拟DS的标注过程并进行预测。 第二步在算法1中描述，见上图。对于关系提取，我们使用上述得到的标注数据来训练分类器（给定实体对，该分类器预测所属关系）。</p>
-<p>####2.3 Multi-instance Multi-label Learning [3]</p>
-<p>很多的共现 entities 都没有什么关系，仅仅是出现在同一个句子中；而有的 entities 之间的关系其实并不仅仅只有一种，可能有多种，比如奥巴马和美国的关系，可能是 born in，也可能是 is the president of 的关系。</p>
-<p>因此训练集会产生大量的错误标记，比如两个实体有多种关系或者根本在这句话中没有任何关系，这样的训练数据会对关系抽取器产生影响。正因为如此，传统的监督式学习，假设每个实例明确地映射到一个标签，是不合适的。</p>
-<p>对于这个问题，我们将关系抽取定义为一个 Multi-instance Multi-label 学习问题，它使用带有潜在变量的图模型，对文本中一对实体的所有实例以及它们的所有标签进行联合建模。 该模型在 relation extraction 领域表现出色。</p>
-<h3 id="3-Conclusion"><a href="#3-Conclusion" class="headerlink" title="3. Conclusion"></a>3. Conclusion</h3><p>上面提到的几个模型都有其新颖的地方，其中[1]这种拟合噪音的思想很有创新点，实际的效果也很理想；而后两个模型主要都是在数据预处理阶段进行，因此可以和其他 relation extraction 模型很好的结合。</p>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><p>*笔记部分参考<a href="https://mp.weixin.qq.com/s/O9JaalDhoX97DMoUBFxmtg" target="_blank" rel="noopener">论文浅尝 | Learning with Noise: Supervised Relation Extraction</a></p>
-<p>[1] Luo, Bingfeng, et al. “Learning with noise: enhance distantly supervised relation extraction with dynamic transition matrix.” <em>arXiv preprint arXiv:1705.03995</em> (2017).</p>
-<p>[2] Takamatsu, Shingo, Issei Sato, and Hiroshi Nakagawa. “Reducing wrong labels in distant supervision for relation extraction.” <em>Proceedings of the 50th Annual Meeting of the Association for Computational Linguistics: Long Papers-Volume 1</em>. Association for Computational Linguistics, 2012.</p>
-<p>[3] Surdeanu, Mihai, et al. “Multi-instance multi-label learning for relation extraction.” <em>Proceedings of the 2012 joint conference on empirical methods in natural language processing and computational natural language learning</em>. Association for Computational Linguistics, 2012.</p>
-<div><h1>推荐文章<span style="font-size:0.45em; color:gray">（由<a href="https://github.com/huiwang/hexo-recommended-posts">hexo文章推荐插件</a>驱动）</span></h1><ul><li><a href="https://LorrinWWW.github.io/posts/[2017.12.10]Entity-resolution/">实体解析 Entity resolution</a></li><li><a href="https://LorrinWWW.github.io/posts/[2017.12.17]Relation-Classification-via-Attention-Model/">Relation Classification via Attention Model 笔记</a></li><li><a href="https://LorrinWWW.github.io/posts/[2018.1.4]Overcoming-Limited-Supervision-in-Relation-Extraction/">Overcoming Limited Supervision in Relation Extraction 笔记</a></li></ul></div>
+                </div>
             </div>
-        
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
+        </div>
+    
 </div>
-
-    <a data-url="https://LorrinWWW.github.io/posts/[2018.1.14]Models-for-relation-extraction/" data-id="cjfjsrr0o001t2vm9u0zew1jp" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-
-        </footer>
-    </div>
-    
-        
-<nav id="article-nav">
-    
-        <a href="/posts/[2018.1.21]Event-detection-and-co-referentce/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Newer</strong>
-            <div class="article-nav-title">
-                
-                    Event detection and co-reference with minimal supervision 笔记
-                
-            </div>
-        </a>
-    
-    
-        <a href="/posts/[2018.1.4]Overcoming-Limited-Supervision-in-Relation-Extraction/" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">Overcoming Limited Supervision in Relation Extraction 笔记</div>
-        </a>
-    
-</nav>
-
-
-    
-</article>
-
-
-    
-    
-        <section id="comments">
-	<div id="commentContainer"></div>
-</section>
-    
-
 </section>
             
                 
@@ -527,7 +374,7 @@ var _hmt = _hmt || [];
 	<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
 	<script>
 		var gitment = new Gitment({
-			id: 'Sun Jan 14 2018 08:00:00 GMT+0100',
+			id: '',
 			owner: 'lorrinWWW',
 			repo: 'LorrinWWW.github.io',
 			oauth: {
