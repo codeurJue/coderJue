@@ -3,6 +3,28 @@
 
 
     
+  <url>
+    <loc>https://LorrinWWW.github.io/posts/%5B2018.4.4%5DA-Neural-Model-for-Joint-Event-Detection-and-Summarization/</loc>
+    <lastmod>2018-04-04T22:12:54.419Z</lastmod>
+    <data>
+        <display>
+        <title>A Neural Model for Joint Event Detection and Summarization 阅读笔记</title>
+        <pubTime>2018-04-04T06:00:00.000Z</pubTime>
+        
+        <tag>event-detection</tag>
+         
+        <tag>summarization</tag>
+         
+         
+           
+             
+              <breadCrumb title="research" url="https://LorrinWWW.github.io/categories/research/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
     
   <url>
     <loc>https://LorrinWWW.github.io/posts/%5B2018.3.20%5DEvent-detection/</loc>
@@ -467,9 +489,9 @@
         <title>EDP basic models</title>
         <pubTime>2017-03-06T09:04:58.000Z</pubTime>
         
-        <tag>math</tag>
-         
         <tag>EDP</tag>
+         
+        <tag>math</tag>
          
          
            
@@ -489,9 +511,9 @@
         <title>Sobolev space</title>
         <pubTime>2017-02-11T13:37:53.000Z</pubTime>
         
-        <tag>math</tag>
-         
         <tag>EDP</tag>
+         
+        <tag>math</tag>
          
         <tag>analyse</tag>
          
