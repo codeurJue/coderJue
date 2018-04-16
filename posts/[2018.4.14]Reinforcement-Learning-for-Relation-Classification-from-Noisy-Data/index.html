@@ -3,18 +3,23 @@
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
     
-    <title>Tag: mongodb | Lorrin&#39;s Blog</title>
+    <title>Reinforcement Learning for Relation Classification from Noisy Data 阅读笔记 | Lorrin&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="分享一些想法，每周更一篇论文阅读">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Lorrin&#39;s Blog">
-<meta property="og:url" content="https://LorrinWWW.github.io/tags/mongodb/index.html">
+    <meta name="description" content="Reinforcement Learning for Relation Classification from Noisy Data 阅读笔记摘要：现有关系分类方法依赖远程监督(distant supervision)，它假定提到实体对的句子都描述了这个实体对的关系。这样的方法一般在句子集合进行分类，不能识别关系和句子之间的映射，并且很大程度上受到标签噪音问题的影响。在这篇论文[1]中，作者提出了">
+<meta name="keywords" content="relation-extraction,relation-classification,reinforcement-learning">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Reinforcement Learning for Relation Classification from Noisy Data 阅读笔记">
+<meta property="og:url" content="https://LorrinWWW.github.io/posts/[2018.4.14]Reinforcement-Learning-for-Relation-Classification-from-Noisy-Data/index.html">
 <meta property="og:site_name" content="Lorrin&#39;s Blog">
-<meta property="og:description" content="分享一些想法，每周更一篇论文阅读">
+<meta property="og:description" content="Reinforcement Learning for Relation Classification from Noisy Data 阅读笔记摘要：现有关系分类方法依赖远程监督(distant supervision)，它假定提到实体对的句子都描述了这个实体对的关系。这样的方法一般在句子集合进行分类，不能识别关系和句子之间的映射，并且很大程度上受到标签噪音问题的影响。在这篇论文[1]中，作者提出了">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://oi4yiqiop.bkt.clouddn.com/2018-04-14-WX20180414-152317%402x.png">
+<meta property="og:image" content="http://oi4yiqiop.bkt.clouddn.com/2018-04-14-WX20180414-165503%402x.png">
+<meta property="og:updated_time" content="2018-04-14T21:39:01.245Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Lorrin&#39;s Blog">
-<meta name="twitter:description" content="分享一些想法，每周更一篇论文阅读">
+<meta name="twitter:title" content="Reinforcement Learning for Relation Classification from Noisy Data 阅读笔记">
+<meta name="twitter:description" content="Reinforcement Learning for Relation Classification from Noisy Data 阅读笔记摘要：现有关系分类方法依赖远程监督(distant supervision)，它假定提到实体对的句子都描述了这个实体对的关系。这样的方法一般在句子集合进行分类，不能识别关系和句子之间的映射，并且很大程度上受到标签噪音问题的影响。在这篇论文[1]中，作者提出了">
+<meta name="twitter:image" content="http://oi4yiqiop.bkt.clouddn.com/2018-04-14-WX20180414-152317%402x.png">
     
 
     
@@ -213,50 +218,188 @@ var _hmt = _hmt || [];
 </aside>
 
             
-            <section id="main">
-<div class="timeline timeline-wrap">
-    <div class="timeline-row timeline-row-major">
-        <span class="node"><i class="fa fa-tag"></i></span>
-        <h1 class="title">#mongodb</h1>
-    </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+            <section id="main"><article id="post-[2018.4.14]Reinforcement-Learning-for-Relation-Classification-from-Noisy-Data" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/posts/MongoDB-Docker-and-Python/">MongoDB, Docker and Python</a>
+        <h1 class="article-title" itemprop="name">
+            Reinforcement Learning for Relation Classification from Noisy Data 阅读笔记
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/posts/MongoDB-Docker-and-Python/">
-            <time datetime="2017-06-22T12:53:44.000Z" itemprop="datePublished">2017-06-22</time>
+        <a href="/posts/[2018.4.14]Reinforcement-Learning-for-Relation-Classification-from-Noisy-Data/">
+            <time datetime="2018-04-14T06:00:00.000Z" itemprop="datePublished">2018-04-14</time>
         </a>
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/programming/">programming</a>
+        <a class="article-category-link" href="/categories/research/">research</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/docker/">docker</a>, <a class="tag-link" href="/tags/mongo/">mongo</a>, <a class="tag-link" href="/tags/mongodb/">mongodb</a>, <a class="tag-link" href="/tags/python/">python</a>
+        <a class="tag-link" href="/tags/reinforcement-learning/">reinforcement-learning</a>, <a class="tag-link" href="/tags/relation-classification/">relation-classification</a>, <a class="tag-link" href="/tags/relation-extraction/">relation-extraction</a>
     </div>
 
-                </div>
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+        
+        
+            <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Reinforcement-Learning-for-Relation-Classification-from-Noisy-Data-阅读笔记"><a href="#Reinforcement-Learning-for-Relation-Classification-from-Noisy-Data-阅读笔记" class="headerlink" title="Reinforcement Learning for Relation Classification from Noisy Data 阅读笔记"></a>Reinforcement Learning for Relation Classification from Noisy Data 阅读笔记</h2><p><strong>摘要</strong>：现有关系分类方法依赖远程监督(distant supervision)，它假定提到实体对的句子都描述了这个实体对的关系。这样的方法一般在句子集合进行分类，不能识别关系和句子之间的映射，并且很大程度上受到标签噪音问题的影响。在这篇论文<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="Feng, J., Huang, M., Zhao, L., Yang, Y., & Zhu, X. (2018). Reinforcement Learning for Relation Classification from Noisy Data.">[1]</span></a></sup>中，作者提出了一个从有噪声多数据的句子层次的关系分类模型。该模型有两个模块：一个实例选择器和一个关系分类器。实例选择器通过增强学习选择高质量的句子，并将选定的句子输入到关系分类器中，关系分类器进行句子级预测，并向实例选择器提供奖励。这两个模块共同训练以优化实例选择和关系分类过程。实验结果表明，我们的模型可以有效地处理数据中的噪音，并在句子级别获得更好的关系分类性能。</p>
+<h2 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h2><p>关系抽取是nlp领域中一个非常重要的任务，尤其在知识图谱构建等任务上。相关的工作可以参考我之前写的笔记，主要还是分为两种：传统的手工特征方法，和深度神经网络。</p>
+<p>为了获得更大量的训练数据集，半监督、远程监督，甚至无监督模型被提出。半监督模型对一开始的少量数据要求较高，容易产生较大的偏差；无监督学习目前还没有比较成熟的解决方案。</p>
+<p>这里主要提一下远程监督模型。远程监督模型有一个很强的假设：如果两个实体在给定的知识库中有一种关系，则包含这两个实体的所有句子都会提及该关系，实际上当然会有很大问题，会带来很多标注错误的信息。有一些解决方法就是转化为bag-level的关系标注。一个bag包含提及相同实体对的句子，但有可能描述不同的关系，如下图。</p>
+<p><img src="http://oi4yiqiop.bkt.clouddn.com/2018-04-14-WX20180414-152317%402x.png" alt="X20180414-152317@2"></p>
+<p>不过实际上还是会有问题：1. 不能处理句子级别的关系分类；2. 如果一个bag里的句子都不含知识库中的关系，即都是噪声，这样对性能会有很大影响。</p>
+<p>为解决上述的两个缺陷，作者提出了实例选取器，并将其定义为一个强化学习任务。它有两个特征：1. 句子选择是一个反复试错的过程，需要从分类器中得到选取句子质量的反馈；2. 反馈在挑选结束后得到，因此是滞后的。这两点非常满足强化学习的特点。</p>
+<h2 id="2-Methodology"><a href="#2-Methodology" class="headerlink" title="2. Methodology"></a>2. Methodology</h2><p>作者提出了一个新的关系分类框架，它可以从噪音数据中选择正确的句子用于更好的关系分类。 所提出的框架可以从清理的数据中预测句子级别的关系，而不是在bag级别。句子级别的预测对需要理解句子的任务（如QA和语义分析）更加友好。<br>我们的框架包含两个关键模块：从噪声数据中选择正确句子的实例选择器，以及预测关系并使用清理数据更新其参数的关系分类器。 这两个模块相互作用共同训练。</p>
+<h3 id="Problem-definition"><a href="#Problem-definition" class="headerlink" title="Problem definition"></a>Problem definition</h3><p>我们定义两个子任务：实例选择和一个关系分类。</p>
+<p>我们定义实例选择问题：给定一组(sentence, relation label)，如$X = {(x_1,r_1),(x_2,r_2),…,(x_n,r_n)}$，其中$x_i$是与两个实体$(e_{1i},e_{2i})$相关的句子，$r_i$是由远程监督产生的关系标签。我们的目标是确定哪个句子真正描述了这种关系，并且应该被选作训练实例。</p>
+<p>关系分类问题表述如下：给定一个句子$x_i$和所提到的实体对$(h_i,t_i)$，目标是预测$x_i$中的语义关系$r_i$。模型估计概率：$p_{\Phi}(r_i | x_i,h_i,t_i)$。</p>
+<h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><p><img src="http://oi4yiqiop.bkt.clouddn.com/2018-04-14-WX20180414-165503%402x.png" alt="X20180414-165503@2"></p>
+<h3 id="Instance-Selector"><a href="#Instance-Selector" class="headerlink" title="Instance Selector"></a>Instance Selector</h3><p>这里的Instance Selector被当作强化学习问题来处理，因此policy的更新有滞后性，作者为了加快更新速度，把所有句子实例$X={x_1, …,x_n}$分为N个bag $B = {B^1, B^2, …, B^N}$，每一个$B^k$都包含同一个实体对，且标注关系都为$r^k$。</p>
+<ul>
+<li><p><strong>State</strong>：编码以下信息：1) 当前句子的向量表示，从CNN的非线性层获得用于关系分类的当前句子的向量表示; 2) 被选的句子集合的表示，它是所有选择句子的向量表示的平均值; 3) 一个句子中实体对的向量表示，从预先训练的知识图谱embedding中获得。</p>
+</li>
+<li><p><strong>Action</strong>：定义action $a_i \in {0,1}$ 表示是否选取第i个句子，$a_i$的取值由policy function得到，定义如下：<br>$$<br>\pi_{\Theta}(s_i,a_i) = a_i \sigma(W <em> F(s_i) + b) + (1 - a_i)(1 - \sigma(W </em> F(s_i)+b))<br>$$</p>
+</li>
+<li><p><strong>Reward</strong>：reward function是所选句子效用的指标。对于某些bag $B = {x_1,… ,x_{| B |}}$，我们为每个句子选择一个action，以确定是否应该选择当前句子。我们假设该模型在完成所有选择时具有最终奖励。 因此，我们只在终端状态$s_{| B | +1}$收到延迟奖励，其他的奖励为零。 reward是基于CNN的分类反馈得到。</p>
+</li>
+</ul>
+<h3 id="Relation-Classifier"><a href="#Relation-Classifier" class="headerlink" title="Relation Classifier"></a>Relation Classifier</h3><p>这里用的分类模型比较简单，一个经典的CNN。</p>
+<p>输入层可以被分为两部分：</p>
+<ol>
+<li>word embedding</li>
+<li>position embedding：两个固定长度的向量，表示该词分别到两个实体店距离。</li>
+</ol>
+<h2 id="3-Analysis"><a href="#3-Analysis" class="headerlink" title="3. Analysis"></a>3. Analysis</h2><p>作者用的数据集是New York Times，作者随机挑选300句子人工标注，再对其做评测。对比的baseline包括CNN、CNN+Max(每个bag选一个正确的句子)、CNN+ATT。最后结果上看出，本文的CNN+RL模型取得了最好的结果，这表明强化学习对于该任务是行之有效的；并且句子层次的模型在评测中普遍好于bag模型。</p>
+<p>强化学习是目前比较火热的技术，它在nlp相关任务的应用仍在探索中，但是最近的论文确实有很多都在讨论它，并且也做到了不错的效果。希望从这篇文章为入口，开始了解强化学习及其在nlp上的应用。</p>
+<p>这篇文章中，强化学习主要是用于选择噪声数据，用以减少数据集的偏差等。但是我们相信强化学习能做的不仅如此，事实上最近的顶会还是有一些相关的工作的，可以放到以后再看。</p>
+<h2 id="Bibliography"><a href="#Bibliography" class="headerlink" title="Bibliography"></a>Bibliography</h2><p>本文的c++实现：<a href="https://github.com/JuneFeng/RelationClassification-RL" target="_blank" rel="noopener">https://github.com/JuneFeng/RelationClassification-RL</a></p>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">Feng, J., Huang, M., Zhao, L., Yang, Y., &amp; Zhu, X. (2018). Reinforcement Learning for Relation Classification from Noisy Data.<a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div><div><h1>推荐文章<span style="font-size:0.45em; color:gray">（由<a href="https://github.com/huiwang/hexo-recommended-posts">hexo文章推荐插件</a>驱动）</span></h1><ul><li><a href="https://LorrinWWW.github.io/posts/[2017.12.17]Relation-Classification-via-Attention-Model/">Relation Classification via Attention Model 笔记</a></li><li><a href="https://LorrinWWW.github.io/posts/[2017.12.17]Relation-Classification-via-Attention-Model/">Relation Classification via Attention Model 笔记</a></li><li><a href="https://LorrinWWW.github.io/posts/[2017.12.10]Entity-resolution/">实体解析 Entity resolution</a></li></ul></div>
             </div>
-        </div>
-    
+        
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
 </div>
+
+    <a data-url="https://LorrinWWW.github.io/posts/[2018.4.14]Reinforcement-Learning-for-Relation-Classification-from-Noisy-Data/" data-id="cjg20w8ay002i05m9hqdhmfkz" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/posts/[2018.4.4]A-Neural-Model-for-Joint-Event-Detection-and-Summarization/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">A Neural Model for Joint Event Detection and Summarization 阅读笔记</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+        <section id="comments">
+	<div id="commentContainer"></div>
+</section>
+    
+
 </section>
             
                 
@@ -380,7 +523,7 @@ var _hmt = _hmt || [];
 	<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
 	<script>
 		var gitment = new Gitment({
-			id: '',
+			id: 'Sat Apr 14 2018 08:00:00 GMT+0200',
 			owner: 'lorrinWWW',
 			repo: 'LorrinWWW.github.io',
 			oauth: {
