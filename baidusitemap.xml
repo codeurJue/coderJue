@@ -3,6 +3,7 @@
 
 
     
+    
   <url>
     <loc>https://LorrinWWW.github.io/posts/%5B2018.4.14%5DReinforcement-Learning-for-Relation-Classification-from-Noisy-Data/</loc>
     <lastmod>2018-04-14T21:39:01.245Z</lastmod>
@@ -48,7 +49,6 @@
     </data>
     </url>
 
-    
     
   <url>
     <loc>https://LorrinWWW.github.io/posts/%5B2018.3.20%5DEvent-detection/</loc>
@@ -634,9 +634,9 @@
         <title>Note of statistic</title>
         <pubTime>2017-01-28T17:13:13.000Z</pubTime>
         
-        <tag>statistic</tag>
-         
         <tag>math</tag>
+         
+        <tag>statistic</tag>
          
          
            
@@ -659,9 +659,9 @@
         <title>贝叶斯估计 Bayes estimation</title>
         <pubTime>2017-01-07T15:46:31.000Z</pubTime>
         
-        <tag>Bayes</tag>
-         
         <tag>statistic</tag>
+         
+        <tag>Bayes</tag>
          
          
            

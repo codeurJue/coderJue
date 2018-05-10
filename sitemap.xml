@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://LorrinWWW.github.io/about/index.html</loc>
+    
+    <lastmod>2018-05-10T15:29:17.154Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://LorrinWWW.github.io/posts/%5B2018.4.14%5DReinforcement-Learning-for-Relation-Classification-from-Noisy-Data/</loc>
     
     <lastmod>2018-04-14T21:39:01.245Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>https://LorrinWWW.github.io/posts/%5B2018.4.4%5DA-Neural-Model-for-Joint-Event-Detection-and-Summarization/</loc>
     
     <lastmod>2018-04-04T22:12:54.419Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://LorrinWWW.github.io/about/index.html</loc>
-    
-    <lastmod>2018-04-03T21:15:17.017Z</lastmod>
     
   </url>
   
