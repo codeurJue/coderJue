@@ -16,9 +16,9 @@
       
         <tags>
             
-            <tag> relation-extraction </tag>
-            
             <tag> relation-classification </tag>
+            
+            <tag> relation-extraction </tag>
             
             <tag> reinforcement-learning </tag>
             
@@ -244,11 +244,11 @@
       
         <tags>
             
-            <tag> relation-extraction </tag>
-            
             <tag> relation-classification </tag>
             
             <tag> attention </tag>
+            
+            <tag> relation-extraction </tag>
             
         </tags>
       
@@ -268,11 +268,11 @@
       
         <tags>
             
+            <tag> relation-extraction </tag>
+            
             <tag> entity-resolution </tag>
             
             <tag> sequence-labeling </tag>
-            
-            <tag> relation-extraction </tag>
             
             <tag> LSTM </tag>
             
@@ -366,13 +366,13 @@
       
         <tags>
             
-            <tag> python </tag>
-            
             <tag> mongo </tag>
             
             <tag> mongodb </tag>
             
             <tag> docker </tag>
+            
+            <tag> python </tag>
             
         </tags>
       
@@ -392,9 +392,9 @@
       
         <tags>
             
-            <tag> scrapy </tag>
-            
             <tag> python </tag>
+            
+            <tag> scrapy </tag>
             
             <tag> spider </tag>
             
@@ -562,9 +562,9 @@
       
         <tags>
             
-            <tag> math </tag>
-            
             <tag> statistic </tag>
+            
+            <tag> math </tag>
             
         </tags>
       
@@ -584,9 +584,9 @@
       
         <tags>
             
-            <tag> statistic </tag>
-            
             <tag> Bayes </tag>
+            
+            <tag> statistic </tag>
             
         </tags>
       
