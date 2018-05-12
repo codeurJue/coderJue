@@ -5,22 +5,22 @@
     
     <title>Learning beyond datasets - Knowledge Graph Augmented Neural Networks for Natural language Processing 阅读笔记 | Lorrin&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Knowledge Graph Augmented Neural Networks for Natural language Processing 阅读笔记摘要：机器学习的效果一般依赖于具体的训练数据。一些学习模型可以结合贝叶斯中的先验知识，但是这些模型不具备根据需要访问任何有组织的知识的能力。在这项工作&amp;lt;span class=”hint–top-right hint–error hint–">
+    <meta name="description" content="Knowledge Graph Augmented Neural Networks for Natural language Processing 阅读笔记摘要：机器学习的效果一般依赖于具体的训练数据。一些学习模型可以结合贝叶斯中的先验知识，但是这些模型不具备根据需要访问任何有组织的知识的能力。在这项工作[1]中，我们以知识图谱（KG）的形式为NLP模型提供先验知识，使得模型取得更好的效果。我们的">
 <meta name="keywords" content="knowledge-graph,neural-network,NLP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Learning beyond datasets - Knowledge Graph Augmented Neural Networks for Natural language Processing 阅读笔记">
 <meta property="og:url" content="https://LorrinWWW.github.io/posts/[2018.5.10]Knowledge-Graph-Augmented-Neural-Networks-for-NLP/index.html">
 <meta property="og:site_name" content="Lorrin&#39;s Blog">
-<meta property="og:description" content="Knowledge Graph Augmented Neural Networks for Natural language Processing 阅读笔记摘要：机器学习的效果一般依赖于具体的训练数据。一些学习模型可以结合贝叶斯中的先验知识，但是这些模型不具备根据需要访问任何有组织的知识的能力。在这项工作&amp;lt;span class=”hint–top-right hint–error hint–">
+<meta property="og:description" content="Knowledge Graph Augmented Neural Networks for Natural language Processing 阅读笔记摘要：机器学习的效果一般依赖于具体的训练数据。一些学习模型可以结合贝叶斯中的先验知识，但是这些模型不具备根据需要访问任何有组织的知识的能力。在这项工作[1]中，我们以知识图谱（KG）的形式为NLP模型提供先验知识，使得模型取得更好的效果。我们的">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://oi4yiqiop.bkt.clouddn.com/2018-05-03-WX20180503-190446%402x.png">
 <meta property="og:image" content="http://oi4yiqiop.bkt.clouddn.com/2018-05-10-image-201805110007120.png">
 <meta property="og:image" content="http://oi4yiqiop.bkt.clouddn.com/2018-05-10-image-201805110034147.png">
 <meta property="og:image" content="http://oi4yiqiop.bkt.clouddn.com/2018-05-10-image-201805110044225.png">
-<meta property="og:updated_time" content="2018-05-12T10:32:51.403Z">
+<meta property="og:updated_time" content="2018-05-12T13:04:33.157Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Learning beyond datasets - Knowledge Graph Augmented Neural Networks for Natural language Processing 阅读笔记">
-<meta name="twitter:description" content="Knowledge Graph Augmented Neural Networks for Natural language Processing 阅读笔记摘要：机器学习的效果一般依赖于具体的训练数据。一些学习模型可以结合贝叶斯中的先验知识，但是这些模型不具备根据需要访问任何有组织的知识的能力。在这项工作&amp;lt;span class=”hint–top-right hint–error hint–">
+<meta name="twitter:description" content="Knowledge Graph Augmented Neural Networks for Natural language Processing 阅读笔记摘要：机器学习的效果一般依赖于具体的训练数据。一些学习模型可以结合贝叶斯中的先验知识，但是这些模型不具备根据需要访问任何有组织的知识的能力。在这项工作[1]中，我们以知识图谱（KG）的形式为NLP模型提供先验知识，使得模型取得更好的效果。我们的">
 <meta name="twitter:image" content="http://oi4yiqiop.bkt.clouddn.com/2018-05-03-WX20180503-190446%402x.png">
     
 
@@ -274,7 +274,7 @@ var _hmt = _hmt || [];
             
         
         
-            <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Knowledge-Graph-Augmented-Neural-Networks-for-Natural-language-Processing-阅读笔记"><a href="#Knowledge-Graph-Augmented-Neural-Networks-for-Natural-language-Processing-阅读笔记" class="headerlink" title="Knowledge Graph Augmented Neural Networks for Natural language Processing 阅读笔记"></a>Knowledge Graph Augmented Neural Networks for Natural language Processing 阅读笔记</h2><p><strong>摘要</strong>：机器学习的效果一般依赖于具体的训练数据。一些学习模型可以结合贝叶斯中的先验知识，但是这些模型不具备根据需要访问任何有组织的知识的能力。在这项工作<sup id="fnref:1"><a href="#fn:1" rel="footnote">&lt;span class=”hint–top-right hint–error hint–large” aria-label=”Annervaz, K. M., Somnath Basu Roy Chowdhury, and Ambedkar Dukkipati. “Learning beyond datasets: Knowledge Graph Augmented Neural Networks for Natural language Processing.” arXiv preprint arXiv:1802.05930 (2018).”&gt;[1]</a></sup>中，我们以知识图谱（KG）的形式为NLP模型提供先验知识，使得模型取得更好的效果。我们的目标是开发一种深度学习模型，可以根据任务使用attention机制从知识图谱中提取相关的先验支持事实。为了减少attention空间，我们引入了基于卷积的模型来学习知识图谱实体和关系集的表示。提出的方法是高度可扩展的，并可应用于常用的NLP任务。使用这种方法，我们在实验中显示了文本分类性能的显着提高。我们还证明了，当深度学习模型使用知识图谱以辅助时，可以用较为少量的标记训练数据进行训练。</p>
+            <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Knowledge-Graph-Augmented-Neural-Networks-for-Natural-language-Processing-阅读笔记"><a href="#Knowledge-Graph-Augmented-Neural-Networks-for-Natural-language-Processing-阅读笔记" class="headerlink" title="Knowledge Graph Augmented Neural Networks for Natural language Processing 阅读笔记"></a>Knowledge Graph Augmented Neural Networks for Natural language Processing 阅读笔记</h2><p><strong>摘要</strong>：机器学习的效果一般依赖于具体的训练数据。一些学习模型可以结合贝叶斯中的先验知识，但是这些模型不具备根据需要访问任何有组织的知识的能力。在这项工作<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="Annervaz, K. M., Somnath Basu Roy Chowdhury, and Ambedkar Dukkipati. 'Learning beyond datasets: Knowledge Graph Augmented Neural Networks for Natural language Processing.' arXiv preprint arXiv:1802.05930 (2018).">[1]</span></a></sup>中，我们以知识图谱（KG）的形式为NLP模型提供先验知识，使得模型取得更好的效果。我们的目标是开发一种深度学习模型，可以根据任务使用attention机制从知识图谱中提取相关的先验支持事实。为了减少attention空间，我们引入了基于卷积的模型来学习知识图谱实体和关系集的表示。提出的方法是高度可扩展的，并可应用于常用的NLP任务。使用这种方法，我们在实验中显示了文本分类性能的显着提高。我们还证明了，当深度学习模型使用知识图谱以辅助时，可以用较为少量的标记训练数据进行训练。</p>
 <h2 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h2><p>现在机器学习主要是针对特定任务、特定训练数据进行训练的模型。虽然transfer learning试图将学习从一个任务迁移到另一个任务，但在可扩展性方面有局限性，通常是具体地针对某个的任务。另一方面，我们知道人类具有一种内在的能力，可以根据需求从脑中获取所需的知识，并结合我们新学习的概念来解决问题。</p>
 <p>这就引出了我们要在本文中讨论的问题：是否有可能设计一个学习模型，除了从培训数据集中学习外，还可以在预测时利用大量外在的知识？<img src="http://oi4yiqiop.bkt.clouddn.com/2018-05-03-WX20180503-190446%402x.png" alt="X20180503-190446@2"></p>
 <p>我们有一个基本的想法如上图，$\mathcal{X}$是原本的输入，$\mathcal{Y}$是输出。通过知识库补充、增强$\mathcal{X}$，以得到$\mathcal{X_w}$，将两这串联，获得$\mathcal{X’}$作为新的输入。</p>
@@ -298,7 +298,7 @@ var _hmt = _hmt || [];
 <p>为了聚类相似的实体/关系向量，我们使用k-means聚类，并在每个聚类中形成具有相同数量的实体/关系向量的$l$个聚类。然后使用CNN对每个cluster进行编码。k-means聚类的输出是一个实体/关系向量序列${e^T_1,e^T_2,…,e^T_q}$，其中$e_i \in\mathbb R^m$，每个聚类中的元素个数为$ q =⌈\frac{| E |}{l}⌉$。对于每个cluster，这些矢量被堆叠形成$\mathcal E$作为到CNN编码器的2D输入，其中$\mathcal E\in\mathbb R^{m\times q}$。 在寻找合适滤波器形状的实验中，我们发现使用2-D滤波器，该模型无法收敛。因此，我们推断，向量$e_i$中两个不同索引的潜在表示不应该被卷积修改。然后，我们采用一维卷积滤波器，只沿$\mathcal E$列滑动，如图4所示。沿着y轴的步长是窗口长度k，卷积层的输出表示为：<br>$$<br>\mathcal E’(i,j) = W^T[e_{i,j}, e_{i+1,j},…,e_{i+k-1, j}]^T<br>$$<br>其中，$\mathcal E’(i,j)$是输出矩阵$\mathcal E’$的第(i, j)个元素，$W\in \mathbb R^k$是卷积权重滤波器。为了减少参数空间，在卷积层之后放置一个pooling层，我们只沿y轴使用一维窗口，类似于上面提到的卷积核。我们使用了一个双层卷积网络，其步长k和最大池窗口n被调整以获得输出$\mathcal E_i\in \mathbb R^m$，其中i是聚类索引。对于关系也进行类似的聚类过程，接着对聚类实体进行编码。这样，实体和关系空间都被缩减为包含更少的元素，每个cluster都有一个元素。在形成紧凑的实体空间$E$和关系空间$R$之后，我们采用了与之前相同的步骤来形成attention，但是现在，由于梯度有效地传递并且没有被过大的空间所阻塞，所以训练更有效。此外，由于卷积架构也同时得到训练，所以attention机制并没有像以前那样通过实体和关系的巨大空间来学习。</p>
 <h2 id="4-Conclusion"><a href="#4-Conclusion" class="headerlink" title="4. Conclusion"></a>4. Conclusion</h2><p>实验表明，引入KG不仅降低了深度学习模型对训练集的依赖，还显著地提高了预测结果的准确度，在数据集不够的情况下效果更佳拔群。此外，本文的方法对world knowledge的处理、embedding的方法是高度可扩展，可以应用于各种NLP任务。</p>
 <h2 id="Bibliography"><a href="#Bibliography" class="headerlink" title="Bibliography"></a>Bibliography</h2><p>笔记参考 <a href="https://blog.csdn.net/TgqDT3gGaMdkHasLZv/article/details/80118742" target="_blank" rel="noopener">https://blog.csdn.net/TgqDT3gGaMdkHasLZv/article/details/80118742</a></p>
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">Annervaz, K. M., Somnath Basu Roy Chowdhury, and Ambedkar Dukkipati. &quot;Learning beyond datasets: Knowledge Graph Augmented Neural Networks for Natural language Processing.&quot; arXiv preprint arXiv:1802.05930 (2018).<a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">Annervaz, K. M., Somnath Basu Roy Chowdhury, and Ambedkar Dukkipati. ‘Learning beyond datasets: Knowledge Graph Augmented Neural Networks for Natural language Processing.’ arXiv preprint arXiv:1802.05930 (2018).<a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>
             </div>
         
         <footer class="article-footer">
@@ -308,7 +308,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="https://LorrinWWW.github.io/posts/[2018.5.10]Knowledge-Graph-Augmented-Neural-Networks-for-NLP/" data-id="cjh3akjxc002pzam9s185uygc" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://LorrinWWW.github.io/posts/[2018.5.10]Knowledge-Graph-Augmented-Neural-Networks-for-NLP/" data-id="cjh3ekx53002s16m95nl2k3ih" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding

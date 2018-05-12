@@ -4,30 +4,8 @@
 
     
   <url>
-    <loc>https://LorrinWWW.github.io/posts/update-rss/</loc>
-    <lastmod>2018-05-12T11:12:31.431Z</lastmod>
-    <data>
-        <display>
-        <title>Set up the RSS feed</title>
-        <pubTime>2018-05-12T10:57:31.000Z</pubTime>
-        
-        <tag>hexo</tag>
-         
-        <tag>rss</tag>
-         
-         
-           
-             
-              <breadCrumb title="other" url="https://LorrinWWW.github.io/categories/other/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://LorrinWWW.github.io/posts/%5B2018.5.10%5DKnowledge-Graph-Augmented-Neural-Networks-for-NLP/</loc>
-    <lastmod>2018-05-12T10:32:51.403Z</lastmod>
+    <lastmod>2018-05-12T13:04:33.157Z</lastmod>
     <data>
         <display>
         <title>Learning beyond datasets - Knowledge Graph Augmented Neural Networks for Natural language Processing 阅读笔记</title>
@@ -43,6 +21,28 @@
            
              
               <breadCrumb title="research" url="https://LorrinWWW.github.io/categories/research/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://LorrinWWW.github.io/posts/update-rss/</loc>
+    <lastmod>2018-05-12T11:12:31.431Z</lastmod>
+    <data>
+        <display>
+        <title>Set up the RSS feed</title>
+        <pubTime>2018-05-12T10:57:31.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+        <tag>rss</tag>
+         
+         
+           
+             
+              <breadCrumb title="other" url="https://LorrinWWW.github.io/categories/other/"/>
           
         </display>
     </data>
