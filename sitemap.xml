@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://LorrinWWW.github.io/posts/%5B2018.8.22%5DRegEx-with-NN/</loc>
+    
+    <lastmod>2018-09-16T07:00:56.794Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://LorrinWWW.github.io/posts/intro-about-KG/</loc>
+    
+    <lastmod>2018-07-01T13:27:45.722Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://LorrinWWW.github.io/posts/%5B2018.5.10%5DKnowledge-Graph-Augmented-Neural-Networks-for-NLP/</loc>
     
-    <lastmod>2018-05-12T13:04:33.157Z</lastmod>
+    <lastmod>2018-05-12T13:04:33.158Z</lastmod>
     
   </url>
   
@@ -25,14 +39,14 @@
   <url>
     <loc>https://LorrinWWW.github.io/posts/%5B2018.4.14%5DReinforcement-Learning-for-Relation-Classification-from-Noisy-Data/</loc>
     
-    <lastmod>2018-04-14T21:39:01.245Z</lastmod>
+    <lastmod>2018-04-14T21:39:01.246Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://LorrinWWW.github.io/posts/%5B2018.4.4%5DA-Neural-Model-for-Joint-Event-Detection-and-Summarization/</loc>
     
-    <lastmod>2018-04-04T22:12:54.419Z</lastmod>
+    <lastmod>2018-04-04T22:12:54.420Z</lastmod>
     
   </url>
   
@@ -53,14 +67,14 @@
   <url>
     <loc>https://LorrinWWW.github.io/posts/%5B2018.3.10%5DSeveral-models-for-kenowledge-graoh-representing-and-completing/</loc>
     
-    <lastmod>2018-03-16T18:44:54.838Z</lastmod>
+    <lastmod>2018-03-16T18:44:54.839Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://LorrinWWW.github.io/posts/proba-ch2/</loc>
     
-    <lastmod>2018-03-13T20:35:29.108Z</lastmod>
+    <lastmod>2018-03-13T20:35:29.109Z</lastmod>
     
   </url>
   
@@ -74,28 +88,28 @@
   <url>
     <loc>https://LorrinWWW.github.io/posts/%5B2018.2.26%5DOpen-World-Knowledge-Graph-Completion/</loc>
     
-    <lastmod>2018-03-12T20:23:16.727Z</lastmod>
+    <lastmod>2018-03-12T20:23:16.728Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://LorrinWWW.github.io/posts/%5B2018.2.5%5DNested-LSTMs/</loc>
     
-    <lastmod>2018-03-12T20:22:57.676Z</lastmod>
+    <lastmod>2018-03-12T20:22:57.677Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://LorrinWWW.github.io/posts/%5B2018.1.29%5DA-convolution%20BiLSTM-neural-network-model-for-chinese-event-extraction/</loc>
     
-    <lastmod>2018-03-12T20:22:36.988Z</lastmod>
+    <lastmod>2018-03-12T20:22:36.989Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://LorrinWWW.github.io/posts/%5B2018.1.21%5DEvent-detection-and-co-referentce/</loc>
     
-    <lastmod>2018-03-12T20:22:21.146Z</lastmod>
+    <lastmod>2018-03-12T20:22:21.147Z</lastmod>
     
   </url>
   
@@ -123,14 +137,14 @@
   <url>
     <loc>https://LorrinWWW.github.io/tags/index.html</loc>
     
-    <lastmod>2018-03-10T21:47:27.795Z</lastmod>
+    <lastmod>2018-03-10T21:47:27.796Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://LorrinWWW.github.io/posts/%5B2017.12.10%5DEntity-resolution/</loc>
     
-    <lastmod>2018-01-27T11:07:30.139Z</lastmod>
+    <lastmod>2018-01-27T11:07:30.140Z</lastmod>
     
   </url>
   

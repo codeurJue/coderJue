@@ -4,12 +4,60 @@
 
     
   <url>
+    <loc>https://LorrinWWW.github.io/posts/%5B2018.8.22%5DRegEx-with-NN/</loc>
+    <lastmod>2018-09-16T07:00:56.794Z</lastmod>
+    <data>
+        <display>
+        <title>RegEx with NN</title>
+        <pubTime>2018-08-22T05:58:00.000Z</pubTime>
+        
+        <tag>neural-network</tag>
+         
+        <tag>regular-expression</tag>
+         
+         
+           
+             
+              <breadCrumb title="research" url="https://LorrinWWW.github.io/categories/research/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://LorrinWWW.github.io/posts/intro-about-KG/</loc>
+    <lastmod>2018-07-01T13:27:45.722Z</lastmod>
+    <data>
+        <display>
+        <title>intro-about-KG</title>
+        <pubTime>2018-07-01T12:59:58.000Z</pubTime>
+        
+        <tag>deep-learning</tag>
+         
+        <tag>machine-learning</tag>
+         
+        <tag>knowledge-graph</tag>
+         
+        <tag>knowledge-reasoning</tag>
+         
+         
+           
+             
+              <breadCrumb title="research" url="https://LorrinWWW.github.io/categories/research/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://LorrinWWW.github.io/posts/%5B2018.5.10%5DKnowledge-Graph-Augmented-Neural-Networks-for-NLP/</loc>
-    <lastmod>2018-05-12T13:04:33.157Z</lastmod>
+    <lastmod>2018-05-12T13:04:33.158Z</lastmod>
     <data>
         <display>
         <title>Learning beyond datasets - Knowledge Graph Augmented Neural Networks for Natural language Processing 阅读笔记</title>
-        <pubTime>2018-05-10T06:00:00.000Z</pubTime>
+        <pubTime>2018-05-10T00:00:00.000Z</pubTime>
         
         <tag>knowledge-graph</tag>
          
@@ -33,7 +81,7 @@
     <data>
         <display>
         <title>Set up the RSS feed</title>
-        <pubTime>2018-05-12T10:57:31.000Z</pubTime>
+        <pubTime>2018-05-12T04:57:31.000Z</pubTime>
         
         <tag>hexo</tag>
          
@@ -52,11 +100,11 @@
     
   <url>
     <loc>https://LorrinWWW.github.io/posts/%5B2018.4.14%5DReinforcement-Learning-for-Relation-Classification-from-Noisy-Data/</loc>
-    <lastmod>2018-04-14T21:39:01.245Z</lastmod>
+    <lastmod>2018-04-14T21:39:01.246Z</lastmod>
     <data>
         <display>
         <title>Reinforcement Learning for Relation Classification from Noisy Data 阅读笔记</title>
-        <pubTime>2018-04-14T06:00:00.000Z</pubTime>
+        <pubTime>2018-04-14T00:00:00.000Z</pubTime>
         
         <tag>relation-extraction</tag>
          
@@ -76,11 +124,11 @@
     
   <url>
     <loc>https://LorrinWWW.github.io/posts/%5B2018.4.4%5DA-Neural-Model-for-Joint-Event-Detection-and-Summarization/</loc>
-    <lastmod>2018-04-04T22:12:54.419Z</lastmod>
+    <lastmod>2018-04-04T22:12:54.420Z</lastmod>
     <data>
         <display>
         <title>A Neural Model for Joint Event Detection and Summarization 阅读笔记</title>
-        <pubTime>2018-04-04T06:00:00.000Z</pubTime>
+        <pubTime>2018-04-04T00:00:00.000Z</pubTime>
         
         <tag>event-detection</tag>
          
@@ -102,7 +150,7 @@
     <data>
         <display>
         <title>Event detection 的几个神经网络模型</title>
-        <pubTime>2018-03-20T07:00:00.000Z</pubTime>
+        <pubTime>2018-03-20T00:00:00.000Z</pubTime>
         
         <tag>event-detection</tag>
          
@@ -124,7 +172,7 @@
     <data>
         <display>
         <title>Relation Classification via Attention Model 笔记</title>
-        <pubTime>2017-12-17T07:00:00.000Z</pubTime>
+        <pubTime>2017-12-17T00:00:00.000Z</pubTime>
         
         <tag>relation-extraction</tag>
          
@@ -144,11 +192,11 @@
     
   <url>
     <loc>https://LorrinWWW.github.io/posts/%5B2018.3.10%5DSeveral-models-for-kenowledge-graoh-representing-and-completing/</loc>
-    <lastmod>2018-03-16T18:44:54.838Z</lastmod>
+    <lastmod>2018-03-16T18:44:54.839Z</lastmod>
     <data>
         <display>
         <title>Several models for knowledge graph representing and completing 几个知识图谱模型</title>
-        <pubTime>2018-03-10T07:00:00.000Z</pubTime>
+        <pubTime>2018-03-10T00:00:00.000Z</pubTime>
         
         <tag>knowledge-graph</tag>
          
@@ -166,11 +214,11 @@
     
   <url>
     <loc>https://LorrinWWW.github.io/posts/proba-ch2/</loc>
-    <lastmod>2018-03-13T20:35:29.108Z</lastmod>
+    <lastmod>2018-03-13T20:35:29.109Z</lastmod>
     <data>
         <display>
         <title>proba-ch2 随机变量</title>
-        <pubTime>2016-12-01T11:17:33.000Z</pubTime>
+        <pubTime>2016-12-01T04:17:33.000Z</pubTime>
         
         <tag>math</tag>
          
@@ -194,7 +242,7 @@
     <data>
         <display>
         <title>Generative Adversarial Network</title>
-        <pubTime>2017-06-25T12:41:15.000Z</pubTime>
+        <pubTime>2017-06-25T06:41:15.000Z</pubTime>
         
         <tag>GAN</tag>
          
@@ -212,11 +260,11 @@
     
   <url>
     <loc>https://LorrinWWW.github.io/posts/%5B2018.2.26%5DOpen-World-Knowledge-Graph-Completion/</loc>
-    <lastmod>2018-03-12T20:23:16.727Z</lastmod>
+    <lastmod>2018-03-12T20:23:16.728Z</lastmod>
     <data>
         <display>
         <title>Open-World Knowledge Graph Completion 笔记</title>
-        <pubTime>2018-02-26T07:00:00.000Z</pubTime>
+        <pubTime>2018-02-26T00:00:00.000Z</pubTime>
         
         <tag>CNN</tag>
          
@@ -236,11 +284,11 @@
     
   <url>
     <loc>https://LorrinWWW.github.io/posts/%5B2018.2.5%5DNested-LSTMs/</loc>
-    <lastmod>2018-03-12T20:22:57.676Z</lastmod>
+    <lastmod>2018-03-12T20:22:57.677Z</lastmod>
     <data>
         <display>
         <title>Nested LSTMs 笔记</title>
-        <pubTime>2018-02-05T07:00:00.000Z</pubTime>
+        <pubTime>2018-02-05T00:00:00.000Z</pubTime>
         
         <tag>LSTM</tag>
          
@@ -258,11 +306,11 @@
     
   <url>
     <loc>https://LorrinWWW.github.io/posts/%5B2018.1.29%5DA-convolution%20BiLSTM-neural-network-model-for-chinese-event-extraction/</loc>
-    <lastmod>2018-03-12T20:22:36.988Z</lastmod>
+    <lastmod>2018-03-12T20:22:36.989Z</lastmod>
     <data>
         <display>
         <title>A convolution BiLSTM neural network model for chinese event extraction 笔记</title>
-        <pubTime>2018-01-29T07:00:00.000Z</pubTime>
+        <pubTime>2018-01-29T00:00:00.000Z</pubTime>
         
         <tag>convolution</tag>
          
@@ -282,11 +330,11 @@
     
   <url>
     <loc>https://LorrinWWW.github.io/posts/%5B2018.1.21%5DEvent-detection-and-co-referentce/</loc>
-    <lastmod>2018-03-12T20:22:21.146Z</lastmod>
+    <lastmod>2018-03-12T20:22:21.147Z</lastmod>
     <data>
         <display>
         <title>Event detection and co-reference with minimal supervision 笔记</title>
-        <pubTime>2018-01-21T07:00:00.000Z</pubTime>
+        <pubTime>2018-01-21T00:00:00.000Z</pubTime>
         
         <tag>event-detection</tag>
          
@@ -308,7 +356,7 @@
     <data>
         <display>
         <title>几个 relation extraction 远程监督模型</title>
-        <pubTime>2018-01-14T07:00:00.000Z</pubTime>
+        <pubTime>2018-01-14T00:00:00.000Z</pubTime>
         
         <tag>relation-extraction</tag>
          
@@ -330,7 +378,7 @@
     <data>
         <display>
         <title>Overcoming Limited Supervision in Relation Extraction 笔记</title>
-        <pubTime>2018-01-04T07:00:00.000Z</pubTime>
+        <pubTime>2018-01-04T00:00:00.000Z</pubTime>
         
         <tag>relation-extraction</tag>
          
@@ -352,11 +400,11 @@
     
   <url>
     <loc>https://LorrinWWW.github.io/posts/%5B2017.12.10%5DEntity-resolution/</loc>
-    <lastmod>2018-01-27T11:07:30.139Z</lastmod>
+    <lastmod>2018-01-27T11:07:30.140Z</lastmod>
     <data>
         <display>
         <title>实体解析 Entity resolution</title>
-        <pubTime>2017-12-10T07:00:00.000Z</pubTime>
+        <pubTime>2017-12-10T00:00:00.000Z</pubTime>
         
         <tag>entity-resolution</tag>
          
@@ -384,7 +432,7 @@
     <data>
         <display>
         <title>Note of NLP</title>
-        <pubTime>2017-06-26T18:52:45.000Z</pubTime>
+        <pubTime>2017-06-26T12:52:45.000Z</pubTime>
         
         <tag>deep-learning</tag>
          
@@ -408,7 +456,7 @@
     <data>
         <display>
         <title>Note of knowledge graph</title>
-        <pubTime>2017-06-25T09:21:18.000Z</pubTime>
+        <pubTime>2017-06-25T03:21:18.000Z</pubTime>
         
         <tag>machine-learning</tag>
          
@@ -432,7 +480,7 @@
     <data>
         <display>
         <title>Hands on Scrapy</title>
-        <pubTime>2017-06-21T18:00:27.000Z</pubTime>
+        <pubTime>2017-06-21T12:00:27.000Z</pubTime>
         
         <tag>scrapy</tag>
          
@@ -458,7 +506,7 @@
     <data>
         <display>
         <title>MongoDB, Docker and Python</title>
-        <pubTime>2017-06-22T12:53:44.000Z</pubTime>
+        <pubTime>2017-06-22T06:53:44.000Z</pubTime>
         
         <tag>python</tag>
          
@@ -484,7 +532,7 @@
     <data>
         <display>
         <title>learning OS and building LorriOS</title>
-        <pubTime>2016-12-28T14:00:08.000Z</pubTime>
+        <pubTime>2016-12-28T07:00:08.000Z</pubTime>
         
         <tag>OS</tag>
          
@@ -509,7 +557,7 @@
     <data>
         <display>
         <title>OS notes</title>
-        <pubTime>2017-04-15T16:59:08.000Z</pubTime>
+        <pubTime>2017-04-15T10:59:08.000Z</pubTime>
         
         <tag>OS</tag>
          
@@ -532,7 +580,7 @@
     <data>
         <display>
         <title>EDP finite element method</title>
-        <pubTime>2017-03-31T20:42:08.000Z</pubTime>
+        <pubTime>2017-03-31T14:42:08.000Z</pubTime>
         
         <tag>math</tag>
          
@@ -557,11 +605,11 @@
     <data>
         <display>
         <title>EDP basic models</title>
-        <pubTime>2017-03-06T09:04:58.000Z</pubTime>
+        <pubTime>2017-03-06T02:04:58.000Z</pubTime>
         
-        <tag>EDP</tag>
-         
         <tag>math</tag>
+         
+        <tag>EDP</tag>
          
          
            
@@ -579,11 +627,11 @@
     <data>
         <display>
         <title>Sobolev space</title>
-        <pubTime>2017-02-11T13:37:53.000Z</pubTime>
+        <pubTime>2017-02-11T06:37:53.000Z</pubTime>
         
-        <tag>EDP</tag>
-         
         <tag>math</tag>
+         
+        <tag>EDP</tag>
          
         <tag>analyse</tag>
          
@@ -608,7 +656,7 @@
     <data>
         <display>
         <title>Hilbert space</title>
-        <pubTime>2017-02-11T12:10:06.000Z</pubTime>
+        <pubTime>2017-02-11T05:10:06.000Z</pubTime>
         
         <tag>math</tag>
          
@@ -632,7 +680,7 @@
     <data>
         <display>
         <title>图论 graph</title>
-        <pubTime>2016-11-27T13:42:24.000Z</pubTime>
+        <pubTime>2016-11-27T06:42:24.000Z</pubTime>
         
         <tag>programming</tag>
          
@@ -656,7 +704,7 @@
     <data>
         <display>
         <title>EDP基础：矩阵的复习</title>
-        <pubTime>2017-02-07T09:22:27.000Z</pubTime>
+        <pubTime>2017-02-07T02:22:27.000Z</pubTime>
         
         <tag>EDP</tag>
          
@@ -678,7 +726,7 @@
     <data>
         <display>
         <title>Note of statistic</title>
-        <pubTime>2017-01-28T17:13:13.000Z</pubTime>
+        <pubTime>2017-01-28T10:13:13.000Z</pubTime>
         
         <tag>statistic</tag>
          
@@ -703,7 +751,7 @@
     <data>
         <display>
         <title>贝叶斯估计 Bayes estimation</title>
-        <pubTime>2017-01-07T15:46:31.000Z</pubTime>
+        <pubTime>2017-01-07T08:46:31.000Z</pubTime>
         
         <tag>Bayes</tag>
          
@@ -725,7 +773,7 @@
     <data>
         <display>
         <title>数据挖掘-分类与预测</title>
-        <pubTime>2016-12-26T13:56:57.000Z</pubTime>
+        <pubTime>2016-12-26T06:56:57.000Z</pubTime>
         
         <tag>programming</tag>
          
@@ -751,7 +799,7 @@
     <data>
         <display>
         <title>数据挖掘-定性归纳</title>
-        <pubTime>2016-12-08T20:31:50.000Z</pubTime>
+        <pubTime>2016-12-08T13:31:50.000Z</pubTime>
         
         <tag>programming</tag>
          
@@ -775,7 +823,7 @@
     <data>
         <display>
         <title>proba-ch4 高斯向量</title>
-        <pubTime>2016-12-01T15:28:52.000Z</pubTime>
+        <pubTime>2016-12-01T08:28:52.000Z</pubTime>
         
         <tag>math</tag>
          
@@ -799,7 +847,7 @@
     <data>
         <display>
         <title>ML CNN</title>
-        <pubTime>2016-12-14T09:34:43.000Z</pubTime>
+        <pubTime>2016-12-14T02:34:43.000Z</pubTime>
         
         <tag>machine-learning</tag>
          
@@ -828,7 +876,7 @@
     <data>
         <display>
         <title>participe présent et gérondif</title>
-        <pubTime>2016-12-06T11:31:56.000Z</pubTime>
+        <pubTime>2016-12-06T04:31:56.000Z</pubTime>
         
         <tag>francais</tag>
          
@@ -850,7 +898,7 @@
     <data>
         <display>
         <title>企业管理复习笔记</title>
-        <pubTime>2016-12-10T16:48:37.000Z</pubTime>
+        <pubTime>2016-12-10T09:48:37.000Z</pubTime>
         
         <tag>management</tag>
          
@@ -872,7 +920,7 @@
     <data>
         <display>
         <title>四叉树 QuadTree</title>
-        <pubTime>2016-12-13T17:45:37.000Z</pubTime>
+        <pubTime>2016-12-13T10:45:37.000Z</pubTime>
         
         <tag>algo</tag>
          
@@ -894,7 +942,7 @@
     <data>
         <display>
         <title>machine learning</title>
-        <pubTime>2016-12-12T21:04:47.000Z</pubTime>
+        <pubTime>2016-12-12T14:04:47.000Z</pubTime>
         
         <tag>machine-learning</tag>
          
@@ -917,7 +965,7 @@
     <data>
         <display>
         <title>proba-ch5 数列和随机变量系列</title>
-        <pubTime>2016-12-01T22:14:28.000Z</pubTime>
+        <pubTime>2016-12-01T15:14:28.000Z</pubTime>
         
         <tag>math</tag>
          
@@ -939,7 +987,7 @@
     <data>
         <display>
         <title>数据挖掘-预处理</title>
-        <pubTime>2016-12-06T21:05:57.000Z</pubTime>
+        <pubTime>2016-12-06T14:05:57.000Z</pubTime>
         
         <tag>programming</tag>
          
@@ -961,7 +1009,7 @@
     <data>
         <display>
         <title>数据挖掘笔记 Note of datamining</title>
-        <pubTime>2016-12-06T14:35:24.000Z</pubTime>
+        <pubTime>2016-12-06T07:35:24.000Z</pubTime>
         
         <tag>datamining</tag>
          
@@ -984,7 +1032,7 @@
     <data>
         <display>
         <title>概率论笔记 Note of probability</title>
-        <pubTime>2016-11-30T18:35:53.000Z</pubTime>
+        <pubTime>2016-11-30T11:35:53.000Z</pubTime>
         
         <tag>math</tag>
          
@@ -1006,7 +1054,7 @@
     <data>
         <display>
         <title>proba-ch6 条件期望</title>
-        <pubTime>2016-12-02T20:32:30.000Z</pubTime>
+        <pubTime>2016-12-02T13:32:30.000Z</pubTime>
         
         <tag>math</tag>
          
@@ -1028,7 +1076,7 @@
     <data>
         <display>
         <title>proba-ch3 实域概率和特征方程</title>
-        <pubTime>2016-12-01T13:54:10.000Z</pubTime>
+        <pubTime>2016-12-01T06:54:10.000Z</pubTime>
         
         <tag>math</tag>
          
@@ -1050,7 +1098,7 @@
     <data>
         <display>
         <title>proba-ch1 概率空间</title>
-        <pubTime>2016-12-01T11:17:29.000Z</pubTime>
+        <pubTime>2016-12-01T04:17:29.000Z</pubTime>
         
         <tag>math</tag>
          
@@ -1072,7 +1120,7 @@
     <data>
         <display>
         <title>解决hexo使用公式冲突问题 hexo with latex</title>
-        <pubTime>2016-11-30T21:19:02.000Z</pubTime>
+        <pubTime>2016-11-30T14:19:02.000Z</pubTime>
         
         <tag>hexo</tag>
          
@@ -1098,7 +1146,7 @@
     <data>
         <display>
         <title>Chrome插件开发 - Hello world</title>
-        <pubTime>2016-11-30T11:01:24.000Z</pubTime>
+        <pubTime>2016-11-30T04:01:24.000Z</pubTime>
         
         <tag>web</tag>
          
@@ -1120,7 +1168,7 @@
     <data>
         <display>
         <title>算法笔记 Note of learning Algo</title>
-        <pubTime>2016-11-27T11:38:32.000Z</pubTime>
+        <pubTime>2016-11-27T04:38:32.000Z</pubTime>
         
         <tag>programming</tag>
          
@@ -1142,7 +1190,7 @@
     <data>
         <display>
         <title>编码解码 compression</title>
-        <pubTime>2016-11-27T13:22:11.000Z</pubTime>
+        <pubTime>2016-11-27T06:22:11.000Z</pubTime>
         
         <tag>programming</tag>
          
@@ -1166,7 +1214,7 @@
     <data>
         <display>
         <title>面向考试常用编程思想 Method of programming facing to exams</title>
-        <pubTime>2016-11-27T12:49:31.000Z</pubTime>
+        <pubTime>2016-11-27T05:49:31.000Z</pubTime>
         
         <tag>programming</tag>
          
@@ -1188,7 +1236,7 @@
     <data>
         <display>
         <title>复杂度 complexity</title>
-        <pubTime>2016-11-27T09:52:05.000Z</pubTime>
+        <pubTime>2016-11-27T02:52:05.000Z</pubTime>
         
         <tag>programming</tag>
          
