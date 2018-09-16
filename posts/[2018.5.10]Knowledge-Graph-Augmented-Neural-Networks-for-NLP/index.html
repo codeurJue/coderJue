@@ -9,7 +9,7 @@
 <meta name="keywords" content="knowledge-graph,neural-network,NLP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Learning beyond datasets - Knowledge Graph Augmented Neural Networks for Natural language Processing 阅读笔记">
-<meta property="og:url" content="https://LorrinWWW.github.io/posts/[2018.5.10]Knowledge-Graph-Augmented-Neural-Networks-for-NLP/index.html">
+<meta property="og:url" content="https://blog.lorrin.info/posts/[2018.5.10]Knowledge-Graph-Augmented-Neural-Networks-for-NLP/index.html">
 <meta property="og:site_name" content="Lorrin&#39;s Blog">
 <meta property="og:description" content="Knowledge Graph Augmented Neural Networks for Natural language Processing 阅读笔记摘要：机器学习的效果一般依赖于具体的训练数据。一些学习模型可以结合贝叶斯中的先验知识，但是这些模型不具备根据需要访问任何有组织的知识的能力。在这项工作[1]中，我们以知识图谱（KG）的形式为NLP模型提供先验知识，使得模型取得更好的效果。我们的">
 <meta property="og:locale" content="zh-Hans">
@@ -182,8 +182,8 @@ var _hmt = _hmt || [];
         <div class="base-info profile-block">
             <img id="avatar" src="/css/images/avatar.png" />
             <h2 id="name">Lorrin</h2>
-            <h3 id="title">知识图谱 / NLPer / 法国留学</h3>
-            <span id="location"><i class="fa fa-map-marker"></i>Paris, France</span>
+            <h3 id="title">知识图谱 / NLPer / ZJUer</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>杭州</span>
             <a id="follow" target="_blank" href="https://github.com/lorrinWWW/">FOLLOW</a>
         </div>
         <div class="article-info profile-block">
@@ -282,7 +282,7 @@ var _hmt = _hmt || [];
 <p>通常我们通过训练集来得到我们所需的模型，但是它往往缺乏world knowledge或者常识，结果往往会有偏差。例如 ：“特朗普慰问了得克萨斯州的飓风幸存者和他们的家人”，我们需要知道$\langle \text{特朗普},\text{总统},\text{美国} \rangle$和$\langle \text{得克萨斯州},\text{州},\text{美国} \rangle$才能判断这是一个政治事件。因此我们认为对于机器学习模型，除了代表ground-truth的用于训练的数据集以外，我们还可以从结构化的知识库获取相关知识，以提高整体性能。</p>
 <p>因此我们提出了一个深度学习模型，可以根据需求从知识图谱中提取相关的事实，并将其也作为输入特征加以补充。特别的，当知识图谱非常大的时候，即其中的三元组数量非常大，以至于我们不可能逐一比较来提出相关信息时，我们提出了一种基于深度学习的搜寻机制，来大大提高搜寻速度，我们将在后文具体描述。</p>
 <h2 id="2-Knowledge-graph-representations"><a href="#2-Knowledge-graph-representations" class="headerlink" title="2. Knowledge graph representations"></a>2. Knowledge graph representations</h2><p>实体和关系需要进行embedding以进行后续处理，目前有很多种知识图谱的表示方法，主要可以被分为：structure-based embedding，semantically-enriched embedding。</p>
-<h4 id="structure-based-embedding"><a href="#structure-based-embedding" class="headerlink" title="structure-based embedding"></a>structure-based embedding</h4><p>其中包括经典的TransE以及其各种变体，它的基本假设就是$h + r = t$. 之前有一篇笔记主要介绍的就是这类知识图谱表示<a href="https://blog.lorrin.info/posts/[2018.3.10]Several-models-for-kenowledge-graoh-representing-and-completing/" target="_blank" rel="noopener">这里</a>。</p>
+<h4 id="structure-based-embedding"><a href="#structure-based-embedding" class="headerlink" title="structure-based embedding"></a>structure-based embedding</h4><p>其中包括经典的TransE以及其各种变体，它的基本假设就是$h + r = t$. 之前有一篇笔记主要介绍的就是这类知识图谱表示<a href="https://blog.lorrin.info/posts/[2018.3.10]Several-models-for-kenowledge-graoh-representing-and-completing/">这里</a>。</p>
 <h4 id="semantically-enriched-embedding"><a href="#semantically-enriched-embedding" class="headerlink" title="semantically-enriched embedding"></a>semantically-enriched embedding</h4><p>这些embedding技术学习表示KG的实体/关系及其语义信息。 神经张量网络（NTN）Socher et al [2011]是该领域的先驱工作，它使用平均词嵌入和基于张量的操作初始化实体向量。 最近涉及这个想法的作品是“联合对齐”Zhong et al。 [2015]和SSP Xiao et al。[2017]。 DKRL Xie et al [2016]是一种KG表示技术，它也保留了TransE模型简单结构的文本描述性。 预训过的word2vec被用来形成实体表示，通过一个卷积神经网络（CNN）来约束要保持的关系。</p>
 <p>作者采用了DKRL，因为它强调了文本的语义描述，同时，它也继承了TransE的方法。因此我们能够通过$t = h + r$的关系来提取相关实体或关系。这大大减少了提取fact（三元组）的复杂度，因为实体关系的组合数远小于三元组的数量，因此能够让这个过程的速度更快。</p>
 <h2 id="3-The-proposed-model"><a href="#3-The-proposed-model" class="headerlink" title="3. The proposed model"></a>3. The proposed model</h2><p>我们以一个文本分类模型为例，模型的参数为$\Theta$，训练集为$x$，标签为$y$，我们需要最大化下列方程：<br>$$<br>\max_{\Theta}{P(y|x, \Theta)}<br>$$</p>
@@ -308,7 +308,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="https://LorrinWWW.github.io/posts/[2018.5.10]Knowledge-Graph-Augmented-Neural-Networks-for-NLP/" data-id="cjm4i8dtx009ph6m9sd0xdbcz" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://blog.lorrin.info/posts/[2018.5.10]Knowledge-Graph-Augmented-Neural-Networks-for-NLP/" data-id="cjm4iurs900a0p3m9erxre7tj" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
