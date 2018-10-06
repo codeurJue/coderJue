@@ -181,11 +181,11 @@ var _hmt = _hmt || [];
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                53
+                54
                 <span>posts</span>
             </div>
             <div class="article-info-block">
-                70
+                71
                 <span>tags</span>
             </div>
         </div>
@@ -222,6 +222,167 @@ var _hmt = _hmt || [];
 
             
             <section id="main">
+    <article id="post-[2018.2.5]Nested-LSTMs" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/posts/[2018.2.5]Nested-LSTMs/">Nested LSTMs 笔记</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/posts/[2018.2.5]Nested-LSTMs/">
+            <time datetime="2018-02-05T00:00:00.000Z" itemprop="datePublished">2018-02-05</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/research/">research</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/LSTM/">LSTM</a>, <a class="tag-link" href="/tags/RNN/">RNN</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Nested-LSTMs"><a href="#Nested-LSTMs" class="headerlink" title="Nested LSTMs"></a>Nested LSTMs</h2><p><strong>摘要</strong>：最近，一种新的 Nested LSTMs 网络被提出。在通常的LSTM网络中，我们通过将LSTM单元堆叠，从而形成深度RNN网络，提高其效果；Nested LSTM则通过嵌套而不是堆栈来增添LSTM的深度。在NLSTM中，记忆单元的值是由LSTM单元计算的，其中，LSTM单元具有自身内在的记忆单元。具体而言，NLSTM记忆单元并不是按照等式：$c_t^{outer} = f_t \odot c_{t-1} + i_t \odot g_t$ 对（外部）记忆单元的值进行计算，而是使用级联：$(f_t \odot c_{t-1}, i_t \odot g_t)$ 将其作为内部LSTM（或NLSTM）记忆单元的输入，并设定 $c_t^{outer} = h_t^{inner}$。在访问内部记忆时，Nested LSTM 相比传统的堆栈 LSTM 有更高的自由度，从而能处理更长时间规模的内部记忆；实验也表明，在参数数量相似的情况下，NLSTM 在多种任务上都超越了堆栈 LSTM。作者认为Nested LSTM 有潜力直接取代堆栈 LSTM。</p>
+<h3 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h3><p>学习长期的依赖关系是当前人工智能领域中，尤其是在nlp领域，机器学习方法的关键性挑战。基于循环神经网络的体系结构已经在使得机器能够模仿这种能力方面取得了显著进展。</p>
+<h4 id="single-layer-LSTM"><a href="#single-layer-LSTM" class="headerlink" title="single-layer LSTM"></a>single-layer LSTM</h4><p><img src="http://oi4yiqiop.bkt.clouddn.com/2018-03-12-202251.jpg" width="90%"></p>
+<p>RNN的输入是以当前的状态为依据，适合学习时间上的抽象特征。在实践中，许多专家已经证明，更为复杂的体系结构是解决许多任务的关键。其中一个原因是梯度消失问题（Hochreiter于1991年、Bengio等人于1994年提出），它使得简单的RNN难以学习长期依赖关系。Hochreiter和Schmidhuber于1997年提出了LSTM，包含能够改善梯度消失问题的记忆机制。单层LSTM如上图，图中的三个单元实际上是同一个单元，它循环地将内部的参数传递给自己。</p>
+<h4 id="Stacked-LSTMs"><a href="#Stacked-LSTMs" class="headerlink" title="Stacked LSTMs"></a>Stacked LSTMs</h4><p><img src="http://oi4yiqiop.bkt.clouddn.com/2018-03-12-202254.jpg" width="60%"></p>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/posts/[2018.2.5]Nested-LSTMs/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="https://blog.lorrin.info/posts/[2018.2.5]Nested-LSTMs/" data-id="cjmwtp0nc0021uym9jjb8e3w5" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-[2018.1.29]A-convolution BiLSTM-neural-network-model-for-chinese-event-extraction" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -307,7 +468,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="https://blog.lorrin.info/posts/[2018.1.29]A-convolution BiLSTM-neural-network-model-for-chinese-event-extraction/" data-id="cjm4iurs3009vp3m9buts63xu" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://blog.lorrin.info/posts/[2018.1.29]A-convolution BiLSTM-neural-network-model-for-chinese-event-extraction/" data-id="cjmwtp0qh009ouym9m2hk9sy6" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -468,7 +629,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="https://blog.lorrin.info/posts/[2018.1.21]Event-detection-and-co-referentce/" data-id="cjm4iurp9001xp3m921vh5sy8" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://blog.lorrin.info/posts/[2018.1.21]Event-detection-and-co-referentce/" data-id="cjmwtp0n9001vuym9cly5o2j2" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -629,7 +790,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="https://blog.lorrin.info/posts/[2018.1.14]Models-for-relation-extraction/" data-id="cjm4iurp7001tp3m9yxiwse4h" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://blog.lorrin.info/posts/[2018.1.14]Models-for-relation-extraction/" data-id="cjmwtp0n7001suym9yrey6bhk" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -790,7 +951,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="https://blog.lorrin.info/posts/[2018.1.4]Overcoming-Limited-Supervision-in-Relation-Extraction/" data-id="cjm4iurpa0020p3m9y0eq3p5b" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://blog.lorrin.info/posts/[2018.1.4]Overcoming-Limited-Supervision-in-Relation-Extraction/" data-id="cjmwtp0nb001zuym9815iz41p" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -951,7 +1112,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="https://blog.lorrin.info/posts/[2017.12.17]Relation-Classification-via-Attention-Model/" data-id="cjm4iurp6001pp3m97g7ve77y" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://blog.lorrin.info/posts/[2017.12.17]Relation-Classification-via-Attention-Model/" data-id="cjmwtp0n4001luym96l9ea5xs" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1112,7 +1273,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="https://blog.lorrin.info/posts/[2017.12.10]Entity-resolution/" data-id="cjm4iurp4001mp3m924k2dmco" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://blog.lorrin.info/posts/[2017.12.10]Entity-resolution/" data-id="cjmwtp0n5001ouym9e3gxnd7y" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1273,7 +1434,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="https://blog.lorrin.info/posts/Note-of-NLP/" data-id="cjm4iuroq000qp3m9fg79ce1i" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://blog.lorrin.info/posts/Note-of-NLP/" data-id="cjmwtp0mt000tuym93xf6vy3h" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1434,7 +1595,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="https://blog.lorrin.info/posts/Generative-Adversarial-Network/" data-id="cjm4iurob0009p3m9b4clccyb" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://blog.lorrin.info/posts/Generative-Adversarial-Network/" data-id="cjmwtp0mc0007uym9s0bghew4" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1595,168 +1756,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="https://blog.lorrin.info/posts/Note-of-knowledge-graph/" data-id="cjm4iurou000wp3m9jvpet5p8" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-MongoDB-Docker-and-Python" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/posts/MongoDB-Docker-and-Python/">MongoDB, Docker and Python</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/posts/MongoDB-Docker-and-Python/">
-            <time datetime="2017-06-22T06:53:44.000Z" itemprop="datePublished">2017-06-22</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/programming/">programming</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/docker/">docker</a>, <a class="tag-link" href="/tags/mongo/">mongo</a>, <a class="tag-link" href="/tags/mongodb/">mongodb</a>, <a class="tag-link" href="/tags/python/">python</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>需要预先安装</p>
-<ul>
-<li>Docker</li>
-<li>Python<ul>
-<li>pymongo</li>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/posts/MongoDB-Docker-and-Python/#more">Read More</a>
-            </div>
-        
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="https://blog.lorrin.info/posts/MongoDB-Docker-and-Python/" data-id="cjm4iurop000op3m9ecn6a3s3" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://blog.lorrin.info/posts/Note-of-knowledge-graph/" data-id="cjmwtp0mu000vuym9j0g7v8xl" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1850,6 +1850,15 @@ var _hmt = _hmt || [];
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/research/">research</a></p>
+                            <p class="item-title"><a href="/posts/[2018.9]nlp-short-reviews-week-1/" class="title">nlp short reviews - week 1</a></p>
+                            <p class="item-date"><time datetime="2018-09-18T03:24:29.000Z" itemprop="datePublished">2018-09-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/research/">research</a></p>
                             <p class="item-title"><a href="/posts/[2018.8.22]RegEx-with-NN/" class="title">RegEx with NN</a></p>
                             <p class="item-date"><time datetime="2018-08-22T05:58:00.000Z" itemprop="datePublished">2018-08-22</time></p>
                         </div>
@@ -1882,15 +1891,6 @@ var _hmt = _hmt || [];
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/research/">research</a></p>
-                            <p class="item-title"><a href="/posts/[2018.4.14]Reinforcement-Learning-for-Relation-Classification-from-Noisy-Data/" class="title">Reinforcement Learning for Relation Classification from Noisy Data 阅读笔记</a></p>
-                            <p class="item-date"><time datetime="2018-04-14T00:00:00.000Z" itemprop="datePublished">2018-04-14</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -1900,7 +1900,7 @@ var _hmt = _hmt || [];
     <div class="widget-wrap">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/francais/">francais</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/math/">math</a><span class="category-list-count">14</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/math/unfinished/">unfinished</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/other/">other</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/programming/">programming</a><span class="category-list-count">20</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/unfinished/">unfinished</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/research/">research</a><span class="category-list-count">15</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/francais/">francais</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/math/">math</a><span class="category-list-count">14</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/math/unfinished/">unfinished</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/other/">other</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/programming/">programming</a><span class="category-list-count">20</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/unfinished/">unfinished</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/research/">research</a><span class="category-list-count">16</span></li></ul>
         </div>
     </div>
 
@@ -1909,7 +1909,7 @@ var _hmt = _hmt || [];
     <div class="widget-wrap">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">8</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">8</span></li></ul>
         </div>
     </div>
 
@@ -1918,7 +1918,7 @@ var _hmt = _hmt || [];
     <div class="widget-wrap">
         <h3 class="widget-title">tag cloud</h3>
         <div class="widget tagcloud">
-            <a href="/tags/Bayes/" style="font-size: 10px;">Bayes</a> <a href="/tags/BiLSTM/" style="font-size: 10px;">BiLSTM</a> <a href="/tags/CNN/" style="font-size: 11.67px;">CNN</a> <a href="/tags/EDP/" style="font-size: 13.33px;">EDP</a> <a href="/tags/FEM/" style="font-size: 10px;">FEM</a> <a href="/tags/GAN/" style="font-size: 10px;">GAN</a> <a href="/tags/Hilbert/" style="font-size: 10px;">Hilbert</a> <a href="/tags/KGC/" style="font-size: 11.67px;">KGC</a> <a href="/tags/LSTM/" style="font-size: 11.67px;">LSTM</a> <a href="/tags/NLP/" style="font-size: 10px;">NLP</a> <a href="/tags/OS/" style="font-size: 11.67px;">OS</a> <a href="/tags/RNN/" style="font-size: 11.67px;">RNN</a> <a href="/tags/Sobolev/" style="font-size: 10px;">Sobolev</a> <a href="/tags/aleatoire/" style="font-size: 10px;">aleatoire</a> <a href="/tags/algo/" style="font-size: 16.67px;">algo</a> <a href="/tags/analyse/" style="font-size: 11.67px;">analyse</a> <a href="/tags/attention/" style="font-size: 10px;">attention</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/classification/" style="font-size: 10px;">classification</a> <a href="/tags/co-reference/" style="font-size: 10px;">co-reference</a> <a href="/tags/complexity/" style="font-size: 10px;">complexity</a> <a href="/tags/compression/" style="font-size: 10px;">compression</a> <a href="/tags/convolution/" style="font-size: 10px;">convolution</a> <a href="/tags/crawl/" style="font-size: 10px;">crawl</a> <a href="/tags/data-structure/" style="font-size: 10px;">data-structure</a> <a href="/tags/datamining/" style="font-size: 15px;">datamining</a> <a href="/tags/deep-learning/" style="font-size: 13.33px;">deep-learning</a> <a href="/tags/distant-supervision/" style="font-size: 10px;">distant-supervision</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/entity-resolution/" style="font-size: 10px;">entity-resolution</a> <a href="/tags/event-detection/" style="font-size: 13.33px;">event-detection</a> <a href="/tags/event-extraction/" style="font-size: 10px;">event-extraction</a> <a href="/tags/firm/" style="font-size: 10px;">firm</a> <a href="/tags/francais/" style="font-size: 10px;">francais</a> <a href="/tags/graph/" style="font-size: 10px;">graph</a> <a href="/tags/hexo/" style="font-size: 11.67px;">hexo</a> <a href="/tags/kernel/" style="font-size: 10px;">kernel</a> <a href="/tags/knowledge-graph/" style="font-size: 15px;">knowledge-graph</a> <a href="/tags/knowledge-reasoning/" style="font-size: 10px;">knowledge-reasoning</a> <a href="/tags/language/" style="font-size: 10px;">language</a> <a href="/tags/latex/" style="font-size: 10px;">latex</a> <a href="/tags/limited-supervision/" style="font-size: 10px;">limited-supervision</a> <a href="/tags/machine-learning/" style="font-size: 15px;">machine-learning</a> <a href="/tags/management/" style="font-size: 10px;">management</a> <a href="/tags/marked/" style="font-size: 10px;">marked</a> <a href="/tags/math/" style="font-size: 20px;">math</a> <a href="/tags/mathjax/" style="font-size: 10px;">mathjax</a> <a href="/tags/matrix/" style="font-size: 10px;">matrix</a> <a href="/tags/mongo/" style="font-size: 10px;">mongo</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/neural-network/" style="font-size: 13.33px;">neural-network</a> <a href="/tags/nlp/" style="font-size: 10px;">nlp</a> <a href="/tags/prediction/" style="font-size: 10px;">prediction</a> <a href="/tags/probability/" style="font-size: 16.67px;">probability</a> <a href="/tags/programming/" style="font-size: 18.33px;">programming</a> <a href="/tags/python/" style="font-size: 11.67px;">python</a> <a href="/tags/qualitative-induction/" style="font-size: 10px;">qualitative-induction</a> <a href="/tags/regular-expression/" style="font-size: 10px;">regular-expression</a> <a href="/tags/reinforcement-learning/" style="font-size: 10px;">reinforcement-learning</a> <a href="/tags/relation-classification/" style="font-size: 11.67px;">relation-classification</a> <a href="/tags/relation-extraction/" style="font-size: 15px;">relation-extraction</a> <a href="/tags/rss/" style="font-size: 10px;">rss</a> <a href="/tags/scrapy/" style="font-size: 10px;">scrapy</a> <a href="/tags/sequence-labeling/" style="font-size: 10px;">sequence-labeling</a> <a href="/tags/spider/" style="font-size: 10px;">spider</a> <a href="/tags/statistic/" style="font-size: 11.67px;">statistic</a> <a href="/tags/summarization/" style="font-size: 10px;">summarization</a> <a href="/tags/vector/" style="font-size: 10px;">vector</a> <a href="/tags/weak-supervision/" style="font-size: 10px;">weak-supervision</a> <a href="/tags/web/" style="font-size: 10px;">web</a>
+            <a href="/tags/Bayes/" style="font-size: 10px;">Bayes</a> <a href="/tags/BiLSTM/" style="font-size: 10px;">BiLSTM</a> <a href="/tags/CNN/" style="font-size: 11.67px;">CNN</a> <a href="/tags/EDP/" style="font-size: 13.33px;">EDP</a> <a href="/tags/FEM/" style="font-size: 10px;">FEM</a> <a href="/tags/GAN/" style="font-size: 10px;">GAN</a> <a href="/tags/Hilbert/" style="font-size: 10px;">Hilbert</a> <a href="/tags/KGC/" style="font-size: 11.67px;">KGC</a> <a href="/tags/LSTM/" style="font-size: 11.67px;">LSTM</a> <a href="/tags/NLP/" style="font-size: 10px;">NLP</a> <a href="/tags/OS/" style="font-size: 11.67px;">OS</a> <a href="/tags/RNN/" style="font-size: 11.67px;">RNN</a> <a href="/tags/Sobolev/" style="font-size: 10px;">Sobolev</a> <a href="/tags/aleatoire/" style="font-size: 10px;">aleatoire</a> <a href="/tags/algo/" style="font-size: 16.67px;">algo</a> <a href="/tags/analyse/" style="font-size: 11.67px;">analyse</a> <a href="/tags/attention/" style="font-size: 10px;">attention</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/classification/" style="font-size: 10px;">classification</a> <a href="/tags/co-reference/" style="font-size: 10px;">co-reference</a> <a href="/tags/complexity/" style="font-size: 10px;">complexity</a> <a href="/tags/compression/" style="font-size: 10px;">compression</a> <a href="/tags/convolution/" style="font-size: 10px;">convolution</a> <a href="/tags/crawl/" style="font-size: 10px;">crawl</a> <a href="/tags/data-structure/" style="font-size: 10px;">data-structure</a> <a href="/tags/datamining/" style="font-size: 15px;">datamining</a> <a href="/tags/deep-learning/" style="font-size: 13.33px;">deep-learning</a> <a href="/tags/distant-supervision/" style="font-size: 10px;">distant-supervision</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/entity-resolution/" style="font-size: 10px;">entity-resolution</a> <a href="/tags/event-detection/" style="font-size: 13.33px;">event-detection</a> <a href="/tags/event-extraction/" style="font-size: 10px;">event-extraction</a> <a href="/tags/firm/" style="font-size: 10px;">firm</a> <a href="/tags/francais/" style="font-size: 10px;">francais</a> <a href="/tags/graph/" style="font-size: 10px;">graph</a> <a href="/tags/hexo/" style="font-size: 11.67px;">hexo</a> <a href="/tags/kernel/" style="font-size: 10px;">kernel</a> <a href="/tags/knowledge-graph/" style="font-size: 15px;">knowledge-graph</a> <a href="/tags/knowledge-reasoning/" style="font-size: 10px;">knowledge-reasoning</a> <a href="/tags/language/" style="font-size: 10px;">language</a> <a href="/tags/latex/" style="font-size: 10px;">latex</a> <a href="/tags/limited-supervision/" style="font-size: 10px;">limited-supervision</a> <a href="/tags/machine-learning/" style="font-size: 15px;">machine-learning</a> <a href="/tags/management/" style="font-size: 10px;">management</a> <a href="/tags/marked/" style="font-size: 10px;">marked</a> <a href="/tags/math/" style="font-size: 20px;">math</a> <a href="/tags/mathjax/" style="font-size: 10px;">mathjax</a> <a href="/tags/matrix/" style="font-size: 10px;">matrix</a> <a href="/tags/mongo/" style="font-size: 10px;">mongo</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/neural-network/" style="font-size: 13.33px;">neural-network</a> <a href="/tags/nlp/" style="font-size: 11.67px;">nlp</a> <a href="/tags/prediction/" style="font-size: 10px;">prediction</a> <a href="/tags/probability/" style="font-size: 16.67px;">probability</a> <a href="/tags/programming/" style="font-size: 18.33px;">programming</a> <a href="/tags/python/" style="font-size: 11.67px;">python</a> <a href="/tags/qualitative-induction/" style="font-size: 10px;">qualitative-induction</a> <a href="/tags/regular-expression/" style="font-size: 10px;">regular-expression</a> <a href="/tags/reinforcement-learning/" style="font-size: 10px;">reinforcement-learning</a> <a href="/tags/relation-classification/" style="font-size: 11.67px;">relation-classification</a> <a href="/tags/relation-extraction/" style="font-size: 15px;">relation-extraction</a> <a href="/tags/review/" style="font-size: 10px;">review</a> <a href="/tags/rss/" style="font-size: 10px;">rss</a> <a href="/tags/scrapy/" style="font-size: 10px;">scrapy</a> <a href="/tags/sequence-labeling/" style="font-size: 10px;">sequence-labeling</a> <a href="/tags/spider/" style="font-size: 10px;">spider</a> <a href="/tags/statistic/" style="font-size: 11.67px;">statistic</a> <a href="/tags/summarization/" style="font-size: 10px;">summarization</a> <a href="/tags/vector/" style="font-size: 10px;">vector</a> <a href="/tags/weak-supervision/" style="font-size: 10px;">weak-supervision</a> <a href="/tags/web/" style="font-size: 10px;">web</a>
         </div>
     </div>
 
