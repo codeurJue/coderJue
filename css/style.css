@@ -663,9 +663,13 @@ code {
 }
 #profile .inner .base-info #name,
 #profile .inner .base-info #title,
+#profile .inner .base-info #description,
 #profile .inner .base-info #location {
   display: block;
   text-align: center;
+}
+#profile .inner .base-info #description {
+  margin-top: 5px;
 }
 #profile .inner .base-info #name {
   font-size: 20px;
