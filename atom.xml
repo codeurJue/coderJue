@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Lorrin&#39;s Blog</title>
   
-  <subtitle>老和山职业技术学院修电脑专业小硕 | L&#39;ingénieur CentraleSupélec</subtitle>
+  <subtitle>MSCS@ZJU | Ingénieur CentraleSupélec</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.lorrin.info/"/>
-  <updated>2018-10-06T02:10:34.775Z</updated>
+  <updated>2018-10-13T07:54:10.109Z</updated>
   <id>https://blog.lorrin.info/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>nlp short reviews - week 2</title>
+    <link href="https://blog.lorrin.info/posts/%5B2018.10%5Dnlp-short-reviews-week-2/"/>
+    <id>https://blog.lorrin.info/posts/[2018.10]nlp-short-reviews-week-2/</id>
+    <published>2018-10-10T03:24:29.000Z</published>
+    <updated>2018-10-13T07:54:10.109Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>### </p><h4 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h4><h4 id="Comment"><a href="#Comment" class="headerlink" title="Comment"></a>Comment</h4><h5 id="motivation"><a href="#motivation" class="headerlink" title="motivation"></a>motivation</h5><h5 id="innovation"><a href="#innovation" class="headerlink" title="innovation"></a>innovation</h5><h5 id="strength-amp-weakness"><a href="#strength-amp-weakness" class="headerlink" title="strength &amp; weakness"></a>strength &amp; weakness</h5><h5 id="other"><a href="#other" class="headerlink" title="other"></a>other</h5><p>o</p><p>### </p><h4 id="Abstract-1"><a href="#Abstract-1" class="headerlink" title="Abstract"></a>Abstract</h4><h4 id="Comment-1"><a href="#Comment-1" class="headerlink" title="Comment"></a>Comment</h4><h5 id="motivation-1"><a href="#motivation-1" class="headerlink" title="motivation"></a>motivation</h5><h5 id="innovation-1"><a href="#innovation-1" class="headerlink" title="innovation"></a>innovation</h5><h5 id="strength-amp-weakness-1"><a href="#strength-amp-weakness-1" class="headerlink" title="strength &amp; weakness"></a>strength &amp; weakness</h5><h5 id="other-1"><a href="#other-1" class="headerlink" title="other"></a>other</h5>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css&quot;&gt;&lt;p&gt;### &lt;/p&gt;
+&lt;h4 id=&quot;Abstract&quot;&gt;&lt;a href=&quot;#A
+      
+    
+    </summary>
+    
+      <category term="research" scheme="https://blog.lorrin.info/categories/research/"/>
+    
+    
+      <category term="nlp" scheme="https://blog.lorrin.info/tags/nlp/"/>
+    
+      <category term="review" scheme="https://blog.lorrin.info/tags/review/"/>
+    
+  </entry>
   
   <entry>
     <title>nlp short reviews - week 1</title>
@@ -48,7 +76,7 @@
     <link href="https://blog.lorrin.info/posts/%5B2018.8.22%5DRegEx-with-NN/"/>
     <id>https://blog.lorrin.info/posts/[2018.8.22]RegEx-with-NN/</id>
     <published>2018-08-22T05:58:00.000Z</published>
-    <updated>2018-09-16T07:00:56.794Z</updated>
+    <updated>2018-10-06T03:04:02.879Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>这两天在实习没有太多的时间写笔记orz，正好趁着公司内部分享的时候稍微写几笔。（然而一直没发出来）</p><h1 id="Marrying-Up-Regexs-with-Neural-Networks"><a href="#Marrying-Up-Regexs-with-Neural-Networks" class="headerlink" title="Marrying Up Regexs with Neural Networks"></a>Marrying Up Regexs with Neural Networks</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><ul><li><p>正则表达式 </p><ul><li><p>简明、扼要、可调，不依赖大规模标注数据</p></li><li><p>泛化性能差，所以变体、同义词都需要人为编写</p></li></ul></li><li><p>神经网络 </p><ul><li>拟合能力强、泛化性能强  </li><li>需要大量标注数据，解释性差</li></ul></li></ul><p>因此工程上常常结合两个，正则解决部分cases，剩下交给统计模型，一般来说就是神经网络了。</p><p>那么有没有可能正则和神经网络结合起来？Bingfeng et al. 2018<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="Luo, Bingfeng, et al. Marrying up Regular Expressions with Neural Networks: A Case Study for Spoken Language Understanding. arXiv preprint arXiv:1805.05588 (2018). ">[1]</span></a></sup>给出了一些思路。</p><h2 id="Problem-def-and-the-baselines"><a href="#Problem-def-and-the-baselines" class="headerlink" title="Problem def. and the baselines"></a>Problem def. and the baselines</h2><p>文章主要解决两个问题，intent detection和slot filling，也可以认为是classification和seq2seq的任务。这里的baselines主要有两个，正则表达式的尝试和Liu, Bing, and Ian Lane. 2016<sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="Liu, Bing, and Ian Lane. Attention-based recurrent neural network models for joint intent detection and slot filling. arXiv preprint arXiv:1609.01454 (2016). ">[2]</span></a></sup>提出的attention-based rnn。思路可以见下图。</p><p><img src="http://oi4yiqiop.bkt.clouddn.com/2018-09-16-063410.png" alt="image-20180916143407395"></p><h2 id="Approaches"><a href="#Approaches" class="headerlink" title="Approaches"></a>Approaches</h2><p>文章主要在三个方面进行尝试：input level、network level、output level。</p><h3 id="Input-level"><a href="#Input-level" class="headerlink" title="Input level"></a>Input level</h3><ul><li><p>For intent detection, </p><p>two possible approach:</p><ul><li>Append the embedding to all words (deprecated &lt;= 从结果上看会导致网络过于依赖正则)</li><li>Append the embedding to the input of softmax layer(① in Fig(a) )</li></ul></li><li><p>For slot filling, </p><p>Embed and average the REtags into a vector fi for each word and append it to the corresponding word embedding wi (① in Fig(b) )</p></li></ul><p><img src="http://oi4yiqiop.bkt.clouddn.com/2018-09-16-064101.png" alt="image-20180916144059096"></p><h3 id="Network-level"><a href="#Network-level" class="headerlink" title="Network level"></a>Network level</h3><ul><li><p>For intent detection, </p><p>For each intent label k, use different attention ak , which is used to generate the sentence embedding sk   (② in Fig(a) )</p><p>Note that a RE can also indicate that a sentence does not express intent k (negative REs), it is also necessary to set another group of attention. </p></li></ul><p>$$<br>  s_{k} = \sum_i {\alpha_{ki} h_i}, \quad \alpha_{ki} = \frac{\exp(h_i^T W_{a} c_k)}{\sum_i {\exp(h_i^T W_{a} c_k)}}<br>$$</p><ul><li><p>For slot filling, </p><p>The mechanism introduced for intent detection is unsuitable for slot filling.</p><p>A simple version of the two-side attention, where all the slot labels share the same set of positive and negative attention. (② in Fig(b) )</p><p>$$<br>s_{pi} = \sum_j {\alpha_{pij} h_j}, \quad \alpha_{pij} = \frac{\exp(h_j^T W_{sp} h_i)}{\sum_j {\exp(h_j^T W_{sp} h_i)}}<br>$$</p></li></ul><p><img src="http://oi4yiqiop.bkt.clouddn.com/2018-09-16-064735.png" alt="image-20180916144733081"></p><h3 id="Output-level"><a href="#Output-level" class="headerlink" title="Output level"></a>Output level</h3><p>Let $z_k$ be a 0-1 indicator of whether there is at least one matched RE that leads to target label $k$ (intent or slot label), the final logits of label k for a sentence (or a spefic word for slot filling) is:<br>$$<br>logit_k = logit_k’ + w_k z_k<br>$$<br>where $logit′_k$ is the logit produced by the original NN, and $w_k$ is a trainable weight indicating the overall confidence for REs that lead to target label $k$.</p><h2 id="Experimental-Results"><a href="#Experimental-Results" class="headerlink" title="Experimental Results"></a>Experimental Results</h2><p><img src="http://oi4yiqiop.bkt.clouddn.com/2018-09-16-065006.png" alt="image-20180916145004296"> </p><p><img src="http://oi4yiqiop.bkt.clouddn.com/2018-09-16-065035.png" alt="image-20180916145033498"></p><h2 id="Bibliography"><a href="#Bibliography" class="headerlink" title="Bibliography"></a>Bibliography</h2><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">Luo, Bingfeng, et al. Marrying up Regular Expressions with Neural Networks: A Case Study for Spoken Language Understanding. arXiv preprint arXiv:1805.05588 (2018).<a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">Liu, Bing, and Ian Lane. Attention-based recurrent neural network models for joint intent detection and slot filling. arXiv preprint arXiv:1609.01454 (2016).<a href="#fnref:2" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
     
@@ -178,9 +206,9 @@
       <category term="research" scheme="https://blog.lorrin.info/categories/research/"/>
     
     
-      <category term="relation-classification" scheme="https://blog.lorrin.info/tags/relation-classification/"/>
-    
       <category term="relation-extraction" scheme="https://blog.lorrin.info/tags/relation-extraction/"/>
+    
+      <category term="relation-classification" scheme="https://blog.lorrin.info/tags/relation-classification/"/>
     
       <category term="reinforcement-learning" scheme="https://blog.lorrin.info/tags/reinforcement-learning/"/>
     
@@ -456,11 +484,11 @@
       <category term="research" scheme="https://blog.lorrin.info/categories/research/"/>
     
     
+      <category term="relation-extraction" scheme="https://blog.lorrin.info/tags/relation-extraction/"/>
+    
       <category term="relation-classification" scheme="https://blog.lorrin.info/tags/relation-classification/"/>
     
       <category term="attention" scheme="https://blog.lorrin.info/tags/attention/"/>
-    
-      <category term="relation-extraction" scheme="https://blog.lorrin.info/tags/relation-extraction/"/>
     
   </entry>
   
@@ -485,11 +513,11 @@
       <category term="research" scheme="https://blog.lorrin.info/categories/research/"/>
     
     
-      <category term="relation-extraction" scheme="https://blog.lorrin.info/tags/relation-extraction/"/>
-    
       <category term="entity-resolution" scheme="https://blog.lorrin.info/tags/entity-resolution/"/>
     
       <category term="sequence-labeling" scheme="https://blog.lorrin.info/tags/sequence-labeling/"/>
+    
+      <category term="relation-extraction" scheme="https://blog.lorrin.info/tags/relation-extraction/"/>
     
       <category term="LSTM" scheme="https://blog.lorrin.info/tags/LSTM/"/>
     
@@ -550,35 +578,6 @@
       <category term="GAN" scheme="https://blog.lorrin.info/tags/GAN/"/>
     
       <category term="deep-learning" scheme="https://blog.lorrin.info/tags/deep-learning/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Note of knowledge graph</title>
-    <link href="https://blog.lorrin.info/posts/Note-of-knowledge-graph/"/>
-    <id>https://blog.lorrin.info/posts/Note-of-knowledge-graph/</id>
-    <published>2017-06-25T03:21:18.000Z</published>
-    <updated>2017-06-25T05:40:19.000Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="知识图谱-Knowledge-graph"><a href="#知识图谱-Knowledge-graph" class="headerlink" title="知识图谱 Knowledge graph"></a>知识图谱 Knowledge graph</h1><p>知识图谱的概念由Google提出，目前成为一大热点。总体而言，英文知识图谱的文献相对齐全。中英文知识图谱的差别主要体现于对自然语言的处理，对于中文而言，首先准确的分词，其次要应对中文想对自由的语法和语言形式。</p><p>下面是一些笔记。</p><p>知识图谱的构建：</p><h2 id="1-信息抽取-information-extraction"><a href="#1-信息抽取-information-extraction" class="headerlink" title="1. 信息抽取 information extraction"></a>1. 信息抽取 information extraction</h2><p>我们需要能够自动化地从结构化、半结构化和无结构数据中抽取实体(entity)、关系(relationship)以及实体属性等。</p><ol><li>实体抽取 entity extraction<ul><li>实体提取：<ul><li>liu等人，Knn算法和条件随机场模型</li><li>lin等人，字典和最大熵算法</li></ul></li><li>实体分类：<ul><li>2012，ling等人，借鉴freebase归纳实体分类方法，条件随机场模型进行实体边界识别，自适应感知机算法实现对实体的自动分类，结果优于Stanford NER等主流命名实体识别系统</li><li>预定义实体分类并不好，新思路：对于给定实体，采用统计机器学习等方法，从目标数据集中抽取与之俱有相似的上下文特征等实体，从而实现实体的分类和聚类。参考whitelaw的解决方案</li><li>​</li></ul></li></ul></li><li>关系抽取 relationship extraction</li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css&quot;&gt;&lt;h1 id=&quot;知识图谱-Knowledge-graph&quot;&gt;&lt;a href=&quot;#知
-      
-    
-    </summary>
-    
-      <category term="programming" scheme="https://blog.lorrin.info/categories/programming/"/>
-    
-    
-      <category term="machine-learning" scheme="https://blog.lorrin.info/tags/machine-learning/"/>
-    
-      <category term="datamining" scheme="https://blog.lorrin.info/tags/datamining/"/>
-    
-      <category term="knowledge-graph" scheme="https://blog.lorrin.info/tags/knowledge-graph/"/>
     
   </entry>
   
