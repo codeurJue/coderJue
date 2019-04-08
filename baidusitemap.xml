@@ -5,28 +5,6 @@
     
     
   <url>
-    <loc>https://blog.lorrin.info/posts/%5B2018.10%5Dnlp-short-reviews-week-2/</loc>
-    <lastmod>2018-10-13T07:54:10.109Z</lastmod>
-    <data>
-        <display>
-        <title>nlp short reviews - week 2</title>
-        <pubTime>2018-10-10T03:24:29.000Z</pubTime>
-        
-        <tag>nlp</tag>
-         
-        <tag>review</tag>
-         
-         
-           
-             
-              <breadCrumb title="research" url="https://blog.lorrin.info/categories/research/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://blog.lorrin.info/posts/%5B2018.8.22%5DRegEx-with-NN/</loc>
     <lastmod>2018-10-06T03:04:02.879Z</lastmod>
     <data>
@@ -726,9 +704,9 @@
         <title>图论 graph</title>
         <pubTime>2016-11-27T06:42:24.000Z</pubTime>
         
-        <tag>programming</tag>
-         
         <tag>algo</tag>
+         
+        <tag>programming</tag>
          
         <tag>graph</tag>
          
@@ -893,11 +871,11 @@
         <title>ML CNN</title>
         <pubTime>2016-12-14T02:34:43.000Z</pubTime>
         
-        <tag>machine-learning</tag>
+        <tag>algo</tag>
          
         <tag>programming</tag>
          
-        <tag>algo</tag>
+        <tag>machine-learning</tag>
          
         <tag>CNN</tag>
          
@@ -1214,9 +1192,9 @@
         <title>算法笔记 Note of learning Algo</title>
         <pubTime>2016-11-27T04:38:32.000Z</pubTime>
         
-        <tag>programming</tag>
-         
         <tag>algo</tag>
+         
+        <tag>programming</tag>
          
          
            
@@ -1236,9 +1214,9 @@
         <title>编码解码 compression</title>
         <pubTime>2016-11-27T06:22:11.000Z</pubTime>
         
-        <tag>programming</tag>
-         
         <tag>algo</tag>
+         
+        <tag>programming</tag>
          
         <tag>compression</tag>
          
@@ -1260,9 +1238,9 @@
         <title>面向考试常用编程思想 Method of programming facing to exams</title>
         <pubTime>2016-11-27T05:49:31.000Z</pubTime>
         
-        <tag>programming</tag>
-         
         <tag>algo</tag>
+         
+        <tag>programming</tag>
          
          
            
@@ -1282,9 +1260,9 @@
         <title>复杂度 complexity</title>
         <pubTime>2016-11-27T02:52:05.000Z</pubTime>
         
-        <tag>programming</tag>
-         
         <tag>algo</tag>
+         
+        <tag>programming</tag>
          
         <tag>complexity</tag>
          

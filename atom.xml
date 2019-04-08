@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.lorrin.info/"/>
-  <updated>2018-10-13T07:54:10.109Z</updated>
+  <updated>2018-10-06T02:10:34.775Z</updated>
   <id>https://blog.lorrin.info/</id>
   
   <author>
@@ -15,34 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>nlp short reviews - week 2</title>
-    <link href="https://blog.lorrin.info/posts/%5B2018.10%5Dnlp-short-reviews-week-2/"/>
-    <id>https://blog.lorrin.info/posts/[2018.10]nlp-short-reviews-week-2/</id>
-    <published>2018-10-10T03:24:29.000Z</published>
-    <updated>2018-10-13T07:54:10.109Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>### </p><h4 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h4><h4 id="Comment"><a href="#Comment" class="headerlink" title="Comment"></a>Comment</h4><h5 id="motivation"><a href="#motivation" class="headerlink" title="motivation"></a>motivation</h5><h5 id="innovation"><a href="#innovation" class="headerlink" title="innovation"></a>innovation</h5><h5 id="strength-amp-weakness"><a href="#strength-amp-weakness" class="headerlink" title="strength &amp; weakness"></a>strength &amp; weakness</h5><h5 id="other"><a href="#other" class="headerlink" title="other"></a>other</h5><p>o</p><p>### </p><h4 id="Abstract-1"><a href="#Abstract-1" class="headerlink" title="Abstract"></a>Abstract</h4><h4 id="Comment-1"><a href="#Comment-1" class="headerlink" title="Comment"></a>Comment</h4><h5 id="motivation-1"><a href="#motivation-1" class="headerlink" title="motivation"></a>motivation</h5><h5 id="innovation-1"><a href="#innovation-1" class="headerlink" title="innovation"></a>innovation</h5><h5 id="strength-amp-weakness-1"><a href="#strength-amp-weakness-1" class="headerlink" title="strength &amp; weakness"></a>strength &amp; weakness</h5><h5 id="other-1"><a href="#other-1" class="headerlink" title="other"></a>other</h5>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css&quot;&gt;&lt;p&gt;### &lt;/p&gt;
-&lt;h4 id=&quot;Abstract&quot;&gt;&lt;a href=&quot;#A
-      
-    
-    </summary>
-    
-      <category term="research" scheme="https://blog.lorrin.info/categories/research/"/>
-    
-    
-      <category term="nlp" scheme="https://blog.lorrin.info/tags/nlp/"/>
-    
-      <category term="review" scheme="https://blog.lorrin.info/tags/review/"/>
-    
-  </entry>
   
   <entry>
     <title>nlp short reviews - week 1</title>
@@ -578,6 +550,35 @@
       <category term="GAN" scheme="https://blog.lorrin.info/tags/GAN/"/>
     
       <category term="deep-learning" scheme="https://blog.lorrin.info/tags/deep-learning/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Note of knowledge graph</title>
+    <link href="https://blog.lorrin.info/posts/Note-of-knowledge-graph/"/>
+    <id>https://blog.lorrin.info/posts/Note-of-knowledge-graph/</id>
+    <published>2017-06-25T03:21:18.000Z</published>
+    <updated>2017-06-25T05:40:19.000Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="知识图谱-Knowledge-graph"><a href="#知识图谱-Knowledge-graph" class="headerlink" title="知识图谱 Knowledge graph"></a>知识图谱 Knowledge graph</h1><p>知识图谱的概念由Google提出，目前成为一大热点。总体而言，英文知识图谱的文献相对齐全。中英文知识图谱的差别主要体现于对自然语言的处理，对于中文而言，首先准确的分词，其次要应对中文想对自由的语法和语言形式。</p><p>下面是一些笔记。</p><p>知识图谱的构建：</p><h2 id="1-信息抽取-information-extraction"><a href="#1-信息抽取-information-extraction" class="headerlink" title="1. 信息抽取 information extraction"></a>1. 信息抽取 information extraction</h2><p>我们需要能够自动化地从结构化、半结构化和无结构数据中抽取实体(entity)、关系(relationship)以及实体属性等。</p><ol><li>实体抽取 entity extraction<ul><li>实体提取：<ul><li>liu等人，Knn算法和条件随机场模型</li><li>lin等人，字典和最大熵算法</li></ul></li><li>实体分类：<ul><li>2012，ling等人，借鉴freebase归纳实体分类方法，条件随机场模型进行实体边界识别，自适应感知机算法实现对实体的自动分类，结果优于Stanford NER等主流命名实体识别系统</li><li>预定义实体分类并不好，新思路：对于给定实体，采用统计机器学习等方法，从目标数据集中抽取与之俱有相似的上下文特征等实体，从而实现实体的分类和聚类。参考whitelaw的解决方案</li><li>​</li></ul></li></ul></li><li>关系抽取 relationship extraction</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css&quot;&gt;&lt;h1 id=&quot;知识图谱-Knowledge-graph&quot;&gt;&lt;a href=&quot;#知
+      
+    
+    </summary>
+    
+      <category term="programming" scheme="https://blog.lorrin.info/categories/programming/"/>
+    
+    
+      <category term="machine-learning" scheme="https://blog.lorrin.info/tags/machine-learning/"/>
+    
+      <category term="datamining" scheme="https://blog.lorrin.info/tags/datamining/"/>
+    
+      <category term="knowledge-graph" scheme="https://blog.lorrin.info/tags/knowledge-graph/"/>
     
   </entry>
   
