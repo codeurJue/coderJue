@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://juewang.me/"/>
-  <updated>2020-02-09T09:38:06.696Z</updated>
+  <updated>2020-02-09T12:15:59.766Z</updated>
   <id>https://juewang.me/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://juewang.me/posts/vps-cheatsheet/"/>
     <id>https://juewang.me/posts/vps-cheatsheet/</id>
     <published>2020-02-09T08:18:11.000Z</published>
-    <updated>2020-02-09T09:38:06.696Z</updated>
+    <updated>2020-02-09T12:15:59.766Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="Basics"><a href="#Basics" class="headerlink" title="Basics"></a>Basics</h1><h2 id="Create-New-Users"><a href="#Create-New-Users" class="headerlink" title="Create New Users"></a>Create New Users</h2><p>first login in the root account.</p><p>to add a user:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adduser [UserName]</span><br></pre></td></tr></table></figure><p>if want it to have sudo privilege, then:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">usermod -aG sudo [UserName]</span><br></pre></td></tr></table></figure><h2 id="Set-Up-SSH-Config"><a href="#Set-Up-SSH-Config" class="headerlink" title="Set Up SSH Config"></a>Set Up SSH Config</h2><p>add these to ~/.ssh/config</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Host [ShortNameForTheVPS]</span><br><span class="line">HostName [ItsIPOrDomain]</span><br><span class="line">User [TheUserToLogin]</span><br><span class="line">IdentitiesOnly yes</span><br></pre></td></tr></table></figure><p>if you want to ssh via proxy, for MacOS users:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Host [ShortNameForTheVPS]</span><br><span class="line">HostName [ItsIPOrDomain]</span><br><span class="line">ProxyCommand nc -X 5 -x 127.0.0.1:1082 %h %p</span><br><span class="line">User [TheUserToLogin]</span><br><span class="line">IdentitiesOnly yes</span><br></pre></td></tr></table></figure><p>-X 5 means using socks5; -x specify proxy server ip and port.</p><p>then ssh-copy-id, so we don’t have to type password every time we ssh:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-copy-id [ShortNameForTheVPS]</span><br></pre></td></tr></table></figure><p>As the result, we only need to type to login:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh [ShortNameForTheVPS]</span><br></pre></td></tr></table></figure><h2 id="Powerful-Vim"><a href="#Powerful-Vim" class="headerlink" title="Powerful Vim"></a>Powerful Vim</h2><p>Life is short, I use spf13.</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl https://j.mp/spf13-vim3 -L &gt; spf13-vim.sh &amp;&amp; sh spf13-vim.sh</span><br></pre></td></tr></table></figure><p>if every thing goes fine, it will usually take within 5 minnutes.</p><h2 id="Powerful-Zsh"><a href="#Powerful-Zsh" class="headerlink" title="Powerful Zsh"></a>Powerful Zsh</h2><p>Bash is good but Zsh is better. For ubuntu users:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install zsh</span><br></pre></td></tr></table></figure><p>Again, life is short, I use oh-my-zsh.</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh -c <span class="string">"<span class="variable">$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)</span>"</span></span><br></pre></td></tr></table></figure><p>it is installed instantly.</p><h1 id="Network-Related"><a href="#Network-Related" class="headerlink" title="Network Related"></a>Network Related</h1><p>Usually it is suggested to expose ports as few as possible, and only preserve 80(HTTP) and 443(HTTPS).</p><p>We can use nginx/caddy/… to do HTTP(S) reverse proxy.</p><h2 id="Caddy"><a href="#Caddy" class="headerlink" title="Caddy"></a>Caddy</h2><p>install go</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install golang</span><br></pre></td></tr></table></figure><p>install caddy. we choose caddy 1 here.</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl https://getcaddy.com | bash -s personal</span><br></pre></td></tr></table></figure><h1 id="Scientific-Purpose"><a href="#Scientific-Purpose" class="headerlink" title="Scientific Purpose"></a>Scientific Purpose</h1><p>e.g. interactive demo.</p><h2 id="Python-Environment"><a href="#Python-Environment" class="headerlink" title="Python Environment"></a>Python Environment</h2><p>download anaconda, the latest address can be found <a href="https://www.anaconda.com/distribution/" target="_blank" rel="noopener">here</a>.</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://repo.anaconda.com/archive/Anaconda3-2019.10-Linux-x86_64.sh</span><br></pre></td></tr></table></figure><p>install it.</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash Anaconda3-2019.10-Linux-x86_64.sh</span><br></pre></td></tr></table></figure><p>if use zsh, the install script won’t add initialization script to .zshrc, so we need to copy from .bashrc</p><p>re-login, so the initialization script will work.</p><p>install pytorch will be another long story, so we won’t go in deep here.</p>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="Basics"><a href="#Basics" class="headerlink" title="Basics"></a>Basics</h1><h2 id="Create-New-Users"><a href="#Create-New-Users" class="headerlink" title="Create New Users"></a>Create New Users</h2><p>first login in the root account.</p><p>to add a user:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adduser [UserName]</span><br></pre></td></tr></table></figure><p>if want it to have sudo privilege, then:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">usermod -aG sudo [UserName]</span><br></pre></td></tr></table></figure><h2 id="Set-Up-SSH-Config"><a href="#Set-Up-SSH-Config" class="headerlink" title="Set Up SSH Config"></a>Set Up SSH Config</h2><p>add these to ~/.ssh/config</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Host [ShortNameForTheVPS]</span><br><span class="line">HostName [ItsIPOrDomain]</span><br><span class="line">User [TheUserToLogin]</span><br><span class="line">IdentitiesOnly yes</span><br></pre></td></tr></table></figure><p>if you want to ssh via proxy, for MacOS users:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Host [ShortNameForTheVPS]</span><br><span class="line">HostName [ItsIPOrDomain]</span><br><span class="line">ProxyCommand nc -X 5 -x 127.0.0.1:1082 %h %p</span><br><span class="line">User [TheUserToLogin]</span><br><span class="line">IdentitiesOnly yes</span><br></pre></td></tr></table></figure><p>-X 5 means using socks5; -x specify proxy server ip and port.</p><p>then ssh-copy-id, so we don’t have to type password every time we ssh:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-copy-id [ShortNameForTheVPS]</span><br></pre></td></tr></table></figure><p>As the result, we only need to type to login:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh [ShortNameForTheVPS]</span><br></pre></td></tr></table></figure><h2 id="Powerful-Vim"><a href="#Powerful-Vim" class="headerlink" title="Powerful Vim"></a>Powerful Vim</h2><p>Life is short, I use spf13.</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl https://j.mp/spf13-vim3 -L &gt; spf13-vim.sh &amp;&amp; sh spf13-vim.sh</span><br></pre></td></tr></table></figure><p>if every thing goes fine, it will usually take within 5 minnutes.</p><h2 id="Powerful-Zsh"><a href="#Powerful-Zsh" class="headerlink" title="Powerful Zsh"></a>Powerful Zsh</h2><p>Bash is good but Zsh is better. For ubuntu users:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install zsh</span><br></pre></td></tr></table></figure><p>Again, life is short, I use oh-my-zsh.</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh -c <span class="string">"<span class="variable">$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)</span>"</span></span><br></pre></td></tr></table></figure><p>it is installed instantly.</p><h1 id="Network-Related"><a href="#Network-Related" class="headerlink" title="Network Related"></a>Network Related</h1><p>Usually it is suggested to expose ports as few as possible, and only preserve 80(HTTP) and 443(HTTPS).</p><p>We can use nginx/caddy/… to do HTTP(S) reverse proxy.</p><h2 id="Caddy"><a href="#Caddy" class="headerlink" title="Caddy"></a>Caddy</h2><p>install go</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install golang</span><br></pre></td></tr></table></figure><p>install caddy. we choose caddy 1 here.</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl https://getcaddy.com | bash -s personal</span><br></pre></td></tr></table></figure><p>run caddy, and it should run as a simple server on port 2015. it should return 404 when visit.</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">caddy</span><br></pre></td></tr></table></figure><p>to run caddy as server, follow instructions <a href="https://github.com/caddyserver/caddy/tree/master/dist/init/linux-systemd" target="_blank" rel="noopener">here</a>.</p><p>to use CloudFlare CDN, follow instuctions <a href="https://melty.land/blog/caddy-and-cloudflare" target="_blank" rel="noopener">here(chinese)</a></p><h1 id="Scientific-Purpose"><a href="#Scientific-Purpose" class="headerlink" title="Scientific Purpose"></a>Scientific Purpose</h1><p>e.g. interactive demo.</p><h2 id="Python-Environment"><a href="#Python-Environment" class="headerlink" title="Python Environment"></a>Python Environment</h2><p>download anaconda, the latest address can be found <a href="https://www.anaconda.com/distribution/" target="_blank" rel="noopener">here</a>.</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://repo.anaconda.com/archive/Anaconda3-2019.10-Linux-x86_64.sh</span><br></pre></td></tr></table></figure><p>install it.</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash Anaconda3-2019.10-Linux-x86_64.sh</span><br></pre></td></tr></table></figure><p>if use zsh, the install script won’t add initialization script to .zshrc, so we need to copy from .bashrc</p><p>re-login, so the initialization script will work.</p><p>install pytorch will be another long story, so we won’t go in deep here.</p>]]></content>
     
     <summary type="html">
     
@@ -116,9 +116,9 @@
       <category term="research" scheme="https://juewang.me/categories/research/"/>
     
     
-      <category term="deep-learning" scheme="https://juewang.me/tags/deep-learning/"/>
-    
       <category term="machine-learning" scheme="https://juewang.me/tags/machine-learning/"/>
+    
+      <category term="deep-learning" scheme="https://juewang.me/tags/deep-learning/"/>
     
       <category term="knowledge-graph" scheme="https://juewang.me/tags/knowledge-graph/"/>
     
@@ -203,9 +203,9 @@
       <category term="research" scheme="https://juewang.me/categories/research/"/>
     
     
-      <category term="relation-extraction" scheme="https://juewang.me/tags/relation-extraction/"/>
-    
       <category term="relation-classification" scheme="https://juewang.me/tags/relation-classification/"/>
+    
+      <category term="relation-extraction" scheme="https://juewang.me/tags/relation-extraction/"/>
     
       <category term="reinforcement-learning" scheme="https://juewang.me/tags/reinforcement-learning/"/>
     
@@ -481,11 +481,11 @@
       <category term="research" scheme="https://juewang.me/categories/research/"/>
     
     
-      <category term="relation-extraction" scheme="https://juewang.me/tags/relation-extraction/"/>
-    
       <category term="relation-classification" scheme="https://juewang.me/tags/relation-classification/"/>
     
       <category term="attention" scheme="https://juewang.me/tags/attention/"/>
+    
+      <category term="relation-extraction" scheme="https://juewang.me/tags/relation-extraction/"/>
     
   </entry>
   
@@ -510,11 +510,11 @@
       <category term="research" scheme="https://juewang.me/categories/research/"/>
     
     
+      <category term="relation-extraction" scheme="https://juewang.me/tags/relation-extraction/"/>
+    
       <category term="entity-resolution" scheme="https://juewang.me/tags/entity-resolution/"/>
     
       <category term="sequence-labeling" scheme="https://juewang.me/tags/sequence-labeling/"/>
-    
-      <category term="relation-extraction" scheme="https://juewang.me/tags/relation-extraction/"/>
     
       <category term="LSTM" scheme="https://juewang.me/tags/LSTM/"/>
     
@@ -543,11 +543,11 @@
       <category term="programming" scheme="https://juewang.me/categories/programming/"/>
     
     
-      <category term="deep-learning" scheme="https://juewang.me/tags/deep-learning/"/>
+      <category term="nlp" scheme="https://juewang.me/tags/nlp/"/>
     
       <category term="machine-learning" scheme="https://juewang.me/tags/machine-learning/"/>
     
-      <category term="nlp" scheme="https://juewang.me/tags/nlp/"/>
+      <category term="deep-learning" scheme="https://juewang.me/tags/deep-learning/"/>
     
   </entry>
   
@@ -572,9 +572,9 @@
       <category term="programming" scheme="https://juewang.me/categories/programming/"/>
     
     
-      <category term="GAN" scheme="https://juewang.me/tags/GAN/"/>
-    
       <category term="deep-learning" scheme="https://juewang.me/tags/deep-learning/"/>
+    
+      <category term="GAN" scheme="https://juewang.me/tags/GAN/"/>
     
   </entry>
   
