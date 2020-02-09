@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    
+    <title>CheatSheet for Setting up New VPS | Lorrin&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="BasicsCreate New Usersfirst login in the root account. to add a user: 1adduser [UserName] if want it to have sudo privilege, then: 1usermod -aG sudo [UserName] Set Up SSH Configadd these to ~/.ssh/con">
+<meta name="keywords" content="vps">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CheatSheet for Setting up New VPS">
+<meta property="og:url" content="https://juewang.me/posts/vps-cheatsheet/index.html">
+<meta property="og:site_name" content="Lorrin&#39;s Blog">
+<meta property="og:description" content="BasicsCreate New Usersfirst login in the root account. to add a user: 1adduser [UserName] if want it to have sudo privilege, then: 1usermod -aG sudo [UserName] Set Up SSH Configadd these to ~/.ssh/con">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-02-09T09:38:06.696Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CheatSheet for Setting up New VPS">
+<meta name="twitter:description" content="BasicsCreate New Usersfirst login in the root account. to add a user: 1adduser [UserName] if want it to have sudo privilege, then: 1usermod -aG sudo [UserName] Set Up SSH Configadd these to ~/.ssh/con">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="Lorrin&#39;s Blog" type="application/atom+xml" />
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-115582186-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+    
+    
+    
+        <script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?d658b8749c4d1a1df617cd593b1dc4a6";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+
+
+
+    <script src="/js/baidupush.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                
+                <span class="site-title">Lorrin&#39;s Blog</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">Home</a>
+                
+                    <a class="main-nav-link" href="/archives">Archives</a>
+                
+                    <a class="main-nav-link" href="/categories">Categories</a>
+                
+                    <a class="main-nav-link" href="/tags">Tags</a>
+                
+                    <a class="main-nav-link" href="/about">About</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/css/images/avatar.png" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Articles',
+            PAGES: 'Pages',
+            CATEGORIES: 'Catégories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">Home</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">Archives</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">Categories</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">Tags</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">About</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/css/images/avatar.png" />
+            <h2 id="name">Jue Wang</h2>
+            <h3 id="title">NLPer / ZJUer</h3>
+            
+                <div id="description">
+                    More about <a href="/about">me</a>, and my <a href="/about/resume-Jue.Wang.pdf">resume</a>.
+                </div>
+            
+            <span id="location"><i class="fa fa-map-marker"></i>HangZhou, China</span>
+            <a id="follow" target="_blank" href="https://github.com/lorrinWWW/">SUIVRE</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                55
+                <span>Articles</span>
+            </div>
+            <div class="article-info-block">
+                72
+                <span>Tags</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="https://github.com/lorrinWWW/" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="https://www.zhihu.com/people/wang-jue-9/" target="_blank" title="zhihu" class=tooltip>
+                            <i class="fa fa-zhihu"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/atom.xml" target="_blank" title="rss" class=tooltip>
+                            <i class="fa fa-rss"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-vps-cheatsheet" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            CheatSheet for Setting up New VPS
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/posts/vps-cheatsheet/">
+            <time datetime="2020-02-09T08:18:11.000Z" itemprop="datePublished">2020-02-09</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/other/">other</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/vps/">vps</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+        
+        
+            <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="Basics"><a href="#Basics" class="headerlink" title="Basics"></a>Basics</h1><h2 id="Create-New-Users"><a href="#Create-New-Users" class="headerlink" title="Create New Users"></a>Create New Users</h2><p>first login in the root account.</p>
+<p>to add a user:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adduser [UserName]</span><br></pre></td></tr></table></figure>
+<p>if want it to have sudo privilege, then:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">usermod -aG sudo [UserName]</span><br></pre></td></tr></table></figure>
+<h2 id="Set-Up-SSH-Config"><a href="#Set-Up-SSH-Config" class="headerlink" title="Set Up SSH Config"></a>Set Up SSH Config</h2><p>add these to ~/.ssh/config</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Host [ShortNameForTheVPS]</span><br><span class="line">HostName [ItsIPOrDomain]</span><br><span class="line">User [TheUserToLogin]</span><br><span class="line">IdentitiesOnly yes</span><br></pre></td></tr></table></figure>
+<p>if you want to ssh via proxy, for MacOS users:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Host [ShortNameForTheVPS]</span><br><span class="line">HostName [ItsIPOrDomain]</span><br><span class="line">ProxyCommand nc -X 5 -x 127.0.0.1:1082 %h %p</span><br><span class="line">User [TheUserToLogin]</span><br><span class="line">IdentitiesOnly yes</span><br></pre></td></tr></table></figure>
+<p>-X 5 means using socks5; -x specify proxy server ip and port.</p>
+<p>then ssh-copy-id, so we don’t have to type password every time we ssh:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-copy-id [ShortNameForTheVPS]</span><br></pre></td></tr></table></figure>
+<p>As the result, we only need to type to login:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh [ShortNameForTheVPS]</span><br></pre></td></tr></table></figure>
+<h2 id="Powerful-Vim"><a href="#Powerful-Vim" class="headerlink" title="Powerful Vim"></a>Powerful Vim</h2><p>Life is short, I use spf13.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl https://j.mp/spf13-vim3 -L &gt; spf13-vim.sh &amp;&amp; sh spf13-vim.sh</span><br></pre></td></tr></table></figure>
+<p>if every thing goes fine, it will usually take within 5 minnutes.</p>
+<h2 id="Powerful-Zsh"><a href="#Powerful-Zsh" class="headerlink" title="Powerful Zsh"></a>Powerful Zsh</h2><p>Bash is good but Zsh is better. For ubuntu users:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install zsh</span><br></pre></td></tr></table></figure>
+<p>Again, life is short, I use oh-my-zsh.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh -c <span class="string">"<span class="variable">$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)</span>"</span></span><br></pre></td></tr></table></figure>
+<p>it is installed instantly.</p>
+<h1 id="Network-Related"><a href="#Network-Related" class="headerlink" title="Network Related"></a>Network Related</h1><p>Usually it is suggested to expose ports as few as possible, and only preserve 80(HTTP) and 443(HTTPS).</p>
+<p>We can use nginx/caddy/… to do HTTP(S) reverse proxy.</p>
+<h2 id="Caddy"><a href="#Caddy" class="headerlink" title="Caddy"></a>Caddy</h2><p>install go</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install golang</span><br></pre></td></tr></table></figure>
+<p>install caddy. we choose caddy 1 here.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl https://getcaddy.com | bash -s personal</span><br></pre></td></tr></table></figure>
+<h1 id="Scientific-Purpose"><a href="#Scientific-Purpose" class="headerlink" title="Scientific Purpose"></a>Scientific Purpose</h1><p>e.g. interactive demo.</p>
+<h2 id="Python-Environment"><a href="#Python-Environment" class="headerlink" title="Python Environment"></a>Python Environment</h2><p>download anaconda, the latest address can be found <a href="https://www.anaconda.com/distribution/" target="_blank" rel="noopener">here</a>.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://repo.anaconda.com/archive/Anaconda3-2019.10-Linux-x86_64.sh</span><br></pre></td></tr></table></figure>
+<p>install it.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash Anaconda3-2019.10-Linux-x86_64.sh</span><br></pre></td></tr></table></figure>
+<p>if use zsh, the install script won’t add initialization script to .zshrc, so we need to copy from .bashrc</p>
+<p>re-login, so the initialization script will work.</p>
+<p>install pytorch will be another long story, so we won’t go in deep here.</p>
+
+            </div>
+        
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="https://juewang.me/posts/vps-cheatsheet/" data-id="ck6eudt05004qbwm9n9az6rky" class="article-share-link"><i class="fa fa-share"></i>Partager</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/posts/[2018.9]nlp-short-reviews-week-1/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Plus ancien</strong>
+            <div class="article-nav-title">nlp short reviews - week 1</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+        <section id="comments">
+	<div id="commentContainer"></div>
+</section>
+    
+
+</section>
+            
+                
+<aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">Récents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/posts/vps-cheatsheet/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/other/">other</a></p>
+                            <p class="item-title"><a href="/posts/vps-cheatsheet/" class="title">CheatSheet for Setting up New VPS</a></p>
+                            <p class="item-date"><time datetime="2020-02-09T08:18:11.000Z" itemprop="datePublished">2020-02-09</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/posts/[2018.9]nlp-short-reviews-week-1/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/research/">research</a></p>
+                            <p class="item-title"><a href="/posts/[2018.9]nlp-short-reviews-week-1/" class="title">nlp short reviews - week 1</a></p>
+                            <p class="item-date"><time datetime="2018-09-18T03:24:29.000Z" itemprop="datePublished">2018-09-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/posts/[2018.8.22]RegEx-with-NN/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/research/">research</a></p>
+                            <p class="item-title"><a href="/posts/[2018.8.22]RegEx-with-NN/" class="title">RegEx with NN</a></p>
+                            <p class="item-date"><time datetime="2018-08-22T05:58:00.000Z" itemprop="datePublished">2018-08-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/posts/intro-about-KG/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/research/">research</a></p>
+                            <p class="item-title"><a href="/posts/intro-about-KG/" class="title">intro-about-KG</a></p>
+                            <p class="item-date"><time datetime="2018-07-01T12:59:58.000Z" itemprop="datePublished">2018-07-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/posts/update-rss/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/other/">other</a></p>
+                            <p class="item-title"><a href="/posts/update-rss/" class="title">Set up the RSS feed</a></p>
+                            <p class="item-date"><time datetime="2018-05-12T04:57:31.000Z" itemprop="datePublished">2018-05-12</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">Catégories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/francais/">francais</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/math/">math</a><span class="category-list-count">14</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/math/unfinished/">unfinished</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/other/">other</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/programming/">programming</a><span class="category-list-count">20</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/unfinished/">unfinished</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/research/">research</a><span class="category-list-count">16</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">Archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">8</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">Nuage de tags</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Bayes/" style="font-size: 10px;">Bayes</a> <a href="/tags/BiLSTM/" style="font-size: 10px;">BiLSTM</a> <a href="/tags/CNN/" style="font-size: 11.67px;">CNN</a> <a href="/tags/EDP/" style="font-size: 13.33px;">EDP</a> <a href="/tags/FEM/" style="font-size: 10px;">FEM</a> <a href="/tags/GAN/" style="font-size: 10px;">GAN</a> <a href="/tags/Hilbert/" style="font-size: 10px;">Hilbert</a> <a href="/tags/KGC/" style="font-size: 11.67px;">KGC</a> <a href="/tags/LSTM/" style="font-size: 11.67px;">LSTM</a> <a href="/tags/NLP/" style="font-size: 10px;">NLP</a> <a href="/tags/OS/" style="font-size: 11.67px;">OS</a> <a href="/tags/RNN/" style="font-size: 11.67px;">RNN</a> <a href="/tags/Sobolev/" style="font-size: 10px;">Sobolev</a> <a href="/tags/aleatoire/" style="font-size: 10px;">aleatoire</a> <a href="/tags/algo/" style="font-size: 16.67px;">algo</a> <a href="/tags/analyse/" style="font-size: 11.67px;">analyse</a> <a href="/tags/attention/" style="font-size: 10px;">attention</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/classification/" style="font-size: 10px;">classification</a> <a href="/tags/co-reference/" style="font-size: 10px;">co-reference</a> <a href="/tags/complexity/" style="font-size: 10px;">complexity</a> <a href="/tags/compression/" style="font-size: 10px;">compression</a> <a href="/tags/convolution/" style="font-size: 10px;">convolution</a> <a href="/tags/crawl/" style="font-size: 10px;">crawl</a> <a href="/tags/data-structure/" style="font-size: 10px;">data-structure</a> <a href="/tags/datamining/" style="font-size: 15px;">datamining</a> <a href="/tags/deep-learning/" style="font-size: 13.33px;">deep-learning</a> <a href="/tags/distant-supervision/" style="font-size: 10px;">distant-supervision</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/entity-resolution/" style="font-size: 10px;">entity-resolution</a> <a href="/tags/event-detection/" style="font-size: 13.33px;">event-detection</a> <a href="/tags/event-extraction/" style="font-size: 10px;">event-extraction</a> <a href="/tags/firm/" style="font-size: 10px;">firm</a> <a href="/tags/francais/" style="font-size: 10px;">francais</a> <a href="/tags/graph/" style="font-size: 10px;">graph</a> <a href="/tags/hexo/" style="font-size: 11.67px;">hexo</a> <a href="/tags/kernel/" style="font-size: 10px;">kernel</a> <a href="/tags/knowledge-graph/" style="font-size: 15px;">knowledge-graph</a> <a href="/tags/knowledge-reasoning/" style="font-size: 10px;">knowledge-reasoning</a> <a href="/tags/language/" style="font-size: 10px;">language</a> <a href="/tags/latex/" style="font-size: 10px;">latex</a> <a href="/tags/limited-supervision/" style="font-size: 10px;">limited-supervision</a> <a href="/tags/machine-learning/" style="font-size: 15px;">machine-learning</a> <a href="/tags/management/" style="font-size: 10px;">management</a> <a href="/tags/marked/" style="font-size: 10px;">marked</a> <a href="/tags/math/" style="font-size: 20px;">math</a> <a href="/tags/mathjax/" style="font-size: 10px;">mathjax</a> <a href="/tags/matrix/" style="font-size: 10px;">matrix</a> <a href="/tags/mongo/" style="font-size: 10px;">mongo</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/neural-network/" style="font-size: 13.33px;">neural-network</a> <a href="/tags/nlp/" style="font-size: 11.67px;">nlp</a> <a href="/tags/prediction/" style="font-size: 10px;">prediction</a> <a href="/tags/probability/" style="font-size: 16.67px;">probability</a> <a href="/tags/programming/" style="font-size: 18.33px;">programming</a> <a href="/tags/python/" style="font-size: 11.67px;">python</a> <a href="/tags/qualitative-induction/" style="font-size: 10px;">qualitative-induction</a> <a href="/tags/regular-expression/" style="font-size: 10px;">regular-expression</a> <a href="/tags/reinforcement-learning/" style="font-size: 10px;">reinforcement-learning</a> <a href="/tags/relation-classification/" style="font-size: 11.67px;">relation-classification</a> <a href="/tags/relation-extraction/" style="font-size: 15px;">relation-extraction</a> <a href="/tags/review/" style="font-size: 10px;">review</a> <a href="/tags/rss/" style="font-size: 10px;">rss</a> <a href="/tags/scrapy/" style="font-size: 10px;">scrapy</a> <a href="/tags/sequence-labeling/" style="font-size: 10px;">sequence-labeling</a> <a href="/tags/spider/" style="font-size: 10px;">spider</a> <a href="/tags/statistic/" style="font-size: 11.67px;">statistic</a> <a href="/tags/summarization/" style="font-size: 10px;">summarization</a> <a href="/tags/vector/" style="font-size: 10px;">vector</a> <a href="/tags/vps/" style="font-size: 10px;">vps</a> <a href="/tags/weak-supervision/" style="font-size: 10px;">weak-supervision</a> <a href="/tags/web/" style="font-size: 10px;">web</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">Liens</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2020 Lorrin<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+        </div>
+    </div>
+</footer>
+        
+    
+	<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+	<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+	<script>
+		var gitment = new Gitment({
+			id: 'Sun Feb 09 2020 16:18:11 GMT+0800',
+			owner: 'lorrinWWW',
+			repo: 'LorrinWWW.github.io',
+			oauth: {
+				client_id: 'bc305d76488227d8c5cf',
+				client_secret: 'f7a2801a15ead49e3258304a0cf20f249f3962f3',
+			},
+		})
+		gitment.render('commentContainer')
+	</script>
+	
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+</body>
+</html>
