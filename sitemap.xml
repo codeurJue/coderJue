@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://juewang.me/posts/vps-cheatsheet/</loc>
+    <loc>https://juewang.me/about/index.html</loc>
     
-    <lastmod>2020-02-09T12:15:59.766Z</lastmod>
+    <lastmod>2020-02-09T14:06:49.030Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://juewang.me/about/index.html</loc>
+    <loc>https://juewang.me/posts/ML-CNN/</loc>
     
-    <lastmod>2019-12-26T01:45:06.122Z</lastmod>
+    <lastmod>2020-02-09T14:06:32.526Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://juewang.me/posts/vps-cheatsheet/</loc>
+    
+    <lastmod>2020-02-09T13:43:52.811Z</lastmod>
     
   </url>
   
@@ -278,13 +285,6 @@
     <loc>https://juewang.me/posts/proba-ch4/</loc>
     
     <lastmod>2016-12-19T13:11:37.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://juewang.me/posts/ML-CNN/</loc>
-    
-    <lastmod>2016-12-15T15:36:49.000Z</lastmod>
     
   </url>
   

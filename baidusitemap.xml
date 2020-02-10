@@ -3,9 +3,39 @@
 
 
     
+    
+  <url>
+    <loc>https://juewang.me/posts/ML-CNN/</loc>
+    <lastmod>2020-02-09T14:06:32.526Z</lastmod>
+    <data>
+        <display>
+        <title>ML CNN</title>
+        <pubTime>2016-12-14T02:34:43.000Z</pubTime>
+        
+        <tag>machine-learning</tag>
+         
+        <tag>programming</tag>
+         
+        <tag>algo</tag>
+         
+        <tag>CNN</tag>
+         
+         
+           
+             
+              <breadCrumb title="programming" url="https://juewang.me/categories/programming/"/>
+          
+             
+              <breadCrumb title="unfinished" url="https://juewang.me/categories/programming/unfinished/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
   <url>
     <loc>https://juewang.me/posts/vps-cheatsheet/</loc>
-    <lastmod>2020-02-09T12:15:59.766Z</lastmod>
+    <lastmod>2020-02-09T13:43:52.811Z</lastmod>
     <data>
         <display>
         <title>CheatSheet for Setting up New VPS</title>
@@ -22,7 +52,6 @@
     </data>
     </url>
 
-    
     
   <url>
     <loc>https://juewang.me/posts/%5B2018.8.22%5DRegEx-with-NN/</loc>
@@ -76,9 +105,9 @@
         <title>intro-about-KG</title>
         <pubTime>2018-07-01T12:59:58.000Z</pubTime>
         
-        <tag>machine-learning</tag>
-         
         <tag>deep-learning</tag>
+         
+        <tag>machine-learning</tag>
          
         <tag>knowledge-graph</tag>
          
@@ -148,9 +177,9 @@
         <title>Reinforcement Learning for Relation Classification from Noisy Data 阅读笔记</title>
         <pubTime>2018-04-14T00:00:00.000Z</pubTime>
         
-        <tag>relation-classification</tag>
-         
         <tag>relation-extraction</tag>
+         
+        <tag>relation-classification</tag>
          
         <tag>reinforcement-learning</tag>
          
@@ -216,11 +245,11 @@
         <title>Relation Classification via Attention Model 笔记</title>
         <pubTime>2017-12-17T00:00:00.000Z</pubTime>
         
+        <tag>relation-extraction</tag>
+         
         <tag>relation-classification</tag>
          
         <tag>attention</tag>
-         
-        <tag>relation-extraction</tag>
          
          
            
@@ -286,9 +315,9 @@
         <title>Generative Adversarial Network</title>
         <pubTime>2017-06-25T06:41:15.000Z</pubTime>
         
-        <tag>deep-learning</tag>
-         
         <tag>GAN</tag>
+         
+        <tag>deep-learning</tag>
          
          
            
@@ -448,11 +477,11 @@
         <title>实体解析 Entity resolution</title>
         <pubTime>2017-12-10T00:00:00.000Z</pubTime>
         
-        <tag>relation-extraction</tag>
-         
         <tag>entity-resolution</tag>
          
         <tag>sequence-labeling</tag>
+         
+        <tag>relation-extraction</tag>
          
         <tag>LSTM</tag>
          
@@ -476,11 +505,11 @@
         <title>Note of NLP</title>
         <pubTime>2017-06-26T12:52:45.000Z</pubTime>
         
-        <tag>nlp</tag>
+        <tag>deep-learning</tag>
          
         <tag>machine-learning</tag>
          
-        <tag>deep-learning</tag>
+        <tag>nlp</tag>
          
          
            
@@ -502,9 +531,9 @@
         
         <tag>machine-learning</tag>
          
-        <tag>knowledge-graph</tag>
-         
         <tag>datamining</tag>
+         
+        <tag>knowledge-graph</tag>
          
          
            
@@ -649,9 +678,9 @@
         <title>EDP basic models</title>
         <pubTime>2017-03-06T02:04:58.000Z</pubTime>
         
-        <tag>EDP</tag>
-         
         <tag>math</tag>
+         
+        <tag>EDP</tag>
          
          
            
@@ -671,13 +700,13 @@
         <title>Sobolev space</title>
         <pubTime>2017-02-11T06:37:53.000Z</pubTime>
         
-        <tag>EDP</tag>
-         
         <tag>math</tag>
          
         <tag>analyse</tag>
          
         <tag>Sobolev</tag>
+         
+        <tag>EDP</tag>
          
          
            
@@ -700,9 +729,9 @@
         <title>Hilbert space</title>
         <pubTime>2017-02-11T05:10:06.000Z</pubTime>
         
-        <tag>math</tag>
-         
         <tag>Hilbert</tag>
+         
+        <tag>math</tag>
          
         <tag>analyse</tag>
          
@@ -724,9 +753,9 @@
         <title>图论 graph</title>
         <pubTime>2016-11-27T06:42:24.000Z</pubTime>
         
-        <tag>algo</tag>
-         
         <tag>programming</tag>
+         
+        <tag>algo</tag>
          
         <tag>graph</tag>
          
@@ -877,35 +906,6 @@
            
              
               <breadCrumb title="math" url="https://juewang.me/categories/math/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://juewang.me/posts/ML-CNN/</loc>
-    <lastmod>2016-12-15T15:36:49.000Z</lastmod>
-    <data>
-        <display>
-        <title>ML CNN</title>
-        <pubTime>2016-12-14T02:34:43.000Z</pubTime>
-        
-        <tag>algo</tag>
-         
-        <tag>programming</tag>
-         
-        <tag>machine-learning</tag>
-         
-        <tag>CNN</tag>
-         
-         
-           
-             
-              <breadCrumb title="programming" url="https://juewang.me/categories/programming/"/>
-          
-             
-              <breadCrumb title="unfinished" url="https://juewang.me/categories/programming/unfinished/"/>
           
         </display>
     </data>
@@ -1212,9 +1212,9 @@
         <title>算法笔记 Note of learning Algo</title>
         <pubTime>2016-11-27T04:38:32.000Z</pubTime>
         
-        <tag>algo</tag>
-         
         <tag>programming</tag>
+         
+        <tag>algo</tag>
          
          
            
@@ -1234,9 +1234,9 @@
         <title>编码解码 compression</title>
         <pubTime>2016-11-27T06:22:11.000Z</pubTime>
         
-        <tag>algo</tag>
-         
         <tag>programming</tag>
+         
+        <tag>algo</tag>
          
         <tag>compression</tag>
          
@@ -1258,9 +1258,9 @@
         <title>面向考试常用编程思想 Method of programming facing to exams</title>
         <pubTime>2016-11-27T05:49:31.000Z</pubTime>
         
-        <tag>algo</tag>
-         
         <tag>programming</tag>
+         
+        <tag>algo</tag>
          
          
            
@@ -1280,9 +1280,9 @@
         <title>复杂度 complexity</title>
         <pubTime>2016-11-27T02:52:05.000Z</pubTime>
         
-        <tag>algo</tag>
-         
         <tag>programming</tag>
+         
+        <tag>algo</tag>
          
         <tag>complexity</tag>
          
