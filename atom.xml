@@ -1,20 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Lorrin&#39;s Blog</title>
+  <title>Jue&#39;s Blog</title>
   
   <subtitle>MSCS@ZJU | Ingénieur CentraleSupélec</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://juewang.me/"/>
-  <updated>2020-02-09T13:43:52.811Z</updated>
+  <updated>2020-02-10T04:02:01.642Z</updated>
   <id>https://juewang.me/</id>
   
   <author>
-    <name>Lorrin</name>
+    <name>Jue Wang</name>
     
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>🔝 Hi there!</title>
+    <link href="https://juewang.me/posts/welcome/"/>
+    <id>https://juewang.me/posts/welcome/</id>
+    <published>2020-02-10T03:25:09.000Z</published>
+    <updated>2020-02-10T04:02:01.642Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>I’m <a href="/about">Jue</a>, welcome here.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css&quot;&gt;&lt;p&gt;I’m &lt;a href=&quot;/about&quot;&gt;Jue&lt;/a&gt;, welcome 
+      
+    
+    </summary>
+    
+      <category term="other" scheme="https://juewang.me/categories/other/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>CheatSheet for Setting up New VPS</title>
@@ -116,9 +139,9 @@
       <category term="research" scheme="https://juewang.me/categories/research/"/>
     
     
-      <category term="deep-learning" scheme="https://juewang.me/tags/deep-learning/"/>
-    
       <category term="machine-learning" scheme="https://juewang.me/tags/machine-learning/"/>
+    
+      <category term="deep-learning" scheme="https://juewang.me/tags/deep-learning/"/>
     
       <category term="knowledge-graph" scheme="https://juewang.me/tags/knowledge-graph/"/>
     
@@ -543,36 +566,9 @@
       <category term="programming" scheme="https://juewang.me/categories/programming/"/>
     
     
-      <category term="deep-learning" scheme="https://juewang.me/tags/deep-learning/"/>
-    
       <category term="machine-learning" scheme="https://juewang.me/tags/machine-learning/"/>
     
       <category term="nlp" scheme="https://juewang.me/tags/nlp/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Generative Adversarial Network</title>
-    <link href="https://juewang.me/posts/Generative-Adversarial-Network/"/>
-    <id>https://juewang.me/posts/Generative-Adversarial-Network/</id>
-    <published>2017-06-25T06:41:15.000Z</published>
-    <updated>2018-03-12T20:26:12.755Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="Generative-Adversarial-Network"><a href="#Generative-Adversarial-Network" class="headerlink" title="Generative Adversarial Network"></a>Generative Adversarial Network</h1><h2 id="Generater"><a href="#Generater" class="headerlink" title="Generater"></a>Generater</h2><ol><li><p>Auto encoder</p><p>input =&gt; nn encoder =&gt; code =&gt; nn decoder =&gt; output</p><p>Output compared with input as close as possible</p><p>[code =&gt; nn decoder =&gt; output] := a generater</p></li><li><p>VAE</p><p>Auto-encoder Variational Bayes:</p><p>input =&gt; nn encoder </p><p>=&gt; {</p><p>​    code : [$m_i$],</p><p>​    variation : [$\sigma_i$],</p><p>​    error : [$e_i$],</p><p>} </p><p>=&gt; {$c_i = exp(\sigma_i) \times e_i + m_i$}</p><p>=&gt; nn decoder =&gt; output</p><p>The goal is to monimize the expression as followed:<br>$$<br>\sum(exp(\sigma_i) - (1+\sigma_i) + (m_i)^2)<br>$$</p></li></ol><h2 id="GAN"><a href="#GAN" class="headerlink" title="GAN"></a>GAN</h2><p><img src="http://oi4yiqiop.bkt.clouddn.com/2018-03-12-202530.png" width="70%"></p><p>相当于是由一个生成器和分类器(true or false)</p><p>极大似然$P_{data}(x; \theta) , P_G(x;\theta)$</p><ul><li><p>Generator G</p><ul><li>G is a function, input z, output x</li><li>Given a prior distribution $P_{prior}(z)$, a probability distribution $P_G(x)$ is defined by function G</li></ul></li><li><p>Discriminator D</p><ul><li>D is a function, input x, output scalar</li><li>Evaluate the “difference” between $P_G(x)$ and $P_{data}(x)$</li></ul></li><li><p>Function V(G, D)<br>$$<br>G^* = {arg} {min}_G {max}_D V(G,D)<br>$$</p></li></ul><p>从G*中可以看出，D是在给定G的情况下，尽其所能地提高V，即发现$P_{data}$和$P_G$的最多的差异。而G则是使该值尽量减小。在G和D的博弈中模型逐渐完善。</p><p>给定V<br>$$<br>V = E_{x~P_{data}}[logD(x)]+ E_{x~P_G}[log(1-D(x))] \\<br>= \int_x P_{data}(x)logD(x)dx +\int_xP_G(x)log(1-D(X))dx \\<br>= \int_x[P_{data}(x)logD(x) + P_G(x)log(1-D(x))]dx<br>$$<br>要让V的大小可以由积分内的式子决定，即<br>$$<br>P_{data}(x)logD(x) + P_G(x)log(1-D(x))<br>$$<br>i.e. find D<em> maximizing: $f(D) = alog(D)+blog(1-D)$<br>$$<br>=&gt; D^</em> = \frac{a}{a+b} = \frac{P_{data}(x)}{P_{data}(x)+P_{G}(x)}<br>$$<br>所以<br>$$<br>max_D V(G,D) = V(G, D^*) \\<br>= -2log2 + \int_x P_{data}(x) log\frac{P_{data}(x)}{(P_{data}(x)+P_{G}(x))/2}dx \ + \int_x P_{data}(x) log\frac{P_{G}(x)}{(P_{data}(x)+P_{G}(x))/2}dx \\<br>= -2log2 + KL(P_{data}(x) ||\frac{P_{data}(x)+P_{G}(x)}{2}) \ </p><ul><li>KL(P_{G}(x) ||\frac{P_{data}(x)+P_{G}(x)}{2}) \\<br>= -2log2 + 2JSD(P_{data}(X||P_G(x))<br>$$<br>其中<br>$$<br>KL := KL divergence \\<br>JSD(P||Q) = \frac{1}{2}(KL(P||M) + KL(Q||M)), M= \frac{P+Q}{2}<br>$$<br>所以$max_D(G,D)$，当且仅当$P_G = P_{data}$</li></ul><h3 id="总结一下算法"><a href="#总结一下算法" class="headerlink" title="总结一下算法"></a><strong>总结一下算法</strong></h3><ul><li>Given $G_0$</li><li>Find $D_0^*$ maximizing $V(G_0,D)$</li><li>$\theta_G \leftarrow \theta_G - \eta \partial V(G, D_0^*)/ \partial \theta_G $ =&gt; Obtain G1</li><li>Find $D_1^*$ maximizing $V(G_1,D)$</li><li>…</li></ul><h4 id="实际操作"><a href="#实际操作" class="headerlink" title="实际操作"></a>实际操作</h4><p>我们知道实际上是不能求期望，即作不能作积分的。因此需要一定的近似。</p><p>我们需要将其离散化，取m个样本，V可以写为<br>$$<br>V = \frac{1}{m}\sum logD(x_i) + \frac{1}{m} \sum log(1-D(x_i^G)) \\<br>where {x_1, …, x_m}  from P_{data}(x), {x_1^G,…,x_m^G} from P_G(x)<br>$$</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css&quot;&gt;&lt;h1 id=&quot;Generative-Adversarial-Network&quot;&gt;&lt;
-      
-    
-    </summary>
-    
-      <category term="programming" scheme="https://juewang.me/categories/programming/"/>
-    
-    
-      <category term="GAN" scheme="https://juewang.me/tags/GAN/"/>
     
       <category term="deep-learning" scheme="https://juewang.me/tags/deep-learning/"/>
     

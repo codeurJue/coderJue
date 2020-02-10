@@ -5,6 +5,24 @@
     
     
   <url>
+    <loc>https://juewang.me/posts/welcome/</loc>
+    <lastmod>2020-02-10T04:02:01.642Z</lastmod>
+    <data>
+        <display>
+        <title>🔝 Hi there!</title>
+        <pubTime>2020-02-10T03:25:09.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="other" url="https://juewang.me/categories/other/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://juewang.me/posts/ML-CNN/</loc>
     <lastmod>2020-02-09T14:06:32.526Z</lastmod>
     <data>
@@ -105,9 +123,9 @@
         <title>intro-about-KG</title>
         <pubTime>2018-07-01T12:59:58.000Z</pubTime>
         
-        <tag>deep-learning</tag>
-         
         <tag>machine-learning</tag>
+         
+        <tag>deep-learning</tag>
          
         <tag>knowledge-graph</tag>
          
@@ -315,9 +333,9 @@
         <title>Generative Adversarial Network</title>
         <pubTime>2017-06-25T06:41:15.000Z</pubTime>
         
-        <tag>GAN</tag>
-         
         <tag>deep-learning</tag>
+         
+        <tag>GAN</tag>
          
          
            
@@ -505,11 +523,11 @@
         <title>Note of NLP</title>
         <pubTime>2017-06-26T12:52:45.000Z</pubTime>
         
-        <tag>deep-learning</tag>
-         
         <tag>machine-learning</tag>
          
         <tag>nlp</tag>
+         
+        <tag>deep-learning</tag>
          
          
            
@@ -678,9 +696,9 @@
         <title>EDP basic models</title>
         <pubTime>2017-03-06T02:04:58.000Z</pubTime>
         
-        <tag>EDP</tag>
-         
         <tag>math</tag>
+         
+        <tag>EDP</tag>
          
          
            
@@ -700,9 +718,9 @@
         <title>Sobolev space</title>
         <pubTime>2017-02-11T06:37:53.000Z</pubTime>
         
-        <tag>EDP</tag>
-         
         <tag>math</tag>
+         
+        <tag>EDP</tag>
          
         <tag>analyse</tag>
          
