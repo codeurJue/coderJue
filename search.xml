@@ -448,9 +448,9 @@
             
             <tag> machine-learning </tag>
             
-            <tag> nlp </tag>
-            
             <tag> deep-learning </tag>
+            
+            <tag> nlp </tag>
             
         </tags>
       
@@ -470,9 +470,9 @@
       
         <tags>
             
-            <tag> deep-learning </tag>
-            
             <tag> GAN </tag>
+            
+            <tag> deep-learning </tag>
             
         </tags>
       
@@ -494,9 +494,9 @@
             
             <tag> machine-learning </tag>
             
-            <tag> datamining </tag>
-            
             <tag> knowledge-graph </tag>
+            
+            <tag> datamining </tag>
             
         </tags>
       
