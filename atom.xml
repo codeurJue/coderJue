@@ -139,9 +139,9 @@
       <category term="research" scheme="https://juewang.me/categories/research/"/>
     
     
-      <category term="deep-learning" scheme="https://juewang.me/tags/deep-learning/"/>
-    
       <category term="machine-learning" scheme="https://juewang.me/tags/machine-learning/"/>
+    
+      <category term="deep-learning" scheme="https://juewang.me/tags/deep-learning/"/>
     
       <category term="knowledge-graph" scheme="https://juewang.me/tags/knowledge-graph/"/>
     
@@ -566,11 +566,11 @@
       <category term="programming" scheme="https://juewang.me/categories/programming/"/>
     
     
+      <category term="machine-learning" scheme="https://juewang.me/tags/machine-learning/"/>
+    
       <category term="deep-learning" scheme="https://juewang.me/tags/deep-learning/"/>
     
       <category term="nlp" scheme="https://juewang.me/tags/nlp/"/>
-    
-      <category term="machine-learning" scheme="https://juewang.me/tags/machine-learning/"/>
     
   </entry>
   
