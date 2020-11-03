@@ -13,14 +13,14 @@
 <meta property="og:site_name" content="Jue&#39;s Blog">
 <meta property="og:description" content="Open-World Knowledge Graph Completion摘要：[1]文首先讨论了Closed-World KGC，它无法处理从 KG 外部加入的新实体，并严重依赖已有KG连接的，不能对弱连接有好的预测。为此定义了 Open-World KGC，可以接收 新的实体并链接到 KG；并依此提出了ConMask模型，在给定关系和实体名、实体描述的前提下，利用attention机制通过关系">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://oi4yiqiop.bkt.clouddn.com/2018-03-12-202310.jpg">
-<meta property="og:image" content="http://oi4yiqiop.bkt.clouddn.com/2018-03-12-202313.jpg">
-<meta property="og:image" content="http://oi4yiqiop.bkt.clouddn.com/2018-03-12-202312.jpg">
-<meta property="og:updated_time" content="2018-03-12T20:23:16.728Z">
+<meta property="og:image" content="https://lorrin-1251763245.cos.ap-shanghai.myqcloud.com/photo/2018-03-12-202310.jpg">
+<meta property="og:image" content="https://lorrin-1251763245.cos.ap-shanghai.myqcloud.com/photo/2018-03-12-202313.jpg">
+<meta property="og:image" content="https://lorrin-1251763245.cos.ap-shanghai.myqcloud.com/photo/2018-03-12-202312.jpg">
+<meta property="og:updated_time" content="2020-11-03T03:26:12.121Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Open-World Knowledge Graph Completion 笔记">
 <meta name="twitter:description" content="Open-World Knowledge Graph Completion摘要：[1]文首先讨论了Closed-World KGC，它无法处理从 KG 外部加入的新实体，并严重依赖已有KG连接的，不能对弱连接有好的预测。为此定义了 Open-World KGC，可以接收 新的实体并链接到 KG；并依此提出了ConMask模型，在给定关系和实体名、实体描述的前提下，利用attention机制通过关系">
-<meta name="twitter:image" content="http://oi4yiqiop.bkt.clouddn.com/2018-03-12-202310.jpg">
+<meta name="twitter:image" content="https://lorrin-1251763245.cos.ap-shanghai.myqcloud.com/photo/2018-03-12-202310.jpg">
     
 
     
@@ -318,14 +318,14 @@ var _hmt = _hmt || [];
 <li><strong>Target fusion</strong> – 从相关文本中抽取目标实体的embedding。</li>
 <li><strong>Target entity resolution</strong> – 通过计算KG中的候选目标实体，2中抽取出的实体embedding以及其它文本特征之间的相似度来选定目标实体。</li>
 </ol>
-<p><img src="http://oi4yiqiop.bkt.clouddn.com/2018-03-12-202310.jpg" width="60%"></p>
+<p><img src="https://lorrin-1251763245.cos.ap-shanghai.myqcloud.com/photo/2018-03-12-202310.jpg" width="60%"></p>
 <p>ConMask模型总体结构如上，ConMask通过选择与给定关系相关的词来避免引入不相关的和有噪音的词。对于相关的文本，ConMask通过全连接卷积神经网络（FCN）来提取word-embedding。最后它将提取的embedding于KG中存在的实体进行比较，从而获得一系列目标实体。</p>
 <h4 id="3-1-Relationship-dependent-content-masking"><a href="#3-1-Relationship-dependent-content-masking" class="headerlink" title="3.1 Relationship-dependent content masking"></a>3.1 Relationship-dependent content masking</h4><p>ConMask根据给定的关系预处理输入文本，来选择一些相关的小片段，从而屏蔽掉无关文本。content-masking这一灵感来源于基于attention机制的RNN网络[3]，关于attention之前的笔记也有学习过。</p>
 <p>基于相似度得到选择最相关的词，具体公式如下：<br>$$<br>\tau(\phi(e), \psi(r)) = W_{\phi(e)} \circ f_w(W_{\phi(e)}, W_{\psi(r)})<br>$$<br>其中 $e$ 是一个实体，$r$ 是某个关系, $\phi$ 是description function并返回一个向量用于表示对一个实体或关系的描述，$\psi$ 是name mapping function并返回一个向量用于表示一个实体或关系的名字， $ W_{\phi{(e)}} \in \mathbb{R}^{|\phi(r)|\times k} $ 是一个描述矩阵每一行表示一个k维的描述中的word-embedding， $W_{\phi{(e)}} \in \mathbb{R}^{|\phi(r)|\times k} $ 是一个名字矩阵每一行表示一个k维的实体名字word-embedding，$\circ$ 是row-wise product，$f_w$ 用于计算的每一行的屏蔽比重。</p>
 <p>作者给了一个简单的$f_w$ ，Maximal Word-Relationship Weights(MWRW)，就是计算实体描述中每个词向量与关系名称的每个词向量的最大cos相似度:<br>$$<br>f_w^{MWRW}(W_{\phi(e)}, W_{\psi(r)})_{[i]} =  max_j(\frac{\sum_m^k{W_{\phi(e)[i,m]} W_{\psi(r)[j,m]}}}{\sqrt{\sum_m^k{W^2_{\phi(e)[i,m]}}}\sqrt{\sum_m^k{W^2_{\psi(e)[j,m]}}}})<br>$$<br>这个公式会给与给定关系无关的词更小的权重，与关系语义接近的词更大的权重，但权重最高的词一般不是目标实体，如下图所示，给定关系spouse，得到最大权重的是married，虽然married与spouse在语义上接近，但它并不是目标实体，因此作者称这种有着最大MWRW权重的词为指示词（indicator word），因为正确的词一般就在该词附近，在下图例子中可以发现目标实体barack obama就在married后面。</p>
-<p>为了给目标实体word正确的权重，作者改进了这个公式，具体公式如下，这个公式就是每个词的权重不会小于之前 $k_m$ 称为 Maximal Context-Relationship Weights (MCRW)：<br>$$<br>f_w^{MCRW}(W_{\phi(e)}, W_{\psi(r)})_{[i]} =  max(f_w^{MWRW}(W_{\phi(e)}, W_{\psi(r)})_{[i-k_m:i]})<br>$$<br><img src="http://oi4yiqiop.bkt.clouddn.com/2018-03-12-202313.jpg"></p>
+<p>为了给目标实体word正确的权重，作者改进了这个公式，具体公式如下，这个公式就是每个词的权重不会小于之前 $k_m$ 称为 Maximal Context-Relationship Weights (MCRW)：<br>$$<br>f_w^{MCRW}(W_{\phi(e)}, W_{\psi(r)})_{[i]} =  max(f_w^{MWRW}(W_{\phi(e)}, W_{\psi(r)})_{[i-k_m:i]})<br>$$<br><img src="https://lorrin-1251763245.cos.ap-shanghai.myqcloud.com/photo/2018-03-12-202313.jpg"></p>
 <h4 id="3-2-Target-Fusion"><a href="#3-2-Target-Fusion" class="headerlink" title="3.2 Target Fusion"></a>3.2 Target Fusion</h4><p>这一步骤用于输出基于词的实体embedding，这个过程记为$\xi$，使用Conetent Masking $\tau$ 的输出。它使用全连接卷积网络，其结构如下：</p>
-<p><img src="http://oi4yiqiop.bkt.clouddn.com/2018-03-12-202312.jpg"></p>
+<p><img src="https://lorrin-1251763245.cos.ap-shanghai.myqcloud.com/photo/2018-03-12-202312.jpg"></p>
 <p><strong>Semantic Averaging</strong></p>
 <p>我们可以对所有实体进行embedding，但是这会产生大量的参数，使计算变得非常复杂。事实上，因为Target fusion函数用于抽取，所以对不需要抽取的实体名字使用target fusion就会显得很奇怪也很没有必要。</p>
 <p>这里作者提出了一个简单的语义平均法来计算这些实体的embedding：$\eta(W) = \frac{1}{k_l}\sum_i^{k_i}W_i$</p>
@@ -347,7 +347,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="https://juewang.me/posts/[2018.2.26]Open-World-Knowledge-Graph-Completion/" data-id="ckf3hp489000q2r9kmbfgx4hm" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://juewang.me/posts/[2018.2.26]Open-World-Knowledge-Graph-Completion/" data-id="ckh1euxv6000stotlue1pww69" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding

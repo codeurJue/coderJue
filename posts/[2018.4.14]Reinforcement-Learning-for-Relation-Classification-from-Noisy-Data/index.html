@@ -13,13 +13,13 @@
 <meta property="og:site_name" content="Jue&#39;s Blog">
 <meta property="og:description" content="Reinforcement Learning for Relation Classification from Noisy Data 阅读笔记摘要：现有关系分类方法依赖远程监督(distant supervision)，它假定提到实体对的句子都描述了这个实体对的关系。这样的方法一般在句子集合进行分类，不能识别关系和句子之间的映射，并且很大程度上受到标签噪音问题的影响。在这篇论文[1]中，作者提出了">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://oi4yiqiop.bkt.clouddn.com/2018-04-14-WX20180414-152317%402x.png">
-<meta property="og:image" content="http://oi4yiqiop.bkt.clouddn.com/2018-04-14-WX20180414-165503%402x.png">
-<meta property="og:updated_time" content="2018-04-14T21:39:01.246Z">
+<meta property="og:image" content="https://lorrin-1251763245.cos.ap-shanghai.myqcloud.com/photo/2018-04-14-WX20180414-152317%402x.png">
+<meta property="og:image" content="https://lorrin-1251763245.cos.ap-shanghai.myqcloud.com/photo/2018-04-14-WX20180414-165503%402x.png">
+<meta property="og:updated_time" content="2020-11-03T03:26:07.006Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Reinforcement Learning for Relation Classification from Noisy Data 阅读笔记">
 <meta name="twitter:description" content="Reinforcement Learning for Relation Classification from Noisy Data 阅读笔记摘要：现有关系分类方法依赖远程监督(distant supervision)，它假定提到实体对的句子都描述了这个实体对的关系。这样的方法一般在句子集合进行分类，不能识别关系和句子之间的映射，并且很大程度上受到标签噪音问题的影响。在这篇论文[1]中，作者提出了">
-<meta name="twitter:image" content="http://oi4yiqiop.bkt.clouddn.com/2018-04-14-WX20180414-152317%402x.png">
+<meta name="twitter:image" content="https://lorrin-1251763245.cos.ap-shanghai.myqcloud.com/photo/2018-04-14-WX20180414-152317%402x.png">
     
 
     
@@ -287,14 +287,14 @@ var _hmt = _hmt || [];
 <h2 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h2><p>关系抽取是nlp领域中一个非常重要的任务，尤其在知识图谱构建等任务上。相关的工作可以参考我之前写的笔记，主要还是分为两种：传统的手工特征方法，和深度神经网络。</p>
 <p>为了获得更大量的训练数据集，半监督、远程监督，甚至无监督模型被提出。半监督模型对一开始的少量数据要求较高，容易产生较大的偏差；无监督学习目前还没有比较成熟的解决方案。</p>
 <p>这里主要提一下远程监督模型。远程监督模型有一个很强的假设：如果两个实体在给定的知识库中有一种关系，则包含这两个实体的所有句子都会提及该关系，实际上当然会有很大问题，会带来很多标注错误的信息。有一些解决方法就是转化为bag-level的关系标注。一个bag包含提及相同实体对的句子，但有可能描述不同的关系，如下图。</p>
-<p><img src="http://oi4yiqiop.bkt.clouddn.com/2018-04-14-WX20180414-152317%402x.png" alt="X20180414-152317@2"></p>
+<p><img src="https://lorrin-1251763245.cos.ap-shanghai.myqcloud.com/photo/2018-04-14-WX20180414-152317%402x.png" alt="X20180414-152317@2"></p>
 <p>不过实际上还是会有问题：1. 不能处理句子级别的关系分类；2. 如果一个bag里的句子都不含知识库中的关系，即都是噪声，这样对性能会有很大影响。</p>
 <p>为解决上述的两个缺陷，作者提出了实例选取器，并将其定义为一个强化学习任务。它有两个特征：1. 句子选择是一个反复试错的过程，需要从分类器中得到选取句子质量的反馈；2. 反馈在挑选结束后得到，因此是滞后的。这两点非常满足强化学习的特点。</p>
 <h2 id="2-Methodology"><a href="#2-Methodology" class="headerlink" title="2. Methodology"></a>2. Methodology</h2><p>作者提出了一个新的关系分类框架，它可以从噪音数据中选择正确的句子用于更好的关系分类。 所提出的框架可以从清理的数据中预测句子级别的关系，而不是在bag级别。句子级别的预测对需要理解句子的任务（如QA和语义分析）更加友好。<br>我们的框架包含两个关键模块：从噪声数据中选择正确句子的实例选择器，以及预测关系并使用清理数据更新其参数的关系分类器。 这两个模块相互作用共同训练。</p>
 <h3 id="Problem-definition"><a href="#Problem-definition" class="headerlink" title="Problem definition"></a>Problem definition</h3><p>我们定义两个子任务：实例选择和一个关系分类。</p>
 <p>我们定义实例选择问题：给定一组(sentence, relation label)，如$X = {(x_1,r_1),(x_2,r_2),…,(x_n,r_n)}$，其中$x_i$是与两个实体$(e_{1i},e_{2i})$相关的句子，$r_i$是由远程监督产生的关系标签。我们的目标是确定哪个句子真正描述了这种关系，并且应该被选作训练实例。</p>
 <p>关系分类问题表述如下：给定一个句子$x_i$和所提到的实体对$(h_i,t_i)$，目标是预测$x_i$中的语义关系$r_i$。模型估计概率：$p_{\Phi}(r_i | x_i,h_i,t_i)$。</p>
-<h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><p><img src="http://oi4yiqiop.bkt.clouddn.com/2018-04-14-WX20180414-165503%402x.png" alt="X20180414-165503@2"></p>
+<h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><p><img src="https://lorrin-1251763245.cos.ap-shanghai.myqcloud.com/photo/2018-04-14-WX20180414-165503%402x.png" alt="X20180414-165503@2"></p>
 <h3 id="Instance-Selector"><a href="#Instance-Selector" class="headerlink" title="Instance Selector"></a>Instance Selector</h3><p>这里的Instance Selector被当作强化学习问题来处理，因此policy的更新有滞后性，作者为了加快更新速度，把所有句子实例$X={x_1, …,x_n}$分为N个bag $B = {B^1, B^2, …, B^N}$，每一个$B^k$都包含同一个实体对，且标注关系都为$r^k$。</p>
 <ul>
 <li><p><strong>State</strong>：编码以下信息：1) 当前句子的向量表示，从CNN的非线性层获得用于关系分类的当前句子的向量表示; 2) 被选的句子集合的表示，它是所有选择句子的向量表示的平均值; 3) 一个句子中实体对的向量表示，从预先训练的知识图谱embedding中获得。</p>
@@ -324,7 +324,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="https://juewang.me/posts/[2018.4.14]Reinforcement-Learning-for-Relation-Classification-from-Noisy-Data/" data-id="ckf3hp48b000u2r9kqdvimdzi" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://juewang.me/posts/[2018.4.14]Reinforcement-Learning-for-Relation-Classification-from-Noisy-Data/" data-id="ckh1euxv8000wtotl8kzxphh1" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding

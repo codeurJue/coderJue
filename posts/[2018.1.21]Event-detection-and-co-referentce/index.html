@@ -13,14 +13,14 @@
 <meta property="og:site_name" content="Jue&#39;s Blog">
 <meta property="og:description" content="Event detection and co-reference with minimal supervision [1]摘要：该论文使用了一种弱监督的算法解决了事件检测与共指问题。事件共指问题可以看作是一种事件之间的相似度计算问题，而在该文中，事件检测问题也被看作是一种相似度检测问题。对于ACE或rich ERE划分的所有事件类型，使用每个类型中的几个实例作为该类型事件的向量，然后计算新事件向量">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://oi4yiqiop.bkt.clouddn.com/2018-03-12-202215.jpg">
-<meta property="og:image" content="http://oi4yiqiop.bkt.clouddn.com/2018-03-12-202214.jpg">
-<meta property="og:image" content="http://oi4yiqiop.bkt.clouddn.com/2018-03-12-202217.jpg">
-<meta property="og:updated_time" content="2018-03-12T20:22:21.147Z">
+<meta property="og:image" content="https://lorrin-1251763245.cos.ap-shanghai.myqcloud.com/photo/2018-03-12-202215.jpg">
+<meta property="og:image" content="https://lorrin-1251763245.cos.ap-shanghai.myqcloud.com/photo/2018-03-12-202214.jpg">
+<meta property="og:image" content="https://lorrin-1251763245.cos.ap-shanghai.myqcloud.com/photo/2018-03-12-202217.jpg">
+<meta property="og:updated_time" content="2020-11-03T03:26:13.403Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Event detection and co-reference with minimal supervision 笔记">
 <meta name="twitter:description" content="Event detection and co-reference with minimal supervision [1]摘要：该论文使用了一种弱监督的算法解决了事件检测与共指问题。事件共指问题可以看作是一种事件之间的相似度计算问题，而在该文中，事件检测问题也被看作是一种相似度检测问题。对于ACE或rich ERE划分的所有事件类型，使用每个类型中的几个实例作为该类型事件的向量，然后计算新事件向量">
-<meta name="twitter:image" content="http://oi4yiqiop.bkt.clouddn.com/2018-03-12-202215.jpg">
+<meta name="twitter:image" content="https://lorrin-1251763245.cos.ap-shanghai.myqcloud.com/photo/2018-03-12-202215.jpg">
     
 
     
@@ -285,7 +285,7 @@ var _hmt = _hmt || [];
         
         
             <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Event-detection-and-co-reference-with-minimal-supervision-1"><a href="#Event-detection-and-co-reference-with-minimal-supervision-1" class="headerlink" title="Event detection and co-reference with minimal supervision [1]"></a>Event detection and co-reference with minimal supervision [1]</h2><p><strong>摘要：</strong>该论文使用了一种弱监督的算法解决了事件检测与共指问题。事件共指问题可以看作是一种事件之间的相似度计算问题，而在该文中，事件检测问题也被看作是一种相似度检测问题。对于ACE或rich ERE划分的所有事件类型，使用每个类型中的几个实例作为该类型事件的向量，然后计算新事件向量与每个类型事件向量之间的相似度，根据这一相似度对事件进行判断。该文的另一个特点在于事件特征的选择，在将事件表示为向量的过程中，使用了Freebase作为特征来对事件进行表示。</p>
-<h3 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h3><p><img src="http://oi4yiqiop.bkt.clouddn.com/2018-03-12-202215.jpg" width="70%"></p>
+<h3 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h3><p><img src="https://lorrin-1251763245.cos.ap-shanghai.myqcloud.com/photo/2018-03-12-202215.jpg" width="70%"></p>
 <p>上图是论文提出的MSEP（Minimally Supervised Event Pipeline）框架。这里 Event examples 是唯一的监督来源，用于产生 Example vectors。在MSEP框架中不需要训练。</p>
 <p>这篇论文主要是针对两个问题：</p>
 <ul>
@@ -296,9 +296,9 @@ var _hmt = _hmt || [];
 <p>现在主要问题有：1. 如何表示一个事件；2. 如何表达相似性。前者我们采用了semantic role labeling  representation（SRL），来结构化地描述一个事件；对于后者，我们将对事件做一个embedding，通过计算其余弦距离来表达相似性。</p>
 <p>我们提出了一个通用事件检测和指代消解框架，它基本上不需要标记数据。在实践中，为了将一个事件提法（event mention）和一个事件本体（event ontology）相联系起来，我们只需要一些事件示例。这种定义类型的方式是非常合理的，因为给出例子是定义事件类型的最简单的方法。我们的方法比标准的无监督方法要求更少假设，在我们的模型中，给定事件类型的定义（以事件例子的形式），我们可以将单个事件分类到已知本体，并确定两个事件是否是 co-reference 的。</p>
 <h3 id="2-The-MSEP-System"><a href="#2-The-MSEP-System" class="headerlink" title="2. The MSEP System"></a>2. The MSEP System</h3><h4 id="2-1-Structured-Vector-Representation"><a href="#2-1-Structured-Vector-Representation" class="headerlink" title="2.1 Structured Vector Representation"></a>2.1 Structured Vector Representation</h4><p>事件结构和句子结构之间有一个平行关系。我们发现一般来说，事件的触发词往往是谓语，所以可以针对谓语对其做一些改进：</p>
-<p><img src="http://oi4yiqiop.bkt.clouddn.com/2018-03-12-202214.jpg" alt="basic"></p>
+<p><img src="https://lorrin-1251763245.cos.ap-shanghai.myqcloud.com/photo/2018-03-12-202214.jpg" alt="basic"></p>
 <p><strong>Basic event vector representation</strong>。基本事件向量由它的各个组成部分组成。</p>
-<p><img src="http://oi4yiqiop.bkt.clouddn.com/2018-03-12-202217.jpg" alt="basic"></p>
+<p><img src="https://lorrin-1251763245.cos.ap-shanghai.myqcloud.com/photo/2018-03-12-202217.jpg" alt="basic"></p>
 <p><strong>Augmented event vector representation</strong>。在这里，“+” 表示我们首先将文本片段放在一起，然后将组合的文本片段转换成ESA向量。</p>
 <h4 id="2-2-Event-Mention-Detection"><a href="#2-2-Event-Mention-Detection" class="headerlink" title="2.2 Event Mention Detection"></a>2.2 Event Mention Detection</h4><p>我们定义 Event type representation 为该类别下的事件向量的平均值。</p>
 <p>我们定义定义相似度如下<br>$$<br>S(e_1, e_2) = \frac{vec(e_1) · vec(e_2)}{||vec(e_1)||·||vec(e_2)||} \\<br>= \frac{\sum_a{vec(a_1) · vec(a_2)}}{\sqrt{\sum_a{||vec(a_1)||^2} · \sum_a{||vec(a_2)||^2}}}<br>$$<br>其中 e1 是待处理事件，e2 是事件的类别。a 就是事件里的各个组件。若遇到 a 缺失的情况（如地点、时间等），我们用非缺失的部分的平均值来代替它。具体的操作方法参见原文。</p>
@@ -335,7 +335,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="https://juewang.me/posts/[2018.1.21]Event-detection-and-co-referentce/" data-id="ckf3hp487000n2r9kdeg1e2is" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://juewang.me/posts/[2018.1.21]Event-detection-and-co-referentce/" data-id="ckh1euxv4000ptotl9s384dlf" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding

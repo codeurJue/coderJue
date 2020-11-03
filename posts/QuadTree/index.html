@@ -13,12 +13,12 @@
 <meta property="og:site_name" content="Jue&#39;s Blog">
 <meta property="og:description" content="在ECP的实验课用到了四叉树，故来记录一下。 四叉树是一种数据结构，每一个节点有四个孩子。一般需要用到四叉树的情况往往是二位平面，通过把区域分成四个区块来定义。 在确定并显示一条曲线的具体位置时，需要使用一种算法。一种比较直观的想法就是，将平面细分成小块，通过计算验证曲线是否在这个小块内部。但是这种算法也有一个十分致命的缺点— 复杂度极高，计算量极大。而事实上，平面上大多数的区域是空白的，我们不需">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://oi4yiqiop.bkt.clouddn.com/QTree.png?imageMogr2/thumbnail/!50p">
-<meta property="og:updated_time" content="2016-12-13T21:20:12.000Z">
+<meta property="og:image" content="https://lorrin-1251763245.cos.ap-shanghai.myqcloud.com/photo/QTree.png?imageMogr2/thumbnail/!50p">
+<meta property="og:updated_time" content="2020-11-03T03:26:02.624Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="四叉树 QuadTree">
 <meta name="twitter:description" content="在ECP的实验课用到了四叉树，故来记录一下。 四叉树是一种数据结构，每一个节点有四个孩子。一般需要用到四叉树的情况往往是二位平面，通过把区域分成四个区块来定义。 在确定并显示一条曲线的具体位置时，需要使用一种算法。一种比较直观的想法就是，将平面细分成小块，通过计算验证曲线是否在这个小块内部。但是这种算法也有一个十分致命的缺点— 复杂度极高，计算量极大。而事实上，平面上大多数的区域是空白的，我们不需">
-<meta name="twitter:image" content="http://oi4yiqiop.bkt.clouddn.com/QTree.png?imageMogr2/thumbnail/!50p">
+<meta name="twitter:image" content="https://lorrin-1251763245.cos.ap-shanghai.myqcloud.com/photo/QTree.png?imageMogr2/thumbnail/!50p">
     
 
     
@@ -288,7 +288,7 @@ var _hmt = _hmt || [];
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 确保使用的是等宽字体，用嵌入代码=_=</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">3-------2       </span></span><br><span class="line"><span class="string">|       |</span></span><br><span class="line"><span class="string">|       |</span></span><br><span class="line"><span class="string">|       |</span></span><br><span class="line"><span class="string">0-------1</span></span><br><span class="line"><span class="string">检查曲线是否在内，若是，此节点为枝，分为四个小区域，作为四个儿子；若否，此节点为叶，没有儿子。</span></span><br><span class="line"><span class="string">=&gt;</span></span><br><span class="line"><span class="string">3---7---2</span></span><br><span class="line"><span class="string">|   |   |</span></span><br><span class="line"><span class="string">8---4---6</span></span><br><span class="line"><span class="string">|   |   |</span></span><br><span class="line"><span class="string">0---5---1</span></span><br><span class="line"><span class="string">以此分别对四个儿子执行以上操作，直到达到所需精度。</span></span><br><span class="line"><span class="string">=&gt;</span></span><br><span class="line"><span class="string">...</span></span><br><span class="line"><span class="string">"""</span></span><br></pre></td></tr></table></figure>
 <p>按照这个数据结构，若曲线不在内部，则将节点设为叶，无需继续细分。寻找一个点的话复杂度是O(logn)。</p>
 <p>在实验课的内容里，用python进行数据处理，用paraview进行数据可视化。代码其实挺简单（算法就不难= =），实验课还没结束暂时不附代码了，附一个效果图。</p>
-<p><img src="http://oi4yiqiop.bkt.clouddn.com/QTree.png?imageMogr2/thumbnail/!50p" alt="QTree"></p>
+<p><img src="https://lorrin-1251763245.cos.ap-shanghai.myqcloud.com/photo/QTree.png?imageMogr2/thumbnail/!50p" alt="QTree"></p>
 
             </div>
         
@@ -299,7 +299,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="https://juewang.me/posts/QuadTree/" data-id="ckf3hp485000k2r9k9qrdl32j" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://juewang.me/posts/QuadTree/" data-id="ckh1euxv1000ktotl04qq6wxy" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding

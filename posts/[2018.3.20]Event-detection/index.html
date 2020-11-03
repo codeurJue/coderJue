@@ -13,15 +13,15 @@
 <meta property="og:site_name" content="Jue&#39;s Blog">
 <meta property="og:description" content="Event detection 的几个神经网络模型摘要： 根据ace的定义，事件被分为 trigger word 和 attributes，因此 event detection 也可以被认为是 trigger word detection。目前基于神经网络的方法的思路基本大同小异，本文挑选并阐述3篇paper的主要内容，并比较其特点。 1. Dual CNN这篇[1]主要是对通常的CNN的改进，增">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://oi4yiqiop.bkt.clouddn.com/2018-03-20-WX20180320-221054%402x.png">
-<meta property="og:image" content="http://oi4yiqiop.bkt.clouddn.com/2018-03-20-WX20180320-224531%402x.png">
-<meta property="og:image" content="http://oi4yiqiop.bkt.clouddn.com/2018-03-20-WX20180320-224725%402x.png">
-<meta property="og:image" content="http://oi4yiqiop.bkt.clouddn.com/2018-03-20-WX20180320-225956%402x.png">
-<meta property="og:updated_time" content="2018-04-03T15:05:37.447Z">
+<meta property="og:image" content="https://lorrin-1251763245.cos.ap-shanghai.myqcloud.com/photo/2018-03-20-WX20180320-221054%402x.png">
+<meta property="og:image" content="https://lorrin-1251763245.cos.ap-shanghai.myqcloud.com/photo/2018-03-20-WX20180320-224531%402x.png">
+<meta property="og:image" content="https://lorrin-1251763245.cos.ap-shanghai.myqcloud.com/photo/2018-03-20-WX20180320-224725%402x.png">
+<meta property="og:image" content="https://lorrin-1251763245.cos.ap-shanghai.myqcloud.com/photo/2018-03-20-WX20180320-225956%402x.png">
+<meta property="og:updated_time" content="2020-11-03T03:26:07.533Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Event detection 的几个神经网络模型">
 <meta name="twitter:description" content="Event detection 的几个神经网络模型摘要： 根据ace的定义，事件被分为 trigger word 和 attributes，因此 event detection 也可以被认为是 trigger word detection。目前基于神经网络的方法的思路基本大同小异，本文挑选并阐述3篇paper的主要内容，并比较其特点。 1. Dual CNN这篇[1]主要是对通常的CNN的改进，增">
-<meta name="twitter:image" content="http://oi4yiqiop.bkt.clouddn.com/2018-03-20-WX20180320-221054%402x.png">
+<meta name="twitter:image" content="https://lorrin-1251763245.cos.ap-shanghai.myqcloud.com/photo/2018-03-20-WX20180320-221054%402x.png">
     
 
     
@@ -288,7 +288,7 @@ var _hmt = _hmt || [];
             <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Event-detection-的几个神经网络模型"><a href="#Event-detection-的几个神经网络模型" class="headerlink" title="Event detection 的几个神经网络模型"></a>Event detection 的几个神经网络模型</h2><p><strong>摘要：</strong> 根据ace的定义，事件被分为 trigger word 和 attributes，因此 event detection 也可以被认为是 trigger word detection。目前基于神经网络的方法的思路基本大同小异，本文挑选并阐述3篇paper的主要内容，并比较其特点。</p>
 <h3 id="1-Dual-CNN"><a href="#1-Dual-CNN" class="headerlink" title="1. Dual CNN"></a>1. Dual CNN</h3><p>这篇<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="Burel, G., Saif, H., Fernandez, M., & Alani, H. (2017). On semantics and deep learning for event detection in crisis situations.">[1]</span></a></sup>主要是对通常的CNN的改进，增加了一层语义层用以感知上下文信息。</p>
 <p>整个pipline可以总结为如下图：</p>
-<p><img src="http://oi4yiqiop.bkt.clouddn.com/2018-03-20-WX20180320-221054%402x.png" alt="WX20180320-221054@2x"></p>
+<p><img src="https://lorrin-1251763245.cos.ap-shanghai.myqcloud.com/photo/2018-03-20-WX20180320-221054%402x.png" alt="WX20180320-221054@2x"></p>
 <ol>
 <li>Text Processing: 数据清洗、分词等，便于后续处理；</li>
 <li>Word Vector Initialisation: 初始化词向量，包括加载 pre-trained word embedding 等；</li>
@@ -297,16 +297,16 @@ var _hmt = _hmt || [];
 <li>Dual-CNN Training: 这一步利用我们提出的 Dual-CNN 训练；</li>
 </ol>
 <h4 id="Dual-CNN"><a href="#Dual-CNN" class="headerlink" title="Dual-CNN"></a>Dual-CNN</h4><p>我们知道CNN可以用来作为分类器，因此也可以被构造为一个事件检测模型，并能够分出类别。在这个模型中，我们增加一层语意层。一般从正常逻辑出发，我们可以增加一个channel来存放entity related embedding，就像我们图像的多个channel一样；但是这要求实体和原来的句子完全对齐，因此作者用两个CNN并行训练。</p>
-<p><img src="http://oi4yiqiop.bkt.clouddn.com/2018-03-20-WX20180320-224531%402x.png" alt="WX20180320-224531@2x"></p>
+<p><img src="https://lorrin-1251763245.cos.ap-shanghai.myqcloud.com/photo/2018-03-20-WX20180320-224531%402x.png" alt="WX20180320-224531@2x"></p>
 <p>事实上，这篇文章提出的embedding方法并不能跟原来的句子对齐。我们有一个句子 $D = $ ‘Obama attends vigil for Boston Marathon bombing victims.’；分词为 $T_w = $ [‘obama’, ‘attends’, ‘vigil’, ‘for’, ‘boston’, ‘marathon’, ‘bombing’, ‘victims’]；而语意分词将分为$T_s = $ [‘obama’, ‘politician’, ‘none’, ‘none’, ‘none’, ‘boston’, ‘location’, ‘none’, ‘none’, ‘none’]。我们可以看到语意分词采用了 entity-type 的方法，这导致了$T_w$和$T_s$长度并不相同 ，因此无法把他们并为两个channels。（其实这里我感觉可以把entity和type分别embedding之后级联起来，这样就能够对齐了，不知道这样可不可行？）</p>
 <p>最后的结果显示，它能够较好地检测和识别事件类别，对比CNN有一些提升；但是对于颗粒度较细的事件反而有所下降。但是这些结果都好于传统的机器学习方法。</p>
 <h3 id="2-convolution-BiLSTM"><a href="#2-convolution-BiLSTM" class="headerlink" title="2. convolution BiLSTM"></a>2. convolution BiLSTM</h3><p>文献<sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="Zeng, Y., Yang, H., Feng, Y., Wang, Z., & Zhao, D. (2016). A convolution BiLSTM neural network model for Chinese event extraction. In *Natural Language Understanding and Intelligent Applications* (pp. 275-287). Springer, Cham.
 ">[2]</span></a></sup>其实之前就看过，详细写在2018.1.29的笔记里，这里再简单提一下，模型如下。</p>
-<p><img src="http://oi4yiqiop.bkt.clouddn.com/2018-03-20-WX20180320-224725%402x.png" alt="WX20180320-224725@2x"></p>
+<p><img src="https://lorrin-1251763245.cos.ap-shanghai.myqcloud.com/photo/2018-03-20-WX20180320-224725%402x.png" alt="WX20180320-224725@2x"></p>
 <p>简单来说，就是在通常的biLSTM模型下，并行地训练一个CNN模型，其输出和biLSTM的输出的向量进行连接，Output layer接Softmax输出标签的概率分布。创新点在于引入了CNN捕获局部语意信息，也获得不错的效果。本模型也适用于其他sequence labeling任务。</p>
 <h3 id="3-BiLSTM-CNN"><a href="#3-BiLSTM-CNN" class="headerlink" title="3. BiLSTM + CNN"></a>3. BiLSTM + CNN</h3><p>这篇文章<sup id="fnref:3"><a href="#fn:3" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="Feng, X., Huang, L., Tang, D., Ji, H., Qin, B., & Liu, T. (2016). A language-independent neural network for event detection. In *Proceedings of the 54th Annual Meeting of the Association for Computational Linguistics (Volume 2: Short Papers)* (Vol. 2, pp. 66-71).">[3]</span></a></sup>和文章<sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="Zeng, Y., Yang, H., Feng, Y., Wang, Z., & Zhao, D. (2016). A convolution BiLSTM neural network model for Chinese event extraction. In *Natural Language Understanding and Intelligent Applications* (pp. 275-287). Springer, Cham.
 ">[2]</span></a></sup>的思路也很相似，主要的想法是BiLSTM对文本的语意进行编码，后面串联CNN来捕获局部结构信息。</p>
-<p><img src="http://oi4yiqiop.bkt.clouddn.com/2018-03-20-WX20180320-225956%402x.png" alt="WX20180320-225956@2x"></p>
+<p><img src="https://lorrin-1251763245.cos.ap-shanghai.myqcloud.com/photo/2018-03-20-WX20180320-225956%402x.png" alt="WX20180320-225956@2x"></p>
 <h3 id="4-Conclusion"><a href="#4-Conclusion" class="headerlink" title="4. Conclusion"></a>4. Conclusion</h3><p>如果认为是一个文本分类任务，CNN能够很好的完成任务，而且由于它本身的特性训练速度比较快；另一方面可以用RNN来做数据标注任务，仅标注触发词；此外可以利用好biLSTM能够处理长距离前后文信息、CNN着重局部信息的关系等特性，构造不同的变体，对于实际任务可能也有不错的效果。</p>
 <p>从结果上来看实际上各种变体效果差距并不大，对特定种类特定体裁可能会有较大的差别；可能更重要的可能是如何构造特征（除了word embedding 之外，还可以考虑entity embedding？entity type？还有词性的embedding？）</p>
 <h2 id="Bibliographies"><a href="#Bibliographies" class="headerlink" title="Bibliographies"></a>Bibliographies</h2><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">Burel, G., Saif, H., Fernandez, M., &amp; Alani, H. (2017). On semantics and deep learning for event detection in crisis situations.<a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">Zeng, Y., Yang, H., Feng, Y., Wang, Z., &amp; Zhao, D. (2016). A convolution BiLSTM neural network model for Chinese event extraction. In <em>Natural Language Understanding and Intelligent Applications</em> (pp. 275-287). Springer, Cham.<a href="#fnref:2" rev="footnote"> ↩</a></span></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">3.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">Feng, X., Huang, L., Tang, D., Ji, H., Qin, B., &amp; Liu, T. (2016). A language-independent neural network for event detection. In <em>Proceedings of the 54th Annual Meeting of the Association for Computational Linguistics (Volume 2: Short Papers)</em> (Vol. 2, pp. 66-71).<a href="#fnref:3" rev="footnote"> ↩</a></span></li></ol></div></div>
@@ -319,7 +319,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="https://juewang.me/posts/[2018.3.20]Event-detection/" data-id="ckf3hp48c000v2r9kgdgixybb" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://juewang.me/posts/[2018.3.20]Event-detection/" data-id="ckh1euxv8000vtotl7k8406oe" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding

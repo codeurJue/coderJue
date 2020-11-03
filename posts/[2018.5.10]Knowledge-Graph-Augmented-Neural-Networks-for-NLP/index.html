@@ -13,15 +13,15 @@
 <meta property="og:site_name" content="Jue&#39;s Blog">
 <meta property="og:description" content="Knowledge Graph Augmented Neural Networks for Natural language Processing 阅读笔记摘要：机器学习的效果一般依赖于具体的训练数据。一些学习模型可以结合贝叶斯中的先验知识，但是这些模型不具备根据需要访问任何有组织的知识的能力。在这项工作[1]中，我们以知识图谱（KG）的形式为NLP模型提供先验知识，使得模型取得更好的效果。我们的">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://oi4yiqiop.bkt.clouddn.com/2018-05-03-WX20180503-190446%402x.png">
-<meta property="og:image" content="http://oi4yiqiop.bkt.clouddn.com/2018-05-10-image-201805110007120.png">
-<meta property="og:image" content="http://oi4yiqiop.bkt.clouddn.com/2018-05-10-image-201805110034147.png">
-<meta property="og:image" content="http://oi4yiqiop.bkt.clouddn.com/2018-05-10-image-201805110044225.png">
-<meta property="og:updated_time" content="2018-05-12T13:04:33.158Z">
+<meta property="og:image" content="https://lorrin-1251763245.cos.ap-shanghai.myqcloud.com/photo/2018-05-03-WX20180503-190446%402x.png">
+<meta property="og:image" content="https://lorrin-1251763245.cos.ap-shanghai.myqcloud.com/photo/2018-05-10-image-201805110007120.png">
+<meta property="og:image" content="https://lorrin-1251763245.cos.ap-shanghai.myqcloud.com/photo/2018-05-10-image-201805110034147.png">
+<meta property="og:image" content="https://lorrin-1251763245.cos.ap-shanghai.myqcloud.com/photo/2018-05-10-image-201805110044225.png">
+<meta property="og:updated_time" content="2020-11-03T03:26:05.090Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Learning beyond datasets - Knowledge Graph Augmented Neural Networks for Natural language Processing 阅读笔记">
 <meta name="twitter:description" content="Knowledge Graph Augmented Neural Networks for Natural language Processing 阅读笔记摘要：机器学习的效果一般依赖于具体的训练数据。一些学习模型可以结合贝叶斯中的先验知识，但是这些模型不具备根据需要访问任何有组织的知识的能力。在这项工作[1]中，我们以知识图谱（KG）的形式为NLP模型提供先验知识，使得模型取得更好的效果。我们的">
-<meta name="twitter:image" content="http://oi4yiqiop.bkt.clouddn.com/2018-05-03-WX20180503-190446%402x.png">
+<meta name="twitter:image" content="https://lorrin-1251763245.cos.ap-shanghai.myqcloud.com/photo/2018-05-03-WX20180503-190446%402x.png">
     
 
     
@@ -287,7 +287,7 @@ var _hmt = _hmt || [];
         
             <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Knowledge-Graph-Augmented-Neural-Networks-for-Natural-language-Processing-阅读笔记"><a href="#Knowledge-Graph-Augmented-Neural-Networks-for-Natural-language-Processing-阅读笔记" class="headerlink" title="Knowledge Graph Augmented Neural Networks for Natural language Processing 阅读笔记"></a>Knowledge Graph Augmented Neural Networks for Natural language Processing 阅读笔记</h2><p><strong>摘要</strong>：机器学习的效果一般依赖于具体的训练数据。一些学习模型可以结合贝叶斯中的先验知识，但是这些模型不具备根据需要访问任何有组织的知识的能力。在这项工作<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="Annervaz, K. M., Somnath Basu Roy Chowdhury, and Ambedkar Dukkipati. 'Learning beyond datasets: Knowledge Graph Augmented Neural Networks for Natural language Processing.' arXiv preprint arXiv:1802.05930 (2018).">[1]</span></a></sup>中，我们以知识图谱（KG）的形式为NLP模型提供先验知识，使得模型取得更好的效果。我们的目标是开发一种深度学习模型，可以根据任务使用attention机制从知识图谱中提取相关的先验支持事实。为了减少attention空间，我们引入了基于卷积的模型来学习知识图谱实体和关系集的表示。提出的方法是高度可扩展的，并可应用于常用的NLP任务。使用这种方法，我们在实验中显示了文本分类性能的显着提高。我们还证明了，当深度学习模型使用知识图谱以辅助时，可以用较为少量的标记训练数据进行训练。</p>
 <h2 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h2><p>现在机器学习主要是针对特定任务、特定训练数据进行训练的模型。虽然transfer learning试图将学习从一个任务迁移到另一个任务，但在可扩展性方面有局限性，通常是具体地针对某个的任务。另一方面，我们知道人类具有一种内在的能力，可以根据需求从脑中获取所需的知识，并结合我们新学习的概念来解决问题。</p>
-<p>这就引出了我们要在本文中讨论的问题：是否有可能设计一个学习模型，除了从培训数据集中学习外，还可以在预测时利用大量外在的知识？<img src="http://oi4yiqiop.bkt.clouddn.com/2018-05-03-WX20180503-190446%402x.png" alt="X20180503-190446@2"></p>
+<p>这就引出了我们要在本文中讨论的问题：是否有可能设计一个学习模型，除了从培训数据集中学习外，还可以在预测时利用大量外在的知识？<img src="https://lorrin-1251763245.cos.ap-shanghai.myqcloud.com/photo/2018-05-03-WX20180503-190446%402x.png" alt="X20180503-190446@2"></p>
 <p>我们有一个基本的想法如上图，$\mathcal{X}$是原本的输入，$\mathcal{Y}$是输出。通过知识库补充、增强$\mathcal{X}$，以得到$\mathcal{X_w}$，将两这串联，获得$\mathcal{X’}$作为新的输入。</p>
 <p>这里我们知识库以知识图谱的形势呈现，主要将一个事实（fact）表现为三元组：(subject entity, relation, object entity)简记为(h,r,t)。其他关于知识图谱的介绍可以参考以前的笔记和相关的文献，这里不再赘述。</p>
 <p>通常我们通过训练集来得到我们所需的模型，但是它往往缺乏world knowledge或者常识，结果往往会有偏差。例如 ：“特朗普慰问了得克萨斯州的飓风幸存者和他们的家人”，我们需要知道$\langle \text{特朗普},\text{总统},\text{美国} \rangle$和$\langle \text{得克萨斯州},\text{州},\text{美国} \rangle$才能判断这是一个政治事件。因此我们认为对于机器学习模型，除了代表ground-truth的用于训练的数据集以外，我们还可以从结构化的知识库获取相关知识，以提高整体性能。</p>
@@ -300,12 +300,12 @@ var _hmt = _hmt || [];
 <p>因此：<br>$$<br>\Theta = \arg\max_{\Theta} {\log{P(y|x, \Theta)}}<br>$$<br>这里，我们通过结合world knowledge特征$x_w$来增强监督学习过程。使用数据$x$检索world knowledge特征，使用单独的模型，其中$x_w = F(x, \Theta^{(2)})$。 因此，我们修改的目标函数为：<br>$$<br>\max_{\Theta}{P(y|x, x_w, \Theta^{(1)})}<br>$$<br>其中$\Theta = {\Theta^{(1)}, \Theta^{(2)}}$。可以获得优化的参数：<br>$$<br>\Theta = \arg\max_{\Theta} {\log{P(y|x,F(x, \Theta^{(2)}), \Theta^{(1)})}}<br>$$<br>后面的部分着重于函数F的表达，该函数使用数据x进行事实三重检索。在实验中，我们使用经过softmax的输入的LSTM Greff et al. [2015]编码作为P的形式。对于F，我们使用soft attention。</p>
 <p>基于此，我们提出两种模型：A. 朴素模型；B. 基于卷积的实体和关系集群表示</p>
 <h4 id="A-朴素模型"><a href="#A-朴素模型" class="headerlink" title="A. 朴素模型"></a>A. 朴素模型</h4><p>前面解释过，KG的实体和关系使用DKRL进行编码。 令$e_i \in \mathbb{R}^m$代表实体i的编码，$r_j\in \mathbb R^m$代表KG中第j个关系。 输入文本以串联的单词向量$x =(x_1,x_2,…,x_T)$的形式首先使用LSTM Greff et al. [2015]模块如下，<br>$$<br>h_t = f(x_t, h_{t-1})<br>$$<br>以及<br>$$<br>o = \frac{1}{T}\sum_{t=1}^{T}{h_t}<br>$$<br>$h_t \in \mathbb{R}^n$是LSTM的隐藏状态，f是非线性函数，T是序列长度。 然后如下形成一个上下文向量，<br>$$<br>C = ReLU(o^T W)<br>$$<br>其中，$W\in \mathbb R^n \times m$表示权重参数。设置两个同样的过程以形成两个独立的上下文向量，一个用于实体检索($C_E$)和一个用于关系检索($C_R$)。</p>
-<p>由于在朴素模型中KG的事实三元组的数量是数以百万计的，所以我们分别对实体和关系空间产生注意力。 然后使用检索到的实体和关系形成事实。使用实体上下文向量的实体的注意力由下式给出：<br>$$<br>\alpha_{e_i} = \frac{\exp{C_E^T{e_i}}}{\sum_{j=0}^{|E|} \exp{C_E^T{e_j}}}<br>$$<br>同理，关系的注意力：<br>$$<br>\alpha_{r_i} = \frac{\exp{C_R^T{r_i}}}{\sum_{j=0}^{|R|} \exp{C_R^T{r_j}}}<br>$$<br><img src="http://oi4yiqiop.bkt.clouddn.com/2018-05-10-image-201805110007120.png" alt="mage-20180511000712"></p>
+<p>由于在朴素模型中KG的事实三元组的数量是数以百万计的，所以我们分别对实体和关系空间产生注意力。 然后使用检索到的实体和关系形成事实。使用实体上下文向量的实体的注意力由下式给出：<br>$$<br>\alpha_{e_i} = \frac{\exp{C_E^T{e_i}}}{\sum_{j=0}^{|E|} \exp{C_E^T{e_j}}}<br>$$<br>同理，关系的注意力：<br>$$<br>\alpha_{r_i} = \frac{\exp{C_R^T{r_i}}}{\sum_{j=0}^{|R|} \exp{C_R^T{r_j}}}<br>$$<br><img src="https://lorrin-1251763245.cos.ap-shanghai.myqcloud.com/photo/2018-05-10-image-201805110007120.png" alt="mage-20180511000712"></p>
 <p>图2显示了实体/关系检索的示意图。在计算出最终的实体和关系向量之后，我们希望补充事实三元组。用于实验的KG技术是DKRL，其使用TransE模型假设($h + r = t$)。因此，使用主题实体(subject entity)和关系，我们将对象实体形成为$t = e + r$。 因此，检索的事实三元组是$\mathcal F = [e，r，e + r]$，其中$F \in \mathbb R^{3m}$。 该检索到的事实信息与使用LSTM模块获得的输入x的上下文向量(C)一起连接。 最终分类标签$\mathbb y$的计算如下，<br>$$<br>\mathcal F’ = ReLU(\mathcal F^T V) \\<br>\mathbb y = softmax([\mathcal F’ : C]^T U)<br>$$<br>其中，$V∈\mathbb R^{3m \times u}$和$U\in \mathbb R^{2u\times u}$是要学习的模型参数。 $\mathbb y$是预测结果，用于计算交叉熵损失。我们尽量减少训练样本的平均损失，以便使用随机梯度下降来学习各种模型参数。最后的预测$\mathbb y$现在包含了来自数据集特定信息和世界知识的信息，以帮助提高性能。在联合培训注意力机制的同时调整自己，以检索进行最终分类所需的相关事实。</p>
-<h4 id="A-预训练KG检索模型"><a href="#A-预训练KG检索模型" class="headerlink" title="A+. 预训练KG检索模型"></a>A+. 预训练KG检索模型</h4><p><img src="http://oi4yiqiop.bkt.clouddn.com/2018-05-10-image-201805110034147.png" alt="mage-20180511003414"></p>
+<h4 id="A-预训练KG检索模型"><a href="#A-预训练KG检索模型" class="headerlink" title="A+. 预训练KG检索模型"></a>A+. 预训练KG检索模型</h4><p><img src="https://lorrin-1251763245.cos.ap-shanghai.myqcloud.com/photo/2018-05-10-image-201805110034147.png" alt="mage-20180511003414"></p>
 <p>朴素模型需要考虑整个实体/关系空间，这不是一个好的方法，因为我们观察到每个attention的容易饱和。在一起训练分类和检索模块时，模型往往会忽略KG部分，而梯度只通过分类模块进行传播。这在一定程度上是可以预料的，因为当前任务的大多数相关信息来自训练样本，只有背景辅助信息来自KG。经过几个训练阶段后，KG检索到的事实总是收敛到一个固定的向量。为了克服这个问题，我们试图单独预先训练KG检索部分。预训练的KG模型用于检索事实，然后与分类模块连接，同时，在联合训练时通过预先训练的模型可能会导致传递误差。我们推断，KG不会返回噪音，并且对于任务具有基本信息，因为单独的KG部件单独显示出显着的性能（News20为59％，SNLI为66％）。图3描述了整个训练过程。该程序解决了联合训练时KG检索部分中的梯度饱和问题。但是，attention机制必须覆盖大量实体/关系的关键问题依然存在。</p>
 <h4 id="B-基于卷积的实体和关系集群表示"><a href="#B-基于卷积的实体和关系集群表示" class="headerlink" title="B. 基于卷积的实体和关系集群表示"></a>B. 基于卷积的实体和关系集群表示</h4><p>在本节中，我们提出了一种机制来减少知识图谱中需要attention的大量实体/关系。 我们通过学习类似实体/关系向量的表示来减少attention空间。</p>
-<p><img src="http://oi4yiqiop.bkt.clouddn.com/2018-05-10-image-201805110044225.png" width="60%"></p>
+<p><img src="https://lorrin-1251763245.cos.ap-shanghai.myqcloud.com/photo/2018-05-10-image-201805110044225.png" width="60%"></p>
 <p>为了聚类相似的实体/关系向量，我们使用k-means聚类，并在每个聚类中形成具有相同数量的实体/关系向量的$l$个聚类。然后使用CNN对每个cluster进行编码。k-means聚类的输出是一个实体/关系向量序列${e^T_1,e^T_2,…,e^T_q}$，其中$e_i \in\mathbb R^m$，每个聚类中的元素个数为$ q =⌈\frac{| E |}{l}⌉$。对于每个cluster，这些矢量被堆叠形成$\mathcal E$作为到CNN编码器的2D输入，其中$\mathcal E\in\mathbb R^{m\times q}$。 在寻找合适滤波器形状的实验中，我们发现使用2-D滤波器，该模型无法收敛。因此，我们推断，向量$e_i$中两个不同索引的潜在表示不应该被卷积修改。然后，我们采用一维卷积滤波器，只沿$\mathcal E$列滑动，如图4所示。沿着y轴的步长是窗口长度k，卷积层的输出表示为：<br>$$<br>\mathcal E’(i,j) = W^T[e_{i,j}, e_{i+1,j},…,e_{i+k-1, j}]^T<br>$$<br>其中，$\mathcal E’(i,j)$是输出矩阵$\mathcal E’$的第(i, j)个元素，$W\in \mathbb R^k$是卷积权重滤波器。为了减少参数空间，在卷积层之后放置一个pooling层，我们只沿y轴使用一维窗口，类似于上面提到的卷积核。我们使用了一个双层卷积网络，其步长k和最大池窗口n被调整以获得输出$\mathcal E_i\in \mathbb R^m$，其中i是聚类索引。对于关系也进行类似的聚类过程，接着对聚类实体进行编码。这样，实体和关系空间都被缩减为包含更少的元素，每个cluster都有一个元素。在形成紧凑的实体空间$E$和关系空间$R$之后，我们采用了与之前相同的步骤来形成attention，但是现在，由于梯度有效地传递并且没有被过大的空间所阻塞，所以训练更有效。此外，由于卷积架构也同时得到训练，所以attention机制并没有像以前那样通过实体和关系的巨大空间来学习。</p>
 <h2 id="4-Conclusion"><a href="#4-Conclusion" class="headerlink" title="4. Conclusion"></a>4. Conclusion</h2><p>实验表明，引入KG不仅降低了深度学习模型对训练集的依赖，还显著地提高了预测结果的准确度，在数据集不够的情况下效果更佳拔群。此外，本文的方法对world knowledge的处理、embedding的方法是高度可扩展，可以应用于各种NLP任务。</p>
 <h2 id="Bibliography"><a href="#Bibliography" class="headerlink" title="Bibliography"></a>Bibliography</h2><p>笔记参考 <a href="https://blog.csdn.net/TgqDT3gGaMdkHasLZv/article/details/80118742" target="_blank" rel="noopener">https://blog.csdn.net/TgqDT3gGaMdkHasLZv/article/details/80118742</a></p>
@@ -319,7 +319,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="https://juewang.me/posts/[2018.5.10]Knowledge-Graph-Augmented-Neural-Networks-for-NLP/" data-id="ckf3hp48d000x2r9kyj8w8vfm" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://juewang.me/posts/[2018.5.10]Knowledge-Graph-Augmented-Neural-Networks-for-NLP/" data-id="ckh1euxva000ztotlhp3lqvt7" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding

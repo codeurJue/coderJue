@@ -13,13 +13,13 @@
 <meta property="og:site_name" content="Jue&#39;s Blog">
 <meta property="og:description" content="A convolution BiLSTM neural network model for chinese event extraction摘要：中文事件提取是信息抽取中的一项具有挑战性的任务，以前的方法高度依赖于复杂的特征工程和复杂的自然语言处理（NLP）工具。 在文献[1]中，提出了一种结合LSTM和CNN的卷积双向LSTM神经网络来捕获句级和词汇信息。最终的测试中达到相当不错的水平。 1.">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://oi4yiqiop.bkt.clouddn.com/2018-03-12-202231.jpg">
-<meta property="og:image" content="http://oi4yiqiop.bkt.clouddn.com/2018-03-12-202234.jpg">
-<meta property="og:updated_time" content="2018-03-12T20:22:36.989Z">
+<meta property="og:image" content="https://lorrin-1251763245.cos.ap-shanghai.myqcloud.com/photo/2018-03-12-202231.jpg">
+<meta property="og:image" content="https://lorrin-1251763245.cos.ap-shanghai.myqcloud.com/photo/2018-03-12-202234.jpg">
+<meta property="og:updated_time" content="2020-11-03T03:26:12.997Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="A convolution BiLSTM neural network model for chinese event extraction 笔记">
 <meta name="twitter:description" content="A convolution BiLSTM neural network model for chinese event extraction摘要：中文事件提取是信息抽取中的一项具有挑战性的任务，以前的方法高度依赖于复杂的特征工程和复杂的自然语言处理（NLP）工具。 在文献[1]中，提出了一种结合LSTM和CNN的卷积双向LSTM神经网络来捕获句级和词汇信息。最终的测试中达到相当不错的水平。 1.">
-<meta name="twitter:image" content="http://oi4yiqiop.bkt.clouddn.com/2018-03-12-202231.jpg">
+<meta name="twitter:image" content="https://lorrin-1251763245.cos.ap-shanghai.myqcloud.com/photo/2018-03-12-202231.jpg">
     
 
     
@@ -305,7 +305,7 @@ var _hmt = _hmt || [];
 <li>单词触发词：往往是谓语，但也可以是组合词中的一部分。例如“警察击毙了一名歹徒”中的“击毙”，“这是一件预谋的凶杀案”中的“凶杀”</li>
 </ul>
 <p>为了解决这个问题，我们将事件检测视为序列标记任务而不是分类任务。 采用BIO方案，其中标记B是事件触发词的开始，I型是在触发词内，否则标记为O。我们利用卷积双向LSTM神经网络来完成这个任务。</p>
-<p><img src="http://oi4yiqiop.bkt.clouddn.com/2018-03-12-202231.jpg" alt="trigger-labeling"></p>
+<p><img src="https://lorrin-1251763245.cos.ap-shanghai.myqcloud.com/photo/2018-03-12-202231.jpg" alt="trigger-labeling"></p>
 <p>我们基于单词模型的主要架构。 （a）中的每个词wt的局部上下文特征ct（灰色矩形）由CNN计算（b）所示。 我们的卷积神经网络学习了关于中心词“落入”的本地上下文信息的表示。 这里的上下文大小是7（中心词的左右各3个词），我们使用一个大小为4的内核与两个特征映射。 （b）句子中的符号P表示填充词。</p>
 <h4 id="2-2-Word-Based-Method"><a href="#2-2-Word-Based-Method" class="headerlink" title="2.2 Word-Based Method"></a>2.2 Word-Based Method</h4><p><strong>LSTM Network</strong>  在nlp任务中LSTM相对常用，特别的，双向LSTM能够联系历史和未来的信息，能够重复利用句子信息，有利于我们进行判断。因为之前的报告已经叙述过，故这里略写。</p>
 <p><strong>CNN</strong>  卷积神经网络最一开始用于图像领域，近年也在nlp领域大放光彩。这里，我们采用卷积神经网络来提取句子中每个单词的局部上下文信息。</p>
@@ -313,7 +313,7 @@ var _hmt = _hmt || [];
 <p>在我们的实现中，滑动窗口大小为7（中心词的左右各3个词），并且我们使用不同的内核来捕获各种粒度的上下文信息。</p>
 <p><strong>Output Layer</strong>  我们将BiLSTM的隐藏状态与CNN在每个时间步t提取的上下文特征cwt连接起来。 然后[ht; cwt]被送入softmax层以产生wt的每个标记的对数概率。<br>然而，基于单词的方法仍然不能解决内部词触发引起的一致性问题，即无法识别长词内部的触发词。</p>
 <h4 id="2-3-Character-Based-Method"><a href="#2-3-Character-Based-Method" class="headerlink" title="2.3 Character-Based Method"></a>2.3 Character-Based Method</h4><p>为了解决一致性问题，我们可以采用Character-embedding，唯一的区别就在input layer。</p>
-<p><img src="http://oi4yiqiop.bkt.clouddn.com/2018-03-12-202234.jpg" alt="character"></p>
+<p><img src="https://lorrin-1251763245.cos.ap-shanghai.myqcloud.com/photo/2018-03-12-202234.jpg" alt="character"></p>
 <h3 id="3-Argument-Labeling"><a href="#3-Argument-Labeling" class="headerlink" title="3. Argument Labeling"></a>3. Argument Labeling</h3><p>上面介绍的触发词标注模型依然可以被沿用，我们将介绍用于触发词标注和事件属性标注的模型之间的主要区别。</p>
 <h4 id="3-1-Input-Layer"><a href="#3-1-Input-Layer" class="headerlink" title="3.1 Input Layer"></a>3.1 Input Layer</h4><p>作为一个pipeline系统，除了word embeddings之外，还可以使用从上面触发词标记任务中提取的信息。 因此，我们提出了另外四种类型的特征embedding来形成BiLSTM和CNN的输入层。</p>
 <ul>
@@ -343,7 +343,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="https://juewang.me/posts/[2018.1.29]A-convolution BiLSTM-neural-network-model-for-chinese-event-extraction/" data-id="ckf3hp487000o2r9k4kxclx9q" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://juewang.me/posts/[2018.1.29]A-convolution BiLSTM-neural-network-model-for-chinese-event-extraction/" data-id="ckh1euxv5000qtotlw390uo6h" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding

@@ -3,6 +3,370 @@
 
 
     
+  <url>
+    <loc>https://juewang.me/posts/%5B2017.12.17%5DRelation-Classification-via-Attention-Model/</loc>
+    <lastmod>2020-11-03T03:26:14.244Z</lastmod>
+    <data>
+        <display>
+        <title>Relation Classification via Attention Model 笔记</title>
+        <pubTime>2017-12-17T00:00:00.000Z</pubTime>
+        
+        <tag>relation-extraction</tag>
+         
+        <tag>relation-classification</tag>
+         
+        <tag>attention</tag>
+         
+         
+           
+             
+              <breadCrumb title="research" url="https://juewang.me/categories/research/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://juewang.me/posts/%5B2018.1.14%5DModels-for-relation-extraction/</loc>
+    <lastmod>2020-11-03T03:26:13.796Z</lastmod>
+    <data>
+        <display>
+        <title>几个 relation extraction 远程监督模型</title>
+        <pubTime>2018-01-14T00:00:00.000Z</pubTime>
+        
+        <tag>relation-extraction</tag>
+         
+        <tag>distant-supervision</tag>
+         
+         
+           
+             
+              <breadCrumb title="research" url="https://juewang.me/categories/research/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://juewang.me/posts/%5B2018.1.21%5DEvent-detection-and-co-referentce/</loc>
+    <lastmod>2020-11-03T03:26:13.403Z</lastmod>
+    <data>
+        <display>
+        <title>Event detection and co-reference with minimal supervision 笔记</title>
+        <pubTime>2018-01-21T00:00:00.000Z</pubTime>
+        
+        <tag>event-detection</tag>
+         
+        <tag>co-reference</tag>
+         
+         
+           
+             
+              <breadCrumb title="research" url="https://juewang.me/categories/research/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://juewang.me/posts/%5B2018.1.29%5DA-convolution%20BiLSTM-neural-network-model-for-chinese-event-extraction/</loc>
+    <lastmod>2020-11-03T03:26:12.997Z</lastmod>
+    <data>
+        <display>
+        <title>A convolution BiLSTM neural network model for chinese event extraction 笔记</title>
+        <pubTime>2018-01-29T00:00:00.000Z</pubTime>
+        
+        <tag>convolution</tag>
+         
+        <tag>BiLSTM</tag>
+         
+        <tag>event-extraction</tag>
+         
+         
+           
+             
+              <breadCrumb title="research" url="https://juewang.me/categories/research/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://juewang.me/posts/%5B2018.1.4%5DOvercoming-Limited-Supervision-in-Relation-Extraction/</loc>
+    <lastmod>2020-11-03T03:26:12.569Z</lastmod>
+    <data>
+        <display>
+        <title>Overcoming Limited Supervision in Relation Extraction 笔记</title>
+        <pubTime>2018-01-04T00:00:00.000Z</pubTime>
+        
+        <tag>relation-extraction</tag>
+         
+        <tag>limited-supervision</tag>
+         
+        <tag>weak-supervision</tag>
+         
+         
+           
+             
+              <breadCrumb title="research" url="https://juewang.me/categories/research/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://juewang.me/posts/%5B2018.2.26%5DOpen-World-Knowledge-Graph-Completion/</loc>
+    <lastmod>2020-11-03T03:26:12.121Z</lastmod>
+    <data>
+        <display>
+        <title>Open-World Knowledge Graph Completion 笔记</title>
+        <pubTime>2018-02-26T00:00:00.000Z</pubTime>
+        
+        <tag>CNN</tag>
+         
+        <tag>knowledge-graph</tag>
+         
+        <tag>KGC</tag>
+         
+         
+           
+             
+              <breadCrumb title="research" url="https://juewang.me/categories/research/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://juewang.me/posts/%5B2018.2.5%5DNested-LSTMs/</loc>
+    <lastmod>2020-11-03T03:26:11.654Z</lastmod>
+    <data>
+        <display>
+        <title>Nested LSTMs 笔记</title>
+        <pubTime>2018-02-05T00:00:00.000Z</pubTime>
+        
+        <tag>LSTM</tag>
+         
+        <tag>RNN</tag>
+         
+         
+           
+             
+              <breadCrumb title="research" url="https://juewang.me/categories/research/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://juewang.me/posts/%5B2018.3.10%5DSeveral-models-for-kenowledge-graoh-representing-and-completing/</loc>
+    <lastmod>2020-11-03T03:26:11.105Z</lastmod>
+    <data>
+        <display>
+        <title>Several models for knowledge graph representing and completing 几个知识图谱模型</title>
+        <pubTime>2018-03-10T00:00:00.000Z</pubTime>
+        
+        <tag>knowledge-graph</tag>
+         
+        <tag>KGC</tag>
+         
+         
+           
+             
+              <breadCrumb title="research" url="https://juewang.me/categories/research/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://juewang.me/posts/%5B2018.3.20%5DEvent-detection/</loc>
+    <lastmod>2020-11-03T03:26:07.533Z</lastmod>
+    <data>
+        <display>
+        <title>Event detection 的几个神经网络模型</title>
+        <pubTime>2018-03-20T00:00:00.000Z</pubTime>
+        
+        <tag>event-detection</tag>
+         
+        <tag>neural-network</tag>
+         
+         
+           
+             
+              <breadCrumb title="research" url="https://juewang.me/categories/research/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://juewang.me/posts/%5B2018.4.14%5DReinforcement-Learning-for-Relation-Classification-from-Noisy-Data/</loc>
+    <lastmod>2020-11-03T03:26:07.006Z</lastmod>
+    <data>
+        <display>
+        <title>Reinforcement Learning for Relation Classification from Noisy Data 阅读笔记</title>
+        <pubTime>2018-04-14T00:00:00.000Z</pubTime>
+        
+        <tag>relation-extraction</tag>
+         
+        <tag>relation-classification</tag>
+         
+        <tag>reinforcement-learning</tag>
+         
+         
+           
+             
+              <breadCrumb title="research" url="https://juewang.me/categories/research/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://juewang.me/posts/%5B2018.4.4%5DA-Neural-Model-for-Joint-Event-Detection-and-Summarization/</loc>
+    <lastmod>2020-11-03T03:26:06.064Z</lastmod>
+    <data>
+        <display>
+        <title>A Neural Model for Joint Event Detection and Summarization 阅读笔记</title>
+        <pubTime>2018-04-04T00:00:00.000Z</pubTime>
+        
+        <tag>event-detection</tag>
+         
+        <tag>summarization</tag>
+         
+         
+           
+             
+              <breadCrumb title="research" url="https://juewang.me/categories/research/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://juewang.me/posts/%5B2018.5.10%5DKnowledge-Graph-Augmented-Neural-Networks-for-NLP/</loc>
+    <lastmod>2020-11-03T03:26:05.090Z</lastmod>
+    <data>
+        <display>
+        <title>Learning beyond datasets - Knowledge Graph Augmented Neural Networks for Natural language Processing 阅读笔记</title>
+        <pubTime>2018-05-10T00:00:00.000Z</pubTime>
+        
+        <tag>knowledge-graph</tag>
+         
+        <tag>neural-network</tag>
+         
+        <tag>NLP</tag>
+         
+         
+           
+             
+              <breadCrumb title="research" url="https://juewang.me/categories/research/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://juewang.me/posts/%5B2018.8.22%5DRegEx-with-NN/</loc>
+    <lastmod>2020-11-03T03:26:04.399Z</lastmod>
+    <data>
+        <display>
+        <title>RegEx with NN</title>
+        <pubTime>2018-08-22T05:58:00.000Z</pubTime>
+        
+        <tag>neural-network</tag>
+         
+        <tag>regular-expression</tag>
+         
+         
+           
+             
+              <breadCrumb title="research" url="https://juewang.me/categories/research/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://juewang.me/posts/Generative-Adversarial-Network/</loc>
+    <lastmod>2020-11-03T03:26:03.479Z</lastmod>
+    <data>
+        <display>
+        <title>Generative Adversarial Network</title>
+        <pubTime>2017-06-25T06:41:15.000Z</pubTime>
+        
+        <tag>GAN</tag>
+         
+        <tag>deep-learning</tag>
+         
+         
+           
+             
+              <breadCrumb title="programming" url="https://juewang.me/categories/programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://juewang.me/posts/QuadTree/</loc>
+    <lastmod>2020-11-03T03:26:02.624Z</lastmod>
+    <data>
+        <display>
+        <title>四叉树 QuadTree</title>
+        <pubTime>2016-12-13T10:45:37.000Z</pubTime>
+        
+        <tag>algo</tag>
+         
+        <tag>data-structure</tag>
+         
+         
+           
+             
+              <breadCrumb title="programming" url="https://juewang.me/categories/programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://juewang.me/posts/update-rss/</loc>
+    <lastmod>2020-11-03T03:26:00.854Z</lastmod>
+    <data>
+        <display>
+        <title>Set up the RSS feed</title>
+        <pubTime>2018-05-12T04:57:31.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+        <tag>rss</tag>
+         
+         
+           
+             
+              <breadCrumb title="other" url="https://juewang.me/categories/other/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
     
   <url>
     <loc>https://juewang.me/posts/welcome/</loc>
@@ -72,28 +436,6 @@
 
     
   <url>
-    <loc>https://juewang.me/posts/%5B2018.8.22%5DRegEx-with-NN/</loc>
-    <lastmod>2018-10-06T03:04:02.879Z</lastmod>
-    <data>
-        <display>
-        <title>RegEx with NN</title>
-        <pubTime>2018-08-22T05:58:00.000Z</pubTime>
-        
-        <tag>neural-network</tag>
-         
-        <tag>regular-expression</tag>
-         
-         
-           
-             
-              <breadCrumb title="research" url="https://juewang.me/categories/research/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://juewang.me/posts/%5B2018.9%5Dnlp-short-reviews-week-1/</loc>
     <lastmod>2018-10-06T02:10:34.775Z</lastmod>
     <data>
@@ -123,173 +465,13 @@
         <title>intro-about-KG</title>
         <pubTime>2018-07-01T12:59:58.000Z</pubTime>
         
-        <tag>machine-learning</tag>
-         
         <tag>deep-learning</tag>
+         
+        <tag>machine-learning</tag>
          
         <tag>knowledge-graph</tag>
          
         <tag>knowledge-reasoning</tag>
-         
-         
-           
-             
-              <breadCrumb title="research" url="https://juewang.me/categories/research/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://juewang.me/posts/%5B2018.5.10%5DKnowledge-Graph-Augmented-Neural-Networks-for-NLP/</loc>
-    <lastmod>2018-05-12T13:04:33.158Z</lastmod>
-    <data>
-        <display>
-        <title>Learning beyond datasets - Knowledge Graph Augmented Neural Networks for Natural language Processing 阅读笔记</title>
-        <pubTime>2018-05-10T00:00:00.000Z</pubTime>
-        
-        <tag>knowledge-graph</tag>
-         
-        <tag>neural-network</tag>
-         
-        <tag>NLP</tag>
-         
-         
-           
-             
-              <breadCrumb title="research" url="https://juewang.me/categories/research/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://juewang.me/posts/update-rss/</loc>
-    <lastmod>2018-05-12T11:12:31.431Z</lastmod>
-    <data>
-        <display>
-        <title>Set up the RSS feed</title>
-        <pubTime>2018-05-12T04:57:31.000Z</pubTime>
-        
-        <tag>hexo</tag>
-         
-        <tag>rss</tag>
-         
-         
-           
-             
-              <breadCrumb title="other" url="https://juewang.me/categories/other/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://juewang.me/posts/%5B2018.4.14%5DReinforcement-Learning-for-Relation-Classification-from-Noisy-Data/</loc>
-    <lastmod>2018-04-14T21:39:01.246Z</lastmod>
-    <data>
-        <display>
-        <title>Reinforcement Learning for Relation Classification from Noisy Data 阅读笔记</title>
-        <pubTime>2018-04-14T00:00:00.000Z</pubTime>
-        
-        <tag>relation-extraction</tag>
-         
-        <tag>relation-classification</tag>
-         
-        <tag>reinforcement-learning</tag>
-         
-         
-           
-             
-              <breadCrumb title="research" url="https://juewang.me/categories/research/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://juewang.me/posts/%5B2018.4.4%5DA-Neural-Model-for-Joint-Event-Detection-and-Summarization/</loc>
-    <lastmod>2018-04-04T22:12:54.420Z</lastmod>
-    <data>
-        <display>
-        <title>A Neural Model for Joint Event Detection and Summarization 阅读笔记</title>
-        <pubTime>2018-04-04T00:00:00.000Z</pubTime>
-        
-        <tag>event-detection</tag>
-         
-        <tag>summarization</tag>
-         
-         
-           
-             
-              <breadCrumb title="research" url="https://juewang.me/categories/research/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://juewang.me/posts/%5B2018.3.20%5DEvent-detection/</loc>
-    <lastmod>2018-04-03T15:05:37.447Z</lastmod>
-    <data>
-        <display>
-        <title>Event detection 的几个神经网络模型</title>
-        <pubTime>2018-03-20T00:00:00.000Z</pubTime>
-        
-        <tag>event-detection</tag>
-         
-        <tag>neural-network</tag>
-         
-         
-           
-             
-              <breadCrumb title="research" url="https://juewang.me/categories/research/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://juewang.me/posts/%5B2017.12.17%5DRelation-Classification-via-Attention-Model/</loc>
-    <lastmod>2018-03-16T19:57:06.520Z</lastmod>
-    <data>
-        <display>
-        <title>Relation Classification via Attention Model 笔记</title>
-        <pubTime>2017-12-17T00:00:00.000Z</pubTime>
-        
-        <tag>relation-extraction</tag>
-         
-        <tag>relation-classification</tag>
-         
-        <tag>attention</tag>
-         
-         
-           
-             
-              <breadCrumb title="research" url="https://juewang.me/categories/research/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://juewang.me/posts/%5B2018.3.10%5DSeveral-models-for-kenowledge-graoh-representing-and-completing/</loc>
-    <lastmod>2018-03-16T18:44:54.839Z</lastmod>
-    <data>
-        <display>
-        <title>Several models for knowledge graph representing and completing 几个知识图谱模型</title>
-        <pubTime>2018-03-10T00:00:00.000Z</pubTime>
-        
-        <tag>knowledge-graph</tag>
-         
-        <tag>KGC</tag>
          
          
            
@@ -319,166 +501,6 @@
            
              
               <breadCrumb title="math" url="https://juewang.me/categories/math/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://juewang.me/posts/Generative-Adversarial-Network/</loc>
-    <lastmod>2018-03-12T20:26:12.755Z</lastmod>
-    <data>
-        <display>
-        <title>Generative Adversarial Network</title>
-        <pubTime>2017-06-25T06:41:15.000Z</pubTime>
-        
-        <tag>GAN</tag>
-         
-        <tag>deep-learning</tag>
-         
-         
-           
-             
-              <breadCrumb title="programming" url="https://juewang.me/categories/programming/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://juewang.me/posts/%5B2018.2.26%5DOpen-World-Knowledge-Graph-Completion/</loc>
-    <lastmod>2018-03-12T20:23:16.728Z</lastmod>
-    <data>
-        <display>
-        <title>Open-World Knowledge Graph Completion 笔记</title>
-        <pubTime>2018-02-26T00:00:00.000Z</pubTime>
-        
-        <tag>CNN</tag>
-         
-        <tag>knowledge-graph</tag>
-         
-        <tag>KGC</tag>
-         
-         
-           
-             
-              <breadCrumb title="research" url="https://juewang.me/categories/research/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://juewang.me/posts/%5B2018.2.5%5DNested-LSTMs/</loc>
-    <lastmod>2018-03-12T20:22:57.677Z</lastmod>
-    <data>
-        <display>
-        <title>Nested LSTMs 笔记</title>
-        <pubTime>2018-02-05T00:00:00.000Z</pubTime>
-        
-        <tag>LSTM</tag>
-         
-        <tag>RNN</tag>
-         
-         
-           
-             
-              <breadCrumb title="research" url="https://juewang.me/categories/research/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://juewang.me/posts/%5B2018.1.29%5DA-convolution%20BiLSTM-neural-network-model-for-chinese-event-extraction/</loc>
-    <lastmod>2018-03-12T20:22:36.989Z</lastmod>
-    <data>
-        <display>
-        <title>A convolution BiLSTM neural network model for chinese event extraction 笔记</title>
-        <pubTime>2018-01-29T00:00:00.000Z</pubTime>
-        
-        <tag>convolution</tag>
-         
-        <tag>BiLSTM</tag>
-         
-        <tag>event-extraction</tag>
-         
-         
-           
-             
-              <breadCrumb title="research" url="https://juewang.me/categories/research/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://juewang.me/posts/%5B2018.1.21%5DEvent-detection-and-co-referentce/</loc>
-    <lastmod>2018-03-12T20:22:21.147Z</lastmod>
-    <data>
-        <display>
-        <title>Event detection and co-reference with minimal supervision 笔记</title>
-        <pubTime>2018-01-21T00:00:00.000Z</pubTime>
-        
-        <tag>event-detection</tag>
-         
-        <tag>co-reference</tag>
-         
-         
-           
-             
-              <breadCrumb title="research" url="https://juewang.me/categories/research/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://juewang.me/posts/%5B2018.1.14%5DModels-for-relation-extraction/</loc>
-    <lastmod>2018-03-12T20:21:58.365Z</lastmod>
-    <data>
-        <display>
-        <title>几个 relation extraction 远程监督模型</title>
-        <pubTime>2018-01-14T00:00:00.000Z</pubTime>
-        
-        <tag>relation-extraction</tag>
-         
-        <tag>distant-supervision</tag>
-         
-         
-           
-             
-              <breadCrumb title="research" url="https://juewang.me/categories/research/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://juewang.me/posts/%5B2018.1.4%5DOvercoming-Limited-Supervision-in-Relation-Extraction/</loc>
-    <lastmod>2018-03-12T20:21:27.342Z</lastmod>
-    <data>
-        <display>
-        <title>Overcoming Limited Supervision in Relation Extraction 笔记</title>
-        <pubTime>2018-01-04T00:00:00.000Z</pubTime>
-        
-        <tag>relation-extraction</tag>
-         
-        <tag>limited-supervision</tag>
-         
-        <tag>weak-supervision</tag>
-         
-         
-           
-             
-              <breadCrumb title="research" url="https://juewang.me/categories/research/"/>
           
         </display>
     </data>
@@ -523,9 +545,9 @@
         <title>Note of NLP</title>
         <pubTime>2017-06-26T12:52:45.000Z</pubTime>
         
-        <tag>machine-learning</tag>
-         
         <tag>deep-learning</tag>
+         
+        <tag>machine-learning</tag>
          
         <tag>nlp</tag>
          
@@ -549,9 +571,9 @@
         
         <tag>machine-learning</tag>
          
-        <tag>knowledge-graph</tag>
-         
         <tag>datamining</tag>
+         
+        <tag>knowledge-graph</tag>
          
          
            
@@ -968,28 +990,6 @@
            
              
               <breadCrumb title="other" url="https://juewang.me/categories/other/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://juewang.me/posts/QuadTree/</loc>
-    <lastmod>2016-12-13T21:20:12.000Z</lastmod>
-    <data>
-        <display>
-        <title>四叉树 QuadTree</title>
-        <pubTime>2016-12-13T10:45:37.000Z</pubTime>
-        
-        <tag>algo</tag>
-         
-        <tag>data-structure</tag>
-         
-         
-           
-             
-              <breadCrumb title="programming" url="https://juewang.me/categories/programming/"/>
           
         </display>
     </data>

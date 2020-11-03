@@ -13,16 +13,16 @@
 <meta property="og:site_name" content="Jue&#39;s Blog">
 <meta property="og:description" content="这两天在实习没有太多的时间写笔记orz，正好趁着公司内部分享的时候稍微写几笔。（然而一直没发出来） Marrying Up Regexs with Neural Networks概述 正则表达式   简明、扼要、可调，不依赖大规模标注数据  泛化性能差，所以变体、同义词都需要人为编写    神经网络   拟合能力强、泛化性能强   需要大量标注数据，解释性差    因此工程上常常结合两个，正则解决">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://oi4yiqiop.bkt.clouddn.com/2018-09-16-063410.png">
-<meta property="og:image" content="http://oi4yiqiop.bkt.clouddn.com/2018-09-16-064101.png">
-<meta property="og:image" content="http://oi4yiqiop.bkt.clouddn.com/2018-09-16-064735.png">
-<meta property="og:image" content="http://oi4yiqiop.bkt.clouddn.com/2018-09-16-065006.png">
-<meta property="og:image" content="http://oi4yiqiop.bkt.clouddn.com/2018-09-16-065035.png">
-<meta property="og:updated_time" content="2018-10-06T03:04:02.879Z">
+<meta property="og:image" content="https://lorrin-1251763245.cos.ap-shanghai.myqcloud.com/photo/2018-09-16-063410.png">
+<meta property="og:image" content="https://lorrin-1251763245.cos.ap-shanghai.myqcloud.com/photo/2018-09-16-064101.png">
+<meta property="og:image" content="https://lorrin-1251763245.cos.ap-shanghai.myqcloud.com/photo/2018-09-16-064735.png">
+<meta property="og:image" content="https://lorrin-1251763245.cos.ap-shanghai.myqcloud.com/photo/2018-09-16-065006.png">
+<meta property="og:image" content="https://lorrin-1251763245.cos.ap-shanghai.myqcloud.com/photo/2018-09-16-065035.png">
+<meta property="og:updated_time" content="2020-11-03T03:26:04.399Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RegEx with NN">
 <meta name="twitter:description" content="这两天在实习没有太多的时间写笔记orz，正好趁着公司内部分享的时候稍微写几笔。（然而一直没发出来） Marrying Up Regexs with Neural Networks概述 正则表达式   简明、扼要、可调，不依赖大规模标注数据  泛化性能差，所以变体、同义词都需要人为编写    神经网络   拟合能力强、泛化性能强   需要大量标注数据，解释性差    因此工程上常常结合两个，正则解决">
-<meta name="twitter:image" content="http://oi4yiqiop.bkt.clouddn.com/2018-09-16-063410.png">
+<meta name="twitter:image" content="https://lorrin-1251763245.cos.ap-shanghai.myqcloud.com/photo/2018-09-16-063410.png">
     
 
     
@@ -307,7 +307,7 @@ var _hmt = _hmt || [];
 <p>那么有没有可能正则和神经网络结合起来？Bingfeng et al. 2018<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="Luo, Bingfeng, et al. Marrying up Regular Expressions with Neural Networks: A Case Study for Spoken Language Understanding. arXiv preprint arXiv:1805.05588 (2018). 
 ">[1]</span></a></sup>给出了一些思路。</p>
 <h2 id="Problem-def-and-the-baselines"><a href="#Problem-def-and-the-baselines" class="headerlink" title="Problem def. and the baselines"></a>Problem def. and the baselines</h2><p>文章主要解决两个问题，intent detection和slot filling，也可以认为是classification和seq2seq的任务。这里的baselines主要有两个，正则表达式的尝试和Liu, Bing, and Ian Lane. 2016<sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="Liu, Bing, and Ian Lane. Attention-based recurrent neural network models for joint intent detection and slot filling. arXiv preprint arXiv:1609.01454 (2016). ">[2]</span></a></sup>提出的attention-based rnn。思路可以见下图。</p>
-<p><img src="http://oi4yiqiop.bkt.clouddn.com/2018-09-16-063410.png" alt="image-20180916143407395"></p>
+<p><img src="https://lorrin-1251763245.cos.ap-shanghai.myqcloud.com/photo/2018-09-16-063410.png" alt="image-20180916143407395"></p>
 <h2 id="Approaches"><a href="#Approaches" class="headerlink" title="Approaches"></a>Approaches</h2><p>文章主要在三个方面进行尝试：input level、network level、output level。</p>
 <h3 id="Input-level"><a href="#Input-level" class="headerlink" title="Input level"></a>Input level</h3><ul>
 <li><p>For intent detection, </p>
@@ -321,7 +321,7 @@ var _hmt = _hmt || [];
 <p>Embed and average the REtags into a vector fi for each word and append it to the corresponding word embedding wi (① in Fig(b) )</p>
 </li>
 </ul>
-<p><img src="http://oi4yiqiop.bkt.clouddn.com/2018-09-16-064101.png" alt="image-20180916144059096"></p>
+<p><img src="https://lorrin-1251763245.cos.ap-shanghai.myqcloud.com/photo/2018-09-16-064101.png" alt="image-20180916144059096"></p>
 <h3 id="Network-level"><a href="#Network-level" class="headerlink" title="Network level"></a>Network level</h3><ul>
 <li><p>For intent detection, </p>
 <p>For each intent label k, use different attention ak , which is used to generate the sentence embedding sk   (② in Fig(a) )</p>
@@ -336,10 +336,10 @@ var _hmt = _hmt || [];
 <p>$$<br>s_{pi} = \sum_j {\alpha_{pij} h_j}, \quad \alpha_{pij} = \frac{\exp(h_j^T W_{sp} h_i)}{\sum_j {\exp(h_j^T W_{sp} h_i)}}<br>$$</p>
 </li>
 </ul>
-<p><img src="http://oi4yiqiop.bkt.clouddn.com/2018-09-16-064735.png" alt="image-20180916144733081"></p>
+<p><img src="https://lorrin-1251763245.cos.ap-shanghai.myqcloud.com/photo/2018-09-16-064735.png" alt="image-20180916144733081"></p>
 <h3 id="Output-level"><a href="#Output-level" class="headerlink" title="Output level"></a>Output level</h3><p>Let $z_k$ be a 0-1 indicator of whether there is at least one matched RE that leads to target label $k$ (intent or slot label), the final logits of label k for a sentence (or a spefic word for slot filling) is:<br>$$<br>logit_k = logit_k’ + w_k z_k<br>$$<br>where $logit′_k$ is the logit produced by the original NN, and $w_k$ is a trainable weight indicating the overall confidence for REs that lead to target label $k$.</p>
-<h2 id="Experimental-Results"><a href="#Experimental-Results" class="headerlink" title="Experimental Results"></a>Experimental Results</h2><p><img src="http://oi4yiqiop.bkt.clouddn.com/2018-09-16-065006.png" alt="image-20180916145004296"> </p>
-<p><img src="http://oi4yiqiop.bkt.clouddn.com/2018-09-16-065035.png" alt="image-20180916145033498"></p>
+<h2 id="Experimental-Results"><a href="#Experimental-Results" class="headerlink" title="Experimental Results"></a>Experimental Results</h2><p><img src="https://lorrin-1251763245.cos.ap-shanghai.myqcloud.com/photo/2018-09-16-065006.png" alt="image-20180916145004296"> </p>
+<p><img src="https://lorrin-1251763245.cos.ap-shanghai.myqcloud.com/photo/2018-09-16-065035.png" alt="image-20180916145033498"></p>
 <h2 id="Bibliography"><a href="#Bibliography" class="headerlink" title="Bibliography"></a>Bibliography</h2><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">Luo, Bingfeng, et al. Marrying up Regular Expressions with Neural Networks: A Case Study for Spoken Language Understanding. arXiv preprint arXiv:1805.05588 (2018).<a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">Liu, Bing, and Ian Lane. Attention-based recurrent neural network models for joint intent detection and slot filling. arXiv preprint arXiv:1609.01454 (2016).<a href="#fnref:2" rev="footnote"> ↩</a></span></li></ol></div></div>
             </div>
         
@@ -350,7 +350,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="https://juewang.me/posts/[2018.8.22]RegEx-with-NN/" data-id="ckf3hp48c000w2r9kut6sgmqt" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://juewang.me/posts/[2018.8.22]RegEx-with-NN/" data-id="ckh1euxv9000ytotlnozv2e3t" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
